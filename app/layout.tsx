@@ -40,8 +40,14 @@ export default function RootLayout({
       <body className={`${inter.className} min-h-screen flex flex-col antialiased`}>
         <header className="bg-white border-b border-gray-200">
           <nav className="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
-            <Link href="/" className="text-xl font-bold text-blue-700">
-              MedCostCheck
+            <Link href="/" className="flex items-center gap-2 group">
+              <svg width="28" height="28" viewBox="0 0 28 28" fill="none" className="shrink-0">
+                <circle cx="14" cy="14" r="13" className="fill-blue-50 stroke-blue-400" strokeWidth="1.5" />
+                <path d="M10 14h8M14 10v8" stroke="#1d4ed8" strokeWidth="2.5" strokeLinecap="round" />
+              </svg>
+              <span className="text-xl font-extrabold text-blue-700 group-hover:text-blue-800 transition-colors">
+                MedCostCheck
+              </span>
             </Link>
             <div className="flex gap-6 text-sm text-gray-600">
               <Link href="/procedures" className="hover:text-blue-700">
@@ -63,9 +69,13 @@ export default function RootLayout({
           <div className="max-w-6xl mx-auto px-4 py-8">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-sm text-gray-600">
               <div>
-                <h3 className="font-semibold text-gray-900 mb-2">
-                  MedCostCheck
-                </h3>
+                <div className="flex items-center gap-2 mb-2">
+                  <svg width="22" height="22" viewBox="0 0 28 28" fill="none" className="shrink-0">
+                    <circle cx="14" cy="14" r="13" className="fill-blue-50 stroke-blue-400" strokeWidth="1.5" />
+                    <path d="M10 14h8M14 10v8" stroke="#1d4ed8" strokeWidth="2.5" strokeLinecap="round" />
+                  </svg>
+                  <span className="font-semibold text-gray-900">MedCostCheck</span>
+                </div>
                 <p>
                   Free medical procedure cost estimates powered by the 2026
                   Medicare Physician Fee Schedule. Not medical advice.
