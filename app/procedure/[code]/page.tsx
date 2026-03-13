@@ -274,6 +274,63 @@ export default async function ProcedurePage({ params, searchParams }: PageProps)
         </div>
       </div>
 
+      {/* Ways to save */}
+      <div className="bg-blue-50 border border-blue-200 rounded-lg p-6 mb-10">
+        <h2 className="text-lg font-semibold text-blue-900 mb-4">Ways to Save on This Procedure</h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          <div className="bg-white rounded-lg p-4 border border-blue-100">
+            <h3 className="font-semibold text-sm text-gray-900 mb-1">Compare Insurance Plans</h3>
+            <p className="text-xs text-gray-500 mb-3">
+              Uninsured? Comparing marketplace plans could save you thousands on procedures like this.
+            </p>
+            <a
+              href="https://www.ehealthinsurance.com/" /* AFFILIATE: swap URL when approved */
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-xs font-semibold text-blue-700 hover:text-blue-900"
+            >
+              Compare plans on eHealth →
+            </a>
+          </div>
+          <div className="bg-white rounded-lg p-4 border border-blue-100">
+            <h3 className="font-semibold text-sm text-gray-900 mb-1">Try Telehealth First</h3>
+            <p className="text-xs text-gray-500 mb-3">
+              Many consultations can be done virtually for $50-100, saving hundreds vs an in-person visit.
+            </p>
+            <a
+              href="https://sesamecare.com/" /* AFFILIATE: swap URL when approved */
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-xs font-semibold text-blue-700 hover:text-blue-900"
+            >
+              Book on Sesame Care →
+            </a>
+          </div>
+          <div className="bg-white rounded-lg p-4 border border-blue-100">
+            <h3 className="font-semibold text-sm text-gray-900 mb-1">Save on Prescriptions</h3>
+            <p className="text-xs text-gray-500 mb-3">
+              If this procedure leads to a prescription, check discount cards for up to 80% savings.
+            </p>
+            <a
+              href="https://www.goodrx.com/" /* AFFILIATE: swap URL when approved */
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-xs font-semibold text-blue-700 hover:text-blue-900"
+            >
+              Check prices on GoodRx →
+            </a>
+          </div>
+        </div>
+        <div className="flex items-center justify-between mt-3">
+          <p className="text-[10px] text-gray-400">
+            Some links are affiliate links. We may earn a commission at no extra cost to you.
+          </p>
+          <a href="/save" className="text-xs text-blue-600 hover:text-blue-800 font-medium">
+            More ways to save →
+          </a>
+        </div>
+      </div>
+
       {/* Data source */}
       <div className="text-xs text-gray-400 border-t border-gray-200 pt-4">
         Data source: 2026 Medicare Physician Fee Schedule (CMS PPRRVU26B,

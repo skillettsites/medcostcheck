@@ -47,3 +47,5 @@ next-env.d.ts
 /data/*.pdf
 /data/*.xlsx
 /data/PFREV26B/
+
+.vercel

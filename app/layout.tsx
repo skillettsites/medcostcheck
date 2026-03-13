@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import Link from "next/link";
+import { AdSenseScript } from "@/components/AdSense";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -33,6 +34,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <AdSenseScript />
+      </head>
       <body className={`${inter.className} min-h-screen flex flex-col antialiased`}>
         <header className="bg-white border-b border-gray-200">
           <nav className="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
@@ -42,6 +46,9 @@ export default function RootLayout({
             <div className="flex gap-6 text-sm text-gray-600">
               <Link href="/procedures" className="hover:text-blue-700">
                 Procedures
+              </Link>
+              <Link href="/save" className="hover:text-blue-700">
+                Ways to Save
               </Link>
               <Link href="/about" className="hover:text-blue-700">
                 About
@@ -70,6 +77,11 @@ export default function RootLayout({
                   <li>
                     <Link href="/procedures" className="hover:text-blue-700">
                       All Procedures
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/save" className="hover:text-blue-700">
+                      Ways to Save
                     </Link>
                   </li>
                   <li>
