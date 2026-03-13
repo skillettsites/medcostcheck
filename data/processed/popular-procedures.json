@@ -1,0 +1,592 @@
+[
+  {
+    "code": "10060",
+    "friendlyName": "Incision & Drainage of Abscess",
+    "description": "I&d abscess simple/single",
+    "workRvu": 1.19,
+    "nonFacTotal": 3.85,
+    "facTotal": 3.01,
+    "nationalNonFacPrice": 128.59,
+    "nationalFacPrice": 100.54
+  },
+  {
+    "code": "11102",
+    "friendlyName": "Skin Biopsy (Tangential)",
+    "description": "Tangntl bx skin single les",
+    "workRvu": 0.64,
+    "nonFacTotal": 2.86,
+    "facTotal": 0.9,
+    "nationalNonFacPrice": 95.53,
+    "nationalFacPrice": 30.06
+  },
+  {
+    "code": "11104",
+    "friendlyName": "Skin Biopsy (Punch)",
+    "description": "Punch bx skin single lesion",
+    "workRvu": 0.81,
+    "nonFacTotal": 3.63,
+    "facTotal": 1.14,
+    "nationalNonFacPrice": 121.25,
+    "nationalFacPrice": 38.08
+  },
+  {
+    "code": "17000",
+    "friendlyName": "Destruction of Skin Lesion",
+    "description": "Destruct premalg lesion",
+    "workRvu": 0.59,
+    "nonFacTotal": 1.99,
+    "facTotal": 1.43,
+    "nationalNonFacPrice": 66.47,
+    "nationalFacPrice": 47.76
+  },
+  {
+    "code": "19301",
+    "friendlyName": "Partial Mastectomy",
+    "description": "Partial mastectomy",
+    "workRvu": 9.88,
+    "nonFacTotal": 18.94,
+    "facTotal": 18.94,
+    "nationalNonFacPrice": 632.61,
+    "nationalFacPrice": 632.61
+  },
+  {
+    "code": "27130",
+    "friendlyName": "Total Hip Replacement",
+    "description": "Total hip arthroplasty",
+    "workRvu": 19.11,
+    "nonFacTotal": 34.79,
+    "facTotal": 34.79,
+    "nationalNonFacPrice": 1162.02,
+    "nationalFacPrice": 1162.02
+  },
+  {
+    "code": "27447",
+    "friendlyName": "Total Knee Replacement",
+    "description": "Total knee arthroplasty",
+    "workRvu": 19.11,
+    "nonFacTotal": 34.71,
+    "facTotal": 34.71,
+    "nationalNonFacPrice": 1159.35,
+    "nationalFacPrice": 1159.35
+  },
+  {
+    "code": "29881",
+    "friendlyName": "Knee Arthroscopy",
+    "description": "Arthrs kne srg mnisectmy m/l",
+    "workRvu": 6.85,
+    "nonFacTotal": 15.44,
+    "facTotal": 15.44,
+    "nationalNonFacPrice": 515.71,
+    "nationalFacPrice": 515.71
+  },
+  {
+    "code": "43235",
+    "friendlyName": "Upper Endoscopy (EGD)",
+    "description": "Egd diagnostic brush wash",
+    "workRvu": 2.04,
+    "nonFacTotal": 9.66,
+    "facTotal": 3.31,
+    "nationalNonFacPrice": 322.65,
+    "nationalFacPrice": 110.56
+  },
+  {
+    "code": "43239",
+    "friendlyName": "Upper Endoscopy (EGD) With Biopsy",
+    "description": "Egd biopsy single/multiple",
+    "workRvu": 2.33,
+    "nonFacTotal": 12.54,
+    "facTotal": 3.7,
+    "nationalNonFacPrice": 418.85,
+    "nationalFacPrice": 123.58
+  },
+  {
+    "code": "45378",
+    "friendlyName": "Colonoscopy (Diagnostic)",
+    "description": "Diagnostic colonoscopy",
+    "workRvu": 3.18,
+    "nonFacTotal": 11.32,
+    "facTotal": 4.93,
+    "nationalNonFacPrice": 378.1,
+    "nationalFacPrice": 164.67
+  },
+  {
+    "code": "45380",
+    "friendlyName": "Colonoscopy With Biopsy",
+    "description": "Colonoscopy and biopsy",
+    "workRvu": 3.47,
+    "nonFacTotal": 14.37,
+    "facTotal": 5.32,
+    "nationalNonFacPrice": 479.97,
+    "nationalFacPrice": 177.69
+  },
+  {
+    "code": "45385",
+    "friendlyName": "Colonoscopy With Polyp Removal",
+    "description": "Colonoscopy w/lesion removal",
+    "workRvu": 4.46,
+    "nonFacTotal": 14.97,
+    "facTotal": 6.69,
+    "nationalNonFacPrice": 500.01,
+    "nationalFacPrice": 223.45
+  },
+  {
+    "code": "47562",
+    "friendlyName": "Laparoscopic Cholecystectomy",
+    "description": "Laparoscopic cholecystectomy",
+    "workRvu": 10.21,
+    "nonFacTotal": 18.92,
+    "facTotal": 18.92,
+    "nationalNonFacPrice": 631.95,
+    "nationalFacPrice": 631.95
+  },
+  {
+    "code": "49650",
+    "friendlyName": "Laparoscopic Inguinal Hernia Repair",
+    "description": "Lap ing hernia repair init",
+    "workRvu": 6.2,
+    "nonFacTotal": 12.7,
+    "facTotal": 12.7,
+    "nationalNonFacPrice": 424.19,
+    "nationalFacPrice": 424.19
+  },
+  {
+    "code": "58661",
+    "friendlyName": "Laparoscopic Removal of Ovarian Cyst",
+    "description": "Laparoscopy remove adnexa",
+    "workRvu": 11.07,
+    "nonFacTotal": 17.55,
+    "facTotal": 17.55,
+    "nationalNonFacPrice": 586.19,
+    "nationalFacPrice": 586.19
+  },
+  {
+    "code": "59400",
+    "friendlyName": "Vaginal Delivery (Global)",
+    "description": "Obstetrical care",
+    "workRvu": 37,
+    "nonFacTotal": 66.3,
+    "facTotal": 66.3,
+    "nationalNonFacPrice": 2214.48,
+    "nationalFacPrice": 2214.48
+  },
+  {
+    "code": "59510",
+    "friendlyName": "Cesarean Delivery (Global)",
+    "description": "Cesarean delivery",
+    "workRvu": 41.05,
+    "nonFacTotal": 74.05,
+    "facTotal": 74.05,
+    "nationalNonFacPrice": 2473.34,
+    "nationalFacPrice": 2473.34
+  },
+  {
+    "code": "63030",
+    "friendlyName": "Lumbar Discectomy",
+    "description": "Lamot dcmprn nrv rt 1 lmbr",
+    "workRvu": 11.7,
+    "nonFacTotal": 26.89,
+    "facTotal": 26.89,
+    "nationalNonFacPrice": 898.15,
+    "nationalFacPrice": 898.15
+  },
+  {
+    "code": "66984",
+    "friendlyName": "Cataract Surgery",
+    "description": "Xcapsl ctrc rmvl w/o ecp",
+    "workRvu": 7.17,
+    "nonFacTotal": 13.85,
+    "facTotal": 13.85,
+    "nationalNonFacPrice": 462.6,
+    "nationalFacPrice": 462.6
+  },
+  {
+    "code": "70551",
+    "friendlyName": "MRI Brain Without Contrast",
+    "description": "Mri brain stem w/o dye",
+    "workRvu": 1.44,
+    "nonFacTotal": 5.85,
+    "facTotal": 5.85,
+    "nationalNonFacPrice": 195.4,
+    "nationalFacPrice": 195.4
+  },
+  {
+    "code": "70552",
+    "friendlyName": "MRI Brain With Contrast",
+    "description": "Mri brain stem w/dye",
+    "workRvu": 1.74,
+    "nonFacTotal": 8.05,
+    "facTotal": 8.05,
+    "nationalNonFacPrice": 268.88,
+    "nationalFacPrice": 268.88
+  },
+  {
+    "code": "70553",
+    "friendlyName": "MRI Brain",
+    "description": "Mri brain stem w/o & w/dye",
+    "workRvu": 2.23,
+    "nonFacTotal": 9.49,
+    "facTotal": 9.49,
+    "nationalNonFacPrice": 316.97,
+    "nationalFacPrice": 316.97
+  },
+  {
+    "code": "71046",
+    "friendlyName": "Chest X-Ray",
+    "description": "X-ray exam chest 2 views",
+    "workRvu": 0.21,
+    "nonFacTotal": 0.99,
+    "facTotal": 0.99,
+    "nationalNonFacPrice": 33.07,
+    "nationalFacPrice": 33.07
+  },
+  {
+    "code": "71250",
+    "friendlyName": "CT Chest Without Contrast",
+    "description": "Ct thorax dx c-",
+    "workRvu": 1.05,
+    "nonFacTotal": 3.97,
+    "facTotal": 3.97,
+    "nationalNonFacPrice": 132.6,
+    "nationalFacPrice": 132.6
+  },
+  {
+    "code": "71260",
+    "friendlyName": "CT Chest With Contrast",
+    "description": "Ct thorax dx c+",
+    "workRvu": 1.13,
+    "nonFacTotal": 4.99,
+    "facTotal": 4.99,
+    "nationalNonFacPrice": 166.67,
+    "nationalFacPrice": 166.67
+  },
+  {
+    "code": "72141",
+    "friendlyName": "MRI Cervical Spine",
+    "description": "Mri neck spine w/o dye",
+    "workRvu": 1.44,
+    "nonFacTotal": 5.71,
+    "facTotal": 5.71,
+    "nationalNonFacPrice": 190.72,
+    "nationalFacPrice": 190.72
+  },
+  {
+    "code": "72148",
+    "friendlyName": "MRI Lumbar Spine",
+    "description": "Mri lumbar spine w/o dye",
+    "workRvu": 1.44,
+    "nonFacTotal": 5.74,
+    "facTotal": 5.74,
+    "nationalNonFacPrice": 191.72,
+    "nationalFacPrice": 191.72
+  },
+  {
+    "code": "73030",
+    "friendlyName": "Shoulder X-Ray",
+    "description": "X-ray exam of shoulder",
+    "workRvu": 0.18,
+    "nonFacTotal": 1.07,
+    "facTotal": 1.07,
+    "nationalNonFacPrice": 35.74,
+    "nationalFacPrice": 35.74
+  },
+  {
+    "code": "73221",
+    "friendlyName": "MRI Shoulder",
+    "description": "Mri joint upr extrem w/o dye",
+    "workRvu": 1.32,
+    "nonFacTotal": 6.14,
+    "facTotal": 6.14,
+    "nationalNonFacPrice": 205.08,
+    "nationalFacPrice": 205.08
+  },
+  {
+    "code": "73560",
+    "friendlyName": "Knee X-Ray",
+    "description": "X-ray exam of knee 1 or 2",
+    "workRvu": 0.16,
+    "nonFacTotal": 1.03,
+    "facTotal": 1.03,
+    "nationalNonFacPrice": 34.4,
+    "nationalFacPrice": 34.4
+  },
+  {
+    "code": "73721",
+    "friendlyName": "MRI Knee",
+    "description": "Mri jnt of lwr extre w/o dye",
+    "workRvu": 1.32,
+    "nonFacTotal": 6.12,
+    "facTotal": 6.12,
+    "nationalNonFacPrice": 204.41,
+    "nationalFacPrice": 204.41
+  },
+  {
+    "code": "74176",
+    "friendlyName": "CT Abdomen & Pelvis Without Contrast",
+    "description": "Ct abd & pelvis w/o contrast",
+    "workRvu": 1.7,
+    "nonFacTotal": 5.48,
+    "facTotal": 5.48,
+    "nationalNonFacPrice": 183.04,
+    "nationalFacPrice": 183.04
+  },
+  {
+    "code": "74177",
+    "friendlyName": "CT Abdomen & Pelvis With Contrast",
+    "description": "Ct abd & pelvis w/contrast",
+    "workRvu": 1.77,
+    "nonFacTotal": 8.99,
+    "facTotal": 8.99,
+    "nationalNonFacPrice": 300.27,
+    "nationalFacPrice": 300.27
+  },
+  {
+    "code": "76700",
+    "friendlyName": "Ultrasound Abdomen",
+    "description": "Us exam abdom complete",
+    "workRvu": 0.79,
+    "nonFacTotal": 3.42,
+    "facTotal": 3.42,
+    "nationalNonFacPrice": 114.23,
+    "nationalFacPrice": 114.23
+  },
+  {
+    "code": "76830",
+    "friendlyName": "Ultrasound Transvaginal",
+    "description": "Transvaginal us non-ob",
+    "workRvu": 0.67,
+    "nonFacTotal": 3.52,
+    "facTotal": 3.52,
+    "nationalNonFacPrice": 117.57,
+    "nationalFacPrice": 117.57
+  },
+  {
+    "code": "76856",
+    "friendlyName": "Ultrasound Pelvis",
+    "description": "Us exam pelvic complete",
+    "workRvu": 0.67,
+    "nonFacTotal": 3.15,
+    "facTotal": 3.15,
+    "nationalNonFacPrice": 105.21,
+    "nationalFacPrice": 105.21
+  },
+  {
+    "code": "77066",
+    "friendlyName": "Diagnostic Mammogram",
+    "description": "Dx mammo incl cad bi",
+    "workRvu": 0.98,
+    "nonFacTotal": 4.7,
+    "facTotal": 4.7,
+    "nationalNonFacPrice": 156.98,
+    "nationalFacPrice": 156.98
+  },
+  {
+    "code": "77067",
+    "friendlyName": "Screening Mammogram",
+    "description": "Scr mammo bi incl cad",
+    "workRvu": 0.74,
+    "nonFacTotal": 3.78,
+    "facTotal": 3.78,
+    "nationalNonFacPrice": 126.26,
+    "nationalFacPrice": 126.26
+  },
+  {
+    "code": "78452",
+    "friendlyName": "Nuclear Stress Test",
+    "description": "Ht muscle image spect mult",
+    "workRvu": 1.58,
+    "nonFacTotal": 12.81,
+    "facTotal": 12.81,
+    "nationalNonFacPrice": 427.87,
+    "nationalFacPrice": 427.87
+  },
+  {
+    "code": "90791",
+    "friendlyName": "Psychiatric Evaluation",
+    "description": "Psych diagnostic evaluation",
+    "workRvu": 3.84,
+    "nonFacTotal": 5.19,
+    "facTotal": 4.11,
+    "nationalNonFacPrice": 173.35,
+    "nationalFacPrice": 137.28
+  },
+  {
+    "code": "90792",
+    "friendlyName": "Psychiatric Evaluation With Medical Services",
+    "description": "Psych diag eval w/med srvcs",
+    "workRvu": 4.16,
+    "nonFacTotal": 6.05,
+    "facTotal": 4.77,
+    "nationalNonFacPrice": 202.08,
+    "nationalFacPrice": 159.32
+  },
+  {
+    "code": "90834",
+    "friendlyName": "Psychotherapy (45 min)",
+    "description": "Psytx w pt 45 minutes",
+    "workRvu": 2.56,
+    "nonFacTotal": 3.41,
+    "facTotal": 2.75,
+    "nationalNonFacPrice": 113.9,
+    "nationalFacPrice": 91.85
+  },
+  {
+    "code": "90837",
+    "friendlyName": "Psychotherapy (60 min)",
+    "description": "Psytx w pt 60 minutes",
+    "workRvu": 3.78,
+    "nonFacTotal": 5,
+    "facTotal": 4.05,
+    "nationalNonFacPrice": 167,
+    "nationalFacPrice": 135.27
+  },
+  {
+    "code": "93000",
+    "friendlyName": "ECG/EKG",
+    "description": "Electrocardiogram complete",
+    "workRvu": 0.17,
+    "nonFacTotal": 0.46,
+    "facTotal": 0.46,
+    "nationalNonFacPrice": 15.36,
+    "nationalFacPrice": 15.36
+  },
+  {
+    "code": "93306",
+    "friendlyName": "Echocardiogram",
+    "description": "Tte w/doppler complete",
+    "workRvu": 1.42,
+    "nonFacTotal": 5.89,
+    "facTotal": 5.89,
+    "nationalNonFacPrice": 196.73,
+    "nationalFacPrice": 196.73
+  },
+  {
+    "code": "93350",
+    "friendlyName": "Stress Echocardiogram",
+    "description": "Stress tte only",
+    "workRvu": 1.42,
+    "nonFacTotal": 5.55,
+    "facTotal": 5.55,
+    "nationalNonFacPrice": 185.37,
+    "nationalFacPrice": 185.37
+  },
+  {
+    "code": "93880",
+    "friendlyName": "Carotid Ultrasound",
+    "description": "Extracranial bilat study",
+    "workRvu": 0.78,
+    "nonFacTotal": 5.66,
+    "facTotal": 5.66,
+    "nationalNonFacPrice": 189.05,
+    "nationalFacPrice": 189.05
+  },
+  {
+    "code": "96920",
+    "friendlyName": "Laser Treatment for Skin",
+    "description": "Excimer lsr psriasis<250sqcm",
+    "workRvu": 0.81,
+    "nonFacTotal": 4.13,
+    "facTotal": 1.23,
+    "nationalNonFacPrice": 137.95,
+    "nationalFacPrice": 41.08
+  },
+  {
+    "code": "97110",
+    "friendlyName": "Physical Therapy (Therapeutic Exercise)",
+    "description": "Therapeutic exercises",
+    "workRvu": 0.45,
+    "nonFacTotal": 0.87,
+    "facTotal": 0.87,
+    "nationalNonFacPrice": 29.06,
+    "nationalFacPrice": 29.06
+  },
+  {
+    "code": "97140",
+    "friendlyName": "Physical Therapy (Manual Therapy)",
+    "description": "Manual therapy 1/> regions",
+    "workRvu": 0.43,
+    "nonFacTotal": 0.83,
+    "facTotal": 0.83,
+    "nationalNonFacPrice": 27.72,
+    "nationalFacPrice": 27.72
+  },
+  {
+    "code": "97161",
+    "friendlyName": "PT Evaluation (Low Complexity)",
+    "description": "Pt eval low complex 20 min",
+    "workRvu": 1.54,
+    "nonFacTotal": 2.93,
+    "facTotal": 2.93,
+    "nationalNonFacPrice": 97.86,
+    "nationalFacPrice": 97.86
+  },
+  {
+    "code": "97162",
+    "friendlyName": "PT Evaluation (Moderate Complexity)",
+    "description": "Pt eval mod complex 30 min",
+    "workRvu": 1.54,
+    "nonFacTotal": 2.93,
+    "facTotal": 2.93,
+    "nationalNonFacPrice": 97.86,
+    "nationalFacPrice": 97.86
+  },
+  {
+    "code": "99203",
+    "friendlyName": "Office Visit (New, Low)",
+    "description": "Office o/p new low 30 min",
+    "workRvu": 1.6,
+    "nonFacTotal": 3.52,
+    "facTotal": 2.14,
+    "nationalNonFacPrice": 117.57,
+    "nationalFacPrice": 71.48
+  },
+  {
+    "code": "99204",
+    "friendlyName": "Office Visit (New, Moderate-High)",
+    "description": "Office o/p new mod 45 min",
+    "workRvu": 2.6,
+    "nonFacTotal": 5.31,
+    "facTotal": 3.5,
+    "nationalNonFacPrice": 177.36,
+    "nationalFacPrice": 116.9
+  },
+  {
+    "code": "99205",
+    "friendlyName": "Office Visit (New, High)",
+    "description": "Office o/p new hi 60 min",
+    "workRvu": 3.5,
+    "nonFacTotal": 7.09,
+    "facTotal": 4.8,
+    "nationalNonFacPrice": 236.81,
+    "nationalFacPrice": 160.32
+  },
+  {
+    "code": "99213",
+    "friendlyName": "Office Visit (Established, Moderate)",
+    "description": "Office o/p est low 20 min",
+    "workRvu": 1.3,
+    "nonFacTotal": 2.85,
+    "facTotal": 1.72,
+    "nationalNonFacPrice": 95.19,
+    "nationalFacPrice": 57.45
+  },
+  {
+    "code": "99214",
+    "friendlyName": "Office Visit (Established, Moderate-High)",
+    "description": "Office o/p est mod 30 min",
+    "workRvu": 1.92,
+    "nonFacTotal": 4.06,
+    "facTotal": 2.53,
+    "nationalNonFacPrice": 135.61,
+    "nationalFacPrice": 84.5
+  },
+  {
+    "code": "99215",
+    "friendlyName": "Office Visit (Established, High)",
+    "description": "Office o/p est hi 40 min",
+    "workRvu": 2.8,
+    "nonFacTotal": 5.76,
+    "facTotal": 3.76,
+    "nationalNonFacPrice": 192.39,
+    "nationalFacPrice": 125.59
+  }
+]

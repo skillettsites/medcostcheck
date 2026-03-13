@@ -39,3 +39,11 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Raw CMS data files (only processed JSONs are needed)
+/data/*.zip
+/data/*.txt
+/data/*.csv
+/data/*.pdf
+/data/*.xlsx
+/data/PFREV26B/
