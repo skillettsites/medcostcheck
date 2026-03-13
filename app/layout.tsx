@@ -38,25 +38,26 @@ export default function RootLayout({
         <AdSenseScript />
       </head>
       <body className={`${inter.className} min-h-screen flex flex-col antialiased`}>
-        <header className="bg-white border-b border-gray-200">
-          <nav className="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
-            <Link href="/" className="flex items-center gap-2 group">
-              <svg width="28" height="28" viewBox="0 0 28 28" fill="none" className="shrink-0">
-                <circle cx="14" cy="14" r="13" className="fill-blue-50 stroke-blue-400" strokeWidth="1.5" />
-                <path d="M10 14h8M14 10v8" stroke="#1d4ed8" strokeWidth="2.5" strokeLinecap="round" />
-              </svg>
-              <span className="text-xl font-extrabold text-blue-700 group-hover:text-blue-800 transition-colors">
-                MedCostCheck
+        <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-200/80">
+          <nav className="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
+            <Link href="/" className="flex items-center gap-2.5 group">
+              <div className="w-8 h-8 bg-gradient-to-br from-blue-600 to-indigo-600 rounded-lg flex items-center justify-center shadow-sm">
+                <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+                  <path d="M6 9h6M9 6v6" stroke="white" strokeWidth="2.5" strokeLinecap="round" />
+                </svg>
+              </div>
+              <span className="text-xl font-extrabold text-gray-900 group-hover:text-blue-700 transition-colors">
+                Med<span className="text-blue-600">Cost</span>Check
               </span>
             </Link>
-            <div className="flex gap-6 text-sm text-gray-600">
-              <Link href="/procedures" className="hover:text-blue-700">
+            <div className="flex items-center gap-1">
+              <Link href="/procedures" className="px-3 py-2 text-sm text-gray-600 hover:text-blue-700 hover:bg-blue-50 rounded-lg transition-all">
                 Procedures
               </Link>
-              <Link href="/save" className="hover:text-blue-700">
+              <Link href="/save" className="px-3 py-2 text-sm text-gray-600 hover:text-blue-700 hover:bg-blue-50 rounded-lg transition-all">
                 Ways to Save
               </Link>
-              <Link href="/about" className="hover:text-blue-700">
+              <Link href="/about" className="px-3 py-2 text-sm text-gray-600 hover:text-blue-700 hover:bg-blue-50 rounded-lg transition-all">
                 About
               </Link>
             </div>
@@ -65,57 +66,58 @@ export default function RootLayout({
 
         <main className="flex-1">{children}</main>
 
-        <footer className="bg-gray-50 border-t border-gray-200 mt-16">
-          <div className="max-w-6xl mx-auto px-4 py-8">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-sm text-gray-600">
+        <footer className="bg-slate-900 text-gray-400">
+          <div className="max-w-6xl mx-auto px-4 py-12">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-10 text-sm">
               <div>
-                <div className="flex items-center gap-2 mb-2">
-                  <svg width="22" height="22" viewBox="0 0 28 28" fill="none" className="shrink-0">
-                    <circle cx="14" cy="14" r="13" className="fill-blue-50 stroke-blue-400" strokeWidth="1.5" />
-                    <path d="M10 14h8M14 10v8" stroke="#1d4ed8" strokeWidth="2.5" strokeLinecap="round" />
-                  </svg>
-                  <span className="font-semibold text-gray-900">MedCostCheck</span>
+                <div className="flex items-center gap-2.5 mb-3">
+                  <div className="w-7 h-7 bg-gradient-to-br from-blue-500 to-indigo-500 rounded-lg flex items-center justify-center">
+                    <svg width="14" height="14" viewBox="0 0 18 18" fill="none">
+                      <path d="M6 9h6M9 6v6" stroke="white" strokeWidth="2.5" strokeLinecap="round" />
+                    </svg>
+                  </div>
+                  <span className="font-bold text-white text-lg">
+                    Med<span className="text-blue-400">Cost</span>Check
+                  </span>
                 </div>
-                <p>
+                <p className="leading-relaxed">
                   Free medical procedure cost estimates powered by the 2026
                   Medicare Physician Fee Schedule. Not medical advice.
                 </p>
               </div>
               <div>
-                <h3 className="font-semibold text-gray-900 mb-2">Browse</h3>
-                <ul className="space-y-1">
+                <h3 className="font-semibold text-white mb-4 text-xs uppercase tracking-wider">Browse</h3>
+                <ul className="space-y-2.5">
                   <li>
-                    <Link href="/procedures" className="hover:text-blue-700">
+                    <Link href="/procedures" className="hover:text-white transition-colors">
                       All Procedures
                     </Link>
                   </li>
                   <li>
-                    <Link href="/save" className="hover:text-blue-700">
+                    <Link href="/save" className="hover:text-white transition-colors">
                       Ways to Save
                     </Link>
                   </li>
                   <li>
-                    <Link href="/about" className="hover:text-blue-700">
+                    <Link href="/about" className="hover:text-white transition-colors">
                       About
                     </Link>
                   </li>
                   <li>
-                    <Link href="/privacy" className="hover:text-blue-700">
+                    <Link href="/privacy" className="hover:text-white transition-colors">
                       Privacy Policy
                     </Link>
                   </li>
                   <li>
-                    <Link href="/terms" className="hover:text-blue-700">
+                    <Link href="/terms" className="hover:text-white transition-colors">
                       Terms of Use
                     </Link>
                   </li>
                 </ul>
               </div>
               <div>
-                <h3 className="font-semibold text-gray-900 mb-2">
-                  Data Source
-                </h3>
-                <p>
+                <h3 className="font-semibold text-white mb-4 text-xs uppercase tracking-wider">Data Source</h3>
+                <p className="leading-relaxed">
                   Prices based on the 2026 Medicare Physician Fee Schedule
                   published by the Centers for Medicare & Medicaid Services
                   (CMS). Medicare rates are a baseline; private insurance and
@@ -123,7 +125,7 @@ export default function RootLayout({
                 </p>
               </div>
             </div>
-            <div className="mt-8 pt-4 border-t border-gray-200 text-xs text-gray-400 text-center">
+            <div className="mt-10 pt-6 border-t border-white/10 text-xs text-center text-gray-500">
               Prices shown are Medicare reimbursement rates and do not represent
               actual charges. Always verify costs with your provider and
               insurance company.

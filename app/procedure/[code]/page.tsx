@@ -1,5 +1,6 @@
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
+import Link from "next/link";
 import {
   getProcedure,
   getProcedurePrice,
@@ -57,18 +58,18 @@ function PriceCard({
 }) {
   return (
     <div
-      className={`rounded-lg p-6 text-center ${
+      className={`rounded-2xl p-6 text-center transition-shadow ${
         highlight
-          ? "bg-blue-600 text-white"
-          : "bg-white border border-gray-200"
+          ? "bg-gradient-to-br from-blue-600 to-indigo-700 text-white shadow-lg shadow-blue-200"
+          : "bg-white border border-gray-100 shadow-sm"
       }`}
     >
-      <div className="text-sm font-medium mb-1 opacity-80">{label}</div>
-      <div className={`text-3xl font-bold ${highlight ? "" : "text-gray-900"}`}>
+      <div className={`text-xs font-semibold mb-2 uppercase tracking-wide ${highlight ? "text-blue-200" : "text-gray-400"}`}>{label}</div>
+      <div className={`text-3xl font-extrabold ${highlight ? "" : "text-gray-900"}`}>
         {price}
       </div>
       {sublabel && (
-        <div className={`text-xs mt-1 ${highlight ? "text-blue-100" : "text-gray-500"}`}>
+        <div className={`text-xs mt-2 ${highlight ? "text-blue-200" : "text-gray-400"}`}>
           {sublabel}
         </div>
       )}
@@ -87,33 +88,32 @@ export default async function ProcedurePage({ params, searchParams }: PageProps)
   const hasZip = zip && /^\d{5}$/.test(zip);
   const priceResult = hasZip ? getProcedurePrice(code, zip) : null;
 
-  // National average prices
   const nationalNonFac = Math.round(proc.nonFacTotal * CONVERSION_FACTOR * 100) / 100;
   const nationalFac = Math.round(proc.facTotal * CONVERSION_FACTOR * 100) / 100;
 
   return (
-    <div className="max-w-4xl mx-auto px-4 py-8">
+    <div className="max-w-5xl mx-auto px-4 py-10">
       {/* Breadcrumb */}
-      <nav className="text-sm text-gray-500 mb-6">
-        <a href="/" className="hover:text-blue-600">Home</a>
-        <span className="mx-2">/</span>
-        <a href="/procedures" className="hover:text-blue-600">Procedures</a>
-        <span className="mx-2">/</span>
-        <span className="text-gray-900">{code}</span>
+      <nav className="flex items-center gap-2 text-sm text-gray-400 mb-8">
+        <Link href="/" className="hover:text-blue-600 transition-colors">Home</Link>
+        <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M4 2l4 4-4 4"/></svg>
+        <Link href="/procedures" className="hover:text-blue-600 transition-colors">Procedures</Link>
+        <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M4 2l4 4-4 4"/></svg>
+        <span className="text-gray-700 font-medium">{code}</span>
       </nav>
 
       {/* Header */}
-      <div className="mb-8">
-        <div className="flex items-start justify-between">
+      <div className="mb-10">
+        <div className="flex items-start justify-between gap-4">
           <div>
-            <h1 className="text-3xl font-bold text-gray-900">
+            <h1 className="text-3xl md:text-4xl font-extrabold text-gray-900">
               {friendlyName || proc.description}
             </h1>
             {friendlyName && (
-              <p className="text-gray-600 mt-1">{proc.description}</p>
+              <p className="text-gray-500 mt-2 text-lg">{proc.description}</p>
             )}
           </div>
-          <span className="text-sm font-mono bg-gray-100 text-gray-600 px-3 py-1 rounded">
+          <span className="text-xs font-mono font-bold text-blue-600 bg-blue-50 border border-blue-100 px-3 py-1.5 rounded-lg shrink-0">
             CPT {code}
           </span>
         </div>
@@ -121,11 +121,16 @@ export default async function ProcedurePage({ params, searchParams }: PageProps)
 
       {/* ZIP-specific pricing */}
       {priceResult ? (
-        <div className="mb-10">
-          <h2 className="text-lg font-semibold mb-1">
-            Cost in {zip} ({getStateName(priceResult.state)})
-          </h2>
-          <p className="text-sm text-gray-500 mb-4">
+        <div className="mb-12">
+          <div className="flex items-center gap-3 mb-1">
+            <h2 className="text-xl font-bold text-gray-900">
+              Cost in {zip}
+            </h2>
+            <span className="text-sm bg-green-50 text-green-700 font-medium px-2.5 py-0.5 rounded-full border border-green-100">
+              {getStateName(priceResult.state)}
+            </span>
+          </div>
+          <p className="text-sm text-gray-400 mb-6">
             Medicare locality: {priceResult.locality}
           </p>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
@@ -146,15 +151,15 @@ export default async function ProcedurePage({ params, searchParams }: PageProps)
               sublabel="130-200% of Medicare"
             />
             <PriceCard
-              label="Self-Pay/Cash Est."
+              label="Self-Pay / Cash Est."
               price={`${formatPriceRound(priceResult.estimatedSelfPay.low)} - ${formatPriceRound(priceResult.estimatedSelfPay.high)}`}
               sublabel="80-150% of Medicare"
             />
           </div>
         </div>
       ) : (
-        <div className="mb-10">
-          <h2 className="text-lg font-semibold mb-4">
+        <div className="mb-12">
+          <h2 className="text-xl font-bold text-gray-900 mb-6">
             National Average Cost (2026)
           </h2>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
@@ -175,25 +180,31 @@ export default async function ProcedurePage({ params, searchParams }: PageProps)
               sublabel="130-200% of Medicare"
             />
             <PriceCard
-              label="Self-Pay/Cash Est."
+              label="Self-Pay / Cash Est."
               price={`${formatPriceRound(nationalNonFac * 0.8)} - ${formatPriceRound(nationalNonFac * 1.5)}`}
               sublabel="80-150% of Medicare"
             />
           </div>
           {!hasZip && (
-            <div className="mt-4 bg-blue-50 border border-blue-200 rounded-lg p-4">
-              <p className="text-blue-800 text-sm font-medium mb-2">
-                Enter your ZIP code for local pricing
-              </p>
-              <p className="text-blue-700 text-sm">
-                Medical costs vary significantly by location. Enter your ZIP
-                code above to see prices adjusted for your area.
-              </p>
+            <div className="mt-5 bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-200 rounded-xl p-5">
+              <div className="flex items-start gap-3">
+                <div className="w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center shrink-0 mt-0.5">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-blue-600"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                </div>
+                <div>
+                  <p className="text-blue-900 text-sm font-bold mb-1">
+                    Enter your ZIP code for local pricing
+                  </p>
+                  <p className="text-blue-700/80 text-sm">
+                    Medical costs vary significantly by location. Use the search below to see prices adjusted for your area.
+                  </p>
+                </div>
+              </div>
             </div>
           )}
           {hasZip && !priceResult && (
-            <div className="mt-4 bg-yellow-50 border border-yellow-200 rounded-lg p-4">
-              <p className="text-yellow-800 text-sm">
+            <div className="mt-5 bg-amber-50 border border-amber-200 rounded-xl p-5">
+              <p className="text-amber-800 text-sm">
                 ZIP code {zip} was not found in the Medicare locality database.
                 Showing national average prices instead.
               </p>
@@ -203,50 +214,46 @@ export default async function ProcedurePage({ params, searchParams }: PageProps)
       )}
 
       {/* Search for local pricing */}
-      <div className="bg-gray-50 rounded-lg p-6 mb-10">
-        <h2 className="text-lg font-semibold mb-3">
+      <div className="bg-gradient-to-br from-blue-700 via-blue-800 to-indigo-900 rounded-2xl p-8 mb-12 text-white">
+        <h2 className="text-xl font-bold mb-1">
           {priceResult ? "Check another location" : "Get local pricing"}
         </h2>
+        <p className="text-blue-200 text-sm mb-5">
+          Enter your ZIP code and search to see costs in your area
+        </p>
         <ProcedureSearch zip={zip} />
       </div>
 
       {/* Procedure details */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-10">
-        <div className="bg-white border border-gray-200 rounded-lg p-6">
-          <h2 className="text-lg font-semibold mb-4">Procedure Details</h2>
-          <table className="w-full text-sm">
-            <tbody>
-              <tr className="border-b border-gray-100">
-                <td className="py-2 text-gray-500">CPT Code</td>
-                <td className="py-2 text-right font-mono">{code}</td>
-              </tr>
-              <tr className="border-b border-gray-100">
-                <td className="py-2 text-gray-500">Description</td>
-                <td className="py-2 text-right">{proc.description}</td>
-              </tr>
-              <tr className="border-b border-gray-100">
-                <td className="py-2 text-gray-500">Work RVU</td>
-                <td className="py-2 text-right">{proc.workRvu.toFixed(2)}</td>
-              </tr>
-              <tr className="border-b border-gray-100">
-                <td className="py-2 text-gray-500">Practice Expense RVU (Office)</td>
-                <td className="py-2 text-right">{proc.nonFacPeRvu.toFixed(2)}</td>
-              </tr>
-              <tr className="border-b border-gray-100">
-                <td className="py-2 text-gray-500">Practice Expense RVU (Hospital)</td>
-                <td className="py-2 text-right">{proc.facPeRvu.toFixed(2)}</td>
-              </tr>
-              <tr>
-                <td className="py-2 text-gray-500">Malpractice RVU</td>
-                <td className="py-2 text-right">{proc.mpRvu.toFixed(2)}</td>
-              </tr>
-            </tbody>
-          </table>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+        <div className="bg-white border border-gray-100 rounded-2xl p-6 shadow-sm">
+          <h2 className="text-lg font-bold text-gray-900 mb-5 flex items-center gap-2">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-blue-500"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg>
+            Procedure Details
+          </h2>
+          <div className="space-y-0">
+            {[
+              { label: "CPT Code", value: code, mono: true },
+              { label: "Description", value: proc.description },
+              { label: "Work RVU", value: proc.workRvu.toFixed(2) },
+              { label: "Practice Expense RVU (Office)", value: proc.nonFacPeRvu.toFixed(2) },
+              { label: "Practice Expense RVU (Hospital)", value: proc.facPeRvu.toFixed(2) },
+              { label: "Malpractice RVU", value: proc.mpRvu.toFixed(2) },
+            ].map((row, i) => (
+              <div key={i} className="flex justify-between items-center py-3 border-b border-gray-50 last:border-0">
+                <span className="text-sm text-gray-500">{row.label}</span>
+                <span className={`text-sm font-semibold text-gray-900 ${row.mono ? "font-mono" : ""}`}>{row.value}</span>
+              </div>
+            ))}
+          </div>
         </div>
 
-        <div className="bg-white border border-gray-200 rounded-lg p-6">
-          <h2 className="text-lg font-semibold mb-4">Understanding the Cost</h2>
-          <div className="space-y-3 text-sm text-gray-600">
+        <div className="bg-white border border-gray-100 rounded-2xl p-6 shadow-sm">
+          <h2 className="text-lg font-bold text-gray-900 mb-5 flex items-center gap-2">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-blue-500"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+            Understanding the Cost
+          </h2>
+          <div className="space-y-4 text-sm text-gray-600 leading-relaxed">
             <p>
               <strong className="text-gray-900">Medicare rate</strong> is the amount Medicare
               pays providers. If you have Medicare, you typically pay 20% of
@@ -254,85 +261,76 @@ export default async function ProcedurePage({ params, searchParams }: PageProps)
             </p>
             <p>
               <strong className="text-gray-900">Private insurance</strong> plans
-              negotiate their own rates with providers, typically 130-200% of
-              Medicare rates. Your out-of-pocket cost depends on your plan&rsquo;s
-              deductible, copay, and coinsurance.
+              negotiate their own rates, typically 130-200% of Medicare. Your
+              out-of-pocket cost depends on your deductible, copay, and coinsurance.
             </p>
             <p>
               <strong className="text-gray-900">Self-pay/cash</strong> prices
               vary widely. Many providers offer cash discounts of 20-40% off
-              their standard charges. Always ask about cash pricing before your
-              procedure.
+              their standard charges. Always ask about cash pricing.
             </p>
             <p>
               <strong className="text-gray-900">Office vs Hospital</strong>: the
-              same procedure often costs less in a doctor&rsquo;s office than a
-              hospital. The Medicare physician fee shown here is just one
-              component; hospitals also charge a separate facility fee.
+              same procedure often costs less in a doctor's office than a
+              hospital, because hospitals charge a separate facility fee.
             </p>
           </div>
         </div>
       </div>
 
       {/* Ways to save */}
-      <div className="bg-blue-50 border border-blue-200 rounded-lg p-6 mb-10">
-        <h2 className="text-lg font-semibold text-blue-900 mb-4">Ways to Save on This Procedure</h2>
+      <div className="bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-100 rounded-2xl p-6 md:p-8 mb-12">
+        <h2 className="text-xl font-bold text-gray-900 mb-5 flex items-center gap-2">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-blue-600"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
+          Ways to Save on This Procedure
+        </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-          <div className="bg-white rounded-lg p-4 border border-blue-100">
-            <h3 className="font-semibold text-sm text-gray-900 mb-1">Compare Insurance Plans</h3>
-            <p className="text-xs text-gray-500 mb-3">
-              Uninsured? Comparing marketplace plans could save you thousands on procedures like this.
-            </p>
-            <a
-              href="https://www.ehealthinsurance.com/" /* AFFILIATE: swap URL when approved */
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-xs font-semibold text-blue-700 hover:text-blue-900"
-            >
-              Compare plans on eHealth →
-            </a>
-          </div>
-          <div className="bg-white rounded-lg p-4 border border-blue-100">
-            <h3 className="font-semibold text-sm text-gray-900 mb-1">Try Telehealth First</h3>
-            <p className="text-xs text-gray-500 mb-3">
-              Many consultations can be done virtually for $50-100, saving hundreds vs an in-person visit.
-            </p>
-            <a
-              href="https://sesamecare.com/" /* AFFILIATE: swap URL when approved */
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-xs font-semibold text-blue-700 hover:text-blue-900"
-            >
-              Book on Sesame Care →
-            </a>
-          </div>
-          <div className="bg-white rounded-lg p-4 border border-blue-100">
-            <h3 className="font-semibold text-sm text-gray-900 mb-1">Save on Prescriptions</h3>
-            <p className="text-xs text-gray-500 mb-3">
-              If this procedure leads to a prescription, check discount cards for up to 80% savings.
-            </p>
-            <a
-              href="https://www.goodrx.com/" /* AFFILIATE: swap URL when approved */
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-xs font-semibold text-blue-700 hover:text-blue-900"
-            >
-              Check prices on GoodRx →
-            </a>
-          </div>
+          {[
+            {
+              title: "Compare Insurance Plans",
+              desc: "Uninsured? Comparing marketplace plans could save you thousands on procedures like this.",
+              link: "https://www.ehealthinsurance.com/",
+              cta: "Compare plans on eHealth",
+            },
+            {
+              title: "Try Telehealth First",
+              desc: "Many consultations can be done virtually for $50-100, saving hundreds vs an in-person visit.",
+              link: "https://sesamecare.com/",
+              cta: "Book on Sesame Care",
+            },
+            {
+              title: "Save on Prescriptions",
+              desc: "If this procedure leads to a prescription, check discount cards for up to 80% savings.",
+              link: "https://www.goodrx.com/",
+              cta: "Check prices on GoodRx",
+            },
+          ].map((item) => (
+            <div key={item.title} className="bg-white rounded-xl p-5 border border-blue-100/50 shadow-sm">
+              <h3 className="font-bold text-sm text-gray-900 mb-2">{item.title}</h3>
+              <p className="text-xs text-gray-500 mb-3 leading-relaxed">{item.desc}</p>
+              <a
+                href={item.link} /* AFFILIATE: swap URL when approved */
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-xs font-bold text-blue-600 hover:text-blue-800 transition-colors"
+              >
+                {item.cta} &rarr;
+              </a>
+            </div>
+          ))}
         </div>
-        <div className="flex items-center justify-between mt-3">
+        <div className="flex items-center justify-between mt-4 pt-3 border-t border-blue-100/50">
           <p className="text-[10px] text-gray-400">
             Some links are affiliate links. We may earn a commission at no extra cost to you.
           </p>
-          <a href="/save" className="text-xs text-blue-600 hover:text-blue-800 font-medium">
-            More ways to save →
-          </a>
+          <Link href="/save" className="text-xs text-blue-600 hover:text-blue-800 font-bold">
+            More ways to save &rarr;
+          </Link>
         </div>
       </div>
 
       {/* Data source */}
-      <div className="text-xs text-gray-400 border-t border-gray-200 pt-4">
+      <div className="text-xs text-gray-400 border-t border-gray-200 pt-5">
         Data source: 2026 Medicare Physician Fee Schedule (CMS PPRRVU26B,
         released March 2026). Conversion factor: ${CONVERSION_FACTOR}. Prices
         shown are Medicare allowed amounts and may not reflect actual charges.
