@@ -7,6 +7,7 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://www.medcostcheck.com'),
   title: {
     default: "MedCostCheck - Medical Procedure Cost Lookup",
     template: "%s | MedCostCheck",
@@ -23,6 +24,7 @@ export const metadata: Metadata = {
   ],
   openGraph: {
     siteName: "MedCostCheck",
+    url: "https://www.medcostcheck.com",
     type: "website",
   },
 };
