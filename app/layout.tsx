@@ -54,6 +54,9 @@ export default function RootLayout({
               <Link href="/procedures" className="px-3 py-2 text-sm text-gray-600 hover:text-blue-700 hover:bg-blue-50 rounded-lg transition-all">
                 Procedures
               </Link>
+              <Link href="/states" className="px-3 py-2 text-sm text-gray-600 hover:text-blue-700 hover:bg-blue-50 rounded-lg transition-all">
+                By State
+              </Link>
               <Link href="/save" className="px-3 py-2 text-sm text-gray-600 hover:text-blue-700 hover:bg-blue-50 rounded-lg transition-all">
                 Ways to Save
               </Link>
@@ -91,6 +94,11 @@ export default function RootLayout({
                   <li>
                     <Link href="/procedures" className="hover:text-white transition-colors">
                       All Procedures
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/states" className="hover:text-white transition-colors">
+                      Costs by State
                     </Link>
                   </li>
                   <li>

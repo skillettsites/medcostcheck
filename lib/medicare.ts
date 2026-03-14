@@ -260,4 +260,101 @@ export function getStateName(abbr: string): string {
   return STATE_NAMES[abbr] || abbr;
 }
 
+/**
+ * Get all GPCI localities for a given state abbreviation.
+ */
+export function getStateLocalities(stateAbbr: string): GpciEntry[] {
+  const entries: GpciEntry[] = [];
+  const seen = new Set<string>();
+  for (const entry of Object.values(gpci)) {
+    const g = entry as GpciEntry;
+    if (g.state === stateAbbr && !seen.has(g.localityName)) {
+      seen.add(g.localityName);
+      entries.push(g);
+    }
+  }
+  return entries;
+}
+
+/**
+ * Calculate state-level average price for a procedure across all localities in that state.
+ * Returns the simple average of all locality prices for the state.
+ */
+export function getStateProcedurePrice(
+  code: string,
+  stateAbbr: string
+): {
+  avgNonFac: number;
+  avgFac: number;
+  minNonFac: number;
+  maxNonFac: number;
+  minFac: number;
+  maxFac: number;
+  localities: { name: string; nonFac: number; fac: number }[];
+} | null {
+  const proc = procedures[code];
+  if (!proc) return null;
+
+  const localities = getStateLocalities(stateAbbr);
+  if (localities.length === 0) return null;
+
+  const prices = localities.map((loc) => {
+    const { nonFac, fac } = calculatePrice(proc, loc);
+    return { name: loc.localityName, nonFac, fac };
+  });
+
+  const nonFacs = prices.map((p) => p.nonFac);
+  const facs = prices.map((p) => p.fac);
+
+  return {
+    avgNonFac: Math.round((nonFacs.reduce((a, b) => a + b, 0) / nonFacs.length) * 100) / 100,
+    avgFac: Math.round((facs.reduce((a, b) => a + b, 0) / facs.length) * 100) / 100,
+    minNonFac: Math.min(...nonFacs),
+    maxNonFac: Math.max(...nonFacs),
+    minFac: Math.min(...facs),
+    maxFac: Math.max(...facs),
+    localities: prices,
+  };
+}
+
+/**
+ * Convert state name to URL-friendly slug.
+ */
+export function stateToSlug(name: string): string {
+  return name.toLowerCase().replace(/\s+/g, '-');
+}
+
+/**
+ * Convert URL slug back to state abbreviation.
+ */
+export function slugToStateAbbr(slug: string): string | null {
+  const target = slug.toLowerCase().replace(/-/g, ' ');
+  for (const [abbr, name] of Object.entries(STATE_NAMES)) {
+    if (name.toLowerCase() === target) return abbr;
+  }
+  return null;
+}
+
+/**
+ * Convert procedure friendly name to URL slug.
+ */
+export function procedureToSlug(friendlyName: string): string {
+  return friendlyName
+    .toLowerCase()
+    .replace(/[()]/g, '')
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/-+/g, '-')
+    .replace(/^-|-$/g, '');
+}
+
+/**
+ * Find a popular procedure by its URL slug.
+ */
+export function getPopularProcedureBySlug(slug: string): PopularProcedure | null {
+  for (const proc of popularProcedures) {
+    if (procedureToSlug(proc.friendlyName) === slug) return proc;
+  }
+  return null;
+}
+
 export { CONVERSION_FACTOR };
