@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import Link from "next/link";
 import { AdSenseScript } from "@/components/AdSense";
+import { GoogleAnalytics } from "@/components/GoogleAnalytics";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -39,6 +40,7 @@ export default function RootLayout({
       <head>
         <AdSenseScript />
       </head>
+      <GoogleAnalytics />
       <body className={`${inter.className} min-h-screen flex flex-col antialiased`}>
         <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-200/80">
           <nav className="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
