@@ -28,8 +28,9 @@ export default function HomePage() {
             Updated for 2026 Medicare rates
           </div>
 
-          <h1 className="text-4xl md:text-6xl font-extrabold mb-5 leading-tight">
-            How much does your<br />
+          <h1 className="text-3xl sm:text-4xl md:text-6xl font-extrabold mb-5 leading-tight">
+            How much does your{" "}
+            <span className="hidden sm:inline"><br /></span>
             <span className="bg-gradient-to-r from-blue-200 to-cyan-200 bg-clip-text text-transparent">
               procedure cost?
             </span>
@@ -61,7 +62,7 @@ export default function HomePage() {
       {/* Trust bar */}
       <section className="bg-white border-b border-gray-100">
         <div className="max-w-6xl mx-auto px-4 py-5">
-          <div className="flex flex-wrap items-center justify-center gap-8 text-sm text-gray-500">
+          <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-8 text-sm text-gray-500">
             <span className="flex items-center gap-2">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-blue-500"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
               Official CMS data
@@ -149,7 +150,7 @@ export default function HomePage() {
               <Link
                 key={cat.slug}
                 href={`/procedures?category=${cat.slug}`}
-                className="group bg-white rounded-2xl p-6 text-center hover:shadow-lg hover:-translate-y-0.5 transition-all border border-gray-100"
+                className="group bg-white rounded-2xl p-4 sm:p-6 text-center hover:shadow-lg hover:-translate-y-0.5 transition-all border border-gray-100"
               >
                 <div className="text-4xl mb-3">{cat.icon}</div>
                 <h3 className="font-bold text-sm text-gray-900 group-hover:text-blue-700 transition-colors">

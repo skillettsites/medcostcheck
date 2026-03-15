@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import Link from "next/link";
 import { AdSenseScript } from "@/components/AdSense";
 import { GoogleAnalytics } from "@/components/GoogleAnalytics";
+import Header from "@/components/Header";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -42,40 +43,13 @@ export default function RootLayout({
       </head>
       <GoogleAnalytics />
       <body className={`${inter.className} min-h-screen flex flex-col antialiased`}>
-        <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-200/80">
-          <nav className="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
-            <Link href="/" className="flex items-center gap-2.5 group">
-              <div className="w-8 h-8 bg-gradient-to-br from-blue-600 to-indigo-600 rounded-lg flex items-center justify-center shadow-sm">
-                <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
-                  <path d="M6 9h6M9 6v6" stroke="white" strokeWidth="2.5" strokeLinecap="round" />
-                </svg>
-              </div>
-              <span className="text-xl font-extrabold text-gray-900 group-hover:text-blue-700 transition-colors">
-                Med<span className="text-blue-600">Cost</span>Check
-              </span>
-            </Link>
-            <div className="flex items-center gap-1">
-              <Link href="/procedures" className="px-3 py-2 text-sm text-gray-600 hover:text-blue-700 hover:bg-blue-50 rounded-lg transition-all">
-                Procedures
-              </Link>
-              <Link href="/states" className="px-3 py-2 text-sm text-gray-600 hover:text-blue-700 hover:bg-blue-50 rounded-lg transition-all">
-                By State
-              </Link>
-              <Link href="/save" className="px-3 py-2 text-sm text-gray-600 hover:text-blue-700 hover:bg-blue-50 rounded-lg transition-all">
-                Ways to Save
-              </Link>
-              <Link href="/about" className="px-3 py-2 text-sm text-gray-600 hover:text-blue-700 hover:bg-blue-50 rounded-lg transition-all">
-                About
-              </Link>
-            </div>
-          </nav>
-        </header>
+        <Header />
 
         <main className="flex-1">{children}</main>
 
         <footer className="bg-slate-900 text-gray-400">
           <div className="max-w-6xl mx-auto px-4 py-12">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-10 text-sm">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-10 text-sm">
               <div>
                 <div className="flex items-center gap-2.5 mb-3">
                   <div className="w-7 h-7 bg-gradient-to-br from-blue-500 to-indigo-500 rounded-lg flex items-center justify-center">

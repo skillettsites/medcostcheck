@@ -70,16 +70,16 @@ export default function ProceduresPage() {
               <table className="w-full text-sm">
                 <thead className="bg-gray-50/80 border-b border-gray-100">
                   <tr>
-                    <th className="text-left px-5 py-3.5 font-semibold text-gray-500 text-xs uppercase tracking-wide">
+                    <th className="text-left px-2 py-2 sm:px-5 sm:py-3.5 font-semibold text-gray-500 text-xs uppercase tracking-wide">
                       Procedure
                     </th>
-                    <th className="text-left px-5 py-3.5 font-semibold text-gray-500 text-xs uppercase tracking-wide hidden md:table-cell">
+                    <th className="text-left px-2 py-2 sm:px-5 sm:py-3.5 font-semibold text-gray-500 text-xs uppercase tracking-wide hidden md:table-cell">
                       CPT Code
                     </th>
-                    <th className="text-right px-5 py-3.5 font-semibold text-gray-500 text-xs uppercase tracking-wide">
+                    <th className="text-right px-2 py-2 sm:px-5 sm:py-3.5 font-semibold text-gray-500 text-xs uppercase tracking-wide">
                       Office
                     </th>
-                    <th className="text-right px-5 py-3.5 font-semibold text-gray-500 text-xs uppercase tracking-wide hidden sm:table-cell">
+                    <th className="text-right px-2 py-2 sm:px-5 sm:py-3.5 font-semibold text-gray-500 text-xs uppercase tracking-wide hidden sm:table-cell">
                       Hospital
                     </th>
                   </tr>
@@ -90,7 +90,7 @@ export default function ProceduresPage() {
                       key={proc.code}
                       className="border-t border-gray-50 hover:bg-blue-50/50 transition-colors"
                     >
-                      <td className="px-5 py-3.5">
+                      <td className="px-2 py-2 sm:px-5 sm:py-3.5">
                         <Link
                           href={`/procedure/${proc.code}`}
                           className="text-blue-700 hover:text-blue-900 hover:underline font-semibold transition-colors"
@@ -98,13 +98,13 @@ export default function ProceduresPage() {
                           {proc.friendlyName}
                         </Link>
                       </td>
-                      <td className="px-5 py-3.5 font-mono text-xs text-gray-400 hidden md:table-cell">
+                      <td className="px-2 py-2 sm:px-5 sm:py-3.5 font-mono text-xs text-gray-400 hidden md:table-cell">
                         {proc.code}
                       </td>
-                      <td className="px-5 py-3.5 text-right font-bold text-gray-900">
+                      <td className="px-2 py-2 sm:px-5 sm:py-3.5 text-right font-bold text-gray-900">
                         {formatPrice(proc.nationalNonFacPrice)}
                       </td>
-                      <td className="px-5 py-3.5 text-right text-gray-500 hidden sm:table-cell">
+                      <td className="px-2 py-2 sm:px-5 sm:py-3.5 text-right text-gray-500 hidden sm:table-cell">
                         {formatPrice(proc.nationalFacPrice)}
                       </td>
                     </tr>

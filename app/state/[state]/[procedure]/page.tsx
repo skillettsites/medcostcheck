@@ -245,9 +245,9 @@ export default async function StateProcedurePage({ params }: PageProps) {
             <table className="w-full text-sm">
               <thead className="bg-gray-50/80 border-b border-gray-100">
                 <tr>
-                  <th className="text-left px-5 py-3.5 font-semibold text-gray-500 text-xs uppercase tracking-wide">Region</th>
-                  <th className="text-right px-5 py-3.5 font-semibold text-gray-500 text-xs uppercase tracking-wide">Office Rate</th>
-                  <th className="text-right px-5 py-3.5 font-semibold text-gray-500 text-xs uppercase tracking-wide hidden sm:table-cell">Hospital Rate</th>
+                  <th className="text-left px-2 py-2 sm:px-5 sm:py-3.5 font-semibold text-gray-500 text-xs uppercase tracking-wide">Region</th>
+                  <th className="text-right px-2 py-2 sm:px-5 sm:py-3.5 font-semibold text-gray-500 text-xs uppercase tracking-wide">Office Rate</th>
+                  <th className="text-right px-2 py-2 sm:px-5 sm:py-3.5 font-semibold text-gray-500 text-xs uppercase tracking-wide hidden sm:table-cell">Hospital Rate</th>
                 </tr>
               </thead>
               <tbody>
@@ -255,9 +255,9 @@ export default async function StateProcedurePage({ params }: PageProps) {
                   .sort((a, b) => b.nonFac - a.nonFac)
                   .map((loc, i) => (
                     <tr key={i} className="border-t border-gray-50">
-                      <td className="px-5 py-3.5 font-medium text-gray-900 capitalize">{loc.name.toLowerCase()}</td>
-                      <td className="px-5 py-3.5 text-right font-bold text-gray-900">{formatPrice(loc.nonFac)}</td>
-                      <td className="px-5 py-3.5 text-right text-gray-500 hidden sm:table-cell">{formatPrice(loc.fac)}</td>
+                      <td className="px-2 py-2 sm:px-5 sm:py-3.5 font-medium text-gray-900 capitalize">{loc.name.toLowerCase()}</td>
+                      <td className="px-2 py-2 sm:px-5 sm:py-3.5 text-right font-bold text-gray-900">{formatPrice(loc.nonFac)}</td>
+                      <td className="px-2 py-2 sm:px-5 sm:py-3.5 text-right text-gray-500 hidden sm:table-cell">{formatPrice(loc.fac)}</td>
                     </tr>
                   ))}
               </tbody>

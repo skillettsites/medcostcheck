@@ -60,15 +60,15 @@ export default function StatesPage() {
         <table className="w-full text-sm">
           <thead className="bg-gray-50/80 border-b border-gray-100">
             <tr>
-              <th className="text-left px-5 py-3.5 font-semibold text-gray-500 text-xs uppercase tracking-wide">State</th>
-              <th className="text-right px-5 py-3.5 font-semibold text-gray-500 text-xs uppercase tracking-wide">Avg Office Visit</th>
-              <th className="text-right px-5 py-3.5 font-semibold text-gray-500 text-xs uppercase tracking-wide hidden sm:table-cell">vs National Avg</th>
+              <th className="text-left px-2 py-2 sm:px-5 sm:py-3.5 font-semibold text-gray-500 text-xs uppercase tracking-wide">State</th>
+              <th className="text-right px-2 py-2 sm:px-5 sm:py-3.5 font-semibold text-gray-500 text-xs uppercase tracking-wide">Avg Office Visit</th>
+              <th className="text-right px-2 py-2 sm:px-5 sm:py-3.5 font-semibold text-gray-500 text-xs uppercase tracking-wide hidden sm:table-cell">vs National Avg</th>
             </tr>
           </thead>
           <tbody>
             {statesWithPrices.map((state) => (
               <tr key={state.abbr} className="border-t border-gray-50 hover:bg-blue-50/50 transition-colors">
-                <td className="px-5 py-3.5">
+                <td className="px-2 py-2 sm:px-5 sm:py-3.5">
                   <Link
                     href={`/state/${stateToSlug(state.name)}`}
                     className="text-blue-700 hover:text-blue-900 hover:underline font-semibold transition-colors"
@@ -76,10 +76,10 @@ export default function StatesPage() {
                     {state.name}
                   </Link>
                 </td>
-                <td className="px-5 py-3.5 text-right font-bold text-gray-900">
+                <td className="px-2 py-2 sm:px-5 sm:py-3.5 text-right font-bold text-gray-900">
                   {formatPrice(state.price)}
                 </td>
-                <td className={`px-5 py-3.5 text-right font-semibold hidden sm:table-cell ${state.diff > 2 ? "text-red-600" : state.diff < -2 ? "text-green-600" : "text-gray-500"}`}>
+                <td className={`px-2 py-2 sm:px-5 sm:py-3.5 text-right font-semibold hidden sm:table-cell ${state.diff > 2 ? "text-red-600" : state.diff < -2 ? "text-green-600" : "text-gray-500"}`}>
                   {state.diff > 0 ? "+" : ""}{state.diff.toFixed(1)}%
                 </td>
               </tr>

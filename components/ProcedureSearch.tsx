@@ -131,7 +131,7 @@ export default function ProcedureSearch({ zip }: { zip?: string }) {
           <label className="block text-xs font-semibold text-blue-200/80 mb-1.5 uppercase tracking-wide">
             Search Procedure
           </label>
-          <div className="flex gap-2">
+          <div className="flex flex-col sm:flex-row gap-2">
             <div className="relative flex-1">
               <input
                 type="text"

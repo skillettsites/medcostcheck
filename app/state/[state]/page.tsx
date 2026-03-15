@@ -93,7 +93,7 @@ export default async function StatePage({ params }: PageProps) {
   return (
     <div className="max-w-6xl mx-auto px-4 py-10">
       {/* Breadcrumb */}
-      <nav className="flex items-center gap-2 text-sm text-gray-400 mb-8">
+      <nav className="flex items-center gap-2 text-sm text-gray-400 mb-8 flex-wrap">
         <Link href="/" className="hover:text-blue-600 transition-colors">Home</Link>
         <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M4 2l4 4-4 4" /></svg>
         <Link href="/procedures" className="hover:text-blue-600 transition-colors">Procedures</Link>
@@ -146,19 +146,19 @@ export default async function StatePage({ params }: PageProps) {
             <table className="w-full text-sm">
               <thead className="bg-gray-50/80 border-b border-gray-100">
                 <tr>
-                  <th className="text-left px-5 py-3.5 font-semibold text-gray-500 text-xs uppercase tracking-wide">Locality</th>
-                  <th className="text-right px-5 py-3.5 font-semibold text-gray-500 text-xs uppercase tracking-wide">Work GPCI</th>
-                  <th className="text-right px-5 py-3.5 font-semibold text-gray-500 text-xs uppercase tracking-wide">PE GPCI</th>
-                  <th className="text-right px-5 py-3.5 font-semibold text-gray-500 text-xs uppercase tracking-wide hidden sm:table-cell">MP GPCI</th>
+                  <th className="text-left px-2 py-2 sm:px-5 sm:py-3.5 font-semibold text-gray-500 text-xs uppercase tracking-wide">Locality</th>
+                  <th className="text-right px-2 py-2 sm:px-5 sm:py-3.5 font-semibold text-gray-500 text-xs uppercase tracking-wide">Work GPCI</th>
+                  <th className="text-right px-2 py-2 sm:px-5 sm:py-3.5 font-semibold text-gray-500 text-xs uppercase tracking-wide">PE GPCI</th>
+                  <th className="text-right px-2 py-2 sm:px-5 sm:py-3.5 font-semibold text-gray-500 text-xs uppercase tracking-wide hidden sm:table-cell">MP GPCI</th>
                 </tr>
               </thead>
               <tbody>
                 {localities.map((loc, i) => (
                   <tr key={i} className="border-t border-gray-50">
-                    <td className="px-5 py-3.5 font-medium text-gray-900 capitalize">{loc.localityName.toLowerCase()}</td>
-                    <td className="px-5 py-3.5 text-right text-gray-600">{loc.pwGpci.toFixed(3)}</td>
-                    <td className="px-5 py-3.5 text-right text-gray-600">{loc.peGpci.toFixed(3)}</td>
-                    <td className="px-5 py-3.5 text-right text-gray-600 hidden sm:table-cell">{loc.mpGpci.toFixed(3)}</td>
+                    <td className="px-2 py-2 sm:px-5 sm:py-3.5 font-medium text-gray-900 capitalize">{loc.localityName.toLowerCase()}</td>
+                    <td className="px-2 py-2 sm:px-5 sm:py-3.5 text-right text-gray-600">{loc.pwGpci.toFixed(3)}</td>
+                    <td className="px-2 py-2 sm:px-5 sm:py-3.5 text-right text-gray-600">{loc.peGpci.toFixed(3)}</td>
+                    <td className="px-2 py-2 sm:px-5 sm:py-3.5 text-right text-gray-600 hidden sm:table-cell">{loc.mpGpci.toFixed(3)}</td>
                   </tr>
                 ))}
               </tbody>
@@ -181,16 +181,16 @@ export default async function StatePage({ params }: PageProps) {
           <table className="w-full text-sm">
             <thead className="bg-gray-50/80 border-b border-gray-100">
               <tr>
-                <th className="text-left px-5 py-3.5 font-semibold text-gray-500 text-xs uppercase tracking-wide">Procedure</th>
-                <th className="text-right px-5 py-3.5 font-semibold text-gray-500 text-xs uppercase tracking-wide">{stateName}</th>
-                <th className="text-right px-5 py-3.5 font-semibold text-gray-500 text-xs uppercase tracking-wide hidden sm:table-cell">National Avg</th>
-                <th className="text-right px-5 py-3.5 font-semibold text-gray-500 text-xs uppercase tracking-wide hidden md:table-cell">Difference</th>
+                <th className="text-left px-2 py-2 sm:px-5 sm:py-3.5 font-semibold text-gray-500 text-xs uppercase tracking-wide">Procedure</th>
+                <th className="text-right px-2 py-2 sm:px-5 sm:py-3.5 font-semibold text-gray-500 text-xs uppercase tracking-wide">{stateName}</th>
+                <th className="text-right px-2 py-2 sm:px-5 sm:py-3.5 font-semibold text-gray-500 text-xs uppercase tracking-wide hidden sm:table-cell">National Avg</th>
+                <th className="text-right px-2 py-2 sm:px-5 sm:py-3.5 font-semibold text-gray-500 text-xs uppercase tracking-wide hidden md:table-cell">Difference</th>
               </tr>
             </thead>
             <tbody>
               {proceduresWithPrices.map((proc) => (
                 <tr key={proc.code} className="border-t border-gray-50 hover:bg-blue-50/50 transition-colors">
-                  <td className="px-5 py-3.5">
+                  <td className="px-2 py-2 sm:px-5 sm:py-3.5">
                     <Link
                       href={`/state/${slug}/${procedureToSlug(proc.friendlyName)}`}
                       className="text-blue-700 hover:text-blue-900 hover:underline font-semibold transition-colors"
@@ -198,13 +198,13 @@ export default async function StatePage({ params }: PageProps) {
                       {proc.friendlyName}
                     </Link>
                   </td>
-                  <td className="px-5 py-3.5 text-right font-bold text-gray-900">
+                  <td className="px-2 py-2 sm:px-5 sm:py-3.5 text-right font-bold text-gray-900">
                     {formatPrice(proc.stateAvgNonFac)}
                   </td>
-                  <td className="px-5 py-3.5 text-right text-gray-500 hidden sm:table-cell">
+                  <td className="px-2 py-2 sm:px-5 sm:py-3.5 text-right text-gray-500 hidden sm:table-cell">
                     {formatPrice(proc.nationalNonFacPrice)}
                   </td>
-                  <td className={`px-5 py-3.5 text-right font-semibold hidden md:table-cell ${proc.diff > 2 ? "text-red-600" : proc.diff < -2 ? "text-green-600" : "text-gray-500"}`}>
+                  <td className={`px-2 py-2 sm:px-5 sm:py-3.5 text-right font-semibold hidden md:table-cell ${proc.diff > 2 ? "text-red-600" : proc.diff < -2 ? "text-green-600" : "text-gray-500"}`}>
                     {proc.diff > 0 ? "+" : ""}{proc.diff.toFixed(1)}%
                   </td>
                 </tr>
