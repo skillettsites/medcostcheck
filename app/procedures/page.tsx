@@ -5,6 +5,8 @@ import {
   getCategories,
 } from "@/lib/medicare";
 
+export const revalidate = 86400; // 24 hours
+
 export const metadata: Metadata = {
   title: "All Medical Procedures",
   description:

@@ -10,6 +10,8 @@ import {
 } from "@/lib/medicare";
 import ProcedureSearch from "@/components/ProcedureSearch";
 
+export const revalidate = 86400; // 24 hours
+
 interface PageProps {
   params: Promise<{ code: string }>;
   searchParams: Promise<{ zip?: string }>;
