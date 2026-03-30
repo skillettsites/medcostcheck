@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import Link from "next/link";
 import { AdSenseScript } from "@/components/AdSense";
+import { Analytics } from '@vercel/analytics/react';
 import { GoogleAnalytics } from "@/components/GoogleAnalytics";
 import Header from "@/components/Header";
 import "./globals.css";
@@ -118,6 +119,7 @@ export default function RootLayout({
             </div>
           </div>
         </footer>
+        <Analytics />
       </body>
     </html>
   );
