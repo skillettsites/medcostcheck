@@ -42,8 +42,8 @@ export default function RootLayout({
       <head>
         <AdSenseScript />
       </head>
-      <GoogleAnalytics />
       <body className={`${inter.className} min-h-screen flex flex-col antialiased`}>
+        <GoogleAnalytics />
         <Header />
 
         <main className="flex-1">{children}</main>
