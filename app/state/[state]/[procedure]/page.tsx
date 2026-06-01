@@ -13,6 +13,8 @@ import {
   CONVERSION_FACTOR,
 } from "@/lib/medicare";
 import ProcedureSearch from "@/components/ProcedureSearch";
+import JsonLd from "@/components/JsonLd";
+import { breadcrumbSchema, faqSchema, medicalWebPageSchema } from "@/lib/schema";
 
 export const revalidate = 86400; // 24 hours
 
@@ -51,6 +53,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   return {
     title: `${proc.friendlyName} Cost in ${stateName} (2026)`,
     description: `How much does ${proc.friendlyName.toLowerCase()} cost in ${stateName}? Average Medicare rate: $${price}. Compare office vs hospital pricing, see regional variations, and find ways to save. CPT code ${proc.code}.`,
+    alternates: { canonical: `/state/${stateSlug}/${procSlug}` },
   };
 }
 
@@ -138,8 +141,52 @@ export default async function StateProcedurePage({ params }: PageProps) {
   const cheapestState = stateComparisons[0];
   const mostExpensiveState = stateComparisons[stateComparisons.length - 1];
 
+  const procLower = proc.friendlyName.toLowerCase();
+  const vsNational =
+    diff > 2
+      ? `about ${Math.abs(diff).toFixed(0)}% higher than the national average of ${formatPrice(nationalNonFac)}`
+      : diff < -2
+        ? `about ${Math.abs(diff).toFixed(0)}% lower than the national average of ${formatPrice(nationalNonFac)}`
+        : `close to the national average of ${formatPrice(nationalNonFac)}`;
+
+  // FAQ content is rendered visibly below AND emitted as FAQPage schema (they must match).
+  const faqs = [
+    {
+      q: `How much does ${procLower} cost in ${stateName}?`,
+      a: `The average 2026 Medicare rate for ${procLower} (CPT ${proc.code}) in ${stateName} is ${formatPrice(statePrice.avgNonFac)} in an office setting and ${formatPrice(statePrice.avgFac)} in a hospital. Private insurance typically pays ${formatPriceRound(primaryPrice * 1.3)} to ${formatPriceRound(primaryPrice * 2.0)}, and self-pay cash prices often run ${formatPriceRound(primaryPrice * 0.8)} to ${formatPriceRound(primaryPrice * 1.5)}.`,
+    },
+    {
+      q: `Is ${procLower} cheaper in ${stateName} than the national average?`,
+      a: `${stateName} is ${vsNational}. Across all states, ${stateName} ranks #${currentRank} of ${stateComparisons.length} for this procedure. The cheapest state is ${cheapestState.name} (${formatPrice(cheapestState.avgNonFac)}) and the most expensive is ${mostExpensiveState.name} (${formatPrice(mostExpensiveState.avgNonFac)}).`,
+    },
+    {
+      q: `What will I pay out of pocket for ${procLower} in ${stateName} with Medicare?`,
+      a: `Medicare patients typically pay 20% of the Medicare rate after meeting their deductible. In ${stateName} that is roughly ${formatPriceRound(statePrice.avgNonFac * 0.2)} for an office visit or ${formatPriceRound(statePrice.avgFac * 0.2)} in a hospital setting.`,
+    },
+    {
+      q: `How can I save on ${procLower} in ${stateName}?`,
+      a: `Ask providers for a cash or self-pay price before scheduling; many in ${stateName} reduce fees 20% to 40% for self-pay patients. If you are uninsured, comparing marketplace plans, using telehealth for consultations, and checking prescription discount cards can cut costs further.`,
+    },
+  ];
+
+  const url = `/state/${stateSlug}/${procSlug}`;
+  const schema = [
+    breadcrumbSchema([
+      { name: "Home", url: "/" },
+      { name: stateName, url: `/state/${stateSlug}` },
+      { name: `${proc.friendlyName} Cost`, url },
+    ]),
+    medicalWebPageSchema({
+      name: `${proc.friendlyName} Cost in ${stateName} (2026)`,
+      description: `Average Medicare, private insurance and self-pay cost for ${procLower} (CPT ${proc.code}) in ${stateName}, with regional and state-by-state comparison.`,
+      url,
+    }),
+    faqSchema(faqs),
+  ];
+
   return (
     <div className="max-w-5xl mx-auto px-4 py-10">
+      <JsonLd data={schema} />
       {/* Breadcrumb */}
       <nav className="flex items-center gap-2 text-sm text-gray-400 mb-8 flex-wrap">
         <Link href="/" className="hover:text-blue-600 transition-colors">Home</Link>
@@ -420,6 +467,21 @@ export default async function StateProcedurePage({ params }: PageProps) {
               </Link>
             );
           })}
+        </div>
+      </div>
+
+      {/* FAQ */}
+      <div className="mb-12">
+        <h2 className="text-xl font-bold text-gray-900 mb-5">
+          {proc.friendlyName} in {stateName}: Frequently Asked Questions
+        </h2>
+        <div className="space-y-4">
+          {faqs.map((f) => (
+            <div key={f.q} className="bg-white border border-gray-100 rounded-2xl p-5 shadow-sm">
+              <h3 className="font-bold text-sm text-gray-900 mb-2">{f.q}</h3>
+              <p className="text-sm text-gray-600 leading-relaxed">{f.a}</p>
+            </div>
+          ))}
         </div>
       </div>
 

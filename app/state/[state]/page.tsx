@@ -12,6 +12,8 @@ import {
   procedureToSlug,
   CONVERSION_FACTOR,
 } from "@/lib/medicare";
+import JsonLd from "@/components/JsonLd";
+import { breadcrumbSchema, faqSchema, medicalWebPageSchema } from "@/lib/schema";
 
 export const revalidate = 86400; // 24 hours
 
@@ -38,6 +40,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   return {
     title: `Medical Procedure Costs in ${stateName} (2026)`,
     description: `How much do medical procedures cost in ${stateName}? Compare Medicare rates for MRIs, surgeries, office visits, and more. Free cost lookup with 2026 pricing data for ${stateName}.`,
+    alternates: { canonical: `/state/${slug}` },
   };
 }
 
@@ -92,8 +95,49 @@ export default async function StatePage({ params }: PageProps) {
 
   const costLabel = avgDiff > 2 ? "above" : avgDiff < -2 ? "below" : "near";
 
+  const examples = proceduresWithPrices.slice(0, 3)
+    .map((p) => `${p.friendlyName.toLowerCase()} around ${formatPrice(p.stateAvgNonFac)}`)
+    .join(", ");
+
+  // Visible FAQ below + FAQPage schema (kept identical).
+  const faqs = [
+    {
+      q: `How much do medical procedures cost in ${stateName}?`,
+      a: `Medicare procedure costs in ${stateName} are generally ${costLabel} the national average${avgDiff > 2 || avgDiff < -2 ? ` by about ${Math.abs(avgDiff).toFixed(0)}%` : ""}. For example: ${examples}. Private insurance typically pays 130-200% of these Medicare rates and self-pay cash prices vary by provider.`,
+    },
+    {
+      q: `Why do procedure costs vary within ${stateName}?`,
+      a: localities.length > 1
+        ? `Medicare divides ${stateName} into ${localities.length} pricing localities, each with its own geographic adjustment, so the same procedure can cost more in higher-cost metro areas than in rural ones. Enter your ZIP code for locality-specific pricing.`
+        : `${stateName} has a single Medicare pricing locality, so Medicare rates are consistent statewide. Actual charges still vary by provider and setting (office vs hospital).`,
+    },
+    {
+      q: `What do Medicare patients pay for procedures in ${stateName}?`,
+      a: `Medicare patients in ${stateName} typically pay 20% of the Medicare-approved amount after meeting their Part B deductible, with Medicare covering the other 80%. Supplemental (Medigap) plans can cover most of that 20% coinsurance.`,
+    },
+    {
+      q: `How can I save on medical procedures in ${stateName}?`,
+      a: `Ask each provider for a self-pay or cash price before scheduling, as many in ${stateName} discount 20-40% for upfront payment. If you are uninsured, compare marketplace insurance plans, use telehealth for consultations, and check prescription discount cards.`,
+    },
+  ];
+
+  const schema = [
+    breadcrumbSchema([
+      { name: "Home", url: "/" },
+      { name: "Procedures", url: "/procedures" },
+      { name: stateName, url: `/state/${slug}` },
+    ]),
+    medicalWebPageSchema({
+      name: `Medical Procedure Costs in ${stateName} (2026)`,
+      description: `2026 Medicare procedure costs in ${stateName} across ${localities.length} pricing ${localities.length === 1 ? "locality" : "localities"}, with national comparison and ways to save.`,
+      url: `/state/${slug}`,
+    }),
+    faqSchema(faqs),
+  ];
+
   return (
     <div className="max-w-6xl mx-auto px-4 py-10">
+      <JsonLd data={schema} />
       {/* Breadcrumb */}
       <nav className="flex items-center gap-2 text-sm text-gray-400 mb-8 flex-wrap">
         <Link href="/" className="hover:text-blue-600 transition-colors">Home</Link>
@@ -315,6 +359,21 @@ export default async function StatePage({ params }: PageProps) {
               </Link>
             );
           })}
+        </div>
+      </div>
+
+      {/* FAQ */}
+      <div className="mb-12">
+        <h2 className="text-xl font-bold text-gray-900 mb-5">
+          Medical Costs in {stateName}: Frequently Asked Questions
+        </h2>
+        <div className="space-y-4">
+          {faqs.map((f) => (
+            <div key={f.q} className="bg-white border border-gray-100 rounded-2xl p-5 shadow-sm">
+              <h3 className="font-bold text-sm text-gray-900 mb-2">{f.q}</h3>
+              <p className="text-sm text-gray-600 leading-relaxed">{f.a}</p>
+            </div>
+          ))}
         </div>
       </div>
 

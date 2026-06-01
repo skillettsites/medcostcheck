@@ -9,6 +9,8 @@ import {
   CONVERSION_FACTOR,
 } from "@/lib/medicare";
 import ProcedureSearch from "@/components/ProcedureSearch";
+import JsonLd from "@/components/JsonLd";
+import { breadcrumbSchema, faqSchema, medicalWebPageSchema } from "@/lib/schema";
 
 export const revalidate = 86400; // 24 hours
 
@@ -36,6 +38,8 @@ export async function generateMetadata({ params, searchParams }: PageProps): Pro
   return {
     title: `${name} Cost${zipText} (${code})`,
     description: `How much does ${name.toLowerCase()} cost${zipText}? Medicare rate: $${price}. Compare office vs hospital pricing. CPT code ${code}. Free lookup powered by 2026 Medicare data.`,
+    // Canonical is the clean URL so ?zip= variants consolidate to one indexable page.
+    alternates: { canonical: `/procedure/${code}` },
   };
 }
 
@@ -93,8 +97,47 @@ export default async function ProcedurePage({ params, searchParams }: PageProps)
   const nationalNonFac = Math.round(proc.nonFacTotal * CONVERSION_FACTOR * 100) / 100;
   const nationalFac = Math.round(proc.facTotal * CONVERSION_FACTOR * 100) / 100;
 
+  const name = friendlyName || proc.description;
+  const nameLower = name.toLowerCase();
+  const primaryPrice = Math.max(nationalNonFac, nationalFac);
+
+  // Visible FAQ below + matching FAQPage schema.
+  const faqs = [
+    {
+      q: `How much does ${nameLower} cost?`,
+      a: `The 2026 national Medicare rate for ${nameLower} (CPT ${code}) is ${formatPrice(nationalNonFac)} in an office setting and ${formatPrice(nationalFac)} in a hospital. Private insurance usually pays ${formatPriceRound(primaryPrice * 1.3)} to ${formatPriceRound(primaryPrice * 2.0)}, and self-pay cash prices often run ${formatPriceRound(primaryPrice * 0.8)} to ${formatPriceRound(primaryPrice * 1.5)}. Enter your ZIP code for a locality-adjusted rate.`,
+    },
+    {
+      q: `Why does ${nameLower} cost more in a hospital than an office?`,
+      a: `Medicare pays a separate facility fee to hospitals, so the hospital (facility) rate of ${formatPrice(nationalFac)} differs from the office (non-facility) rate of ${formatPrice(nationalNonFac)}. Where clinically appropriate, having the procedure in an office or outpatient setting is often cheaper.`,
+    },
+    {
+      q: `What is CPT code ${code}?`,
+      a: `CPT code ${code} is the standard medical billing code for ${nameLower}. Providers use it to bill insurers, and Medicare sets a national reimbursement rate for it that is adjusted by geographic locality.`,
+    },
+    {
+      q: `How can I pay less for ${nameLower}?`,
+      a: `Ask the provider for a self-pay or cash price before booking, as many discount 20-40% for upfront payment. If you are uninsured, compare marketplace insurance plans, consider telehealth for the consultation, and check prescription discount cards for any follow-up medication.`,
+    },
+  ];
+
+  const schema = [
+    breadcrumbSchema([
+      { name: "Home", url: "/" },
+      { name: "Procedures", url: "/procedures" },
+      { name, url: `/procedure/${code}` },
+    ]),
+    medicalWebPageSchema({
+      name: `${name} Cost (CPT ${code}, 2026)`,
+      description: `2026 Medicare, private insurance and self-pay cost for ${nameLower} (CPT ${code}), with office vs hospital pricing and ZIP-level lookup.`,
+      url: `/procedure/${code}`,
+    }),
+    faqSchema(faqs),
+  ];
+
   return (
     <div className="max-w-5xl mx-auto px-4 py-10">
+      <JsonLd data={schema} />
       {/* Breadcrumb */}
       <nav className="flex items-center gap-2 text-sm text-gray-400 mb-8">
         <Link href="/" className="hover:text-blue-600 transition-colors">Home</Link>
@@ -328,6 +371,21 @@ export default async function ProcedurePage({ params, searchParams }: PageProps)
           <Link href="/save" className="text-xs text-blue-600 hover:text-blue-800 font-bold">
             More ways to save &rarr;
           </Link>
+        </div>
+      </div>
+
+      {/* FAQ */}
+      <div className="mb-12">
+        <h2 className="text-xl font-bold text-gray-900 mb-5">
+          {name} (CPT {code}): Frequently Asked Questions
+        </h2>
+        <div className="space-y-4">
+          {faqs.map((f) => (
+            <div key={f.q} className="bg-white border border-gray-100 rounded-2xl p-5 shadow-sm">
+              <h3 className="font-bold text-sm text-gray-900 mb-2">{f.q}</h3>
+              <p className="text-sm text-gray-600 leading-relaxed">{f.a}</p>
+            </div>
+          ))}
         </div>
       </div>
 
