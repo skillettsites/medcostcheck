@@ -1,13 +1,20 @@
 import { NextRequest, NextResponse } from "next/server";
 import { searchProcedures, getPopularProcedures } from "@/lib/medicare";
 
-export async function GET(request: NextRequest) {
-  const q = request.nextUrl.searchParams.get("q") || "";
+// A handful of common lay phrases that map cleanly onto a single indexed term.
+// Kept deliberately small and hand-verified: generic suffix-stripping (e.g.
+// removing "test" or "exam" from any query) was tried and rejected because it
+// produces false matches, "blood" matches "Repair major blood vessel" and
+// "eye" matches "Blepharoplasty eyelid" surgery, which would be actively
+// misleading on a factual pricing site. Only add entries here once verified
+// against the real data.
+const SEARCH_ALIASES: Record<string, string> = {
+  "mri scan": "mri",
+  "ct scan": "ct",
+  "cat scan": "ct",
+};
 
-  if (q.length < 2) {
-    return NextResponse.json({ results: [] });
-  }
-
+function runSearch(q: string) {
   const query = q.toLowerCase();
   const popular = getPopularProcedures();
   const popularMap = new Map(popular.map((p) => [p.code, p.friendlyName]));
@@ -38,5 +45,24 @@ export async function GET(request: NextRequest) {
     results.push({ code: p.code, description: p.description, friendlyName: popularMap.get(p.code) });
   }
 
-  return NextResponse.json({ results: results.slice(0, 15) });
+  return results.slice(0, 15);
+}
+
+export async function GET(request: NextRequest) {
+  const q = request.nextUrl.searchParams.get("q") || "";
+
+  if (q.length < 2) {
+    return NextResponse.json({ results: [] });
+  }
+
+  let results = runSearch(q);
+
+  if (results.length === 0) {
+    const alias = SEARCH_ALIASES[q.toLowerCase().trim()];
+    if (alias) {
+      results = runSearch(alias);
+    }
+  }
+
+  return NextResponse.json({ results });
 }

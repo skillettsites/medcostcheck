@@ -47,6 +47,7 @@ export default function ProcedureSearch({ zip }: { zip?: string }) {
         setShowResults(true);
       } catch {
         setResults([]);
+        setShowResults(true);
       }
       setLoading(false);
     }, 200);
@@ -155,6 +156,20 @@ export default function ProcedureSearch({ zip }: { zip?: string }) {
               Check Cost
             </button>
           </div>
+
+          {showResults && !loading && query.length >= 2 && results.length === 0 && (
+            <div className="absolute z-50 w-full mt-2 bg-white border border-gray-200 rounded-xl shadow-2xl p-5 text-center">
+              <p className="text-gray-600 text-sm mb-3">
+                No exact match for &ldquo;{query}&rdquo;. Try a different term, or browse all procedures instead.
+              </p>
+              <a
+                href="/procedures"
+                className="text-sm font-semibold text-blue-600 hover:text-blue-700 underline"
+              >
+                Browse All 7,500+ Procedures
+              </a>
+            </div>
+          )}
 
           {showResults && results.length > 0 && (
             <div className="absolute z-50 w-full mt-2 bg-white border border-gray-200 rounded-xl shadow-2xl max-h-80 overflow-y-auto">
