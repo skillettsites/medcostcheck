@@ -9,10 +9,15 @@ interface SearchResult {
   friendlyName?: string;
 }
 
+// Real, verified-to-exist searches so a first-time visitor never has to
+// guess what to type. Clicking one runs the exact same search as typing it.
+const QUICK_START_TERMS = ["MRI", "Colonoscopy", "Knee Replacement", "X-Ray", "Office Visit", "Cataract Surgery"];
+
 export default function ProcedureSearch({ zip }: { zip?: string }) {
   const [query, setQuery] = useState("");
   const [zipCode, setZipCode] = useState(zip || "");
   const [results, setResults] = useState<SearchResult[]>([]);
+  const [suggestions, setSuggestions] = useState<SearchResult[]>([]);
   const [showResults, setShowResults] = useState(false);
   const [loading, setLoading] = useState(false);
   const [zipError, setZipError] = useState(false);
@@ -35,6 +40,7 @@ export default function ProcedureSearch({ zip }: { zip?: string }) {
   useEffect(() => {
     if (query.length < 2) {
       setResults([]);
+      setSuggestions([]);
       return;
     }
 
@@ -44,9 +50,11 @@ export default function ProcedureSearch({ zip }: { zip?: string }) {
         const res = await fetch(`/api/search?q=${encodeURIComponent(query)}`);
         const data = await res.json();
         setResults(data.results || []);
+        setSuggestions(data.suggestions || []);
         setShowResults(true);
       } catch {
         setResults([]);
+        setSuggestions([]);
         setShowResults(true);
       }
       setLoading(false);
@@ -54,6 +62,10 @@ export default function ProcedureSearch({ zip }: { zip?: string }) {
 
     return () => clearTimeout(timer);
   }, [query]);
+
+  function handleQuickStart(term: string) {
+    setQuery(term);
+  }
 
   function handleSelect(code: string) {
     if (!hasValidZip) {
@@ -160,8 +172,23 @@ export default function ProcedureSearch({ zip }: { zip?: string }) {
           {showResults && !loading && query.length >= 2 && results.length === 0 && (
             <div className="absolute z-50 w-full mt-2 bg-white border border-gray-200 rounded-xl shadow-2xl p-5 text-center">
               <p className="text-gray-600 text-sm mb-3">
-                No exact match for &ldquo;{query}&rdquo;. Try a different term, or browse all procedures instead.
+                No exact match for &ldquo;{query}&rdquo;. This tool covers Medicare-billed procedures, so
+                dental, vision and routine lab work aren&rsquo;t included yet. Try one of these instead:
               </p>
+              {suggestions.length > 0 && (
+                <div className="flex flex-wrap gap-2 justify-center mb-4">
+                  {suggestions.map((s) => (
+                    <button
+                      key={s.code}
+                      type="button"
+                      onClick={() => handleSelect(s.code)}
+                      className="text-sm font-medium text-blue-700 bg-blue-50 hover:bg-blue-100 rounded-lg px-3 py-1.5 transition-colors"
+                    >
+                      {s.friendlyName || s.description}
+                    </button>
+                  ))}
+                </div>
+              )}
               <a
                 href="/procedures"
                 className="text-sm font-semibold text-blue-600 hover:text-blue-700 underline"
@@ -196,6 +223,22 @@ export default function ProcedureSearch({ zip }: { zip?: string }) {
                       {r.description}
                     </span>
                   )}
+                </button>
+              ))}
+            </div>
+          )}
+
+          {query.length === 0 && (
+            <div className="flex flex-wrap items-center gap-2 mt-3">
+              <span className="text-xs text-blue-200/70 font-medium">Popular:</span>
+              {QUICK_START_TERMS.map((term) => (
+                <button
+                  key={term}
+                  type="button"
+                  onClick={() => handleQuickStart(term)}
+                  className="text-xs font-medium text-white/80 bg-white/10 hover:bg-white/20 border border-white/20 rounded-full px-3 py-1 transition-colors"
+                >
+                  {term}
                 </button>
               ))}
             </div>

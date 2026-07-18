@@ -12,6 +12,21 @@ const SEARCH_ALIASES: Record<string, string> = {
   "mri scan": "mri",
   "ct scan": "ct",
   "cat scan": "ct",
+  "c-section": "cesarean",
+  "c section": "cesarean",
+  "csection": "cesarean",
+  "childbirth": "delivery",
+  "giving birth": "delivery",
+  "flu shot": "immunization",
+  "vaccine": "immunization",
+  "vaccination": "immunization",
+  "checkup": "office visit",
+  "check up": "office visit",
+  "annual checkup": "office visit",
+  "annual physical": "office visit",
+  "physical exam": "office visit",
+  "wellness visit": "office visit",
+  "doctor visit": "office visit",
 };
 
 function runSearch(q: string) {
@@ -62,6 +77,16 @@ export async function GET(request: NextRequest) {
     if (alias) {
       results = runSearch(alias);
     }
+  }
+
+  // No match at all, even after aliasing. Rather than dead-end the user,
+  // hand back real, verified-to-exist popular procedures so the UI can
+  // suggest something clickable instead of an empty box.
+  if (results.length === 0) {
+    const suggestions = getPopularProcedures()
+      .slice(0, 6)
+      .map((p) => ({ code: p.code, description: p.description, friendlyName: p.friendlyName }));
+    return NextResponse.json({ results, suggestions });
   }
 
   return NextResponse.json({ results });
