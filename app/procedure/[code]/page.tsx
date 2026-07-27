@@ -10,6 +10,8 @@ import {
 } from "@/lib/medicare";
 import ProcedureSearch from "@/components/ProcedureSearch";
 import JsonLd from "@/components/JsonLd";
+import ProcedureEditorial from "@/components/ProcedureEditorial";
+import { getProcedureContent } from "@/lib/procedure-content";
 import { breadcrumbSchema, faqSchema, medicalWebPageSchema } from "@/lib/schema";
 
 export const revalidate = 86400; // 24 hours
@@ -100,6 +102,7 @@ export default async function ProcedurePage({ params, searchParams }: PageProps)
   const name = friendlyName || proc.description;
   const nameLower = name.toLowerCase();
   const primaryPrice = Math.max(nationalNonFac, nationalFac);
+  const editorial = getProcedureContent(code);
 
   // Visible FAQ below + matching FAQPage schema.
   const faqs = [
@@ -322,6 +325,9 @@ export default async function ProcedurePage({ params, searchParams }: PageProps)
           </div>
         </div>
       </div>
+
+      {/* Editorial: what it is, cost drivers, billing, insurance, questions */}
+      {editorial && <ProcedureEditorial name={name} content={editorial} />}
 
       {/* Ways to save */}
       <div className="bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-100 rounded-2xl p-6 md:p-8 mb-12">

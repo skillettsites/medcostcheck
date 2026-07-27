@@ -81,6 +81,11 @@ export default function RootLayout({
                     </Link>
                   </li>
                   <li>
+                    <Link href="/guides" className="hover:text-white transition-colors">
+                      Billing &amp; Cost Guides
+                    </Link>
+                  </li>
+                  <li>
                     <Link href="/save" className="hover:text-white transition-colors">
                       Ways to Save
                     </Link>
@@ -88,6 +93,11 @@ export default function RootLayout({
                   <li>
                     <Link href="/about" className="hover:text-white transition-colors">
                       About
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/contact" className="hover:text-white transition-colors">
+                      Contact
                     </Link>
                   </li>
                   <li>

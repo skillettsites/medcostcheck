@@ -1,6 +1,7 @@
 import ProcedureSearch from "@/components/ProcedureSearch";
 import Link from "next/link";
 import { getPopularProcedures, getCategories } from "@/lib/medicare";
+import { getAllGuides } from "@/lib/guides";
 
 function formatPrice(price: number): string {
   return "$" + price.toLocaleString("en-US", { minimumFractionDigits: 0, maximumFractionDigits: 0 });
@@ -217,6 +218,46 @@ export default function HomePage() {
             View All 7,500+ Procedures
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2"><path d="M6 3l5 5-5 5"/></svg>
           </Link>
+        </div>
+      </section>
+
+      {/* Guides */}
+      <section className="bg-white py-20 border-t border-gray-100">
+        <div className="max-w-6xl mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-extrabold text-gray-900 mb-3">
+              Understand Your Medical Bills
+            </h2>
+            <p className="text-gray-500 max-w-lg mx-auto">
+              Plain-English guides to how US medical billing works and how to pay less
+            </p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            {getAllGuides().slice(0, 6).map((g) => (
+              <Link
+                key={g.slug}
+                href={`/guides/${g.slug}`}
+                className="group bg-white border border-gray-100 rounded-2xl p-5 hover:shadow-lg hover:-translate-y-0.5 transition-all"
+              >
+                <h3 className="font-bold text-gray-900 group-hover:text-blue-700 transition-colors mb-2">
+                  {g.title}
+                </h3>
+                <p className="text-sm text-gray-500 leading-relaxed line-clamp-2 mb-3">
+                  {g.description}
+                </p>
+                <span className="text-xs text-gray-400">{g.readingTime}</span>
+              </Link>
+            ))}
+          </div>
+          <div className="text-center mt-10">
+            <Link
+              href="/guides"
+              className="inline-flex items-center gap-2 px-8 py-3.5 border-2 border-blue-600 text-blue-600 rounded-xl hover:bg-blue-600 hover:text-white transition-all font-bold"
+            >
+              View All Guides
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2"><path d="M6 3l5 5-5 5"/></svg>
+            </Link>
+          </div>
         </div>
       </section>
 

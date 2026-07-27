@@ -173,6 +173,38 @@ export default function AboutPage() {
         </section>
 
         <section>
+          <h2 className="text-xl font-semibold text-gray-900 mb-3">
+            How We Work
+          </h2>
+          <p className="mb-3">
+            MedCostCheck is an independent, reader-supported website. We are
+            not owned by, affiliated with, or paid by any hospital, insurer, or
+            healthcare provider, and no provider can pay to change the prices
+            shown. Our estimates are computed directly from the public CMS data
+            files listed above, using the published Medicare payment formula,
+            and we refresh the data when CMS releases fee schedule updates.
+          </p>
+          <p className="mb-3">
+            Alongside the pricing tool, we publish plain-English{" "}
+            <Link href="/guides" className="text-blue-600 hover:text-blue-800 underline">
+              guides to medical billing and costs
+            </Link>{" "}
+            covering topics like reading an EOB, negotiating a bill, facility
+            fees, and the No Surprises Act. These are general education, not
+            medical, legal, or financial advice.
+          </p>
+          <p>
+            <strong>Corrections:</strong> if you spot a price, code, or
+            description that looks wrong,{" "}
+            <Link href="/contact" className="text-blue-600 hover:text-blue-800 underline">
+              contact us
+            </Link>{" "}
+            with the page URL and CPT code. We verify reports against the
+            original CMS files and correct confirmed errors on the live site.
+          </p>
+        </section>
+
+        <section>
           <h2 className="text-xl font-semibold text-gray-900 mb-3">Contact</h2>
           <p>
             Questions or feedback? Email us at{" "}

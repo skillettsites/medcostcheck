@@ -1,0 +1,1133 @@
+{
+  "10060": {
+    "whatItIs": "Incision and drainage of an abscess is a quick office or urgent care procedure for a painful, pus-filled pocket under the skin, often caused by an infected hair follicle or a staph infection. The clinician numbs the area with a local injection, makes a small cut so the abscess can drain, and may pack the cavity with gauze. Most patients are in and out in under 30 minutes and go home the same day with wound care instructions.",
+    "costFactors": [
+      "Where you go matters enormously: the same drainage in an emergency department can cost several times what a primary care office or urgent care clinic charges.",
+      "If the drained material is sent for a wound culture to identify the bacteria, the lab bills that test separately.",
+      "A prescription antibiotic afterward, especially a brand-name drug for resistant staph, adds pharmacy cost on top of the procedure.",
+      "Packing changes or a recheck visit a few days later are usually billed as separate follow-up encounters.",
+      "A larger or deeper abscess may be coded as complicated (CPT 10061), which pays at a higher rate than this simple, single-abscess code."
+    ],
+    "billingNotes": "CPT 10060 covers a simple incision and drainage of a single abscess, including the local anesthetic and the drainage itself. It does not include a wound culture, antibiotics, or supplies in some facility settings, and a visit charge (an E/M code) may be added if the clinician also evaluated a separate problem that day. In a hospital emergency department you will typically see both a physician fee and a much larger facility fee for the same ten-minute procedure.",
+    "insuranceNotes": "Most plans treat abscess drainage as a medically necessary minor procedure, so it is covered but subject to your deductible and coinsurance rather than a flat office visit copay. If it is done in an ER, your plan's ER cost sharing applies, which is usually the most expensive way to receive this care. Urgent care copays are often a fraction of ER cost sharing for exactly this kind of problem. No prior authorization is needed for drainage of an acute abscess.",
+    "questionsToAsk": [
+      "Can this be handled at urgent care or your office instead of the emergency department?",
+      "Will you send a culture to the lab, and what will that test cost me?",
+      "Is a follow-up packing change included, or is each recheck billed as a separate visit?",
+      "Will I be billed a facility fee on top of your fee at this location?",
+      "If the abscess is more complicated than expected, does the billing code and price change?"
+    ]
+  },
+  "11102": {
+    "whatItIs": "A tangential skin biopsy removes a thin shaving from the surface of a suspicious spot using a flexible blade, without cutting deep into the skin. It is the go-to technique when a dermatologist wants to test a raised or scaly lesion for skin cancer or another skin condition. The area is numbed with a small injection, the shave itself takes seconds, and no stitches are needed; the site heals like a scrape over one to two weeks.",
+    "costFactors": [
+      "The pathologist who examines the tissue under a microscope bills a separate professional fee, and that charge often exceeds the biopsy itself.",
+      "Each additional lesion shaved at the same visit is billed with an add-on code (11103), so multiple spots multiply the cost.",
+      "If the shave visit also includes a full skin exam, an office visit charge is typically billed alongside the biopsy.",
+      "Special pathology stains or a second dermatopathologist opinion on an ambiguous mole add further lab charges.",
+      "Hospital-owned dermatology clinics can add a facility fee that a private dermatology office would not charge."
+    ],
+    "billingNotes": "CPT 11102 pays for shaving the first lesion only; the laboratory work is always billed separately by the pathology lab under its own codes, frequently by a lab you have never heard of. If the doctor biopsies more than one spot, add-on code 11103 appears once per extra lesion. An evaluation and management charge for the visit is common when the biopsy decision was made the same day, so expect two or three line items from what felt like one quick appointment.",
+    "insuranceNotes": "Biopsy of a suspicious lesion is considered diagnostic and medically necessary, so it is covered by essentially all plans, but it is not preventive care, meaning your deductible and coinsurance apply even if the result comes back benign. Watch for the pathology claim: if the lab is out of network, the No Surprises Act generally protects you at in-network facilities, but confirming network status up front avoids disputes. Removal of a spot for purely cosmetic reasons is not covered at all.",
+    "questionsToAsk": [
+      "Which pathology lab will read my biopsy, and is it in my insurance network?",
+      "Roughly what does the pathology reading cost in addition to the biopsy fee?",
+      "If you biopsy more than one spot today, how does that change my bill?",
+      "Will today's skin check be billed as a separate office visit on top of the biopsy?",
+      "Is this being coded as medically necessary rather than cosmetic?"
+    ]
+  },
+  "11104": {
+    "whatItIs": "A punch biopsy uses a small round cutting tool, usually 2 to 6 millimeters across, to remove a full-thickness core of skin down through the deeper layers. Dermatologists choose it over a shave when they need to see the entire depth of the skin, for example to evaluate a rash, a suspected melanoma, or an inflammatory condition. After a numbing injection, the punch takes under a minute, and the small hole is typically closed with one or two stitches that come out in one to two weeks.",
+    "costFactors": [
+      "The separate pathology fee for processing and reading the full-thickness specimen is often the largest single charge on the bill.",
+      "Additional punches at the same visit are billed with add-on code 11105 for each extra lesion.",
+      "Because punch sites are usually sutured, a suture removal or wound check visit may generate its own charge if done as a distinct appointment.",
+      "Rash workups sometimes require special immunofluorescence or extra stains at the lab, which increases the pathology bill.",
+      "A biopsy done in a hospital-based clinic carries a facility fee on top of the physician charge."
+    ],
+    "billingNotes": "CPT 11104 covers the first punch biopsy, including the local anesthetic and the simple closure of that small site; the microscope work is billed independently by pathology. Extra lesions punched the same day use add-on code 11105 rather than repeating 11104. If a lesion is fully cut out with margins rather than sampled, that is an excision code with different, usually higher, pricing, so ask which one is planned.",
+    "insuranceNotes": "Punch biopsies performed to diagnose a suspicious lesion or unexplained rash are covered as diagnostic care under medical necessity rules, with normal deductible and coinsurance. The stitch removal itself is generally bundled into the original procedure if done by the same practice, but a billed office visit can still appear if anything else is addressed that day. As with any biopsy, an out-of-network pathology lab is the most common billing surprise, so verify it before the specimen ships.",
+    "questionsToAsk": [
+      "Why a punch rather than a shave biopsy, and does the choice change the cost?",
+      "Is my suture removal visit included, or billed separately?",
+      "Which lab reads the specimen and is it in network for my plan?",
+      "If special stains are needed for my rash, what extra lab charges should I expect?",
+      "How many sites do you plan to biopsy today, and what is the add-on charge per site?"
+    ]
+  },
+  "17000": {
+    "whatItIs": "This is the destruction, most often by liquid nitrogen freezing, of a single precancerous skin lesion such as an actinic keratosis, the rough scaly patch caused by years of sun exposure. The dermatologist sprays or dabs the lesion for a few seconds; it stings briefly, blisters or crusts over a few days, and then peels away. No anesthesia or downtime is needed, and the whole treatment adds only moments to a skin exam.",
+    "costFactors": [
+      "The code covers only the first lesion; every additional lesion frozen at the same visit is billed under add-on code 17003, and 15 or more lesions switch to code 17004.",
+      "Many patients need re-treatment at future visits because actinic keratoses recur, so annual cost is a multiple of one session.",
+      "An office visit charge is often billed alongside the freezing when the clinician also performs a skin exam or addresses other concerns.",
+      "Alternative treatments for widespread lesions, such as prescription field creams or photodynamic therapy, carry very different price tags worth comparing.",
+      "Freezing a benign spot like a plain seborrheic keratosis for appearance reasons is usually coded differently and may not be covered at all."
+    ],
+    "billingNotes": "CPT 17000 is strictly per-lesion for the first premalignant lesion destroyed; watch your explanation of benefits for 17003 line items multiplying with each additional spot. There is no separate pathology charge because nothing is removed for testing; if the doctor is unsure a lesion is precancerous, a biopsy would be a different code and would add a lab fee. Freezing done during a routine skin check commonly produces both a procedure line and a visit line on the same claim.",
+    "insuranceNotes": "Destruction of actinic keratoses is covered by Medicare and commercial plans as medically necessary because these lesions can progress to squamous cell skin cancer. It is not classified as preventive care, so deductibles and coinsurance apply. Freezing of cosmetic or clearly benign lesions, such as skin tags, is typically excluded or billed to you directly, and offices should tell you in advance when a spot will be treated as cosmetic self-pay.",
+    "questionsToAsk": [
+      "How many lesions will you treat today, and what is the charge for each additional one?",
+      "Are any of the spots you plan to freeze considered cosmetic rather than precancerous?",
+      "Will today also be billed as an office visit on top of the freezing?",
+      "If I have many lesions, would a prescription cream or field treatment be more cost-effective than repeated freezing?",
+      "How often should I expect to come back for re-treatment, and what does a typical year of visits cost?"
+    ]
+  },
+  "19301": {
+    "whatItIs": "A partial mastectomy, commonly called a lumpectomy, removes a breast tumor along with a rim of surrounding healthy tissue while preserving the rest of the breast. It is the surgical core of breast-conserving treatment for early-stage breast cancer. The operation is done under general anesthesia in a hospital or surgery center, usually takes one to two hours, and most patients go home the same day with soreness managed by oral medication.",
+    "costFactors": [
+      "Lymph node procedures done at the same time, such as sentinel node biopsy with radioactive tracer and dye, are billed as separate surgical codes.",
+      "Pre-surgical wire or radioactive seed localization to mark a tumor that cannot be felt adds a radiology procedure charge.",
+      "The anesthesia team bills separately based on the length of the operation.",
+      "Pathology charges for examining the tumor, the margins, and any lymph nodes are substantial and billed by the lab.",
+      "Hospital outpatient departments usually cost more than ambulatory surgery centers for the identical operation.",
+      "If margins come back positive, a second re-excision surgery repeats many of these charges."
+    ],
+    "billingNotes": "CPT 19301 covers the surgeon's fee for removing the tumor and closing the breast; it does not include the facility charge, anesthesia, the pathologist's analysis, imaging localization, or any lymph node surgery, each of which arrives as its own claim. The code carries a 90-day global period, so routine surgeon follow-up visits within that window should not be billed separately. Radiation therapy that typically follows lumpectomy is an entirely separate course of treatment with its own significant costs.",
+    "insuranceNotes": "Breast cancer surgery is covered by all major insurance, and federal law (the Women's Health and Cancer Rights Act) requires plans that cover mastectomy to also cover reconstruction and symmetry procedures. You will still owe your plan's deductible and out-of-pocket maximum amounts, and cancer treatment usually hits the out-of-pocket max in the first year. Prior authorization for the surgery and facility is standard, and confirming that the anesthesiologist and pathology lab are in network prevents avoidable balance issues.",
+    "questionsToAsk": [
+      "Will you also do a sentinel lymph node biopsy, and what does that add to the total?",
+      "Is the surgery scheduled at a hospital or an ambulatory surgery center, and can I choose the cheaper setting?",
+      "What happens to my costs if the margins are positive and you need to operate again?",
+      "Are the anesthesiologist and pathology lab in my network?",
+      "Which follow-up visits are included in the 90-day global surgical period?"
+    ]
+  },
+  "27130": {
+    "whatItIs": "Total hip replacement removes a worn or damaged hip joint, usually destroyed by arthritis, and replaces it with a metal, ceramic, and plastic implant. It is one of the most successful operations in medicine for relieving pain and restoring walking. The surgery takes one to two hours under general or spinal anesthesia; many patients now go home the same day or after one night, then spend several weeks in physical therapy.",
+    "costFactors": [
+      "The implant itself is a major cost component, and prices vary widely between manufacturers and hospitals.",
+      "Same-day discharge at an ambulatory surgery center can cost dramatically less than an inpatient hospital stay.",
+      "Post-operative physical therapy, whether at home, outpatient, or in a rehab facility, is a significant separate expense over weeks.",
+      "The anesthesia team bills by time, and spinal versus general anesthesia can affect both cost and recovery.",
+      "Pre-surgical clearance testing, such as labs, an ECG, and imaging, generates its own set of charges.",
+      "Robotic-assisted or computer-navigated surgery may carry additional facility charges at some hospitals."
+    ],
+    "billingNotes": "CPT 27130 is the surgeon's fee only and includes a 90-day global period covering routine post-surgical visits with the surgeon. The hospital or surgery center facility fee, which includes the implant, is by far the largest bill, and anesthesia, pre-op testing, and physical therapy all arrive separately. If you stay overnight as an inpatient, hospital billing shifts to a bundled inpatient payment structure under Medicare, while outpatient cases itemize differently, which is why quoted prices vary so much.",
+    "insuranceNotes": "Hip replacement is covered by Medicare and commercial insurance when arthritis symptoms and imaging support medical necessity, but nearly all commercial plans require prior authorization and documentation that conservative treatment, such as therapy and injections, was tried first. Medicare covers it under Part A as inpatient or Part B as outpatient depending on how the stay is classified, which changes your cost sharing. Ask whether your plan has a preferred orthopedic center or bundled-payment program, as some insurers waive or reduce cost sharing at designated joint replacement centers.",
+    "questionsToAsk": [
+      "Am I a candidate for same-day or outpatient surgery, and how much would that reduce the facility charge?",
+      "What implant brand do you use, and does my choice affect what I pay?",
+      "Has prior authorization been approved, including documentation of the conservative care I already tried?",
+      "What will physical therapy cost after surgery, and how many visits does my plan cover?",
+      "Does my insurer have a designated joint replacement center with lower out-of-pocket costs?"
+    ]
+  },
+  "27447": {
+    "whatItIs": "Total knee replacement resurfaces the ends of the thigh and shin bones and usually the kneecap with metal and plastic components after arthritis has worn away the cartilage. It is among the most common elective surgeries in the United States. The operation lasts one to two hours under spinal or general anesthesia, and recovery is more demanding than hip replacement: expect several months of dedicated physical therapy to regain bending and strength.",
+    "costFactors": [
+      "Physical therapy is a bigger cost driver here than for almost any other surgery, because knee recovery typically requires more visits over more months.",
+      "Facility choice, hospital inpatient versus outpatient surgery center, can swing the total by a large margin.",
+      "The implant system and any patient-specific or robotic-assisted instrumentation add to the facility charge.",
+      "Nerve blocks for post-operative pain control are billed by anesthesia as separate procedures.",
+      "A stay in a skilled nursing or inpatient rehab facility, if you cannot go straight home, adds a substantial per-day cost.",
+      "Manipulation under anesthesia, needed by a minority of patients whose knee stiffens, is an additional procedure with its own charges."
+    ],
+    "billingNotes": "CPT 27447 pays the surgeon and includes a 90-day global period, so the operation itself and routine surgeon follow-ups are one professional fee. Everything else is billed separately: the facility fee containing the implant, anesthesia time plus any nerve block, pre-operative clearance, and every physical therapy visit for months afterward. Medicare removed this procedure from its inpatient-only list years ago, so identical surgeries are billed as inpatient or outpatient depending on your recovery plan, with different cost-sharing consequences.",
+    "insuranceNotes": "Coverage requires documented arthritis severity and failed conservative care, and commercial insurers almost universally demand prior authorization; denials for insufficient documented therapy or injections beforehand are common and appealable. Your physical therapy benefit matters as much as your surgical benefit: check how many PT visits your plan allows per year and what each visit costs you. Some employers and insurers offer bundled knee replacement programs at centers of excellence, occasionally with travel included and cost sharing waived.",
+    "questionsToAsk": [
+      "How many physical therapy visits will I realistically need, and how many does my plan cover per year?",
+      "Can my surgery be done outpatient, and what is the price difference at each facility you operate in?",
+      "Is prior authorization fully approved, including the conservative treatment documentation?",
+      "Will I get a nerve block, and is the anesthesia group in my network?",
+      "If I need a rehab facility stay instead of going home, what would that cost under my plan?"
+    ]
+  },
+  "29881": {
+    "whatItIs": "Knee arthroscopy with meniscectomy is keyhole surgery in which the surgeon inserts a small camera into the knee and trims away the torn portion of the meniscus, the cartilage shock absorber between the bones. It treats meniscal tears causing pain, catching, or locking. The procedure takes 30 to 60 minutes under general or regional anesthesia at an outpatient surgery center, and most patients walk the same day and return to desk work within days.",
+    "costFactors": [
+      "Ambulatory surgery centers typically charge far less for this procedure than hospital outpatient departments.",
+      "A meniscus repair with sutures, if the tear pattern allows one, is a different code with a longer recovery and different pricing than simple trimming.",
+      "The pre-operative MRI that diagnosed the tear is part of the true episode cost and may still be working through your deductible.",
+      "Post-operative physical therapy visits, often 4 to 12 of them, are billed per visit on top of the surgery.",
+      "Anesthesia bills separately, and a regional nerve block for pain control adds a line item.",
+      "Any additional work done through the scope at the same time, such as cartilage smoothing, can add or change surgical codes."
+    ],
+    "billingNotes": "CPT 29881 covers the surgeon's fee for arthroscopy with removal of torn meniscus in one compartment, with a 90-day global period for routine follow-up. Facility, anesthesia, and physical therapy are separate claims, and if the surgeon performs additional procedures through the same incisions, extra codes may appear subject to multiple-procedure payment reductions. Insurers bundle simple cartilage shaving into this code, so an itemized bill listing chondroplasty separately in the same compartment is worth questioning.",
+    "insuranceNotes": "Coverage is standard for symptomatic meniscal tears, but most commercial plans require prior authorization, and several insurers now scrutinize this operation in middle-aged patients with arthritis because studies show physical therapy alone often works as well for degenerative tears. Expect your plan to ask whether you tried conservative treatment first. Medicare covers it as outpatient surgery under Part B with standard 20 percent coinsurance unless you have supplemental coverage.",
+    "questionsToAsk": [
+      "Is my tear traumatic or degenerative, and would a course of physical therapy first be a reasonable and cheaper option?",
+      "Will this be a meniscectomy or a repair, and how do the costs and recovery differ?",
+      "Can we book this at a freestanding surgery center rather than the hospital?",
+      "What other procedures might you perform once you are inside the knee, and how would they change the bill?",
+      "How many therapy visits will I need afterward and at what cost per visit?"
+    ]
+  },
+  "43235": {
+    "whatItIs": "An upper endoscopy, or EGD, passes a thin flexible camera through the mouth to examine the esophagus, stomach, and the first part of the small intestine. It investigates problems like persistent heartburn, swallowing difficulty, unexplained anemia, or upper abdominal pain. You receive sedation through an IV, the exam itself takes 10 to 20 minutes, and you go home the same day once the sedation wears off, needing a driver.",
+    "costFactors": [
+      "The choice between a hospital outpatient department and a freestanding endoscopy center is the single biggest price lever.",
+      "Sedation billed by a separate anesthesia provider, especially propofol given by an anesthesiologist or CRNA, adds a significant independent charge.",
+      "This code is the diagnostic-only exam; if the doctor takes even one biopsy the procedure is recoded to 43239 at a higher rate plus lab fees.",
+      "Pre-procedure consultation visits with the gastroenterologist are billed separately from the endoscopy itself.",
+      "Facility fees vary more than physician fees, so the same doctor can cost very different amounts at different locations."
+    ],
+    "billingNotes": "CPT 43235 covers the gastroenterologist's fee for a diagnostic look with no tissue sampling; the endoscopy center or hospital bills a separate facility fee that is usually larger, and anesthesia is a third claim when a dedicated provider gives sedation. If findings prompt biopsies, dilation, or removal of anything, the code changes and pathology charges follow. It is common to receive three or four separate bills for one 15-minute exam: physician, facility, anesthesia, and sometimes pathology.",
+    "insuranceNotes": "Diagnostic EGD for symptoms is covered as medical care subject to deductible and coinsurance; unlike colonoscopy there is no preventive screening benefit that makes it free, so expect to pay your normal share. Many commercial plans require prior authorization for non-emergency endoscopy, and some steer members toward lower-cost freestanding centers. Verify that the anesthesia provider is in network, since endoscopy sedation has historically been a common source of surprise bills.",
+    "questionsToAsk": [
+      "Can this be scheduled at a freestanding endoscopy center rather than the hospital, and what is the facility fee at each?",
+      "Who provides the sedation, what type is used, and are they in my network?",
+      "If you take biopsies during the exam, how much does the procedure code and pathology add?",
+      "Is prior authorization required and has it been obtained?",
+      "What is the all-in estimate including physician, facility, anesthesia, and pathology?"
+    ]
+  },
+  "43239": {
+    "whatItIs": "This is the same upper endoscopy camera exam of the esophagus, stomach, and duodenum, but with the physician taking one or more small tissue samples through the scope using tiny forceps. Biopsies are painless and are taken to test for conditions such as H. pylori infection, celiac disease, Barrett's esophagus, or inflammation. The exam runs 10 to 20 minutes under IV sedation, and recovery is the same as a diagnostic EGD: home the same day with a driver.",
+    "costFactors": [
+      "Pathology is the defining extra cost of this code: each biopsy jar processed and read by the lab generates its own charge, and multiple sites mean multiple jars.",
+      "The facility fee difference between hospital outpatient departments and freestanding endoscopy centers dwarfs most other line items.",
+      "Separate anesthesia billing for propofol sedation adds an independent professional charge.",
+      "Testing biopsies for H. pylori or celiac disease may involve special stains that increase the lab bill.",
+      "The physician fee for 43239 is higher than the no-biopsy code 43235, reflecting the sampling work."
+    ],
+    "billingNotes": "CPT 43239 includes taking biopsies, single or multiple, in one physician fee, so the number of samples does not change the doctor's charge; it changes the pathology lab's charge, which bills per specimen container. Expect distinct claims from the physician, the facility, the anesthesia provider, and the pathology lab. If a different therapeutic maneuver was also performed, such as dilating a narrowed esophagus, an additional or substituted code with higher payment applies.",
+    "insuranceNotes": "EGD with biopsy is diagnostic care covered under standard medical benefits with deductible and coinsurance; there is no scenario where it qualifies as free preventive screening. Prior authorization requirements mirror the diagnostic EGD, and the pathology claim is the one most likely to come from an unfamiliar, potentially out-of-network lab, so ask where specimens are sent. If your indication is surveillance of a known condition like Barrett's esophagus, coverage is routine but your cost sharing still applies each time.",
+    "questionsToAsk": [
+      "How many biopsy specimens do you expect to take, and what does the lab charge per specimen?",
+      "Which pathology lab reads the samples and is it in my network?",
+      "What is the total estimate across physician, facility, anesthesia, and pathology bills?",
+      "Would a freestanding endoscopy center lower the facility portion of my cost?",
+      "If you find something needing treatment during the exam, how could the code and price change?"
+    ]
+  },
+  "45378": {
+    "whatItIs": "A diagnostic colonoscopy examines the entire large intestine with a flexible camera inserted through the rectum, looking for the cause of symptoms such as bleeding, chronic diarrhea, or abdominal pain, or following up an abnormal stool test. You complete a bowel-cleansing prep the day before, receive IV sedation, and the exam takes 20 to 45 minutes. This specific code means the doctor looked but did not remove or sample anything; you go home the same day with a driver.",
+    "costFactors": [
+      "Facility setting is the dominant variable: hospital outpatient departments routinely charge several times what freestanding endoscopy centers do.",
+      "Anesthesia billed separately, particularly monitored propofol sedation, adds a meaningful independent charge.",
+      "If any polyp or tissue is encountered and removed, the procedure converts to a higher-paying code (45380 or 45385) plus pathology fees.",
+      "The bowel prep kit may be a pharmacy cost, with prescription-only preps costing more than over-the-counter regimens.",
+      "A pre-procedure consult with the gastroenterologist is often billed as its own office visit."
+    ],
+    "billingNotes": "CPT 45378 is the base colonoscopy code used when nothing is biopsied or removed; the physician fee, facility fee, and anesthesia fee arrive as separate claims. The moment the doctor removes a polyp or takes a sample, this code is replaced by the appropriate intervention code with higher payment plus a lab claim, which is why written estimates for colonoscopy should always show both the no-findings and with-findings scenarios. How the procedure is coded, screening versus diagnostic, is decided by the reason it was ordered, not by what was found.",
+    "insuranceNotes": "Because this code is by definition diagnostic, meaning you had symptoms or a positive stool test, standard deductible and coinsurance apply; it is not billed under the free preventive screening benefit. One important protection: under federal rules, a colonoscopy performed to follow up a positive non-invasive screening test, such as Cologuard or FIT, must be treated as part of screening by most commercial plans and by Medicare, so cost sharing should be waived; make sure it is coded that way. If you have symptoms, however, diagnostic cost sharing is unavoidable.",
+    "questionsToAsk": [
+      "Is my procedure being ordered as diagnostic or screening, and what exactly will I owe under each?",
+      "If this follows a positive Cologuard or FIT test, will it be billed with the screening modifier so my cost sharing is waived?",
+      "What are the facility fees at the hospital versus the endoscopy center you use?",
+      "Who provides sedation and are they in network?",
+      "If you find and remove a polyp, what does my estimate become?"
+    ]
+  },
+  "45380": {
+    "whatItIs": "This is a colonoscopy during which the physician passes small forceps through the scope to take one or more tissue samples, called cold biopsies, from the colon lining. It is used when the doctor sees inflammation, an unusual patch, or needs to test for conditions like microscopic colitis, which can only be diagnosed under a microscope. From the patient's perspective it is identical to any colonoscopy: prep the day before, IV sedation, a 20 to 45 minute exam, and home the same day.",
+    "costFactors": [
+      "Every biopsy container sent to the lab is billed separately by pathology, and workups for conditions like microscopic colitis involve samples from multiple colon segments.",
+      "The physician fee for 45380 is higher than the diagnostic-only code 45378 because sampling was performed.",
+      "Facility choice between hospital outpatient and freestanding endoscopy center remains the largest single price driver.",
+      "Separate anesthesia billing applies when a dedicated provider administers sedation.",
+      "If a polyp is also removed by snare during the same exam, an additional code (45385) is billed alongside this one."
+    ],
+    "billingNotes": "CPT 45380 covers biopsy sampling with cold forceps, whether one sample or many, in a single physician fee; the pathology lab then bills per specimen jar, which is where multi-sample exams get expensive. It is distinct from 45385, which is removal of polyps with a snare, and both codes can legitimately appear on the same claim if both techniques were used on different lesions. Physician, facility, anesthesia, and pathology typically produce four separate bills.",
+    "insuranceNotes": "If your colonoscopy started as a routine screening and the doctor took biopsies, federal ACA rules require most commercial plans to still treat it as screening with no cost sharing; Medicare works differently and applies coinsurance to the procedure once tissue is removed, though its share has been shrinking year by year under a phase-out schedule. If the exam was ordered for symptoms, it is diagnostic from the start and normal cost sharing applies. The pathology bill is never part of the free screening benefit, so expect to owe something for the lab work.",
+    "questionsToAsk": [
+      "Was my colonoscopy ordered as a screening or for symptoms, and how will biopsies affect what I owe under my specific plan?",
+      "How many specimen jars might be sent to pathology and what is the charge per jar?",
+      "Is the pathology lab in my insurance network?",
+      "If you also remove a polyp with a snare, will both procedure codes be billed and what does that total?",
+      "For Medicare patients: what coinsurance applies this year when a screening turns into a biopsy?"
+    ]
+  },
+  "45385": {
+    "whatItIs": "This colonoscopy code means the physician found one or more polyps and removed them using a snare, a thin wire loop that lassoes the polyp and cuts it free, often with cauterizing current. Snare removal is the standard technique for larger polyps and is the step that gives colonoscopy its cancer-preventing power, since removing precancerous polyps stops them from progressing. The patient experience is unchanged from any colonoscopy: prep, IV sedation, a 20 to 45 minute procedure, and same-day discharge.",
+    "costFactors": [
+      "Every removed polyp goes to pathology in its own container, and each container is a separate lab charge.",
+      "The physician fee for snare polypectomy is the highest of the common colonoscopy codes, above both biopsy (45380) and diagnostic (45378).",
+      "Facility setting remains the biggest overall cost lever, with hospitals charging far more than endoscopy centers.",
+      "Separately billed anesthesia adds its own professional fee.",
+      "Large or complex polyps may require advanced removal techniques or clips to close the site, which can add device and procedure charges.",
+      "Finding polyps shortens your recommended interval to the next colonoscopy, pulling that future cost closer."
+    ],
+    "billingNotes": "CPT 45385 covers snare removal of polyps, however many are removed by that technique, in one physician fee; pathology bills per specimen separately. If some lesions were snared and others sampled with forceps, both 45385 and 45380 can appear on the claim with payment adjustments for the overlap. This is the classic scenario where a free screening produces a bill: the procedure code changed because polyps were found, even though you went in for a routine screening.",
+    "insuranceNotes": "Under ACA preventive rules, commercial plans must waive cost sharing when polyp removal happens during a screening colonoscopy; if you get billed for the procedure itself after a routine screening, challenge the coding. Medicare handles it differently: polyp removal converts the claim from a fully covered screening to a procedure with coinsurance, currently being phased down to zero over several years. The pathology charges for analyzing the polyps fall outside the preventive benefit everywhere, so a lab bill after a clean screening with polypectomy is normal, not an error.",
+    "questionsToAsk": [
+      "If polyps are removed during my screening, will the procedure still be billed with the preventive modifier at no cost share to me?",
+      "What will the pathology lab charge per polyp, and is that lab in network?",
+      "For Medicare: what percentage coinsurance applies to polyp removal during a screening this year?",
+      "If you find a large polyp needing a special technique or clips, how does the cost change?",
+      "How soon will I need my next colonoscopy if polyps are found, and will that one count as screening or surveillance for coverage?"
+    ]
+  },
+  "47562": {
+    "whatItIs": "Laparoscopic cholecystectomy removes the gallbladder through four small abdominal incisions using a camera and long instruments, most often for painful gallstones or gallbladder inflammation. It is one of the most frequently performed general surgeries in the country. Under general anesthesia the operation takes about an hour, and most planned cases go home the same day, returning to normal activity within one to two weeks.",
+    "costFactors": [
+      "Whether the surgery is planned and outpatient or done urgently during a hospital admission for a gallbladder attack changes the total dramatically.",
+      "An intraoperative cholangiogram, an X-ray of the bile ducts during surgery, adds imaging and radiology charges when performed.",
+      "Conversion from laparoscopic to open surgery, needed in a small percentage of difficult cases, changes the code, extends recovery, and usually means a hospital stay.",
+      "The gallbladder is routinely sent to pathology after removal, adding a lab fee.",
+      "Anesthesia bills separately by time, and pre-operative labs and imaging carry their own charges.",
+      "Ambulatory surgery centers, where available for this operation, undercut hospital outpatient pricing."
+    ],
+    "billingNotes": "CPT 47562 is the surgeon's fee for the standard laparoscopic removal without duct X-rays; a version with cholangiography is a different code (47563) at a higher rate. The code carries a 90-day global period covering routine surgeon follow-up. Facility, anesthesia, pathology on the removed organ, and pre-operative workup are all separate claims, and emergency cases wrap the surgery inside a larger inpatient hospital bill.",
+    "insuranceNotes": "Gallbladder removal for symptomatic stones or inflammation is covered by all payers, though commercial plans commonly require prior authorization for the scheduled, non-emergency version. If you land in the ER with an attack and have surgery during that admission, coverage falls under your inpatient benefits and prior authorization is generally waived for the emergency. Scheduling electively lets you pick an in-network surgeon, facility, and anesthesia group, which is the main cost control you have with this operation.",
+    "questionsToAsk": [
+      "Can my surgery be done as a scheduled outpatient case, and at which facility is it cheapest?",
+      "Do you routinely perform a cholangiogram, and what does it add to the bill?",
+      "What happens to the cost if you need to convert to open surgery?",
+      "Are the anesthesia group and the pathology lab in my network?",
+      "Has prior authorization been approved for both the procedure and the facility?"
+    ]
+  },
+  "49650": {
+    "whatItIs": "Laparoscopic inguinal hernia repair fixes a groin hernia, a weakness where abdominal contents bulge through the muscle wall, using a camera and instruments through small incisions, almost always reinforced with surgical mesh. It is a common elective operation chosen when the bulge causes pain or grows. Under general anesthesia the repair takes under an hour for one side, and most patients go home the same day and resume light activity within days.",
+    "costFactors": [
+      "Repairing both sides during one operation, common because the laparoscope can see both groins, is billed with an additional code and raises the fee, though it is cheaper than two separate surgeries.",
+      "The mesh implant is part of the facility charge and varies by product.",
+      "Freestanding surgery centers usually beat hospital outpatient departments on the facility fee by a wide margin.",
+      "General anesthesia is required for laparoscopic repair and is billed separately by time; open repair under local anesthesia can be a cheaper alternative in some patients.",
+      "Robotic-assisted repair, increasingly common, can carry higher facility charges without a clearly better outcome for routine hernias."
+    ],
+    "billingNotes": "CPT 49650 covers the surgeon's fee for a laparoscopic repair of an initial inguinal hernia on one side; a recurrent hernia or a bilateral repair uses different or additional codes. A 90-day global period bundles routine surgeon follow-up into the fee. The mesh is billed within the facility charge rather than by the surgeon, and anesthesia is always a separate professional claim for this general-anesthesia procedure.",
+    "insuranceNotes": "Repair of a symptomatic hernia is covered by Medicare and commercial plans, with prior authorization frequently required for the elective procedure; watchful waiting is a legitimate option for small painless hernias, and some insurers ask about symptoms before approving. Cost sharing follows your normal surgical benefits: deductible plus coinsurance up to your out-of-pocket maximum. Because this is elective, you have time to compare in-network surgeons and facility prices, and this operation shows some of the widest facility price spreads of any common surgery.",
+    "questionsToAsk": [
+      "Do I need surgery now, or is watchful waiting reasonable for my hernia?",
+      "Will you check and repair the other side too, and how is that billed?",
+      "What is the facility fee difference between the surgery center and hospital options you use?",
+      "Is robotic assistance planned, and does it change what I pay?",
+      "Which mesh will you use and is there any additional charge tied to it?"
+    ]
+  },
+  "58661": {
+    "whatItIs": "This laparoscopic surgery removes an ovarian cyst along with the ovary or fallopian tube structures involved, through small abdominal incisions using a camera. It is performed when a cyst is large, persistent, painful, or has features that need definitive removal and testing. Under general anesthesia the operation typically takes one to two hours, and most patients go home the same day with about one to two weeks of recovery.",
+    "costFactors": [
+      "Pathology examination of the removed cyst and ovarian tissue is a separate lab charge, and suspicious findings can trigger more extensive analysis.",
+      "Whether one or both sides are addressed, and whether the ovary is preserved or removed, affects coding and price.",
+      "A frozen-section analysis during surgery, where a pathologist gives an immediate read while you are still on the table, adds a distinct pathology charge.",
+      "Emergency surgery for a ruptured or twisted cyst wraps the procedure into a costlier urgent hospital admission.",
+      "Facility fees at hospital outpatient departments exceed those at ambulatory surgery centers where this surgery is offered.",
+      "Pre-operative imaging, usually ultrasound and sometimes MRI, plus tumor marker blood tests, form part of the full episode cost."
+    ],
+    "billingNotes": "CPT 58661 covers laparoscopic removal of adnexal structures, meaning the ovary and/or fallopian tube, with a global period that includes routine post-operative care by the surgeon; simple cyst drainage or cystectomy preserving the ovary would be coded differently. Facility, anesthesia, and pathology bill separately, and an intraoperative frozen section appears as its own pathology line. If findings during surgery expand the operation, additional codes with higher payments can result.",
+    "insuranceNotes": "Surgery for a symptomatic or suspicious ovarian cyst is covered as medically necessary by essentially all plans, with prior authorization standard for the scheduled version and waived in emergencies like ovarian torsion. Your regular deductible and coinsurance apply. If there is any concern about malignancy, confirm that a gynecologic oncologist consultation or availability is in network, since a change of surgeon mid-course can create network complications on the claim.",
+    "questionsToAsk": [
+      "Will you try to preserve the ovary, and how does that change the procedure code and cost?",
+      "Is a frozen-section pathology read planned during surgery, and what does it cost?",
+      "What happens to my bill if you find something unexpected and the surgery becomes more extensive?",
+      "Are the anesthesia provider and pathology lab in my network?",
+      "Can this be done at a surgery center instead of the hospital, and what is the difference in facility fees?"
+    ]
+  },
+  "59400": {
+    "whatItIs": "This code is not a single procedure but the entire package of routine pregnancy care with a vaginal birth: all standard prenatal visits, the delivery itself including any needed episiotomy or forceps assistance, and postpartum checkups. Labor and delivery happen in a hospital or birth center, and the global code represents roughly ten months of care by the obstetrician or midwifery practice. The hospital stay for an uncomplicated vaginal birth is typically one to two nights.",
+    "costFactors": [
+      "The hospital's facility charges for labor, delivery, and the postpartum stay are separate from and usually larger than the physician's global fee.",
+      "An epidural is billed by the anesthesiologist as an entirely separate charge.",
+      "Your newborn generates a second, separate hospital account from the moment of birth, including nursery or NICU care and pediatrician visits.",
+      "Ultrasounds, lab panels, and genetic screening during pregnancy are billed outside the global fee, visit by visit.",
+      "Extra visits for complications like gestational diabetes or hypertension fall outside routine prenatal care and are billed additionally.",
+      "If labor ends in an unplanned cesarean, the physician claim converts to the cesarean global code at a higher rate and the hospital stay lengthens."
+    ],
+    "billingNotes": "CPT 59400 is a global maternity code: one physician fee covering routine prenatal visits, the vaginal delivery, and postpartum care, billed after delivery. It excludes the hospital facility fee, anesthesia for an epidural, ultrasounds, lab work, non-routine visits, and everything billed for the baby. If you switch practices mid-pregnancy, the global package splits into separate antepartum, delivery, and postpartum codes across the providers, which can complicate claims.",
+    "insuranceNotes": "Maternity care is an essential health benefit that all ACA-compliant individual and small group plans must cover, and most employer plans do too, but cost sharing is real: families typically meet the full deductible and often the out-of-pocket maximum in the delivery year. Certain prenatal services, such as screening tests recommended for all pregnancies, are covered without cost sharing as preventive care even before the deductible. Enroll the baby on your plan quickly; most plans allow about 30 days from birth, and missing the window can leave newborn charges uncovered.",
+    "questionsToAsk": [
+      "What does your global fee include, and which common services, like ultrasounds and labs, will be billed separately?",
+      "What are the hospital's typical facility charges for a vaginal delivery and postpartum stay?",
+      "Is the anesthesiology group that places epidurals at your hospital in my network?",
+      "How is the baby's hospital care billed, and what do I need to do to enroll the baby on my insurance?",
+      "If I end up needing a cesarean, how do the physician and hospital charges change?"
+    ]
+  },
+  "59510": {
+    "whatItIs": "This is the global maternity package for a planned or unplanned cesarean birth: routine prenatal visits, the cesarean delivery, and postpartum care in a single physician fee. A cesarean is major abdominal surgery performed in an operating room under spinal or epidural anesthesia, usually taking under an hour, with the parent awake for the birth. The hospital stay is longer than for a vaginal birth, typically two to four nights, with a six-week surgical recovery at home.",
+    "costFactors": [
+      "Hospital facility charges are substantially higher than for vaginal delivery, driven by operating room time and the longer inpatient stay.",
+      "The anesthesiologist bills separately for the spinal or epidural and for attending the surgery.",
+      "The newborn's own hospital account starts at birth, and cesarean deliveries have higher rates of brief NICU observation, which is billed at NICU rates.",
+      "An assistant surgeon, common in cesareans, may bill an additional professional fee.",
+      "Prenatal ultrasounds, labs, and any high-risk specialist visits are billed outside the global package.",
+      "A scheduled cesarean is generally cheaper than one that follows a long, fully billed labor with an epidural already running."
+    ],
+    "billingNotes": "CPT 59510 bundles routine prenatal care, the cesarean operation, and postpartum visits into one physician fee billed after delivery; a cesarean after attempted vaginal birth following a prior cesarean has its own code, as does a delivery-only claim if care was split among practices. Not included: hospital facility charges, anesthesia, the assistant surgeon, ultrasounds, labs, and all newborn care. The surgical nature of the code also means post-delivery wound issues within the postpartum period are usually bundled, but new problems can be billed separately.",
+    "insuranceNotes": "Cesarean delivery is covered as an essential maternity benefit; insurers do not distinguish elective repeat cesareans from medically indicated ones for coverage purposes, though your costs are still subject to deductible and out-of-pocket limits, which most families hit in a cesarean year. A pre-labor scheduled cesarean requires no special authorization beyond normal maternity notification at most plans. Confirm the anesthesia group and any assistant surgeon are in network; the No Surprises Act protects against many out-of-network surprise bills at in-network hospitals, but verifying up front avoids the dispute process.",
+    "questionsToAsk": [
+      "What are the hospital's facility charges for a cesarean, including the typical length of stay?",
+      "Will an assistant surgeon be present, and do they bill separately under my plan?",
+      "Is the anesthesiology group in network, and what does the spinal or epidural cost?",
+      "How likely is NICU observation for my situation, and how would that be billed for the baby?",
+      "If I am attempting vaginal birth first, how do charges stack if it converts to a cesarean?"
+    ]
+  },
+  "63030": {
+    "whatItIs": "Lumbar discectomy removes the herniated portion of a spinal disc in the lower back that is pressing on a nerve root, relieving the leg pain, numbness, or weakness known as sciatica. Performed through a small incision, often with a microscope, it is one of the most common spine surgeries. The operation takes one to two hours under general anesthesia, and most patients go home the same day or after one night, with leg pain often improved immediately.",
+    "costFactors": [
+      "Facility choice matters: this surgery is increasingly done at ambulatory surgery centers at far lower facility fees than hospitals.",
+      "Operating on more than one disc level adds an add-on code and increases surgeon and facility charges.",
+      "The pre-surgical MRI, specialist consultations, and any epidural steroid injections tried first are all part of the real episode cost.",
+      "Neuromonitoring during surgery, used by some surgeons, generates a separate and sometimes out-of-network professional bill.",
+      "Post-operative physical therapy, commonly prescribed after recovery, is billed per visit.",
+      "Reherniation occurs in a minority of patients and a revision surgery restarts the entire cost cycle."
+    ],
+    "billingNotes": "CPT 63030 covers the surgeon's fee for removing herniated disc material at one lumbar level, with a 90-day global period for routine follow-up; each additional level is billed with add-on code 63035. Facility, anesthesia, and any neuromonitoring company bill separately, and the neuromonitoring claim is a known source of surprise out-of-network charges worth asking about by name. Imaging and physical therapy before and after the operation carry their own claims.",
+    "insuranceNotes": "Insurers cover discectomy for nerve compression confirmed on MRI, but nearly all commercial plans require prior authorization with documented conservative care, typically six weeks or more of therapy, medication, or injections, unless you have progressive weakness or other urgent findings. Medicare covers it without the conservative-care gate but with standard Part B coinsurance for outpatient surgery. Appeal rights matter here: spine surgery denials for incomplete documentation are common and frequently overturned when records are supplied.",
+    "questionsToAsk": [
+      "Has prior authorization been approved, including my documented weeks of conservative treatment?",
+      "Can my surgery be done at an ambulatory surgery center, and what is the facility price difference?",
+      "Will you use intraoperative neuromonitoring, and is that company in my network?",
+      "How many disc levels will you operate on, and how does each level change the cost?",
+      "What is your reherniation rate, and what would a revision surgery cost me?"
+    ]
+  },
+  "66984": {
+    "whatItIs": "Cataract surgery removes the eye's clouded natural lens through a tiny incision using ultrasound to break it up, then implants a clear artificial lens called an IOL. It is the most common surgery performed on Medicare patients and one of the safest. Done one eye at a time under numbing drops with light sedation, the procedure itself takes about 15 minutes, and most people notice better vision within days.",
+    "costFactors": [
+      "Lens choice is the biggest patient-controlled cost: a standard single-focus lens is covered, while multifocal, extended-depth, or astigmatism-correcting toric lenses cost extra out of pocket, often thousands per eye.",
+      "Laser-assisted surgery, offered as an upgrade over the standard ultrasound technique, is an additional self-pay charge at many practices.",
+      "The facility fee differs between hospital outpatient departments and ambulatory surgery centers, where most cataract surgery now happens.",
+      "Because each eye is a separate surgery weeks apart, all charges effectively occur twice for most patients.",
+      "Pre-surgical eye measurements and testing beyond the standard set may be billed to you when tied to premium lens upgrades."
+    ],
+    "billingNotes": "CPT 66984 covers the surgeon's fee for standard cataract removal with insertion of a conventional IOL, and it carries a global period that includes routine post-operative visits; the facility and anesthesia bill separately. Premium lens and laser upgrades are billed directly to you outside insurance entirely, via a required notice you sign accepting the extra cost. One pair of eyeglasses or contacts after surgery is a covered benefit under Medicare, a quirk unique to cataract surgery.",
+    "insuranceNotes": "Medicare Part B and commercial plans cover cataract surgery with a standard monofocal lens once vision loss affects daily activities; documentation of visual acuity and functional impact supports the claim. The premium lens itself and associated testing are never covered, so the surgeon's upgrade quote is a true out-of-pocket price you can compare across practices. Medicare pays 80 percent of the approved amounts for surgeon and facility, with supplements picking up the rest; Medicare Advantage plans may require prior authorization, which original Medicare does not.",
+    "questionsToAsk": [
+      "What exactly is included if I choose the standard covered lens, with zero upgrade charges?",
+      "What is your all-in out-of-pocket price for each premium lens option, per eye?",
+      "Is laser assistance clinically necessary for my eyes or an optional upgrade?",
+      "Where will the surgery be done, and what is the facility fee at that location?",
+      "Does my plan require prior authorization, and is the post-surgery eyeglasses benefit being applied?"
+    ]
+  },
+  "70551": {
+    "whatItIs": "A brain MRI without contrast uses a powerful magnet and radio waves, no radiation, to produce detailed pictures of the brain. It is ordered for headaches with warning signs, dizziness, memory concerns, seizure evaluation, or suspected multiple sclerosis. You lie still inside the scanner tube for 20 to 40 minutes while it makes loud knocking sounds; earplugs are provided, and no needles are involved for this non-contrast version.",
+    "costFactors": [
+      "Hospital-based MRI departments often charge several times what freestanding imaging centers charge for the identical scan.",
+      "The radiologist's interpretation fee is separate from the scan fee, and the two may come from different billers.",
+      "If the radiologist protocol adds contrast after reviewing initial images, the study converts to a costlier code and adds injection charges.",
+      "Claustrophobic patients who need sedation or an open-bore magnet add medication, monitoring, or specialty-equipment costs.",
+      "After-hours or stat interpretation requests can carry premium charges at some facilities."
+    ],
+    "billingNotes": "This code has two components: the technical fee for running the scanner, billed by the facility, and the professional fee for the radiologist's reading; at freestanding centers these are often combined into one global charge, while hospitals bill them separately. CPT 70551 specifically means no contrast was given; if gadolinium is added the claim becomes 70553 (without, then with contrast) at a higher rate. No sedation, IV, or lab charges should appear on a routine non-contrast brain MRI.",
+    "insuranceNotes": "Nearly all commercial plans require prior authorization for brain MRI, usually processed through a radiology benefits manager, and scans done without approval are routinely denied in full. Plans increasingly steer members to freestanding centers, and some will not pay hospital rates for outpatient MRI at all without a documented reason. Medicare does not require prior authorization for MRI but pays 20 percent coinsurance under Part B unless you have a supplement.",
+    "questionsToAsk": [
+      "Has prior authorization been approved, and for which specific facility?",
+      "What is the price at a freestanding imaging center versus the hospital for this exact scan?",
+      "Is the radiologist's reading fee included in the quote or billed separately?",
+      "Could the protocol change to include contrast, and what would that cost?",
+      "If I am claustrophobic, what would sedation or an open MRI add?"
+    ]
+  },
+  "70552": {
+    "whatItIs": "A brain MRI with contrast adds an IV injection of gadolinium dye partway through the scan to highlight areas with increased blood flow or a disrupted blood-brain barrier, such as tumors, infections, or active inflammation. The experience matches a standard brain MRI, lying still in the scanner for 30 to 45 minutes, plus a small IV placed in your arm. The dye is generally well tolerated and passes in your urine within a day.",
+    "costFactors": [
+      "The gadolinium contrast agent itself is billed as a separate supply line, with newer agents costing more.",
+      "The IV placement and injection may add administration charges depending on the biller.",
+      "Some facilities require a recent kidney function blood test before giving contrast, adding a lab charge.",
+      "Facility choice, hospital versus freestanding center, remains the dominant price variable for any MRI.",
+      "The radiologist's professional fee for a contrast study is higher than for a non-contrast scan."
+    ],
+    "billingNotes": "CPT 70552 means contrast only, without a preceding non-contrast sequence, which is a less common protocol than 70553; verify which one was actually performed if the bill seems off. The contrast material appears as its own HCPCS supply code alongside the scan, and hospitals bill technical and professional components separately. A creatinine blood test ordered to clear your kidneys for gadolinium is billed by the lab as a distinct claim.",
+    "insuranceNotes": "Prior authorization rules are the same as for any advanced brain imaging: commercial plans almost always require approval, and the authorization specifies whether contrast was approved, so a mismatch between the approved and performed protocol can cause a denial. Patients with kidney disease may need alternative imaging, which restarts the authorization process. Medicare Part B covers medically necessary contrast MRI with standard 20 percent coinsurance and no prior authorization.",
+    "questionsToAsk": [
+      "Does my authorization specifically cover a contrast study, not just a plain MRI?",
+      "Is the contrast agent billed separately, and how much does it add?",
+      "Do I need a kidney function test first, and who bills for that?",
+      "Why is contrast-only being ordered rather than the combined without-then-with protocol?",
+      "What is the total at a freestanding center versus the hospital, including the radiologist fee?"
+    ]
+  },
+  "70553": {
+    "whatItIs": "This is the most complete brain MRI protocol: the scanner first takes a full set of images without dye, then repeats key sequences after an IV gadolinium injection, letting the radiologist compare the two. It is the standard workup for suspected brain tumors, multiple sclerosis, pituitary problems, and infection. Plan for 45 to 60 minutes in the scanner with an IV in your arm, making it the longest and most expensive of the three brain MRI codes.",
+    "costFactors": [
+      "As the combined protocol, 70553 carries the highest base price of the brain MRI family, before facility markup differences.",
+      "Hospital imaging departments charge far more than independent centers for this long scan.",
+      "The gadolinium dose is a separate supply charge on top of the imaging codes.",
+      "Longer scanner time means claustrophobia or movement problems are more likely to require sedation or a rescan, each adding cost.",
+      "Follow-up MRIs to track a finding over time repeat the full cost at each interval, so the surveillance schedule matters as much as the single-scan price."
+    ],
+    "billingNotes": "CPT 70553 bundles the without-contrast and with-contrast sequences into one code; you should not see 70551 and 70552 billed together for the same session, which would be improper unbundling. Contrast material bills separately as a supply, and hospitals split technical and professional fees while freestanding centers usually quote globally. If this scan is tracking a known lesion, each surveillance study is a fresh, fully billed claim.",
+    "insuranceNotes": "Commercial prior authorization is essentially universal for this study, and because it is the priciest brain MRI protocol, radiology benefit managers sometimes approve a lesser study instead; the ordering physician can request a peer-to-peer review to justify the full protocol. High-deductible plan members often pay the entire allowed amount out of pocket, making the center-versus-hospital price gap their single biggest savings opportunity. Medicare applies standard Part B coinsurance without authorization requirements.",
+    "questionsToAsk": [
+      "Was the full without-and-with-contrast protocol authorized, or only a plain MRI?",
+      "What is your global price for this study at a freestanding center?",
+      "How many follow-up scans is my condition likely to need, and at what interval?",
+      "Are the contrast agent and radiologist reading included in the quoted price?",
+      "If my insurer pushes back, will my doctor do a peer-to-peer review to defend this protocol?"
+    ]
+  },
+  "71046": {
+    "whatItIs": "A two-view chest X-ray takes front and side pictures of your lungs, heart, and ribs in about five minutes of actual room time. It is among the most commonly ordered imaging tests, used for coughs that will not quit, suspected pneumonia, shortness of breath, or pre-operative checks. You stand against a plate, take a deep breath and hold it for each view, and there is no preparation, no needles, and only a minimal radiation dose.",
+    "costFactors": [
+      "Emergency department chest X-rays cost several times more than the same two views at an urgent care or imaging center.",
+      "The radiologist's interpretation is a separate professional fee from the technical charge for taking the images.",
+      "Hospital-owned clinics can attach facility fees that independent offices do not.",
+      "If findings prompt a follow-up chest CT, that next test costs an order of magnitude more, so where the X-ray leads matters.",
+      "Some urgent care visit charges bundle the X-ray while others itemize it, changing the apparent price."
+    ],
+    "billingNotes": "CPT 71046 specifically means two views; a single view (71045) or additional views carry different codes and prices. The claim usually splits into a technical component billed by the facility and a professional component billed by the radiologist, though offices with in-house reading may bill globally. When done during an office or urgent care visit, the X-ray appears as a line item alongside the visit code rather than replacing it.",
+    "insuranceNotes": "Chest X-rays are covered as diagnostic imaging under all plans without prior authorization, subject to your deductible and any imaging copay; they are cheap enough that many plans apply a flat copay in office settings. On a high-deductible plan you pay the negotiated rate, which varies more by facility than almost any other factor. There is no preventive or screening chest X-ray benefit; routine screening chest X-rays are no longer recommended, so a screening claim would likely be denied.",
+    "questionsToAsk": [
+      "Can I get this done at an imaging center or urgent care rather than the hospital?",
+      "Is the radiologist's reading included in the quoted price?",
+      "Will this be billed separately from my visit charge today?",
+      "What is your cash price if I have a high deductible?",
+      "If something shows up, what follow-up imaging would you order and what does that cost?"
+    ]
+  },
+  "71250": {
+    "whatItIs": "A chest CT without contrast takes cross-sectional X-ray images of the lungs and chest in a scan that lasts under a minute on the table, with the whole appointment done in 15 minutes. It sees far more detail than a chest X-ray and is ordered to evaluate lung nodules, unexplained cough, abnormal X-ray findings, or interstitial lung disease. You lie on a table that slides through a doughnut-shaped scanner and hold your breath briefly; no IV is needed for this non-contrast version.",
+    "costFactors": [
+      "Freestanding imaging centers routinely price this scan at a fraction of hospital outpatient rates.",
+      "The radiologist's professional reading fee is billed separately from the scan at many facilities.",
+      "Lung nodules found on a first scan typically trigger a series of follow-up CTs over one to two years, multiplying the true cost of the finding.",
+      "Low-dose CT for lung cancer screening is a different code with different, usually free, coverage; make sure the right one is ordered if screening is the goal.",
+      "Emergency department chest CTs carry ER-level facility charges far above scheduled outpatient pricing."
+    ],
+    "billingNotes": "CPT 71250 covers the non-contrast scan; adding IV dye changes the code to 71260 and adds a contrast supply charge. Technical and professional components are billed separately at hospitals and usually globally at independent centers. Note that annual lung cancer screening for eligible smokers uses a distinct low-dose code (71271) with its own preventive billing rules, so a diagnostic 71250 claim for what was meant as screening can cost you money unnecessarily.",
+    "insuranceNotes": "Commercial insurers generally require prior authorization for chest CT through their radiology benefit programs, while Medicare does not and applies standard Part B coinsurance. If you qualify for lung cancer screening by age and smoking history, that specific low-dose screening CT is covered with no cost sharing as preventive care; a diagnostic chest CT for symptoms never is. Follow-up nodule scans are diagnostic each time, so plan for repeated cost sharing across the surveillance schedule.",
+    "questionsToAsk": [
+      "Is this being ordered as a diagnostic CT or as low-dose lung cancer screening, and am I eligible for the free screening version?",
+      "Has prior authorization been obtained for the facility where I am scheduled?",
+      "What does this scan cost at a freestanding center versus the hospital?",
+      "If a nodule is found, how many follow-up scans should I budget for?",
+      "Is the radiologist fee included in the price I was quoted?"
+    ]
+  },
+  "71260": {
+    "whatItIs": "A chest CT with contrast adds an IV injection of iodine dye during the scan to light up blood vessels, lymph nodes, and masses in the chest. It is preferred when evaluating enlarged lymph nodes, suspected cancer spread, or vascular structures. The scan itself takes under a minute; the appointment runs about 30 minutes including IV placement, and the dye causes a brief warm flush that patients often feel in odd places.",
+    "costFactors": [
+      "The iodinated contrast is a separate supply charge on top of the scan fee.",
+      "A kidney function blood test may be required before contrast in older patients or those with kidney risk, adding a lab charge.",
+      "Hospital versus freestanding center pricing gaps for contrast CT are just as wide as for any advanced imaging.",
+      "Patients with prior contrast reactions may need pre-medication protocols or an alternative study, changing the cost picture.",
+      "The radiologist's fee for a contrast-enhanced study runs higher than for the plain version."
+    ],
+    "billingNotes": "CPT 71260 means contrast-enhanced only; a protocol that scans before and after dye uses 71270 instead. The contrast agent bills under its own supply code, and IV placement is generally bundled but occasionally itemized. As with all CT, hospitals split the technical and professional components into separate claims while independent centers typically quote one global price, which makes their quotes easier to compare.",
+    "insuranceNotes": "Prior authorization through a radiology benefits manager is standard on commercial plans, and the approval is protocol-specific, so confirm it says with contrast. Medicare Part B covers it without prior authorization at 20 percent coinsurance. If your kidney function is borderline, the facility may switch you to a non-contrast study on the day, which is clinically sensible but can require a corrected claim; check the final bill matches what was actually done.",
+    "questionsToAsk": [
+      "Does my authorization specify a contrast-enhanced chest CT?",
+      "Will I need a kidney function test first, and is that billed to me?",
+      "How much is the contrast agent itself on your bills?",
+      "What is the global price at a freestanding imaging center?",
+      "If I react to dye or my kidneys disqualify me, what happens to the study and the charges?"
+    ]
+  },
+  "72141": {
+    "whatItIs": "A cervical spine MRI without contrast images the neck portion of the spine, showing discs, nerve roots, and the spinal cord itself. It is the standard test for neck pain radiating into the arm, numb or weak hands, or suspected spinal cord compression. You lie on your back with your head in a cradle for 20 to 40 minutes of loud scanning; holding still is essential because neck images blur easily with swallowing and motion.",
+    "costFactors": [
+      "The spread between hospital and freestanding center prices for spine MRI is among the widest in outpatient imaging.",
+      "If arm symptoms suggest a problem beyond the neck, a shoulder MRI or nerve conduction study may be ordered too, each fully billed.",
+      "Motion-degraded images sometimes force repeat sequences or a rescan, which can generate additional charges at some facilities.",
+      "Contrast is added for suspected infection, tumor, or after spine surgery, converting the study to a pricier code.",
+      "The radiologist's professional fee is a separate component from the scan itself."
+    ],
+    "billingNotes": "CPT 72141 covers the non-contrast cervical study; post-surgical or tumor protocols with gadolinium bill under different codes at higher rates. Hospitals bill technical and professional components separately, and if your doctor also ordered a lumbar MRI for the same symptoms, that is a second full study with its own charges, not an add-on. Multiple spine regions scanned the same day are each billed independently.",
+    "insuranceNotes": "Commercial plans nearly always require prior authorization for spine MRI and commonly deny first requests for neck pain without documented weeks of conservative treatment or neurological deficits like arm weakness. The insurer's imaging program may also redirect you to a contracted freestanding center. Medicare imposes no authorization but standard Part B cost sharing applies; workers compensation claims for neck injuries follow entirely separate authorization tracks.",
+    "questionsToAsk": [
+      "Has prior authorization been approved, and did my chart document the conservative care my insurer requires?",
+      "What does this scan cost at the freestanding centers my plan prefers?",
+      "Is there any chance you will also want a lumbar or shoulder MRI, and can they be authorized together?",
+      "Is contrast needed for my situation, and how would that change the price?",
+      "Is the radiologist reading included in the quoted amount?"
+    ]
+  },
+  "72148": {
+    "whatItIs": "A lumbar spine MRI without contrast images the lower back, the region responsible for most back pain and sciatica, showing discs, nerve roots, and the spinal canal. It is the definitive test before considering injections or surgery for a suspected herniated disc or spinal stenosis. You lie on your back in the scanner for 20 to 40 minutes; it is painless but the flat position can be uncomfortable if lying down aggravates your pain.",
+    "costFactors": [
+      "This is one of the most shopped scans in America, and prices between hospitals and independent centers commonly differ several-fold.",
+      "Insurer rules pushing six weeks of conservative care first mean therapy visit costs often precede the scan.",
+      "Findings frequently lead to epidural injections or surgical consultations, so the MRI is often the gateway to a much larger episode of spending.",
+      "Contrast is only added for specific concerns like prior surgery or infection, at a higher-code price.",
+      "Open or wide-bore scanners for larger or claustrophobic patients can carry different pricing at specialty centers."
+    ],
+    "billingNotes": "CPT 72148 is the standard non-contrast lumbar study, billed as technical plus professional components at hospitals or one global fee at freestanding centers. It covers only the lumbar region; thoracic or cervical scans ordered alongside it are separate fully priced studies. Post-operative lumbar imaging usually requires the contrast protocol under a different code, so prior back surgery changes the expected charge.",
+    "insuranceNotes": "Prior authorization is nearly universal on commercial plans, and lumbar MRI for uncomplicated back pain of recent onset is the single most commonly denied imaging request, since guidelines recommend waiting six weeks absent red flags like weakness or bladder changes. Approval usually follows documented failed conservative care. Medicare requires no authorization; high-deductible members should treat this scan as a price-shopping opportunity because the quality difference between facilities is small relative to the price difference.",
+    "questionsToAsk": [
+      "Do I meet my insurer's criteria yet, or will this be denied for lack of conservative treatment first?",
+      "What is the cash or negotiated price at nearby freestanding imaging centers?",
+      "Is my scan authorized at the specific location I am booked at?",
+      "Given my history, does the radiologist need contrast, and what would that add?",
+      "If the MRI shows a disc problem, what are the typical next-step costs I should anticipate?"
+    ]
+  },
+  "73030": {
+    "whatItIs": "A shoulder X-ray takes two or more views of the shoulder joint in a few minutes, checking for fractures, dislocations, arthritis, or calcium deposits. It is usually the first imaging test for shoulder pain because it is fast and inexpensive, even though it cannot see the rotator cuff tendons themselves. You stand or sit while the technologist positions your arm for each view; no preparation is needed and the radiation dose is small.",
+    "costFactors": [
+      "An orthopedic office with in-house X-ray often bills less overall than a hospital radiology department for the same views.",
+      "The radiologist or orthopedist reading fee may be billed separately from the technical charge.",
+      "Because X-rays cannot show tendons, a normal result often leads to a shoulder MRI, which costs many times more.",
+      "ER imaging for a suspected dislocation carries emergency facility pricing.",
+      "Comparison views of the other shoulder, when ordered, can add a second billed study."
+    ],
+    "billingNotes": "CPT 73030 requires a minimum of two views and covers the complete shoulder series; it is typically billed alongside the office visit at which the shoulder was examined, not instead of it. Technical and professional components may be split or global depending on where the images are taken. If both shoulders are imaged, each side is billed as its own study with a modifier indicating left and right.",
+    "insuranceNotes": "Plain films are covered diagnostic imaging without prior authorization on virtually every plan, subject to copay or deductible. The bigger insurance question is downstream: the shoulder MRI that often follows will need authorization, so a documented X-ray first actually helps that approval. In office settings many plans wrap the X-ray into predictable visit cost sharing, making this one of the more affordable imaging tests.",
+    "questionsToAsk": [
+      "Is the X-ray billed on top of today's visit charge, and at what price?",
+      "Who reads the images, and is their fee separate?",
+      "If the X-ray is normal, will you order an MRI, and what will that authorization and cost look like?",
+      "Do you need views of both shoulders for comparison, and does that double the imaging charge?",
+      "Can I get the images done here in your office rather than at the hospital?"
+    ]
+  },
+  "73221": {
+    "whatItIs": "A shoulder MRI without contrast (the upper extremity joint MRI code) images the rotator cuff tendons, labrum, and cartilage that X-rays cannot see, making it the key test for suspected rotator cuff tears and persistent shoulder pain. You lie still with the arm positioned at your side inside the scanner for 20 to 40 minutes. It is painless, though holding a sore shoulder motionless is the hardest part for many patients.",
+    "costFactors": [
+      "Freestanding imaging centers price this scan dramatically below hospital outpatient departments.",
+      "Suspected labral tears sometimes require an MR arthrogram instead, where dye is injected directly into the joint first, adding an injection procedure and a different code.",
+      "Insurers frequently require completed X-rays and weeks of conservative care before approving, so those upstream costs are part of the pathway.",
+      "A positive finding often leads to orthopedic consultation, injections, or arthroscopic surgery, each a new spending episode.",
+      "The radiologist's reading fee is a separate component of the total."
+    ],
+    "billingNotes": "CPT 73221 covers a non-contrast MRI of any upper extremity joint, and for the shoulder it is billed once per side; imaging both shoulders means two full studies. An MR arthrogram involves a separately billed joint injection under imaging guidance plus a with-contrast MRI code, a meaningfully more expensive package. Hospitals split technical and professional fees; independent centers usually quote one global price.",
+    "insuranceNotes": "Commercial prior authorization is standard, and approvals typically require recent X-rays plus documented conservative treatment such as physical therapy or an injection trial, unless there is an acute traumatic tear. Medicare covers it without authorization at standard Part B cost sharing. If surgery is already likely, coordinate the MRI authorization and surgical consultation within the same network to avoid repeat imaging demands from a new surgeon.",
+    "questionsToAsk": [
+      "Does my insurer require X-rays and therapy first, and does my record show them?",
+      "Do you suspect a labral tear needing an arthrogram, and how much more does that cost?",
+      "What is the price at a freestanding center versus the hospital?",
+      "Will the surgeon you might refer me to accept this facility's images, or would I face a rescan?",
+      "Is the radiologist fee included in the quote?"
+    ]
+  },
+  "73560": {
+    "whatItIs": "A knee X-ray takes one or two views of the knee joint, checking for fractures, arthritis, alignment problems, and fluid. It is the recommended first test for most knee pain, especially in patients over 50 where arthritis is likely, and often the only imaging needed. The technologist positions your leg for each quick exposure; standing views may be taken because they show arthritis narrowing better than lying down. The whole visit takes minutes.",
+    "costFactors": [
+      "Orthopedic and primary care offices with in-house X-ray typically cost less than hospital radiology departments.",
+      "Weight-bearing or additional specialized views can be billed as expanded series under related codes.",
+      "A separate radiologist reading fee may apply where images are sent out for interpretation.",
+      "A normal X-ray in a younger patient with mechanical symptoms often leads to a knee MRI at many times the price.",
+      "Imaging both knees for comparison doubles the studies billed."
+    ],
+    "billingNotes": "CPT 73560 covers one or two views of a single knee; three views, four or more views, or both-knee standing studies bill under neighboring codes with slightly different rates. The X-ray is billed alongside, not within, the office visit where your knee was examined. Left and right knees are always separate studies with side modifiers when both are imaged.",
+    "insuranceNotes": "No plan requires prior authorization for a knee X-ray, and cost sharing is usually a modest copay or a small hit to the deductible. Its main insurance role is as a gatekeeper: most commercial insurers expect an X-ray before they will authorize knee MRI, so skipping it can delay the approval of advanced imaging. In arthritic knees the X-ray plus exam is frequently sufficient for treatment decisions, making the MRI avoidable entirely.",
+    "questionsToAsk": [
+      "Can the X-ray be done here in the office today, and what will it add to my bill?",
+      "Are standing views needed, and are they billed differently?",
+      "Is an outside radiologist reading the film for a separate fee?",
+      "Based on my age and symptoms, is an MRI likely to be needed, or should the X-ray settle it?",
+      "If you want to compare both knees, is that one charge or two?"
+    ]
+  },
+  "73721": {
+    "whatItIs": "A knee MRI without contrast (the lower extremity joint MRI code) shows the menisci, ligaments including the ACL, cartilage, and bone marrow, none of which appear on X-ray. It is the definitive test for suspected meniscus tears and ligament injuries. You lie on your back with the knee in a small coil for 20 to 40 minutes of painless but noisy scanning, and results typically reach your doctor within a couple of days.",
+    "costFactors": [
+      "The hospital versus freestanding center price gap for knee MRI is large and well documented; this is a scan worth shopping.",
+      "Insurer authorization rules often require an X-ray and a trial of conservative care first, adding upstream visits.",
+      "A confirmed meniscus or ligament tear frequently leads to arthroscopy, so the MRI often begins a bigger spending episode.",
+      "In patients over about 50, MRI often shows incidental degenerative findings that can prompt further, sometimes unnecessary, care.",
+      "The radiologist's interpretation fee is a distinct component of the price."
+    ],
+    "billingNotes": "CPT 73721 applies to any lower extremity joint without contrast, billed per joint per side, so bilateral knee imaging is two full studies. Contrast or MR arthrogram protocols for specific cartilage questions use different codes with injection charges added. Hospitals bill the scanner time and radiologist separately, while independent centers usually present one global figure, simplifying comparisons.",
+    "insuranceNotes": "Commercial plans require prior authorization almost without exception, and many deny knee MRI for suspected degenerative meniscus tears in middle-aged patients until physical therapy has been tried, reflecting evidence that therapy often works as well as surgery for those tears. Medicare has no authorization step and standard Part B coinsurance applies. Authorization approvals are usually facility-specific, so switching locations after approval can void it.",
+    "questionsToAsk": [
+      "Has my insurer approved this scan, and does my chart show the X-ray and conservative care they require?",
+      "What is the all-in price at the freestanding centers near me?",
+      "Given my age, could therapy first make this MRI unnecessary?",
+      "Is the authorization tied to a specific facility?",
+      "If the MRI shows a tear, what are the typical next steps and their costs?"
+    ]
+  },
+  "74176": {
+    "whatItIs": "A CT of the abdomen and pelvis without contrast scans everything from the diaphragm to the hips in one pass lasting seconds on the table. The non-contrast version is the standard test for suspected kidney stones, where dye is unnecessary because stones show up brightly on their own. You lie on the scanner table, hold your breath briefly, and the entire appointment takes about 15 minutes with no IV and no preparation.",
+    "costFactors": [
+      "Emergency department pricing for this scan, where it is often ordered for belly pain, towers over scheduled outpatient rates.",
+      "Freestanding imaging centers offer the same combined study at a fraction of hospital charges.",
+      "If the clinical question needs contrast, the study becomes 74177 with dye and administration charges added.",
+      "Kidney stone patients often get repeat scans across episodes, and the costs accumulate with each recurrence.",
+      "The radiologist fee for reading two body regions is billed separately at many facilities."
+    ],
+    "billingNotes": "CPT 74176 is a combined code covering both the abdomen and pelvis in one scan; separate abdomen-only and pelvis-only codes exist, and billing both separates when the combined code applies is improper unbundling worth challenging. Technical and professional components split at hospitals and merge at most independent centers. No contrast supply charge should appear on this non-contrast code.",
+    "insuranceNotes": "Scheduled outpatient CT of the abdomen and pelvis requires prior authorization on most commercial plans, but scans ordered in the emergency department bypass authorization under emergency care rules; the trade-off is far higher facility pricing plus your plan's ER cost sharing. Medicare applies standard Part B coinsurance without authorization. For recurrent kidney stone patients, some clinicians can use low-dose protocols or ultrasound to limit both radiation and cost across repeat episodes.",
+    "questionsToAsk": [
+      "Is my situation urgent enough for the ER, or can this be scheduled outpatient at a much lower price?",
+      "Has prior authorization been obtained if this is scheduled?",
+      "Am I being billed the combined abdomen-pelvis code rather than two separate scans?",
+      "For recurring stones, could ultrasound or a low-dose protocol work for follow-ups?",
+      "What is the total including the radiologist reading at your facility versus an imaging center?"
+    ]
+  },
+  "74177": {
+    "whatItIs": "This CT scans the abdomen and pelvis with IV iodine contrast, the workhorse test for unexplained abdominal pain, suspected appendicitis or diverticulitis, infections, and cancer staging. The dye highlights organs, bowel, and blood vessels that blend together without it. An IV is placed, the dye produces a brief hot flush, and scanning takes seconds; plan on 30 to 45 minutes total, sometimes longer if oral contrast drink is required beforehand.",
+    "costFactors": [
+      "IV contrast adds a supply charge, and facilities that also use oral contrast add preparation time though the drink itself is inexpensive.",
+      "A kidney function lab test may be required before dye in at-risk patients.",
+      "This is a staple ER scan, and emergency facility pricing multiplies the cost relative to a scheduled study.",
+      "Cancer staging and surveillance mean repeated scans on a schedule, so per-scan price differences compound over the years.",
+      "The professional reading fee covering two body regions bills separately at hospitals."
+    ],
+    "billingNotes": "CPT 74177 is the combined abdomen-plus-pelvis code with contrast; a version scanning before and after dye (74178) bills higher. The iodinated contrast appears as its own supply line, and any pre-scan creatinine test is a separate lab claim. Watch for improper separate billing of abdomen and pelvis codes when the combined study was performed, and for ER claims, expect the facility fee to dominate every other line.",
+    "insuranceNotes": "Prior authorization applies to the scheduled outpatient version on nearly all commercial plans but never to genuine ER use. The authorization is contrast-specific, so confirm the approved protocol matches what is performed. Medicare Part B covers medically necessary scans at 20 percent coinsurance without authorization; for oncology patients on surveillance schedules, in-network freestanding centers can save thousands across a multi-year scan calendar.",
+    "questionsToAsk": [
+      "Does my authorization specify the with-contrast combined abdomen-pelvis study?",
+      "Will I need oral contrast too, and does it add time or charges?",
+      "Do I need kidney function labs first, and who bills those?",
+      "If this is part of ongoing cancer surveillance, what does each scan cost at my current facility versus an independent center?",
+      "Is the radiologist fee inside or outside the quoted price?"
+    ]
+  },
+  "76700": {
+    "whatItIs": "A complete abdominal ultrasound uses sound waves, no radiation, to examine the liver, gallbladder, pancreas, kidneys, spleen, and major vessels in one session. It is a first-line test for right-upper-belly pain, suspected gallstones, abnormal liver blood tests, and follow-up of known findings. You fast for several hours beforehand so the gallbladder is full, then lie on a table while a technologist glides a warm gel-covered probe over your abdomen for 20 to 30 minutes.",
+    "costFactors": [
+      "Hospital outpatient ultrasound departments charge notably more than independent imaging centers and many physician offices.",
+      "The complete study covers all upper abdominal organs; a limited single-organ study is a cheaper code when only one question needs answering.",
+      "The sonographer's images are read by a radiologist whose professional fee may bill separately.",
+      "Poor views from bowel gas or body habitus occasionally force a repeat study or escalation to CT, adding cost.",
+      "Findings like gallstones frequently lead to surgical consultation, making this scan a common gateway to a larger episode."
+    ],
+    "billingNotes": "CPT 76700 requires documented evaluation of the full set of upper abdominal organs; if only the gallbladder or one organ was examined, the limited code 76705 should be billed at a lower rate instead. Technical and professional components split at hospital-based departments. No contrast, sedation, or lab charges belong on a routine abdominal ultrasound claim.",
+    "insuranceNotes": "Ultrasound generally escapes the prior authorization rules that govern CT and MRI, making it the path of least resistance among abdominal imaging on commercial plans; standard deductible or copay cost sharing applies. Medicare covers it under Part B at 20 percent coinsurance. If your indication is specifically a follow-up of one known finding, ask whether the cheaper limited study suffices, because the complete study is sometimes ordered by default.",
+    "questionsToAsk": [
+      "Do I need the complete study, or would a limited single-organ ultrasound answer my question at a lower price?",
+      "What are your fasting instructions so the study does not have to be repeated?",
+      "Is the radiologist reading fee included in the quote?",
+      "What does this cost at your imaging center versus the hospital location?",
+      "If views are limited, would you move to CT, and what would that cost?"
+    ]
+  },
+  "76830": {
+    "whatItIs": "A transvaginal ultrasound places a slim, covered probe a short distance into the vagina to obtain close-up images of the uterus, endometrial lining, and ovaries. Because the probe sits near these organs, it shows detail that scanning over the belly cannot, making it the standard test for abnormal bleeding, pelvic pain, ovarian cysts, and early pregnancy evaluation. The exam takes 10 to 20 minutes, involves pressure but not usually pain, and a female chaperone can be requested.",
+    "costFactors": [
+      "It is frequently billed together with a transabdominal pelvic ultrasound (76856) in the same appointment, doubling the imaging lines on the claim.",
+      "OB/GYN offices performing it in-house often charge less overall than hospital imaging departments.",
+      "In fertility care, this scan may be repeated at multiple monitoring visits per cycle, and fertility monitoring is often billed outside regular insurance benefits.",
+      "The reading fee bills separately where a radiologist rather than the examining gynecologist interprets.",
+      "Findings such as a thickened lining commonly lead to biopsy or hysteroscopy, each a new procedure cost."
+    ],
+    "billingNotes": "CPT 76830 covers the transvaginal study alone; when both transvaginal and transabdominal exams are medically needed the same day, both codes can legitimately appear, though payers expect documentation of why two approaches were required. In early pregnancy, obstetric ultrasound codes replace this non-obstetric code. The professional and technical components merge in office settings that own the machine and read their own images.",
+    "insuranceNotes": "Diagnostic transvaginal ultrasound for symptoms is covered under standard medical benefits with no prior authorization at most plans. Coverage changes sharply in fertility contexts: monitoring ultrasounds during fertility treatment are excluded by many plans unless you have a specific fertility benefit, so identical scans can be fully covered or fully self-pay depending on the indication written on the order. Cost sharing follows your normal deductible and coinsurance for the diagnostic version.",
+    "questionsToAsk": [
+      "Will you bill both a transvaginal and an abdominal pelvic ultrasound today, and why are both needed?",
+      "Is this scan being coded as diagnostic or as fertility monitoring, and how does my plan treat each?",
+      "Who interprets the images, and is their fee separate?",
+      "What does this cost in your office versus the hospital's imaging department?",
+      "If the scan shows a thickened lining or cyst, what follow-up procedures and costs should I expect?"
+    ]
+  },
+  "76856": {
+    "whatItIs": "A complete pelvic ultrasound scans the bladder, uterus, and ovaries through the lower abdomen using a probe on the skin, requiring a full bladder to push bowel out of the way and create a clear acoustic window. It evaluates pelvic pain, fibroids, and masses, and in males or by protocol it examines the bladder and surrounding structures. The exam takes 15 to 30 minutes; the full-bladder requirement is most patients' only complaint.",
+    "costFactors": [
+      "It is commonly paired with a transvaginal study (76830) in one appointment, producing two billed exams.",
+      "Hospital imaging departments price this study well above independent centers and office-based machines.",
+      "An inadequately filled bladder can force rebooking, effectively costing a second visit.",
+      "A limited pelvic ultrasound is a cheaper code when only one structure needs a follow-up look.",
+      "Separate professional reading fees apply where radiologists interpret off-site."
+    ],
+    "billingNotes": "CPT 76856 requires a complete evaluation of the pelvic organs; follow-up of a single known finding should bill as the limited study 76857 at a lower rate. When transabdominal and transvaginal exams are both performed with documented need, both codes appear on the same claim. Obstetric indications shift billing to pregnancy ultrasound codes entirely, which have their own frequency and coverage rules.",
+    "insuranceNotes": "This ultrasound is covered as diagnostic imaging without prior authorization on nearly all plans, at standard deductible or copay levels. It is not part of any routine screening benefit; there is no recommended screening pelvic ultrasound for average-risk women, so a claim without symptoms or findings behind it can be denied as not medically necessary. Confirm the order lists your symptoms or the finding being followed.",
+    "questionsToAsk": [
+      "Is a complete study needed, or is this a follow-up that qualifies for the cheaper limited code?",
+      "Will a transvaginal exam likely be added during the visit, and what would both together cost?",
+      "What are the bladder-filling instructions so I am not rebooked?",
+      "What is the price difference between your office, an imaging center, and the hospital?",
+      "What diagnosis is on the order to support coverage?"
+    ]
+  },
+  "77066": {
+    "whatItIs": "A diagnostic bilateral mammogram is a focused X-ray examination of both breasts performed because something needs a closer look: a lump, pain, nipple discharge, or an abnormality flagged on a screening mammogram. Unlike screening, a radiologist is typically on site directing extra angled or magnified views in real time, and you often receive results before leaving. Each breast is compressed briefly for each view, and the appointment usually runs 30 to 45 minutes.",
+    "costFactors": [
+      "Unlike free screening, diagnostic mammography is subject to deductible and coinsurance on most plans, making the same machines suddenly cost money.",
+      "Same-day breast ultrasound is frequently added to work up the finding, billed as its own study.",
+      "3D tomosynthesis views, now common, add a separate code and charge on top of the 2D study.",
+      "Hospital breast centers bill facility fees that independent breast imaging centers do not.",
+      "If a biopsy is recommended, that follow-on procedure with pathology is a substantial next cost."
+    ],
+    "billingNotes": "CPT 77066 covers diagnostic views of both breasts; a one-sided workup uses 77065 instead, and 3D tomosynthesis appears as an add-on code when performed. Breast ultrasound done the same visit is billed separately, so a single problem-solving appointment often generates two or three imaging claims plus the radiologist's professional fees. Results letters and BI-RADS reporting are included, not billed extras.",
+    "insuranceNotes": "This is the classic screening-to-diagnostic trap: once your mammogram is labeled diagnostic, ACA free-screening protection no longer applies and normal cost sharing kicks in, even when the diagnostic study was triggered by a screening callback. A growing number of states require insurers to cover diagnostic breast imaging with no cost sharing, so check your state's rules and your plan type, since self-funded employer plans are exempt from state mandates. Medicare covers diagnostic mammograms at standard Part B cost sharing.",
+    "questionsToAsk": [
+      "Does my state or plan waive cost sharing for diagnostic breast imaging, or will I owe deductible and coinsurance?",
+      "Will ultrasound or 3D views be added today, and what does each cost?",
+      "What is the facility fee at this breast center compared with an independent imaging center?",
+      "If a biopsy is recommended, what would that procedure and pathology cost?",
+      "Can you give me the total for all imaging performed before I leave today?"
+    ]
+  },
+  "77067": {
+    "whatItIs": "A screening bilateral mammogram is the routine X-ray check of both breasts in women with no symptoms, looking for cancers too small to feel. A technologist takes two standard views of each breast with brief compression; the visit takes about 20 minutes, and a radiologist reads the images afterward, with results sent within days. It is the test guidelines recommend at regular intervals starting in a woman's 40s.",
+    "costFactors": [
+      "The screening itself is free under ACA preventive rules at in-network facilities, so out-of-pocket cost usually arises only from what follows.",
+      "3D tomosynthesis screening is an add-on code; most plans and Medicare now cover it as part of screening, but a few still pass its cost to patients.",
+      "Callbacks for additional views are billed as diagnostic mammography with normal cost sharing, and roughly one in ten screenings generates a callback.",
+      "Out-of-network facilities are not bound by the zero-cost-share screening rule.",
+      "Dense-breast supplemental imaging, like ultrasound or MRI, is billed separately and often with cost sharing."
+    ],
+    "billingNotes": "CPT 77067 covers the two-view screening study of both breasts with the radiologist's interpretation, and the 3D screening add-on has its own code when performed. If the radiologist sees something and you return for extra views, that second visit bills as diagnostic (77065 or 77066), not screening. Annual claims frequency matters: plans cover screening at defined intervals, and scheduling a few weeks early can cause an automated denial.",
+    "insuranceNotes": "Under the ACA, in-network screening mammograms are covered with zero cost sharing on essentially all commercial plans, and Medicare covers annual screening with no coinsurance. The common billing surprise is the callback: diagnostic imaging after an abnormal screen is not protected by the preventive rule federally, though many states now mandate free diagnostic follow-up on state-regulated plans. Keep screening and any unrelated breast complaints in separate visits, because mentioning a symptom can convert the whole study to diagnostic billing.",
+    "questionsToAsk": [
+      "Is this facility in network so my screening is fully free?",
+      "Is 3D tomosynthesis included at no charge under my plan?",
+      "If I get called back for more views, what will that diagnostic visit cost me?",
+      "Am I inside my plan's allowed screening interval so the claim will not be denied for timing?",
+      "If I have dense breasts, what supplemental imaging might be recommended and does my plan cover it?"
+    ]
+  },
+  "78452": {
+    "whatItIs": "A nuclear stress test (SPECT myocardial perfusion imaging) shows how well blood reaches your heart muscle at rest versus under stress, revealing blocked arteries. A small amount of radioactive tracer is injected, a special camera images the heart at rest, then you exercise on a treadmill or receive a medication that mimics exercise, and imaging repeats. Plan for a half day; the multiple imaging sessions and waiting periods make it one of the longest routine cardiac tests.",
+    "costFactors": [
+      "The radioactive tracer is a significant supply cost billed alongside the imaging, and tracer prices fluctuate with supply shortages.",
+      "Pharmacologic stress agents, used for patients who cannot exercise, are expensive drugs billed as additional lines.",
+      "Hospital outpatient cardiology departments charge substantially more than office-based nuclear labs.",
+      "Abnormal results commonly lead to cardiac catheterization, a much larger downstream expense.",
+      "The supervising cardiologist's stress supervision fee and the imaging interpretation fee are separate professional charges."
+    ],
+    "billingNotes": "CPT 78452 covers the multi-session SPECT imaging at rest and stress; the stress portion itself (treadmill supervision or drug administration) bills under separate cardiology codes, the tracer bills as a radiopharmaceutical supply, and any pharmacologic stress drug adds its own line. A complete claim therefore stacks four or more components, which is why quotes that mention only the imaging code understate the real total. Hospital settings add a facility fee on top.",
+    "insuranceNotes": "Commercial insurers almost universally require prior authorization for nuclear stress testing and increasingly push lower-risk patients toward cheaper alternatives like exercise ECG or stress echocardiography first; expect the request to be reviewed against appropriate-use criteria. Medicare covers it without prior authorization at standard Part B cost sharing. If your pretest risk is low, asking whether a cheaper functional test would answer the question is both clinically and financially reasonable.",
+    "questionsToAsk": [
+      "Has prior authorization been approved, and did my insurer suggest a cheaper test first?",
+      "Would a stress echocardiogram or exercise ECG answer the question for me at lower cost?",
+      "What do the tracer and any stress medication add to the bill?",
+      "Is this being done in an office-based lab or a hospital department, and what is the price at each?",
+      "If the result is abnormal, what is the next test and its typical cost?"
+    ]
+  },
+  "90791": {
+    "whatItIs": "A psychiatric diagnostic evaluation is the comprehensive first appointment with a mental health professional, typically a psychologist, therapist, or psychiatrist, covering your history, symptoms, and goals to establish a diagnosis and treatment plan. It usually runs 60 to 90 minutes, longer than ordinary therapy sessions, and happens in an office or by telehealth. This version of the evaluation does not include medical services like prescribing, which distinguishes it from its sister code 90792.",
+    "costFactors": [
+      "Many therapists and some psychiatrists do not accept insurance at all, making this a cash purchase at whatever the clinician charges.",
+      "Clinician credentials drive price: psychiatrists charge more than psychologists, who charge more than masters-level therapists, for the same code.",
+      "In-network negotiated rates are often far below the clinician's list price, so network status changes the cost more than almost anything else.",
+      "Telehealth platforms sometimes price intake evaluations differently from their ongoing session rates.",
+      "Out-of-network plans may reimburse a percentage of an allowed amount well below what the clinician actually charged, leaving you the gap."
+    ],
+    "billingNotes": "CPT 90791 is billed once at the start of care, occasionally again if you return after a long gap or need re-evaluation; ongoing sessions then bill under psychotherapy codes like 90834 or 90837. It cannot be billed by the same clinician on the same day as a psychotherapy service. Because no medical services are included, prescription management is absent from this code; if medication evaluation happens, 90792 is the correct code instead.",
+    "insuranceNotes": "Mental health parity law requires plans to cover behavioral health on terms no more restrictive than medical care, so this evaluation is covered in network like a specialist visit; the practical problem is network adequacy, since many behavioral health clinicians are out of network. If you cannot find an in-network provider with reasonable availability, some plans grant network-gap exceptions paying out-of-network clinicians at in-network rates; ask for one in writing. Telehealth coverage for this code is now standard on most plans.",
+    "questionsToAsk": [
+      "Are you in network with my plan, and if not, what is your rate for this evaluation?",
+      "Will ongoing sessions be billed at a different rate than this intake?",
+      "If I need medication, will you refer me for a separate 90792 evaluation with a prescriber, at what cost?",
+      "Does my plan offer a network-gap exception if no in-network therapist is available soon?",
+      "Do you provide superbills I can submit for out-of-network reimbursement?"
+    ]
+  },
+  "90792": {
+    "whatItIs": "This is the psychiatric diagnostic evaluation performed by a medical provider, a psychiatrist or psychiatric nurse practitioner, that includes medical services: reviewing your health history and medications, considering physical causes of symptoms, and usually prescribing or adjusting psychiatric medication. It typically lasts 45 to 90 minutes as the intake for medication management. Follow-up prescribing visits are then shorter and billed under different codes.",
+    "costFactors": [
+      "Psychiatrists are among the least likely of all physicians to accept insurance, so cash-pay intake fees are common and vary widely by market.",
+      "This medical evaluation code pays more than the non-medical 90791, and clinician list prices reflect that.",
+      "Any labs ordered at intake, such as thyroid or metabolic panels before starting medication, are billed separately by the lab.",
+      "Follow-up medication visits recur monthly or quarterly indefinitely, so the ongoing cadence matters more than the intake price.",
+      "Private-pay concierge psychiatry practices bundle intakes and follow-ups into membership pricing outside insurance entirely."
+    ],
+    "billingNotes": "CPT 90792 covers the intake evaluation with medical services; subsequent medication follow-ups bill as E/M office visits (such as 99213 or 99214), sometimes with a psychotherapy add-on when therapy happens in the same appointment. Labs, pharmacogenomic tests, and prescriptions all generate separate charges from other parties. Like 90791, it is an intake code, not billable at every visit.",
+    "insuranceNotes": "Parity rules make in-network coverage comparable to any medical specialist visit, but psychiatric network directories are notoriously outdated, and finding a prescriber actually taking new patients is the real barrier. Document your search: several failed attempts to find an in-network psychiatrist supports a network-gap exception request paying an out-of-network prescriber at in-network rates. Telehealth psychiatry is broadly covered, and prescribing of non-controlled psychiatric medications by telehealth is routine.",
+    "questionsToAsk": [
+      "Do you take my insurance, and what are your cash rates for the intake and for follow-ups?",
+      "How often will I need follow-up visits, and how are those billed?",
+      "Will you order baseline labs, and where should I have them drawn to stay in network?",
+      "If therapy is recommended alongside medication, do you provide it or refer out?",
+      "Can I request a network-gap exception if no in-network prescriber is available in a reasonable time?"
+    ]
+  },
+  "90834": {
+    "whatItIs": "This is a standard individual psychotherapy session of about 45 minutes, the most commonly billed therapy length in the United States. You meet one-on-one with a therapist, in person or by video, to work on concerns such as anxiety, depression, or life stressors using approaches like cognitive behavioral therapy. Care typically involves weekly or biweekly sessions over months, so the per-session price compounds into a meaningful recurring expense.",
+    "costFactors": [
+      "Therapy is a recurring cost; the number of sessions over a course of care dwarfs any single session fee.",
+      "Cash-pay rates vary enormously by city and clinician credential, and many therapists operate entirely outside insurance.",
+      "In-network copays or coinsurance per session are often much lower than cash rates, when you can find an in-network therapist with openings.",
+      "The technical difference between this 45-minute code and the 60-minute 90837 changes both the charge and what insurers reimburse.",
+      "Sliding-scale fees, training clinics, and employer EAP sessions can reduce or eliminate cost for a set number of visits."
+    ],
+    "billingNotes": "CPT 90834 covers a session of 38 to 52 minutes of psychotherapy; shorter sessions bill 90832 and longer ones 90837, so the clock determines the code. It is billed per session with no bundling, and if your therapist is also your prescriber, therapy can be billed as an add-on to a medical visit under different codes. Missed-appointment fees are not billable to insurance and come straight to you under most practice policies.",
+    "insuranceNotes": "Parity law forbids plans from imposing stricter visit limits or higher cost sharing on therapy than comparable medical care, so hard annual session caps have largely disappeared from major plans, though concurrent review for very long courses still happens. Copays per session apply on most plans once any deductible is met. Out-of-network reimbursement via superbills typically returns only part of the fee based on the plan's allowed amount, and EAP benefits often provide a handful of genuinely free sessions before insurance even starts.",
+    "questionsToAsk": [
+      "What is my per-session cost in network, and what would I actually get back if I see you out of network with a superbill?",
+      "Do you offer a sliding scale or reduced rate if I pay cash?",
+      "Does my employer EAP cover any sessions free before my insurance kicks in?",
+      "How many sessions do you anticipate for my goals?",
+      "What is your cancellation fee policy, since insurance will not pay those?"
+    ]
+  },
+  "90837": {
+    "whatItIs": "This is an extended individual psychotherapy session of about 60 minutes, used when clinical work benefits from more time, such as trauma-focused therapies like EMDR or prolonged exposure, complex cases, or clients who simply progress better with longer sessions. The experience is the same as any therapy session, just longer, in office or via telehealth. Many private-practice therapists use this as their default session length.",
+    "costFactors": [
+      "The 60-minute code both charges and reimburses more than the 45-minute 90834, so session length is itself a cost decision.",
+      "Some insurers scrutinize routine use of the longer code and effectively pressure therapists toward 45-minute billing, affecting what is offered in network.",
+      "Trauma protocols that clinically require longer sessions can lock you into the higher per-session rate for an extended course.",
+      "Cash rates for 60-minute sessions in major metropolitan areas run well above national averages.",
+      "Weekly frequency at the higher session rate compounds fastest of the common therapy configurations."
+    ],
+    "billingNotes": "CPT 90837 applies to sessions of 53 minutes or more; the actual session length in the record must support the code, and payers occasionally audit heavy 90837 billers. It bills per session, cannot combine with 90834 on the same day, and telehealth sessions bill the same code with a location modifier. If insurers request treatment plans to justify continued extended sessions, that review process can interrupt reimbursement, though parity rules constrain how restrictive it can be.",
+    "insuranceNotes": "Coverage mirrors other psychotherapy: in-network copay or coinsurance per session, parity protections against arbitrary limits, and broad telehealth acceptance. The practical wrinkle unique to this code is payer friction: some plans reimburse 90837 only modestly above 90834 or ask therapists to justify the longer length, which influences whether in-network clinicians offer full-hour sessions at all. If out of network, your reimbursement depends on the plan's allowed amount for this specific code, worth asking your insurer for in advance.",
+    "questionsToAsk": [
+      "Do you bill 45 or 60 minute sessions, and how does that change my cost per visit?",
+      "Does my treatment approach genuinely need the longer session, or would 45 minutes serve?",
+      "What is my plan's allowed amount for 90837 out of network?",
+      "Has my insurer ever pushed back on your 60-minute billing, and what happens to my sessions if it does?",
+      "Is telehealth billed at the same rate as in-person for the hour session?"
+    ]
+  },
+  "93000": {
+    "whatItIs": "A 12-lead electrocardiogram records the heart's electrical activity through ten stickers placed on the chest and limbs, producing the familiar wave tracing in under a minute of recording. It screens for rhythm problems, prior heart attacks, and electrical abnormalities, and takes about five minutes start to finish with no preparation, needles, or radiation. This code covers the complete service: the tracing plus a physician's interpretation and written report.",
+    "costFactors": [
+      "Setting matters even for a cheap test: an ER or hospital-based ECG can cost many times an office ECG.",
+      "Freestanding urgent cares and primary care offices bundle it inexpensively into visits, while hospital outpatient departments attach facility fees.",
+      "An ECG billed as part of a pre-operative clearance workup adds to that visit's total alongside labs and the exam.",
+      "Abnormal results commonly trigger an echocardiogram or cardiology consult, each a much larger charge.",
+      "Some cardiology practices bill the tracing and interpretation as separate components rather than this combined code."
+    ],
+    "billingNotes": "CPT 93000 is the global code covering both the tracing and the interpretation with report; component codes exist for tracing-only (93005) and interpretation-only (93010), which is how hospitals often split the billing when an ER doctor or cardiologist reads a tracing done by staff. It is billed alongside, not inside, the office visit at which it was performed. Duplicate interpretation billing, two physicians each billing a read of the same tracing, is a known error worth checking on hospital claims.",
+    "insuranceNotes": "ECGs ordered for symptoms or cardiac monitoring are covered diagnostic tests with ordinary cost sharing and no authorization anywhere. Medicare covers one screening ECG in a lifetime, only as part of the Welcome to Medicare visit; otherwise routine screening ECGs in healthy adults are not a covered preventive benefit and guidelines do not recommend them, so an ECG on an annual physical claim without symptoms can be denied or billed to you. Ask why one is being done at a routine physical before agreeing.",
+    "questionsToAsk": [
+      "Why do I need an ECG today, and is it covered given my symptoms or history?",
+      "Is this billed as one combined charge or as separate tracing and interpretation fees?",
+      "What does an ECG cost here versus at my primary care office?",
+      "If it is abnormal, what follow-up tests would you order and at what cost?",
+      "For a routine physical: will my plan pay for a screening ECG, or will this come to me?"
+    ]
+  },
+  "93306": {
+    "whatItIs": "A complete transthoracic echocardiogram is an ultrasound movie of the heart, capturing chamber sizes, pumping strength, and, in this code's complete-with-Doppler form, blood flow across each valve. It evaluates murmurs, shortness of breath, heart failure, and valve disease. A sonographer glides a probe across your chest for 30 to 45 minutes while you lie on your side; there is no radiation, no dye, and no preparation.",
+    "costFactors": [
+      "Hospital outpatient echo labs charge dramatically more than cardiologist office-based labs for the same complete study.",
+      "This complete-with-Doppler code prices above limited or follow-up echo codes, so the study type ordered matters.",
+      "The interpreting cardiologist's professional fee is a separate component at facility-based labs.",
+      "Serial echos to monitor a known valve problem repeat the full cost at each surveillance interval.",
+      "If images are inadequate, an ultrasound-enhancing contrast agent may be used, adding a drug charge, or a transesophageal echo may follow at substantially higher cost."
+    ],
+    "billingNotes": "CPT 93306 is the complete echo including spectral and color Doppler; a study without Doppler (93307) or a limited follow-up (93308) bills lower, and payers expect the ordered indication to justify the complete version. Technical and professional components split at hospitals and often merge in office labs. An echo contrast agent, when used for difficult imaging windows, appears as an added drug line.",
+    "insuranceNotes": "Many commercial plans now require prior authorization for outpatient echocardiography through cardiology benefit managers, a newer development than the long-standing MRI rules, so scheduling before authorization clears is risky. Medicare covers it under Part B without authorization at standard coinsurance. For valve surveillance patients, asking whether a limited follow-up echo suffices at each interval instead of a repeat complete study is a legitimate cost and coding question.",
+    "questionsToAsk": [
+      "Has prior authorization been approved if my plan requires it for echo?",
+      "What is the price at your office lab versus the hospital's echo department?",
+      "Is a complete study needed, or does my follow-up qualify for the cheaper limited echo?",
+      "Is the cardiologist's reading fee included in the quote?",
+      "How often will this need repeating for my condition, and at what recurring cost?"
+    ]
+  },
+  "93350": {
+    "whatItIs": "A stress echocardiogram combines a heart ultrasound with exercise: images are taken at rest, you walk or run on a treadmill to a target heart rate, then images are rapidly repeated to see whether any heart wall moves poorly under stress, a sign of blocked arteries. It answers many of the same questions as a nuclear stress test without radiation. Plan on about an hour, wear exercise clothes, and expect to be pushed close to your maximum effort.",
+    "costFactors": [
+      "The complete service stacks several billed parts: the imaging, the treadmill stress supervision, and the physician interpretations.",
+      "Patients who cannot exercise need a dobutamine infusion instead, adding drug and administration charges.",
+      "Office-based cardiology labs undercut hospital outpatient pricing for the identical test.",
+      "It is generally cheaper than a nuclear stress test because there is no radioactive tracer, an argument for it when either test would do.",
+      "Inconclusive results can cascade to nuclear imaging, CT angiography, or catheterization, each a fresh cost tier."
+    ],
+    "billingNotes": "CPT 93350 covers the echocardiographic imaging during stress; the exercise stress test itself, physician supervision, ECG monitoring, and interpretation bill under companion cardiology stress codes on the same claim, and a combined code (93351) exists when one physician provides everything. Dobutamine, when used, appears as separate drug and infusion lines. A facility fee applies in hospital settings on top of all professional charges.",
+    "insuranceNotes": "Prior authorization is commonly required by commercial insurers, though stress echo often clears review more easily than nuclear imaging because it is the cheaper of the two functional tests; some plans actively prefer it. Medicare covers it without authorization under Part B coinsurance. If you were scheduled for a nuclear stress test, it is fair to ask whether stress echo would answer the question at lower cost and without radiation; for many intermediate-risk patients it does.",
+    "questionsToAsk": [
+      "Is stress echo or a nuclear test better for my situation, and what does each cost me?",
+      "Has prior authorization been approved for this specific test?",
+      "Will I exercise, or will I need the dobutamine version, and what does the drug add?",
+      "Is this in an office lab or a hospital department, and what is the price at each?",
+      "If the result is unclear, what is the next test and its cost?"
+    ]
+  },
+  "93880": {
+    "whatItIs": "A bilateral carotid duplex ultrasound examines the arteries on both sides of the neck that supply the brain, measuring plaque buildup and blood flow speed to estimate narrowing. It is ordered after a stroke or mini-stroke, for a bruit heard in the neck, or before certain surgeries. A technologist moves a probe along each side of your neck for 30 to 45 minutes; it is painless, radiation-free, and requires no preparation.",
+    "costFactors": [
+      "Hospital vascular labs charge multiples of what office-based or freestanding vascular labs charge for the same bilateral study.",
+      "Significant narrowing triggers surveillance scans every 6 to 12 months, making the per-scan price a recurring expense for years.",
+      "Findings can cascade to CT or MR angiography for confirmation, each far more expensive than the ultrasound.",
+      "The interpreting physician's fee is a separate component at facility-based labs.",
+      "Screening packages sold directly to consumers by mobile companies price this scan cheaply as cash-pay, but positive findings still funnel into insured follow-up costs."
+    ],
+    "billingNotes": "CPT 93880 covers a complete bilateral study; a one-sided or limited exam bills 93882 at a lower rate. Technical and professional components split in hospital settings. If a stenosis is found, subsequent surveillance studies bill the same code at each interval, and confirmatory angiography bills under entirely separate imaging families at much higher rates.",
+    "insuranceNotes": "Carotid ultrasound for symptoms, a heard bruit, or follow-up of known disease is covered diagnostically with usual cost sharing, and most plans do not gate it behind prior authorization. True screening in people without symptoms or findings is not a recommended preventive service, so a screening claim can be denied; direct-to-consumer screening outfits charge cash precisely because insurers will not pay for unselected screening. Medicare covers medically indicated studies under Part B coinsurance.",
+    "questionsToAsk": [
+      "What indication is on my order, and is it one my insurer covers?",
+      "What does this study cost at an office vascular lab versus the hospital?",
+      "If narrowing is found, how often will I need repeat scans and at what cost each?",
+      "Would an abnormal result lead to CT or MR angiography, and what do those cost?",
+      "Is the physician interpretation included in your quoted price?"
+    ]
+  },
+  "96920": {
+    "whatItIs": "This is laser treatment, typically with an excimer laser, for inflammatory skin disease such as psoriasis or vitiligo covering a total area under 250 square centimeters, roughly the size of a hand or two. The laser delivers targeted ultraviolet light only to affected patches, sparing normal skin and allowing stronger dosing than whole-body light booths. Each session takes 10 to 20 minutes with a mild sunburn-like sensation, and a course involves two or three sessions weekly for several weeks.",
+    "costFactors": [
+      "This is inherently a multi-session therapy, often 12 to 30 treatments per course, so the per-session price multiplied by the protocol defines the real cost.",
+      "Cost sharing applies per session on most plans, so even modest copays accumulate across a full course.",
+      "Larger treatment areas bill under higher-tier codes (96921, 96922), so the extent of your psoriasis changes the code and price.",
+      "Maintenance sessions after clearance, if needed, extend the spending beyond the initial course.",
+      "Alternatives compete on cost: topical treatments are cheaper, while biologic drugs are far more expensive, positioning laser in the middle of psoriasis economics."
+    ],
+    "billingNotes": "CPT 96920 covers one laser session for a total treated area under 250 square centimeters; bigger areas move to companion codes at higher rates, and each visit bills separately, so a course generates a long series of identical claims. An office visit is not usually billable alongside a routine laser session unless a distinct evaluation occurred. Photography or phototherapy setup fees are not standard billable extras with this code.",
+    "insuranceNotes": "Coverage for excimer laser in psoriasis is common but frequently conditioned: many plans require documented failure of topical therapy first, and some cap the number of covered sessions per course or per year, with continued treatment requiring documented improvement. Vitiligo coverage varies more, as some plans historically labeled it cosmetic, a stance that has been retreating. Prior authorization for the course is typical, so confirm both approval and the session cap before starting.",
+    "questionsToAsk": [
+      "How many sessions does my treatment plan involve, and what is my cost per session?",
+      "Has prior authorization been approved, and for how many sessions?",
+      "What happens to coverage if I need maintenance treatments after clearing?",
+      "Have we documented that topicals failed, since my insurer may require that first?",
+      "How does the total course cost compare with my other treatment options?"
+    ]
+  },
+  "97110": {
+    "whatItIs": "Therapeutic exercise is the foundational hands-on-guidance code of physical therapy: strength, range-of-motion, and flexibility exercises prescribed and supervised by a PT to restore function after injury or surgery. It is billed in 15-minute units, so a typical session includes two to four units of this code, often mixed with other billed services. Expect active work: you exercise while the therapist coaches, corrects form, and progresses the program visit by visit.",
+    "costFactors": [
+      "Billing is per 15-minute unit, so the number of units per visit, not just the number of visits, drives your bill.",
+      "A full rehab course after surgery commonly spans 10 to 36 visits, making the per-visit total a recurring weekly expense.",
+      "Hospital-owned therapy clinics attach facility fees that private PT practices do not.",
+      "Sessions usually combine this code with others like manual therapy (97140), stacking multiple billed lines per visit.",
+      "High-deductible plan members often find cash-pay PT packages cheaper than their negotiated insurance rates."
+    ],
+    "billingNotes": "CPT 97110 is a time-based code billed in 15-minute units under the strict timed-unit counting rules, so the minutes documented determine the units charged; a one-hour session might yield three or four total timed units across all codes combined. It appears alongside an evaluation code at the first visit and alongside other treatment codes thereafter. Medicare requires therapy claims to carry a modifier once annual spending passes a threshold, at which point continued medical necessity must be documented, though the old hard cap was eliminated.",
+    "insuranceNotes": "Commercial plans typically cover PT with a per-visit copay or coinsurance and a defined visit limit per year, often 20 to 60 visits, and parity rules do not apply to physical therapy, so those limits are enforceable. Many plans require authorization after an initial batch of visits, managed by the clinic. Medicare has no visit cap but applies a documentation threshold, and 20 percent coinsurance applies per visit without a supplement; ask the clinic how many units they typically bill per session, since that varies widely between practices.",
+    "questionsToAsk": [
+      "How many units do you typically bill per session, and what will each visit cost me?",
+      "How many PT visits does my plan allow per year, and does that count all therapy types combined?",
+      "Do you need to get authorization after a certain number of visits?",
+      "What is your cash rate per visit, and is it cheaper than my insurance rate before my deductible is met?",
+      "How much of each session will be one-on-one with the therapist versus independent exercise?"
+    ]
+  },
+  "97140": {
+    "whatItIs": "Manual therapy is the hands-on treatment code of physical therapy: joint mobilization, soft tissue work, manual stretching, and manipulation performed directly by the therapist's hands, billed in 15-minute units. It addresses stiffness, restricted joints, and muscle tightness, and typically occupies one unit within a session that also includes exercise. Patients experience it as targeted, sometimes intense, hands-on work on the problem area.",
+    "costFactors": [
+      "Like all timed PT codes, it bills per 15-minute unit, and it usually appears alongside therapeutic exercise units, adding a line to every visit's bill.",
+      "Chiropractors and PTs both bill this code, and payer rules about billing it on the same day as spinal manipulation create claim complications in chiropractic settings.",
+      "The share of your session spent hands-on versus exercising shifts the code mix and the total.",
+      "Hospital-based clinics layer facility fees on top of professional charges for identical treatment.",
+      "Extended courses for chronic conditions accumulate this add-on unit across dozens of visits."
+    ],
+    "billingNotes": "CPT 97140 is time-based at 15 minutes per unit and counts within the same total timed-minute pool as the session's other timed codes, so it adds units only when enough one-on-one minutes are documented. Payers commonly require a modifier when it is billed the same day as certain other services, notably chiropractic manipulation, and some deny the combination outright on the same body region. It cannot be billed for time a machine or hot pack is working on you; hands-on contact is the requirement.",
+    "insuranceNotes": "Coverage follows your plan's overall physical therapy benefit: the same visit limits, copays, and authorization checkpoints apply regardless of which timed codes fill the session. In chiropractic care, plans often cover manipulation but scrutinize added manual therapy billing on the same visit, so chiropractic bills mixing the two deserve a look. Medicare pays it as standard therapy with the annual documentation threshold and 20 percent coinsurance.",
+    "questionsToAsk": [
+      "How many minutes of hands-on manual therapy will my sessions actually include?",
+      "Will this be billed alongside exercise units, and what does the combined session cost?",
+      "If I am seeing a chiropractor, will billing this with manipulation cause claim denials on my plan?",
+      "Does the treatment plan justify manual therapy at every visit, or only early on?",
+      "How does dropping or adding this unit change my per-visit cost?"
+    ]
+  },
+  "97161": {
+    "whatItIs": "This is the initial physical therapy evaluation for straightforward cases: a low-complexity assessment where the PT reviews your history, examines movement, strength, and function, and builds your treatment plan. It applies when you have no significant complicating factors, for example a recent simple ankle sprain in an otherwise healthy person. The appointment usually runs 30 to 60 minutes and often includes the first treatment, which is billed separately on top.",
+    "costFactors": [
+      "The evaluation is a one-time charge at the start of care, usually priced above a standard treatment visit.",
+      "Treatment codes billed at the same first visit stack on top of the evaluation fee.",
+      "Complexity tiering matters: this low-complexity code is the least expensive of the three PT evaluation levels under many commercial fee schedules, though Medicare currently pays all three tiers the same.",
+      "Direct access rules let you start PT without a physician referral in most states, saving a doctor visit, but some insurers still require a referral for payment.",
+      "Hospital outpatient therapy departments attach facility fees to the evaluation that private clinics do not."
+    ],
+    "billingNotes": "CPT 97161 is chosen when your history has no personal factors or comorbidities affecting the plan, the exam covers limited body systems, and your presentation is stable; those specific elements, not time, select the code among the three evaluation tiers. Treatment performed the same day bills separately under timed codes. A re-evaluation code (97164) exists for formal reassessment mid-course, which should not be billed at every visit.",
+    "insuranceNotes": "The evaluation counts as one of your plan's allowed therapy visits and is covered the same way, subject to copay or coinsurance. Verify whether your plan requires a physician referral or authorization before the evaluation even in direct-access states, because state law permitting PT access does not obligate your insurer to pay without a referral. Medicare pays the three evaluation complexity levels identically, so the tier chosen affects documentation, not your Medicare cost.",
+    "questionsToAsk": [
+      "Do I need a physician referral for my insurance to pay, even though my state allows direct access?",
+      "What does the evaluation cost, and will treatment on the same day be billed on top?",
+      "Does the evaluation count against my plan's annual visit limit?",
+      "After evaluating me, how many visits and units per visit do you anticipate?",
+      "Is your clinic hospital-owned, and is there a facility fee on this evaluation?"
+    ]
+  },
+  "97162": {
+    "whatItIs": "This is the moderate-complexity initial physical therapy evaluation, used when your situation has real complicating factors: one or more health conditions affecting rehab, an evolving rather than stable presentation, or changed function in daily activities. A typical example is knee rehab in someone with diabetes and prior joint surgery. The PT takes a more extensive history and examines more body systems than in a simple case, usually across a 45 to 75 minute appointment that often ends with the first treatment.",
+    "costFactors": [
+      "As the middle evaluation tier, some commercial payers price it above the low-complexity code, while Medicare pays all three tiers equally.",
+      "Complicated patients tend to need longer courses of care, so the evaluation tier itself signals a larger total spend ahead.",
+      "First-day treatment units bill in addition to the evaluation.",
+      "Comorbidities can mean coordination with physicians or extra documentation, occasionally generating separate visits elsewhere.",
+      "Clinic ownership matters as always: hospital-affiliated clinics add facility fees to every encounter including this one."
+    ],
+    "billingNotes": "CPT 97162 requires documented complicating elements: a history with one or two personal factors or comorbidities relevant to the plan, examination of at least three body systems or regions, and an evolving clinical presentation. The distinction among 97161, 97162, and 97163 is clinical complexity, not appointment length. Same-day treatment bills separately, and mid-course reassessment uses the re-evaluation code rather than repeating an initial evaluation.",
+    "insuranceNotes": "Coverage is identical in structure to any PT evaluation: it consumes a visit under your annual therapy benefit with your standard cost sharing, and referral or authorization requirements depend on your plan, not on the complexity tier. Under Medicare the payment is the same across tiers, so patients see no cost difference; under some commercial fee schedules the moderate tier reimburses somewhat more, which can flow through to coinsurance-based cost sharing. The complexity coding primarily affects clinic documentation and audit exposure.",
+    "questionsToAsk": [
+      "What makes my case moderate complexity, and does that tier change what I pay under my plan?",
+      "Given my other health conditions, how long a course of therapy should I budget for?",
+      "Will you treat me on evaluation day, and what will that first combined visit cost?",
+      "Does my insurer require a referral or pre-authorization before this evaluation?",
+      "How will you coordinate with my physician, and does that generate any separate charges?"
+    ]
+  },
+  "99203": {
+    "whatItIs": "This is a new-patient office visit of low complexity: your first appointment with a practice in at least three years, for a problem that is relatively contained, such as a stable rash, a minor joint complaint, or a straightforward infection. The clinician takes your history, examines you, and forms a plan, typically across 30 to 44 minutes when billed by time. New-patient visits pay more than established-patient visits because building your baseline record takes longer.",
+    "costFactors": [
+      "New-patient codes price meaningfully above the equivalent established-patient visit, a one-time premium for joining a practice.",
+      "Hospital-owned practices add a facility fee to office visits that independent practices cannot, sometimes doubling the encounter cost.",
+      "Any labs, ECGs, or procedures done during the visit bill on top of the visit code.",
+      "Specialist new-patient visits at this same code level are billed at higher charge-master rates than primary care in many systems.",
+      "If your problem turns out more complex than expected, the visit may be coded a level higher (99204) at a higher price."
+    ],
+    "billingNotes": "CPT 99203 is selected by either total time on the date of the visit (30 to 44 minutes) or low-complexity medical decision making, and it requires that no one in the same practice and specialty saw you in the past three years, otherwise established-patient codes apply. Vaccines, tests, and minor procedures during the visit bill separately. A visit dedicated to a problem cannot be a free preventive physical; those are different codes with different coverage.",
+    "insuranceNotes": "Problem-focused new-patient visits are covered under standard office visit benefits: a copay on many plans, or the full negotiated rate against your deductible on high-deductible plans. This is not a preventive visit, so the ACA free-physical benefit does not apply even if it is your first appointment. If you combine a first physical with a new problem, practices may legitimately bill both a preventive and a problem visit the same day, producing a copay you did not expect.",
+    "questionsToAsk": [
+      "Am I being seen as a new patient, and what is the price difference versus an established visit?",
+      "Is this practice hospital-owned, and will a facility fee be added to my visit?",
+      "What will any labs or tests today add to the bill?",
+      "If I also want my annual physical, will that be billed separately from this problem visit?",
+      "What is your self-pay price for this visit level if I have a high deductible?"
+    ]
+  },
+  "99204": {
+    "whatItIs": "This is a new-patient office visit of moderate to high complexity: your first visit to a practice in three years for a problem with real depth, such as multiple symptoms needing workup, a new chronic disease like diabetes, or several interacting conditions. When billed by time it represents 45 to 59 minutes on the visit date. It is the most commonly billed new-patient level in the United States, the default for a substantive first specialist or primary care appointment.",
+    "costFactors": [
+      "As the workhorse new-patient code, it prices well above 99203, and the level is set by the visit's complexity, not by what you expected walking in.",
+      "Specialist consultations commonly bill at this level, and specialist charge rates exceed primary care for the same code.",
+      "Diagnostic workups launched at this visit, labs, imaging referrals, and tests, are where the episode's real spending usually begins.",
+      "Facility fees at hospital-owned clinics inflate this visit substantially compared with independent offices.",
+      "Prolonged-service add-on codes can stack on top if the visit runs well past an hour."
+    ],
+    "billingNotes": "CPT 99204 requires moderate-complexity medical decision making or 45 to 59 minutes of total time, and the new-patient three-year rule applies. It is the level most scrutinized in coding audits because it sits at the boundary where documentation must support moderate complexity: multiple problems, data reviewed, or prescription management with risk. Tests, procedures, and vaccinations during the visit always bill as additional lines.",
+    "insuranceNotes": "Standard office visit coverage applies: specialist copays are often higher than primary care copays for the identical code, and high-deductible members pay the full negotiated rate, which varies widely between health systems. Some plans require a referral for the specialist visits typically billed at this level, and skipping the referral can void coverage entirely on gatekeeper-model plans like many HMOs. The visit itself never requires prior authorization, but the tests it generates often do.",
+    "questionsToAsk": [
+      "Does my plan require a referral for this specialist before the visit is covered?",
+      "What is the negotiated or cash price for a level-four new-patient visit here?",
+      "Which tests are you likely to order, and which of those need prior authorization?",
+      "Is there a facility fee because this clinic is hospital-owned?",
+      "If the visit runs long, could additional prolonged-service charges apply?"
+    ]
+  },
+  "99205": {
+    "whatItIs": "This is the highest-level new-patient office visit, reserved for genuinely complex first encounters: multiple serious conditions, a diagnosis that could threaten life or function, or decisions about major interventions. Billed by time, it means 60 to 74 minutes with the clinician on the visit date. Typical examples include a first oncology consultation, a complicated multi-system workup, or a new patient with several unstable chronic diseases.",
+    "costFactors": [
+      "It is the most expensive standard office visit code, and practices reserve it for their longest, most involved new consultations.",
+      "The specialists who bill it most, oncologists, rheumatologists, complex-care internists, tend to practice in hospital systems where facility fees compound the professional charge.",
+      "Visits this complex almost always launch expensive diagnostics: advanced imaging, biopsies, or specialty labs, each billed separately.",
+      "Prolonged-service add-on codes attach beyond 74 minutes, extending the charge further.",
+      "Second-opinion consultations at academic centers often bill at this level with academic-center pricing."
+    ],
+    "billingNotes": "CPT 99205 demands high-complexity medical decision making or 60 to 74 minutes of documented time, and payers audit it precisely because it pays the most; the medical record must reflect the severity and data involved. The three-year new-patient rule applies. Everything beyond the conversation and exam, tests, procedures, infusions, bills separately, and time beyond 74 minutes adds the prolonged-services code in 15-minute increments.",
+    "insuranceNotes": "Coverage terms mirror any specialist office visit: referral requirements on gatekeeper plans, specialist-tier copays, or full negotiated rates against a deductible. Because this level often marks the start of major treatment episodes, the more consequential insurance work is downstream: confirming the recommended tests, procedures, and drugs are in network and authorized. For second opinions, many plans cover them fully, and some cancer policies actively encourage them; verify whether the academic center you choose is in network first.",
+    "questionsToAsk": [
+      "What is the charge for this highest-level consultation, including any facility fee?",
+      "Does my plan need a referral on file before this visit?",
+      "Which of the tests and treatments you are recommending need prior authorization?",
+      "Is every provider involved in my workup, radiology, pathology, labs, in my network?",
+      "If this is a second opinion, does my plan have a program that covers it in full?"
+    ]
+  },
+  "99213": {
+    "whatItIs": "This is the routine follow-up appointment of American medicine: an established-patient office visit of low-to-moderate complexity, such as a blood pressure check with a medication refill, a stable chronic condition review, or a minor new complaint. Billed by time it covers 20 to 29 minutes on the visit date. It is among the most frequently billed codes in the entire healthcare system, the standard quick-but-real doctor visit.",
+    "costFactors": [
+      "Established-patient status keeps the price below any new-patient visit; this level is typically the cheapest substantive visit on a fee schedule after the minimal 99212.",
+      "Hospital-owned clinics attach facility fees that can exceed the visit fee itself, turning a modest checkup into a two-part bill.",
+      "In-visit extras like rapid tests, ECGs, or injections each bill on top.",
+      "Chronic disease management means this visit recurs several times a year indefinitely, so its price is a recurring subscription in practice.",
+      "Telehealth versions bill the same code, sometimes with different plan cost sharing than in-person."
+    ],
+    "billingNotes": "CPT 99213 requires low-complexity medical decision making or 20 to 29 minutes of total time for a patient seen by the practice within three years. If your stable visit involved more problems or prescription decisions with meaningful risk, 99214 is justified instead, which is why identical-feeling visits sometimes bill differently. Add-on charges for tests and procedures are separate, and Medicare wellness visits are distinct codes that cannot be swapped in for a problem visit.",
+    "insuranceNotes": "Most plans apply a flat office-visit copay to this code once applicable, making it one of the most predictable costs in healthcare; high-deductible members pay the negotiated rate, which differs surprisingly between practices for the same code. It is a problem visit, not preventive, so it never qualifies for zero-cost-share preventive coverage. Telehealth billing of this code is covered by most plans, occasionally with lower or waived cost sharing.",
+    "questionsToAsk": [
+      "What is my copay or the negotiated rate for a level-three established visit here?",
+      "Will anything done today, tests or injections, be billed on top of the visit?",
+      "Does this clinic charge a facility fee on office visits?",
+      "How many follow-ups per year should I expect for my condition, and can any be telehealth?",
+      "Is a telehealth visit cheaper under my plan than coming in?"
+    ]
+  },
+  "99214": {
+    "whatItIs": "This is an established-patient office visit of moderate complexity, a step above the routine check-in: managing multiple chronic conditions at once, adjusting medications with real risk, or evaluating a new problem that needs a workup. Billed by time it represents 30 to 39 minutes on the visit date. Over the last decade it has overtaken the level-three visit as the most common established-patient code in primary care, reflecting more complex visits and better documentation.",
+    "costFactors": [
+      "It reimburses meaningfully more than 99213, and which of the two your visit becomes depends on documented complexity you cannot see from the waiting room.",
+      "Multi-condition patients land here repeatedly through the year, compounding the higher per-visit rate.",
+      "Facility fees at hospital-owned practices add a second charge to every visit at any level.",
+      "In-office tests, injections, or procedures stack as separate lines.",
+      "Specialist follow-ups at this level are priced above primary care equivalents in most charge masters."
+    ],
+    "billingNotes": "CPT 99214 requires moderate-complexity medical decision making, for instance two or more stable chronic illnesses managed, or a new problem with uncertain prognosis, or prescription drug management, or alternatively 30 to 39 minutes of total time. The 99213-versus-99214 boundary is the most consequential coding decision in outpatient medicine and a frequent audit target in both directions. Same-day preventive plus problem billing can legitimately produce two visit codes with modifier separation.",
+    "insuranceNotes": "Cost sharing works like any office visit: flat copays hide the difference between levels on copay plans, but deductible-phase and coinsurance patients pay the real gap between a level three and level four. Medicare pays the difference too, and its 20 percent coinsurance is proportionally larger at this level. If your explanations of benefits show every single visit at level four or five, that pattern, called upcoding when unjustified, is worth a polite question to the practice.",
+    "questionsToAsk": [
+      "What determines whether my visit bills as level three or four, and what is the price difference for me?",
+      "During my deductible phase, what is the negotiated rate for this level here?",
+      "Will medication changes today push the visit to a higher level?",
+      "Are any of today's services billed separately from the visit code?",
+      "Can complex medication reviews be split across telehealth check-ins at lower cost?"
+    ]
+  },
+  "99215": {
+    "whatItIs": "This is the highest established-patient office visit level, for encounters involving high-complexity decisions: severe worsening of a chronic illness, problems that threaten life or bodily function, or decisions about hospitalization, major surgery, or high-risk drug therapy requiring intensive monitoring. Billed by time it means 40 to 54 minutes on the visit date. It is far less common than levels three and four, appearing when something significant is genuinely happening with your health.",
+    "costFactors": [
+      "It carries the highest established-visit price, and visits at this level usually sit inside expensive care episodes: imminent hospitalizations, treatment escalations, or complex disease flares.",
+      "The decisions made here, starting high-risk medications, ordering urgent advanced imaging, arranging admission, each open substantial separate spending.",
+      "Prolonged-service add-on codes attach beyond 54 minutes, extending charges.",
+      "Specialist and academic-center billing at this level exceeds primary care rates.",
+      "Facility fees apply as always in hospital-owned settings, proportionally largest on the biggest visit codes."
+    ],
+    "billingNotes": "CPT 99215 requires high-complexity medical decision making, for example an acute illness posing a threat to life or bodily function, or drug therapy requiring intensive toxicity monitoring, or 40 to 54 minutes of total time. Payers audit this level closely, so documentation must reflect genuine severity. Everything the visit sets in motion, tests, referrals, admissions, bills separately, and time past 54 minutes adds prolonged-service increments.",
+    "insuranceNotes": "Coverage structure is the same office-visit benefit as any level, but a level-five visit is usually a signal moment for insurance logistics: hospital admissions may need plan notification, urgent imaging still often needs expedited prior authorization, and high-risk specialty drugs trigger their own approval pipelines. If you are in the deductible phase, the level-five rate lands fully on you, and it is fair to ask whether extensive follow-up can happen through covered care management programs. Medicare coinsurance applies at 20 percent of its highest office-visit allowance.",
+    "questionsToAsk": [
+      "What made today a level-five visit, and what is that price under my plan?",
+      "Which of the urgent next steps you are ordering need authorization, and who handles the expedited requests?",
+      "If admission is possible, does my plan require notification, and will you handle it?",
+      "Are prolonged-service charges being added for today's visit length?",
+      "Does my plan offer care management support that could cover some of this follow-up at no cost?"
+    ]
+  }
+}

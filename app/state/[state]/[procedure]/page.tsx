@@ -14,6 +14,8 @@ import {
 } from "@/lib/medicare";
 import ProcedureSearch from "@/components/ProcedureSearch";
 import JsonLd from "@/components/JsonLd";
+import ProcedureEditorial from "@/components/ProcedureEditorial";
+import { getProcedureContent } from "@/lib/procedure-content";
 import { breadcrumbSchema, faqSchema, medicalWebPageSchema } from "@/lib/schema";
 
 export const revalidate = 86400; // 24 hours
@@ -358,6 +360,25 @@ export default async function StateProcedurePage({ params }: PageProps) {
           </p>
         </div>
       </div>
+
+      {/* Editorial: what it is, cost drivers, questions (compact; full version on /procedure/[code]) */}
+      {(() => {
+        const editorial = getProcedureContent(proc.code);
+        if (!editorial) return null;
+        return (
+          <>
+            <ProcedureEditorial name={proc.friendlyName} content={editorial} compact />
+            <div className="-mt-8 mb-12 text-sm">
+              <Link
+                href={`/procedure/${proc.code}`}
+                className="text-blue-600 hover:text-blue-800 font-bold"
+              >
+                Read the full {proc.friendlyName.toLowerCase()} billing and insurance guide &rarr;
+              </Link>
+            </div>
+          </>
+        );
+      })()}
 
       {/* Ways to save */}
       <div className="bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-100 rounded-2xl p-6 md:p-8 mb-12">
