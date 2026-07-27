@@ -543,10 +543,15 @@ export const guides: Guide[] = [
   },
 ];
 
+import { insuranceGuides } from "./guides-insurance";
+import { savingsGuides } from "./guides-savings";
+
+const allGuides: Guide[] = [...guides, ...insuranceGuides, ...savingsGuides];
+
 export function getAllGuides(): Guide[] {
-  return guides;
+  return allGuides;
 }
 
 export function getGuideBySlug(slug: string): Guide | undefined {
-  return guides.find((g) => g.slug === slug);
+  return allGuides.find((g) => g.slug === slug);
 }

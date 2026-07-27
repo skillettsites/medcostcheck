@@ -45,6 +45,11 @@ export default async function GuidePage({ params }: PageProps) {
       headline: guide.title,
       description: guide.description,
       url: `https://www.medcostcheck.com/guides/${slug}`,
+      author: {
+        "@type": "Organization",
+        name: "MedCostCheck Editorial Team",
+        url: "https://www.medcostcheck.com/editorial-policy",
+      },
       publisher: {
         "@type": "Organization",
         name: "MedCostCheck",
@@ -71,7 +76,14 @@ export default async function GuidePage({ params }: PageProps) {
           <h1 className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-4">
             {guide.title}
           </h1>
-          <div className="flex items-center gap-3 text-sm text-gray-400">
+          <div className="flex items-center gap-3 text-sm text-gray-400 flex-wrap">
+            <span>
+              By the{" "}
+              <Link href="/editorial-policy" className="text-blue-600 hover:text-blue-800 font-medium">
+                MedCostCheck Editorial Team
+              </Link>
+            </span>
+            <span>&middot;</span>
             <span>{guide.readingTime}</span>
             <span>&middot;</span>
             <span>Updated {guide.updated}</span>
