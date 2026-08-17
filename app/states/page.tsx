@@ -1,12 +1,12 @@
 import { Metadata } from "next";
 import Link from "next/link";
 import {
-  getAllStates,
   getStateName,
   getPopularProcedures,
   getStateProcedurePrice,
   stateToSlug,
 } from "@/lib/medicare";
+import { getIndexableStateAbbrs } from "@/lib/geo";
 
 export const revalidate = 86400; // 24 hours
 
@@ -17,11 +17,7 @@ export const metadata: Metadata = {
 };
 
 export default function StatesPage() {
-  const states = getAllStates()
-    .filter((s) => {
-      const name = getStateName(s);
-      return name !== s && s !== "PR" && s !== "VI";
-    });
+  const states = getIndexableStateAbbrs();
 
   // Use a common procedure (office visit 99213) for comparison
   const refCode = "99213";
@@ -53,8 +49,9 @@ export default function StatesPage() {
           Medical Costs by State
         </h1>
         <p className="text-gray-500 text-lg max-w-3xl">
-          Medical procedure costs vary significantly across the United States. Compare Medicare
-          rates in every state and find detailed pricing for 59 common procedures.
+          Compare 2026 Medicare physician rates across the 50 states and DC.
+          Each state hub lists {popular.length} featured procedures and a ZIP
+          search for the rest of the fee schedule.
         </p>
       </div>
 

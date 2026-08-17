@@ -20,7 +20,7 @@ export default function AboutPage() {
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
         <div className="bg-blue-50 border border-blue-200 rounded-xl p-5 text-center">
           <p className="text-3xl font-bold text-blue-700">7,500+</p>
-          <p className="text-sm text-blue-600 mt-1">Procedures covered</p>
+          <p className="text-sm text-blue-600 mt-1">Searchable CPT codes</p>
         </div>
         <div className="bg-blue-50 border border-blue-200 rounded-xl p-5 text-center">
           <p className="text-3xl font-bold text-blue-700">43,000+</p>
@@ -38,12 +38,14 @@ export default function AboutPage() {
             What is MedCostCheck?
           </h2>
           <p>
-            MedCostCheck is a free tool that lets you look up the estimated cost
-            of medical procedures by ZIP code. Whether you need an MRI, a blood
-            test, or an office visit, you can search by procedure name or CPT
-            code and see what Medicare pays in your area. All cost data comes
-            from the 2026 Medicare Physician Fee Schedule published by the
-            Centers for Medicare & Medicaid Services (CMS).
+            MedCostCheck is a free, independent cost-lookup tool. Search by
+            procedure name or CPT code, optionally add a ZIP, and see the 2026
+            Medicare <em>physician</em> allowed amount for that locality. About
+            7,500 payable codes are in the search tool. We publish featured
+            pages for 59 commonly searched procedures (and state pages for
+            those same procedures). The rest are meant to be looked up, not
+            turned into thousands of near-duplicate articles. All prices come
+            from the 2026 Medicare Physician Fee Schedule published by CMS.
           </p>
         </section>
 
@@ -174,15 +176,27 @@ export default function AboutPage() {
 
         <section>
           <h2 className="text-xl font-semibold text-gray-900 mb-3">
-            How We Work
+            Who publishes MedCostCheck
           </h2>
           <p className="mb-3">
-            MedCostCheck is an independent, reader-supported website. We are
-            not owned by, affiliated with, or paid by any hospital, insurer, or
-            healthcare provider, and no provider can pay to change the prices
-            shown. Our estimates are computed directly from the public CMS data
-            files listed above, using the published Medicare payment formula,
-            and we refresh the data when CMS releases fee schedule updates.
+            MedCostCheck is an independent, reader-supported website. It is
+            not a medical practice, hospital, insurer, or government agency,
+            and it is not owned by any of those. No provider can pay to change
+            a price. We are not clinicians and do not give medical advice.
+            There is no separate legal-entity name or street address published
+            here; the public contact for the site is{" "}
+            <a
+              href="mailto:contact@medcostcheck.com"
+              className="text-blue-600 hover:text-blue-800 font-medium"
+            >
+              contact@medcostcheck.com
+            </a>
+            .
+          </p>
+          <p className="mb-3">
+            Estimates are computed from the public CMS files listed above,
+            using the published Medicare payment formula, and refreshed when
+            CMS releases fee schedule updates.
           </p>
           <p className="mb-3">
             Alongside the pricing tool, we publish plain-English{" "}
@@ -222,7 +236,7 @@ export default function AboutPage() {
       <div className="mt-12 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-xl p-8 text-center text-white">
         <h2 className="text-2xl font-bold mb-2">Look up a procedure cost</h2>
         <p className="text-blue-100 mb-4">
-          Search 7,500+ procedures with local pricing for your ZIP code.
+          Search 7,500+ CPT codes. Featured pages cover the procedures people look up most.
         </p>
         <Link
           href="/"

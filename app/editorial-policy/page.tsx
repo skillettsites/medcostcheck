@@ -79,7 +79,7 @@ export default function EditorialPolicyPage() {
             Pricing data is refreshed when CMS publishes fee schedule updates,
             which happens at least annually with revisions during the year.
             Each pricing page states the exact CMS file release it is built
-            from. Guides carry a visible "Updated" date and are revised when
+            from. Guides carry a visible &quot;Updated&quot; date and are revised when
             the rules they describe change.
           </p>
         </section>
@@ -128,12 +128,17 @@ export default function EditorialPolicyPage() {
             Who is behind MedCostCheck
           </h2>
           <p>
-            MedCostCheck is built and maintained by a small independent team
-            that specializes in making public government datasets usable by
-            ordinary people. We are not clinicians, and we do not present
-            ourselves as such; we are data people. Everything we publish can
-            be traced back to a public primary source, and we link to those
-            sources so you can check our work.
+            MedCostCheck is an independent cost-lookup site, not a medical
+            practice, hospital, or insurer. We are not clinicians. Everything
+            we publish can be traced to a public CMS or legal source. The
+            public contact is{" "}
+            <a
+              href="mailto:contact@medcostcheck.com"
+              className="text-blue-600 hover:text-blue-800 underline"
+            >
+              contact@medcostcheck.com
+            </a>
+            . We do not publish a street address.
           </p>
         </section>
       </div>
