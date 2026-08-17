@@ -150,7 +150,7 @@ export default function HomePage() {
             {categories.map((cat) => (
               <Link
                 key={cat.slug}
-                href={`/procedures?category=${cat.slug}`}
+                href={`/procedures#${cat.slug}`}
                 className="group bg-white rounded-2xl p-4 sm:p-6 text-center hover:shadow-lg hover:-translate-y-0.5 transition-all border border-gray-100"
               >
                 <div className="text-4xl mb-3">{cat.icon}</div>
