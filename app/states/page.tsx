@@ -53,8 +53,9 @@ export default function StatesPage() {
           Medical Costs by State
         </h1>
         <p className="text-gray-500 text-lg max-w-3xl">
-          Medical procedure costs vary significantly across the United States. Compare Medicare
-          rates in every state and find detailed pricing for 59 common procedures.
+          Compare 2026 Medicare physician rates across the 50 states and DC.
+          Each state hub lists {popular.length} featured procedures and a ZIP
+          search for the rest of the fee schedule.
         </p>
       </div>
 

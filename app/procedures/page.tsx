@@ -4,13 +4,14 @@ import {
   getPopularProcedures,
   getCategories,
 } from "@/lib/medicare";
+import ProcedureSearch from "@/components/ProcedureSearch";
 
 export const revalidate = 86400; // 24 hours
 
 export const metadata: Metadata = {
-  title: "All Medical Procedures",
+  title: "Featured Medical Procedure Costs",
   description:
-    "Browse all medical procedure costs. Compare prices for MRIs, surgeries, office visits, lab tests, and more. 2026 Medicare rates.",
+    "59 featured 2026 Medicare physician-rate pages. Search 7,500+ CPT codes by name or code. ZIP lookup for locality pricing.",
   alternates: { canonical: "/procedures" },
 };
 
@@ -33,12 +34,21 @@ export default function ProceduresPage() {
       {/* Header */}
       <div className="mb-10">
         <h1 className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-3">
-          Medical Procedure Costs
+          Featured procedure costs
         </h1>
-        <p className="text-gray-500 text-lg">
-          National average Medicare rates (2026). Click any procedure for
-          ZIP-level pricing.
+        <p className="text-gray-500 text-lg max-w-3xl">
+          {popular.length} dedicated pages with national Medicare physician
+          rates (2026). The fee schedule has 7,500+ payable codes — search
+          those here; we do not publish a thin page for every code.
         </p>
+      </div>
+
+      <div className="bg-gradient-to-br from-blue-700 via-blue-800 to-indigo-900 rounded-2xl p-8 mb-12 text-white">
+        <h2 className="text-xl font-bold mb-1">Search any CPT or name</h2>
+        <p className="text-blue-200 text-sm mb-5">
+          Add a ZIP for a locality rate, or skip it for the national figure.
+        </p>
+        <ProcedureSearch />
       </div>
 
       {/* Quick jump */}

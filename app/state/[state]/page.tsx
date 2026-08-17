@@ -10,13 +10,16 @@ import {
   slugToStateAbbr,
   stateToSlug,
   procedureToSlug,
-  CONVERSION_FACTOR,
 } from "@/lib/medicare";
+import ProcedureSearch from "@/components/ProcedureSearch";
 import JsonLd from "@/components/JsonLd";
+import ScopeNote from "@/components/ScopeNote";
+import DataSourceNote from "@/components/DataSourceNote";
 import { getStateContent } from "@/lib/state-content";
 import { breadcrumbSchema, faqSchema, medicalWebPageSchema } from "@/lib/schema";
+import { formatPriceRound } from "@/lib/format";
 
-export const revalidate = 86400; // 24 hours
+export const revalidate = 86400;
 
 interface PageProps {
   params: Promise<{ state: string }>;
@@ -25,7 +28,7 @@ interface PageProps {
 export async function generateStaticParams() {
   const states = getAllStates().filter((s) => {
     const name = getStateName(s);
-    return name !== s; // filter out any that don't have a name mapping
+    return name !== s;
   });
   return states.map((abbr) => ({
     state: stateToSlug(getStateName(abbr)),
@@ -40,17 +43,13 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const stateName = getStateName(abbr);
   return {
     title: `Medical Procedure Costs in ${stateName} (2026)`,
-    description: `How much do medical procedures cost in ${stateName}? Compare Medicare rates for MRIs, surgeries, office visits, and more. Free cost lookup with 2026 pricing data for ${stateName}.`,
+    description: `2026 Medicare physician rates in ${stateName}: localities, GPCI, and featured procedure costs. Search any CPT by ZIP. Not a hospital chargemaster.`,
     alternates: { canonical: `/state/${slug}` },
   };
 }
 
-function formatPrice(price: number): string {
-  return "$" + price.toLocaleString("en-US", { minimumFractionDigits: 0, maximumFractionDigits: 0 });
-}
-
-function formatPriceExact(price: number): string {
-  return "$" + price.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+function formatGpci(n: number): string {
+  return n.toFixed(3);
 }
 
 export default async function StatePage({ params }: PageProps) {
@@ -61,13 +60,12 @@ export default async function StatePage({ params }: PageProps) {
   const stateName = getStateName(abbr);
   const popular = getPopularProcedures();
   const localities = getStateLocalities(abbr);
+  const stateCopy = getStateContent(abbr);
 
-  // Get all states for the nav section
   const allStates = getAllStates()
     .filter((s) => getStateName(s) !== s)
     .filter((s) => s !== "PR" && s !== "VI");
 
-  // Calculate prices for popular procedures in this state
   const proceduresWithPrices = popular
     .map((proc) => {
       const statePrice = getStateProcedurePrice(proc.code, abbr);
@@ -80,57 +78,61 @@ export default async function StatePage({ params }: PageProps) {
       };
     })
     .filter(Boolean) as Array<{
-      code: string;
-      friendlyName: string;
-      description: string;
-      nationalNonFacPrice: number;
-      nationalFacPrice: number;
-      stateAvgNonFac: number;
-      stateAvgFac: number;
-      diff: number;
-    }>;
+    code: string;
+    friendlyName: string;
+    description: string;
+    nationalNonFacPrice: number;
+    nationalFacPrice: number;
+    stateAvgNonFac: number;
+    stateAvgFac: number;
+    diff: number;
+  }>;
 
-  const avgDiff = proceduresWithPrices.length > 0
-    ? proceduresWithPrices.reduce((sum, p) => sum + p.diff, 0) / proceduresWithPrices.length
-    : 0;
+  const avgDiff =
+    proceduresWithPrices.length > 0
+      ? proceduresWithPrices.reduce((sum, p) => sum + p.diff, 0) / proceduresWithPrices.length
+      : 0;
 
   const costLabel = avgDiff > 2 ? "above" : avgDiff < -2 ? "below" : "near";
+  const peMin = localities.length ? Math.min(...localities.map((l) => l.peGpci)) : 1;
+  const peMax = localities.length ? Math.max(...localities.map((l) => l.peGpci)) : 1;
 
-  const examples = proceduresWithPrices.slice(0, 3)
-    .map((p) => `${p.friendlyName.toLowerCase()} around ${formatPrice(p.stateAvgNonFac)}`)
+  const examples = proceduresWithPrices
+    .slice(0, 3)
+    .map((p) => `${p.friendlyName.toLowerCase()} ${formatPriceRound(p.stateAvgNonFac)}`)
     .join(", ");
 
-  // Visible FAQ below + FAQPage schema (kept identical).
   const faqs = [
     {
-      q: `How much do medical procedures cost in ${stateName}?`,
-      a: `Medicare procedure costs in ${stateName} are generally ${costLabel} the national average${avgDiff > 2 || avgDiff < -2 ? ` by about ${Math.abs(avgDiff).toFixed(0)}%` : ""}. For example: ${examples}. Private insurance typically pays 130-200% of these Medicare rates and self-pay cash prices vary by provider.`,
+      q: `How do Medicare physician rates in ${stateName} compare nationally?`,
+      a: `Across the ${proceduresWithPrices.length} featured procedures on this page, ${stateName} sits ${costLabel} the national average${avgDiff > 2 || avgDiff < -2 ? ` by about ${Math.abs(avgDiff).toFixed(0)}%` : ""}. Examples: ${examples}. Search any other CPT in the box above — those codes are in the tool, not as extra ${stateName} articles.`,
     },
     {
-      q: `Why do procedure costs vary within ${stateName}?`,
-      a: localities.length > 1
-        ? `Medicare divides ${stateName} into ${localities.length} pricing localities, each with its own geographic adjustment, so the same procedure can cost more in higher-cost metro areas than in rural ones. Enter your ZIP code for locality-specific pricing.`
-        : `${stateName} has a single Medicare pricing locality, so Medicare rates are consistent statewide. Actual charges still vary by provider and setting (office vs hospital).`,
+      q: `How many Medicare localities does ${stateName} have?`,
+      a:
+        localities.length > 1
+          ? `${stateName} has ${localities.length} payment localities. Practice-expense GPCI runs from ${formatGpci(peMin)} to ${formatGpci(peMax)} (1.000 is the national average). ${stateCopy?.zipNote ?? "Enter a ZIP to see which locality applies."}`
+          : `${stateName} is one Medicare locality, so the physician fee schedule is statewide. Site of service (office vs hospital) and hospital facility fees still change what a patient is billed.`,
     },
     {
-      q: `What do Medicare patients pay for procedures in ${stateName}?`,
-      a: `Medicare patients in ${stateName} typically pay 20% of the Medicare-approved amount after meeting their Part B deductible, with Medicare covering the other 80%. Supplemental (Medigap) plans can cover most of that 20% coinsurance.`,
+      q: `What do these ${stateName} prices include?`,
+      a: `Medicare physician allowed amounts only — the professional fee after GPCI. They do not include hospital facility charges, anesthesia, or your plan’s contracted rate. Medicare patients typically owe 20% of the allowed amount after the Part B deductible, before Medigap.`,
     },
     {
-      q: `How can I save on medical procedures in ${stateName}?`,
-      a: `Ask each provider for a self-pay or cash price before scheduling, as many in ${stateName} discount 20-40% for upfront payment. If you are uninsured, compare marketplace insurance plans, use telehealth for consultations, and check prescription discount cards.`,
+      q: `Can I look up a CPT that is not in the table?`,
+      a: `Yes. The table is the featured set (${popular.length} procedures). The search box looks up 7,500+ payable codes from the 2026 fee schedule and applies ${stateName}’s locality when you enter a ZIP.`,
     },
   ];
 
   const schema = [
     breadcrumbSchema([
       { name: "Home", url: "/" },
-      { name: "Procedures", url: "/procedures" },
+      { name: "States", url: "/states" },
       { name: stateName, url: `/state/${slug}` },
     ]),
     medicalWebPageSchema({
       name: `Medical Procedure Costs in ${stateName} (2026)`,
-      description: `2026 Medicare procedure costs in ${stateName} across ${localities.length} pricing ${localities.length === 1 ? "locality" : "localities"}, with national comparison and ways to save.`,
+      description: `2026 Medicare physician rates in ${stateName} across ${localities.length} ${localities.length === 1 ? "locality" : "localities"}, with featured procedure prices and ZIP lookup.`,
       url: `/state/${slug}`,
     }),
     faqSchema(faqs),
@@ -139,118 +141,163 @@ export default async function StatePage({ params }: PageProps) {
   return (
     <div className="max-w-6xl mx-auto px-4 py-10">
       <JsonLd data={schema} />
-      {/* Breadcrumb */}
       <nav className="flex items-center gap-2 text-sm text-gray-400 mb-8 flex-wrap">
-        <Link href="/" className="hover:text-blue-600 transition-colors">Home</Link>
-        <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M4 2l4 4-4 4" /></svg>
-        <Link href="/procedures" className="hover:text-blue-600 transition-colors">Procedures</Link>
-        <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M4 2l4 4-4 4" /></svg>
+        <Link href="/" className="hover:text-blue-600 transition-colors">
+          Home
+        </Link>
+        <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" strokeWidth="1.5">
+          <path d="M4 2l4 4-4 4" />
+        </svg>
+        <Link href="/states" className="hover:text-blue-600 transition-colors">
+          States
+        </Link>
+        <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" strokeWidth="1.5">
+          <path d="M4 2l4 4-4 4" />
+        </svg>
         <span className="text-gray-700 font-medium">{stateName}</span>
       </nav>
 
-      {/* Header */}
       <div className="mb-10">
         <h1 className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-3">
           Medical Procedure Costs in {stateName}
         </h1>
         <p className="text-gray-500 text-lg max-w-3xl">
-          {stateName} medical procedure costs are generally {costLabel} the national average.
+          {stateName} Medicare physician rates are generally {costLabel} the
+          national average
+          {avgDiff > 2 || avgDiff < -2 ? ` (${avgDiff > 0 ? "+" : ""}${avgDiff.toFixed(1)}%)` : ""}.
           {localities.length > 1
-            ? ` Medicare divides ${stateName} into ${localities.length} pricing localities, so costs can vary within the state.`
-            : ` ${stateName} has a single Medicare pricing locality.`}
+            ? ` CMS uses ${localities.length} localities here, so a ZIP matters.`
+            : ` One statewide locality — the ZIP tool still maps you onto that locality.`}
         </p>
       </div>
 
-      {/* Summary cards */}
+      <div className="bg-gradient-to-br from-blue-700 via-blue-800 to-indigo-900 rounded-2xl p-8 mb-12 text-white">
+        <h2 className="text-xl font-bold mb-1">Look up any CPT in {stateName}</h2>
+        <p className="text-blue-200 text-sm mb-5">
+          Featured table below is {popular.length} procedures. Search covers
+          7,500+ fee-schedule codes.
+        </p>
+        <ProcedureSearch />
+      </div>
+
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-12">
         <div className="bg-white border border-gray-100 rounded-2xl p-6 shadow-sm text-center">
-          <div className="text-xs font-semibold text-gray-400 uppercase tracking-wide mb-2">Cost vs National Avg</div>
-          <div className={`text-3xl font-extrabold ${avgDiff > 2 ? "text-red-600" : avgDiff < -2 ? "text-green-600" : "text-gray-900"}`}>
-            {avgDiff > 0 ? "+" : ""}{avgDiff.toFixed(1)}%
+          <div className="text-xs font-semibold text-gray-400 uppercase tracking-wide mb-2">
+            vs national (featured set)
           </div>
-          <div className="text-xs text-gray-400 mt-1">{costLabel === "above" ? "Higher than average" : costLabel === "below" ? "Lower than average" : "Close to average"}</div>
+          <div
+            className={`text-3xl font-extrabold ${
+              avgDiff > 2 ? "text-red-600" : avgDiff < -2 ? "text-green-600" : "text-gray-900"
+            }`}
+          >
+            {avgDiff > 0 ? "+" : ""}
+            {avgDiff.toFixed(1)}%
+          </div>
         </div>
         <div className="bg-white border border-gray-100 rounded-2xl p-6 shadow-sm text-center">
-          <div className="text-xs font-semibold text-gray-400 uppercase tracking-wide mb-2">Pricing Localities</div>
+          <div className="text-xs font-semibold text-gray-400 uppercase tracking-wide mb-2">
+            Medicare localities
+          </div>
           <div className="text-3xl font-extrabold text-gray-900">{localities.length}</div>
-          <div className="text-xs text-gray-400 mt-1">Medicare pricing regions</div>
+          <div className="text-xs text-gray-400 mt-1">
+            PE GPCI {formatGpci(peMin)}
+            {peMin !== peMax ? `–${formatGpci(peMax)}` : ""}
+          </div>
         </div>
         <div className="bg-white border border-gray-100 rounded-2xl p-6 shadow-sm text-center">
-          <div className="text-xs font-semibold text-gray-400 uppercase tracking-wide mb-2">Procedures Covered</div>
-          <div className="text-3xl font-extrabold text-gray-900">7,500+</div>
-          <div className="text-xs text-gray-400 mt-1">CPT codes with pricing</div>
+          <div className="text-xs font-semibold text-gray-400 uppercase tracking-wide mb-2">
+            On this page
+          </div>
+          <div className="text-3xl font-extrabold text-gray-900">{popular.length}</div>
+          <div className="text-xs text-gray-400 mt-1">featured procedures · rest via search</div>
         </div>
       </div>
 
-      {/* State editorial: how pricing is structured here */}
-      {(() => {
-        const sc = getStateContent(abbr);
-        if (!sc) return null;
-        return (
-          <div className="bg-white border border-gray-100 rounded-2xl p-6 md:p-8 mb-12 shadow-sm">
-            <h2 className="text-xl font-bold text-gray-900 mb-4 flex items-center gap-2">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-blue-500"><circle cx="12" cy="12" r="10" /><path d="M12 16v-4M12 8h.01" /></svg>
-              How Medicare Pricing Works in {stateName}
-            </h2>
-            <div className="space-y-4 text-sm text-gray-600 leading-relaxed">
-              <p>{sc.overview}</p>
-              <p>{sc.costContext}</p>
-              <p>{sc.zipNote}</p>
-            </div>
-          </div>
-        );
-      })()}
+      <ScopeNote extra={`These ${stateName} averages are unweighted means of the state’s localities, not population-weighted.`} />
 
-      {/* Locality breakdown (if multiple) */}
+      {stateCopy && (
+        <div className="bg-white border border-gray-100 rounded-2xl p-6 md:p-8 mb-12 shadow-sm">
+          <h2 className="text-xl font-bold text-gray-900 mb-4">
+            How Medicare prices {stateName}
+          </h2>
+          <div className="space-y-4 text-sm text-gray-600 leading-relaxed">
+            <p>{stateCopy.overview}</p>
+            <p>{stateCopy.costContext}</p>
+            <p>{stateCopy.zipNote}</p>
+          </div>
+        </div>
+      )}
+
       {localities.length > 1 && (
         <div className="mb-12">
-          <h2 className="text-xl font-bold text-gray-900 mb-4 flex items-center gap-2">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-blue-500"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" /><circle cx="12" cy="10" r="3" /></svg>
-            Pricing Regions in {stateName}
+          <h2 className="text-xl font-bold text-gray-900 mb-4">
+            {stateName} payment localities (GPCI)
           </h2>
           <div className="bg-white border border-gray-100 rounded-2xl overflow-hidden shadow-sm">
             <table className="w-full text-sm">
               <thead className="bg-gray-50/80 border-b border-gray-100">
                 <tr>
-                  <th className="text-left px-2 py-2 sm:px-5 sm:py-3.5 font-semibold text-gray-500 text-xs uppercase tracking-wide">Locality</th>
-                  <th className="text-right px-2 py-2 sm:px-5 sm:py-3.5 font-semibold text-gray-500 text-xs uppercase tracking-wide">Work GPCI</th>
-                  <th className="text-right px-2 py-2 sm:px-5 sm:py-3.5 font-semibold text-gray-500 text-xs uppercase tracking-wide">PE GPCI</th>
-                  <th className="text-right px-2 py-2 sm:px-5 sm:py-3.5 font-semibold text-gray-500 text-xs uppercase tracking-wide hidden sm:table-cell">MP GPCI</th>
+                  <th className="text-left px-2 py-2 sm:px-5 sm:py-3.5 font-semibold text-gray-500 text-xs uppercase tracking-wide">
+                    Locality
+                  </th>
+                  <th className="text-right px-2 py-2 sm:px-5 sm:py-3.5 font-semibold text-gray-500 text-xs uppercase tracking-wide">
+                    Work
+                  </th>
+                  <th className="text-right px-2 py-2 sm:px-5 sm:py-3.5 font-semibold text-gray-500 text-xs uppercase tracking-wide">
+                    PE
+                  </th>
+                  <th className="text-right px-2 py-2 sm:px-5 sm:py-3.5 font-semibold text-gray-500 text-xs uppercase tracking-wide hidden sm:table-cell">
+                    MP
+                  </th>
                 </tr>
               </thead>
               <tbody>
-                {localities.map((loc, i) => (
-                  <tr key={i} className="border-t border-gray-50">
-                    <td className="px-2 py-2 sm:px-5 sm:py-3.5 font-medium text-gray-900 capitalize">{loc.localityName.toLowerCase()}</td>
-                    <td className="px-2 py-2 sm:px-5 sm:py-3.5 text-right text-gray-600">{loc.pwGpci.toFixed(3)}</td>
-                    <td className="px-2 py-2 sm:px-5 sm:py-3.5 text-right text-gray-600">{loc.peGpci.toFixed(3)}</td>
-                    <td className="px-2 py-2 sm:px-5 sm:py-3.5 text-right text-gray-600 hidden sm:table-cell">{loc.mpGpci.toFixed(3)}</td>
+                {localities.map((loc) => (
+                  <tr key={loc.localityName} className="border-t border-gray-50">
+                    <td className="px-2 py-2 sm:px-5 sm:py-3.5 font-medium text-gray-900 capitalize">
+                      {loc.localityName.toLowerCase()}
+                    </td>
+                    <td className="px-2 py-2 sm:px-5 sm:py-3.5 text-right text-gray-600">
+                      {formatGpci(loc.pwGpci)}
+                    </td>
+                    <td className="px-2 py-2 sm:px-5 sm:py-3.5 text-right text-gray-600">
+                      {formatGpci(loc.peGpci)}
+                    </td>
+                    <td className="px-2 py-2 sm:px-5 sm:py-3.5 text-right text-gray-600 hidden sm:table-cell">
+                      {formatGpci(loc.mpGpci)}
+                    </td>
                   </tr>
                 ))}
               </tbody>
             </table>
           </div>
           <p className="text-xs text-gray-400 mt-3">
-            GPCI (Geographic Practice Cost Index) values adjust Medicare payments for regional cost differences.
-            Higher values mean higher costs. A GPCI of 1.000 equals the national average.
+            GPCI of 1.000 equals the national average. Higher PE GPCI raises
+            office-based procedures more than hospital physician lines.
           </p>
         </div>
       )}
 
-      {/* Procedure prices table */}
       <div className="mb-12">
-        <h2 className="text-xl font-bold text-gray-900 mb-4 flex items-center gap-2">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-blue-500"><line x1="12" y1="1" x2="12" y2="23" /><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6" /></svg>
-          Procedure Costs in {stateName}
+        <h2 className="text-xl font-bold text-gray-900 mb-4">
+          Featured physician rates in {stateName}
         </h2>
         <div className="bg-white border border-gray-100 rounded-2xl overflow-hidden shadow-sm">
           <table className="w-full text-sm">
             <thead className="bg-gray-50/80 border-b border-gray-100">
               <tr>
-                <th className="text-left px-2 py-2 sm:px-5 sm:py-3.5 font-semibold text-gray-500 text-xs uppercase tracking-wide">Procedure</th>
-                <th className="text-right px-2 py-2 sm:px-5 sm:py-3.5 font-semibold text-gray-500 text-xs uppercase tracking-wide">{stateName}</th>
-                <th className="text-right px-2 py-2 sm:px-5 sm:py-3.5 font-semibold text-gray-500 text-xs uppercase tracking-wide hidden sm:table-cell">National Avg</th>
-                <th className="text-right px-2 py-2 sm:px-5 sm:py-3.5 font-semibold text-gray-500 text-xs uppercase tracking-wide hidden md:table-cell">Difference</th>
+                <th className="text-left px-2 py-2 sm:px-5 sm:py-3.5 font-semibold text-gray-500 text-xs uppercase tracking-wide">
+                  Procedure
+                </th>
+                <th className="text-right px-2 py-2 sm:px-5 sm:py-3.5 font-semibold text-gray-500 text-xs uppercase tracking-wide">
+                  {stateName}
+                </th>
+                <th className="text-right px-2 py-2 sm:px-5 sm:py-3.5 font-semibold text-gray-500 text-xs uppercase tracking-wide hidden sm:table-cell">
+                  National
+                </th>
+                <th className="text-right px-2 py-2 sm:px-5 sm:py-3.5 font-semibold text-gray-500 text-xs uppercase tracking-wide hidden md:table-cell">
+                  Diff
+                </th>
               </tr>
             </thead>
             <tbody>
@@ -263,15 +310,21 @@ export default async function StatePage({ params }: PageProps) {
                     >
                       {proc.friendlyName}
                     </Link>
+                    <span className="text-xs font-mono text-gray-400 ml-2">{proc.code}</span>
                   </td>
                   <td className="px-2 py-2 sm:px-5 sm:py-3.5 text-right font-bold text-gray-900">
-                    {formatPrice(proc.stateAvgNonFac)}
+                    {formatPriceRound(proc.stateAvgNonFac)}
                   </td>
                   <td className="px-2 py-2 sm:px-5 sm:py-3.5 text-right text-gray-500 hidden sm:table-cell">
-                    {formatPrice(proc.nationalNonFacPrice)}
+                    {formatPriceRound(proc.nationalNonFacPrice)}
                   </td>
-                  <td className={`px-2 py-2 sm:px-5 sm:py-3.5 text-right font-semibold hidden md:table-cell ${proc.diff > 2 ? "text-red-600" : proc.diff < -2 ? "text-green-600" : "text-gray-500"}`}>
-                    {proc.diff > 0 ? "+" : ""}{proc.diff.toFixed(1)}%
+                  <td
+                    className={`px-2 py-2 sm:px-5 sm:py-3.5 text-right font-semibold hidden md:table-cell ${
+                      proc.diff > 2 ? "text-red-600" : proc.diff < -2 ? "text-green-600" : "text-gray-500"
+                    }`}
+                  >
+                    {proc.diff > 0 ? "+" : ""}
+                    {proc.diff.toFixed(1)}%
                   </td>
                 </tr>
               ))}
@@ -279,88 +332,13 @@ export default async function StatePage({ params }: PageProps) {
           </table>
         </div>
         <p className="text-xs text-gray-400 mt-3">
-          Prices shown are Medicare office (non-facility) rates. Click any procedure for full details including hospital rates and savings tips.
+          Office (non-facility) physician rates. Open a row for the locality
+          table and ZIP tool.
         </p>
       </div>
 
-      {/* Understanding costs section */}
-      <div className="bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-100 rounded-2xl p-6 md:p-8 mb-12">
-        <h2 className="text-xl font-bold text-gray-900 mb-4">
-          Understanding Medical Costs in {stateName}
-        </h2>
-        <div className="space-y-4 text-sm text-gray-600 leading-relaxed">
-          <p>
-            Medical procedure costs in {stateName} are determined by Medicare's Geographic Practice Cost Indices (GPCIs),
-            which account for differences in physician work, practice expenses, and malpractice insurance across regions.
-            {localities.length > 1
-              ? ` Because ${stateName} has ${localities.length} different pricing localities, costs can vary significantly depending on where within the state the procedure is performed.`
-              : ""
-            }
-          </p>
-          <p>
-            The prices listed above represent Medicare reimbursement rates, which serve as a baseline for what healthcare
-            costs in {stateName}. Private insurance companies typically negotiate rates between 130% and 200% of these
-            Medicare amounts. If you are paying out of pocket, many providers in {stateName} offer cash discounts of
-            20% to 40% off their standard charges.
-          </p>
-          <p>
-            For the most accurate pricing, enter your ZIP code on any procedure page to see costs adjusted for your
-            specific locality within {stateName}.
-          </p>
-        </div>
-      </div>
-
-      {/* Ways to save */}
-      <div className="bg-white border border-gray-100 rounded-2xl p-6 md:p-8 mb-12 shadow-sm">
-        <h2 className="text-xl font-bold text-gray-900 mb-5 flex items-center gap-2">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-blue-600"><line x1="12" y1="1" x2="12" y2="23" /><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6" /></svg>
-          Ways to Save on Medical Costs in {stateName}
-        </h2>
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-          {[
-            {
-              title: "Compare Insurance Plans",
-              desc: `Comparing marketplace plans in ${stateName} could save you thousands on procedures.`,
-              link: "https://www.ehealthinsurance.com/",
-              cta: "Compare plans on eHealth",
-            },
-            {
-              title: "Try Telehealth First",
-              desc: "Many consultations can be done virtually for $50-100, saving hundreds vs an in-person visit.",
-              link: "https://sesamecare.com/",
-              cta: "Book on Sesame Care",
-            },
-            {
-              title: "Save on Prescriptions",
-              desc: "If a procedure leads to a prescription, discount cards can save up to 80% at pharmacies.",
-              link: "https://www.goodrx.com/",
-              cta: "Check prices on GoodRx",
-            },
-          ].map((item) => (
-            <div key={item.title} className="bg-blue-50/50 rounded-xl p-5 border border-blue-100/50">
-              <h3 className="font-bold text-sm text-gray-900 mb-2">{item.title}</h3>
-              <p className="text-xs text-gray-500 mb-3 leading-relaxed">{item.desc}</p>
-              <a
-                href={item.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-xs font-bold text-blue-600 hover:text-blue-800 transition-colors"
-              >
-                {item.cta} &rarr;
-              </a>
-            </div>
-          ))}
-        </div>
-        <p className="text-[10px] text-gray-400 mt-4">
-          Some links are affiliate links. We may earn a commission at no extra cost to you.
-        </p>
-      </div>
-
-      {/* Other states */}
       <div className="mb-12">
-        <h2 className="text-xl font-bold text-gray-900 mb-4">
-          Compare Costs in Other States
-        </h2>
+        <h2 className="text-xl font-bold text-gray-900 mb-4">Other states</h2>
         <div className="flex flex-wrap gap-2">
           {allStates.map((s) => {
             const name = getStateName(s);
@@ -382,10 +360,9 @@ export default async function StatePage({ params }: PageProps) {
         </div>
       </div>
 
-      {/* FAQ */}
       <div className="mb-12">
         <h2 className="text-xl font-bold text-gray-900 mb-5">
-          Medical Costs in {stateName}: Frequently Asked Questions
+          Medical costs in {stateName}: questions
         </h2>
         <div className="space-y-4">
           {faqs.map((f) => (
@@ -397,12 +374,7 @@ export default async function StatePage({ params }: PageProps) {
         </div>
       </div>
 
-      {/* Data source */}
-      <div className="text-xs text-gray-400 border-t border-gray-200 pt-5">
-        Data source: 2026 Medicare Physician Fee Schedule (CMS PPRRVU26B, released March 2026).
-        Conversion factor: ${CONVERSION_FACTOR}. Prices shown are Medicare allowed amounts and
-        may not reflect actual charges. Private insurance and self-pay estimates are approximations.
-      </div>
+      <DataSourceNote />
     </div>
   );
 }

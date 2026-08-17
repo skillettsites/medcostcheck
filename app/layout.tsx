@@ -63,8 +63,17 @@ export default function RootLayout({
                   </span>
                 </div>
                 <p className="leading-relaxed">
-                  Free medical procedure cost estimates powered by the 2026
-                  Medicare Physician Fee Schedule. Not medical advice.
+                  Independent cost tool. 2026 Medicare Physician Fee Schedule
+                  — physician allowed amounts, not hospital bills. Not medical
+                  advice.
+                </p>
+                <p className="mt-3">
+                  <a
+                    href="mailto:contact@medcostcheck.com"
+                    className="hover:text-white transition-colors"
+                  >
+                    contact@medcostcheck.com
+                  </a>
                 </p>
               </div>
               <div>

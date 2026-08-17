@@ -272,7 +272,7 @@ export const savingsGuides: Guide[] = [
     readingTime: "7 min read",
     updated: "July 2026",
     intro: [
-      "A strange parallel market exists inside American surgery. Alongside the insurance system, with its opaque claims and separate bills from everyone who walked past the operating room, a growing number of surgery centers and even hospitals sell operations the way other industries sell things: one price, quoted up front, covering the whole job. It is called cash pricing, self-pay pricing, or direct pay, and for the right patient it can cost a fraction of the insured route.",
+      "A strange parallel market exists inside American surgery. Alongside the insurance system, with its opaque claims and separate bills from everyone who walked past the operating room, a growing number of surgery centers and even hospitals sell operations the way other industries sell things: one price, quoted up front, covering the whole job. It is called cash pricing, self-pay pricing, or direct pay, and for the right patient it can cost a fraction of the insured route. Before you accept a quote, look up the same CPT code on this site with your ZIP: the Medicare physician rate is a public floor you can use to judge whether a bundle is competitive, not a substitute for the written cash price.",
       "Cash surgery pricing is not just for the uninsured. Patients with high-deductible plans who would pay thousands out of pocket anyway, patients whose insurer denied a procedure, and patients who simply find a bundled price lower than their expected share all use it. Some employers now steer workers to bundled-price facilities on purpose.",
       "The market rewards shoppers who ask precise questions, because the difference between a true all-in bundle and a lowball facility-only quote is the difference between a fair deal and a trap. This guide explains how the bundles work, what to check, and how the cash decision interacts with your insurance.",
     ],
@@ -325,7 +325,7 @@ export const savingsGuides: Guide[] = [
       "Pin down implants, pathology, pre-op testing, post-op visits, and complication handling in writing before comparing quotes.",
       "Cash tends to win early in the year with an unmet deductible; insurance tends to win once your deductible or out-of-pocket max is in reach.",
       "Cash payments usually do not count toward your deductible unless you file the paperwork yourself and your plan allows it.",
-      "Get code-level quotes in writing, benchmark them against Medicare rates, and use your good faith estimate rights as self-pay.",
+      "Get code-level quotes in writing, look up those CPT codes here with your ZIP as the Medicare floor, and use your good faith estimate rights as self-pay.",
     ],
   },
   {

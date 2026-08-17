@@ -18,6 +18,7 @@ import gpciData from "@/data/processed/gpci.json";
 import zipLocalityData from "@/data/processed/zip-locality.json";
 import popularProceduresData from "@/data/processed/popular-procedures.json";
 import categoriesData from "@/data/processed/categories.json";
+import { STATE_NAMES, getStateName, stateToSlug, slugToStateAbbr, procedureToSlug } from "@/lib/geo";
 
 const CONVERSION_FACTOR = 33.4009;
 
@@ -229,7 +230,7 @@ export function getAllProcedureCodes(): string[] {
 }
 
 /**
- * Get all state abbreviations from ZIP data.
+ * Get all state abbreviations that appear in the ZIP crosswalk.
  */
 export function getAllStates(): string[] {
   const states = new Set<string>();
@@ -237,27 +238,6 @@ export function getAllStates(): string[] {
     states.add((entry as ZipEntry).state);
   }
   return [...states].sort();
-}
-
-/**
- * State name lookup.
- */
-const STATE_NAMES: Record<string, string> = {
-  AL: 'Alabama', AK: 'Alaska', AZ: 'Arizona', AR: 'Arkansas', CA: 'California',
-  CO: 'Colorado', CT: 'Connecticut', DE: 'Delaware', FL: 'Florida', GA: 'Georgia',
-  HI: 'Hawaii', ID: 'Idaho', IL: 'Illinois', IN: 'Indiana', IA: 'Iowa',
-  KS: 'Kansas', KY: 'Kentucky', LA: 'Louisiana', ME: 'Maine', MD: 'Maryland',
-  MA: 'Massachusetts', MI: 'Michigan', MN: 'Minnesota', MS: 'Mississippi', MO: 'Missouri',
-  MT: 'Montana', NE: 'Nebraska', NV: 'Nevada', NH: 'New Hampshire', NJ: 'New Jersey',
-  NM: 'New Mexico', NY: 'New York', NC: 'North Carolina', ND: 'North Dakota', OH: 'Ohio',
-  OK: 'Oklahoma', OR: 'Oregon', PA: 'Pennsylvania', RI: 'Rhode Island', SC: 'South Carolina',
-  SD: 'South Dakota', TN: 'Tennessee', TX: 'Texas', UT: 'Utah', VT: 'Vermont',
-  VA: 'Virginia', WA: 'Washington', WV: 'West Virginia', WI: 'Wisconsin', WY: 'Wyoming',
-  DC: 'District of Columbia', PR: 'Puerto Rico', VI: 'Virgin Islands',
-};
-
-export function getStateName(abbr: string): string {
-  return STATE_NAMES[abbr] || abbr;
 }
 
 /**
@@ -317,35 +297,7 @@ export function getStateProcedurePrice(
   };
 }
 
-/**
- * Convert state name to URL-friendly slug.
- */
-export function stateToSlug(name: string): string {
-  return name.toLowerCase().replace(/\s+/g, '-');
-}
-
-/**
- * Convert URL slug back to state abbreviation.
- */
-export function slugToStateAbbr(slug: string): string | null {
-  const target = slug.toLowerCase().replace(/-/g, ' ');
-  for (const [abbr, name] of Object.entries(STATE_NAMES)) {
-    if (name.toLowerCase() === target) return abbr;
-  }
-  return null;
-}
-
-/**
- * Convert procedure friendly name to URL slug.
- */
-export function procedureToSlug(friendlyName: string): string {
-  return friendlyName
-    .toLowerCase()
-    .replace(/[()]/g, '')
-    .replace(/[^a-z0-9]+/g, '-')
-    .replace(/-+/g, '-')
-    .replace(/^-|-$/g, '');
-}
+export { STATE_NAMES, getStateName, stateToSlug, slugToStateAbbr, procedureToSlug };
 
 /**
  * Find a popular procedure by its URL slug.

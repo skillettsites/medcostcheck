@@ -13,7 +13,9 @@ export default function ContactPage() {
     <div className="max-w-3xl mx-auto px-4 py-12">
       <h1 className="text-3xl font-bold text-gray-900 mb-2">Contact Us</h1>
       <p className="text-gray-500 mb-10">
-        Questions, corrections, or feedback? We read every message.
+        MedCostCheck is an independent cost-lookup tool, not a medical
+        practice or insurer. Questions, corrections, or feedback go to one
+        inbox. We read every message.
       </p>
 
       <div className="space-y-6">
@@ -22,9 +24,13 @@ export default function ContactPage() {
             General enquiries
           </h2>
           <p className="text-sm text-gray-600 leading-relaxed mb-4">
-            For questions about the site, how our estimates are calculated, or
-            anything else, email us and we will get back to you, usually within
-            two business days.
+            For questions about the site, how estimates are calculated, or
+            anything else, email{" "}
+            <a href="mailto:contact@medcostcheck.com" className="text-blue-600 font-medium">
+              contact@medcostcheck.com
+            </a>
+            . We usually reply within two business days. We do not publish a
+            street address.
           </p>
           <a
             href="mailto:contact@medcostcheck.com"

@@ -1,11 +1,16 @@
+import type { Metadata } from "next";
 import ProcedureSearch from "@/components/ProcedureSearch";
 import Link from "next/link";
 import { getPopularProcedures, getCategories } from "@/lib/medicare";
 import { getAllGuides } from "@/lib/guides";
+import { formatPriceRound } from "@/lib/format";
 
-function formatPrice(price: number): string {
-  return "$" + price.toLocaleString("en-US", { minimumFractionDigits: 0, maximumFractionDigits: 0 });
-}
+export const metadata: Metadata = {
+  title: "Medical Procedure Cost Lookup by ZIP and CPT Code",
+  description:
+    "Look up 2026 Medicare physician rates by ZIP code or CPT code. Search 7,500+ codes in the fee schedule. Featured cost pages for knee replacement, echocardiogram, cataract surgery, and other common procedures.",
+  alternates: { canonical: "/" },
+};
 
 export default function HomePage() {
   const popular = getPopularProcedures();
@@ -14,136 +19,104 @@ export default function HomePage() {
 
   return (
     <>
-      {/* Hero */}
       <section className="relative overflow-hidden bg-gradient-to-br from-blue-700 via-blue-800 to-indigo-900 text-white">
-        {/* Background decoration */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <div className="absolute -top-40 -right-40 w-96 h-96 bg-blue-500/20 rounded-full blur-3xl" />
           <div className="absolute -bottom-40 -left-40 w-96 h-96 bg-indigo-500/20 rounded-full blur-3xl" />
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-blue-400/5 rounded-full" />
         </div>
 
         <div className="relative max-w-4xl mx-auto px-4 py-20 md:py-28 text-center">
           <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-4 py-1.5 text-sm font-medium mb-6">
             <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
-            Updated for 2026 Medicare rates
+            2026 Medicare Physician Fee Schedule
           </div>
 
-          <h1 className="text-3xl sm:text-4xl md:text-6xl font-extrabold mb-5 leading-tight">
-            How much does your{" "}
-            <span className="hidden sm:inline"><br /></span>
-            <span className="bg-gradient-to-r from-blue-200 to-cyan-200 bg-clip-text text-transparent">
-              procedure cost?
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold mb-5 leading-tight">
+            Look up a procedure cost
+            <span className="block bg-gradient-to-r from-blue-200 to-cyan-200 bg-clip-text text-transparent mt-1">
+              by ZIP code or CPT code
             </span>
           </h1>
-          <p className="text-lg md:text-xl text-blue-100/90 mb-10 max-w-xl mx-auto">
-            Look up the cost of 7,500+ medical procedures by ZIP code.
-            Free, transparent, powered by official Medicare data.
+          <p className="text-lg md:text-xl text-blue-100/90 mb-10 max-w-2xl mx-auto">
+            Free Medicare physician-rate lookup. Search 7,500+ CPT codes from
+            the official fee schedule. We publish featured pages for the
+            procedures people actually look up — the rest live in the search
+            tool, not as thousands of extra pages.
           </p>
 
           <ProcedureSearch />
 
-          <div className="flex items-center justify-center gap-6 mt-8 text-sm text-blue-200/70">
-            <span className="flex items-center gap-1.5">
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" className="text-green-400/80"><path fillRule="evenodd" d="M8 15A7 7 0 108 1a7 7 0 000 14zm3.354-8.354a.5.5 0 00-.708-.708L7.5 9.086 5.854 7.44a.5.5 0 10-.708.708l2.15 2.15a.5.5 0 00.708 0l3.35-3.35z" clipRule="evenodd"/></svg>
-              7,500+ procedures
-            </span>
-            <span className="flex items-center gap-1.5">
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" className="text-green-400/80"><path fillRule="evenodd" d="M8 15A7 7 0 108 1a7 7 0 000 14zm3.354-8.354a.5.5 0 00-.708-.708L7.5 9.086 5.854 7.44a.5.5 0 10-.708.708l2.15 2.15a.5.5 0 00.708 0l3.35-3.35z" clipRule="evenodd"/></svg>
-              43,000 ZIP codes
-            </span>
-            <span className="flex items-center gap-1.5">
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" className="text-green-400/80"><path fillRule="evenodd" d="M8 15A7 7 0 108 1a7 7 0 000 14zm3.354-8.354a.5.5 0 00-.708-.708L7.5 9.086 5.854 7.44a.5.5 0 10-.708.708l2.15 2.15a.5.5 0 00.708 0l3.35-3.35z" clipRule="evenodd"/></svg>
-              100% free
-            </span>
+          <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 mt-8 text-sm text-blue-200/70">
+            <span>7,500+ searchable CPT codes</span>
+            <span>43,000 ZIP codes → 112 localities</span>
+            <span>59 featured procedure pages</span>
           </div>
         </div>
       </section>
 
-      {/* Trust bar */}
       <section className="bg-white border-b border-gray-100">
         <div className="max-w-6xl mx-auto px-4 py-5">
           <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-8 text-sm text-gray-500">
-            <span className="flex items-center gap-2">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-blue-500"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-              Official CMS data
-            </span>
-            <span className="flex items-center gap-2">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-blue-500"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
-              112 pricing localities
-            </span>
-            <span className="flex items-center gap-2">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-blue-500"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-              Updated annually
-            </span>
-            <span className="flex items-center gap-2">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-blue-500"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
-              No signup required
-            </span>
+            <span>Official CMS public data</span>
+            <span>Physician fee only — not a hospital bill</span>
+            <span>No signup</span>
+            <span>Not medical advice</span>
           </div>
         </div>
       </section>
 
-      {/* How it works */}
       <section className="max-w-6xl mx-auto px-4 py-20">
         <div className="text-center mb-12">
           <h2 className="text-3xl font-extrabold text-gray-900 mb-3">
-            How It Works
+            How the lookup works
           </h2>
           <p className="text-gray-500 max-w-lg mx-auto">
-            Three steps to transparent medical pricing
+            The same formula CMS uses to pay physicians, applied to your ZIP
           </p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {[
             {
               step: "1",
-              title: "Enter your ZIP code",
-              desc: "Medical costs vary by location. Your ZIP code determines local pricing adjustments based on cost of living.",
-              icon: (
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-blue-600"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-              ),
+              title: "Enter a ZIP (or skip it)",
+              desc: "A ZIP maps to one of 112 Medicare pricing localities. Skip it to see the national unadjusted rate; add it to apply GPCI geographic adjustments.",
             },
             {
               step: "2",
-              title: "Search a procedure",
-              desc: "Type the name of any procedure, test, or visit. We cover over 7,500 CPT codes from the Medicare Fee Schedule.",
-              icon: (
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-blue-600"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-              ),
+              title: "Search a name or CPT code",
+              desc: "Type echocardiogram, 93306, or knee replacement. The tool searches the 2026 fee schedule. Featured pages below are a curated subset, not the whole schedule.",
             },
             {
               step: "3",
-              title: "See your cost estimate",
-              desc: "Get Medicare rates, private insurance estimates, and self-pay pricing, all adjusted for your specific area.",
-              icon: (
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-blue-600"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
-              ),
+              title: "Read the physician rate",
+              desc: "You get the Medicare allowed amount for the professional fee, office vs hospital, and labeled insurance/cash ranges. Facility fees and anesthesia are separate.",
             },
           ].map((item) => (
-            <div key={item.step} className="relative bg-white rounded-2xl border border-gray-100 p-8 shadow-sm hover:shadow-md transition-shadow">
+            <div
+              key={item.step}
+              className="relative bg-white rounded-2xl border border-gray-100 p-8 shadow-sm"
+            >
               <div className="absolute -top-4 left-8 w-8 h-8 bg-blue-600 text-white rounded-lg flex items-center justify-center text-sm font-bold shadow-md">
                 {item.step}
               </div>
-              <div className="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center mb-4 mt-2">
-                {item.icon}
-              </div>
-              <h3 className="font-bold text-gray-900 text-lg mb-2">{item.title}</h3>
+              <h3 className="font-bold text-gray-900 text-lg mb-2 mt-2">
+                {item.title}
+              </h3>
               <p className="text-gray-500 text-sm leading-relaxed">{item.desc}</p>
             </div>
           ))}
         </div>
       </section>
 
-      {/* Categories */}
       <section className="bg-gray-50/80 py-20 border-y border-gray-100">
         <div className="max-w-6xl mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-extrabold text-gray-900 mb-3">
-              Browse by Category
+              Featured categories
             </h2>
             <p className="text-gray-500">
-              Find pricing for common medical procedures by specialty
+              Jump to the curated procedure list. Use search above for any
+              other CPT code.
             </p>
           </div>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
@@ -158,7 +131,7 @@ export default function HomePage() {
                   {cat.name}
                 </h3>
                 <p className="text-gray-400 text-xs mt-1">
-                  {cat.codes.length} procedures
+                  {cat.codes.length} featured
                 </p>
               </Link>
             ))}
@@ -166,14 +139,15 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Popular procedures */}
       <section className="max-w-6xl mx-auto px-4 py-20">
         <div className="text-center mb-12">
           <h2 className="text-3xl font-extrabold text-gray-900 mb-3">
-            Popular Procedures
+            Featured procedure pages
           </h2>
-          <p className="text-gray-500">
-            National average Medicare rates (2026). Enter a ZIP code for local pricing.
+          <p className="text-gray-500 max-w-2xl mx-auto">
+            National average Medicare physician rates (2026). Open a page and
+            enter a ZIP for the locality rate. These {popular.length} pages are
+            the browseable set — not 7,500 individual articles.
           </p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -195,14 +169,14 @@ export default function HomePage() {
                 <div>
                   <span className="text-gray-400 text-xs">Office</span>
                   <p className="font-bold text-blue-700 text-lg">
-                    {formatPrice(proc.nationalNonFacPrice)}
+                    {formatPriceRound(proc.nationalNonFacPrice)}
                   </p>
                 </div>
                 {proc.nationalFacPrice !== proc.nationalNonFacPrice && (
                   <div>
                     <span className="text-gray-400 text-xs">Hospital</span>
                     <p className="font-semibold text-gray-600 text-lg">
-                      {formatPrice(proc.nationalFacPrice)}
+                      {formatPriceRound(proc.nationalFacPrice)}
                     </p>
                   </div>
                 )}
@@ -215,80 +189,85 @@ export default function HomePage() {
             href="/procedures"
             className="inline-flex items-center gap-2 px-8 py-3.5 border-2 border-blue-600 text-blue-600 rounded-xl hover:bg-blue-600 hover:text-white transition-all font-bold"
           >
-            View All 7,500+ Procedures
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2"><path d="M6 3l5 5-5 5"/></svg>
+            All {popular.length} featured procedures
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2">
+              <path d="M6 3l5 5-5 5" />
+            </svg>
           </Link>
         </div>
       </section>
 
-      {/* Guides */}
       <section className="bg-white py-20 border-t border-gray-100">
         <div className="max-w-6xl mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-extrabold text-gray-900 mb-3">
-              Understand Your Medical Bills
+              Billing guides
             </h2>
             <p className="text-gray-500 max-w-lg mx-auto">
-              Plain-English guides to how US medical billing works and how to pay less
+              How US medical bills actually work — written to explain the
+              numbers, not to multiply pages
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-            {getAllGuides().slice(0, 6).map((g) => (
-              <Link
-                key={g.slug}
-                href={`/guides/${g.slug}`}
-                className="group bg-white border border-gray-100 rounded-2xl p-5 hover:shadow-lg hover:-translate-y-0.5 transition-all"
-              >
-                <h3 className="font-bold text-gray-900 group-hover:text-blue-700 transition-colors mb-2">
-                  {g.title}
-                </h3>
-                <p className="text-sm text-gray-500 leading-relaxed line-clamp-2 mb-3">
-                  {g.description}
-                </p>
-                <span className="text-xs text-gray-400">{g.readingTime}</span>
-              </Link>
-            ))}
+            {getAllGuides()
+              .slice(0, 6)
+              .map((g) => (
+                <Link
+                  key={g.slug}
+                  href={`/guides/${g.slug}`}
+                  className="group bg-white border border-gray-100 rounded-2xl p-5 hover:shadow-lg hover:-translate-y-0.5 transition-all"
+                >
+                  <h3 className="font-bold text-gray-900 group-hover:text-blue-700 transition-colors mb-2">
+                    {g.title}
+                  </h3>
+                  <p className="text-sm text-gray-500 leading-relaxed line-clamp-2 mb-3">
+                    {g.description}
+                  </p>
+                  <span className="text-xs text-gray-400">{g.readingTime}</span>
+                </Link>
+              ))}
           </div>
           <div className="text-center mt-10">
             <Link
               href="/guides"
               className="inline-flex items-center gap-2 px-8 py-3.5 border-2 border-blue-600 text-blue-600 rounded-xl hover:bg-blue-600 hover:text-white transition-all font-bold"
             >
-              View All Guides
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2"><path d="M6 3l5 5-5 5"/></svg>
+              All guides
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2">
+                <path d="M6 3l5 5-5 5" />
+              </svg>
             </Link>
           </div>
         </div>
       </section>
 
-      {/* FAQ */}
       <section className="bg-gray-50/80 py-20 border-t border-gray-100">
         <div className="max-w-3xl mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-extrabold text-gray-900 mb-3">
-              Frequently Asked Questions
+              What you should know before you search
             </h2>
           </div>
           <div className="space-y-4">
             {[
               {
-                q: "Where does this pricing data come from?",
-                a: "All prices are based on the 2026 Medicare Physician Fee Schedule published by the Centers for Medicare & Medicaid Services (CMS). This is the same data used by hospitals and doctors to set their rates.",
+                q: "Where do the prices come from?",
+                a: "The 2026 Medicare Physician Fee Schedule published by CMS. Payment = [(Work RVU × work GPCI) + (PE RVU × PE GPCI) + (MP RVU × MP GPCI)] × $33.4009. We do not invent or crowdsource prices.",
               },
               {
-                q: "Why do prices vary by ZIP code?",
-                a: "Medicare adjusts payments based on local cost of living using Geographic Practice Cost Indices (GPCIs). Areas with higher labor costs, office rents, and malpractice insurance premiums have higher procedure prices.",
+                q: "Can I look up any CPT code?",
+                a: "Yes, in the search box — by code or name. About 7,500 payable physician codes are in the tool. Dedicated pages exist for 59 commonly searched procedures, plus state pages for those same procedures. That is the browseable set on purpose.",
               },
               {
-                q: "Are these the actual prices I will pay?",
-                a: "These are Medicare reimbursement rates, which serve as a baseline. Private insurance typically pays 130-200% of Medicare rates, while self-pay/cash prices can vary widely. Always verify costs with your provider and insurance company before any procedure.",
+                q: "Is this what I will pay?",
+                a: "No. These are Medicare physician allowed amounts. Private plans often allow more; hospitals add facility fees; your deductible and coinsurance still apply. Use the number as a public benchmark, then confirm with the provider and insurer.",
               },
               {
-                q: "What is the difference between office and hospital pricing?",
-                a: "\"Office\" (non-facility) pricing applies when a procedure is done in a doctor's office or clinic. \"Hospital\" (facility) pricing applies when done in a hospital or surgical center. Hospital pricing is often lower for the physician fee because the facility charges a separate fee.",
+                q: "Why do office and hospital rates differ?",
+                a: "Medicare pays a different practice-expense RVU when the service is in a facility. The hospital then bills its own facility fee, which this tool does not include. The physician line is often lower in a hospital; the total bill is often higher.",
               },
-            ].map((faq, i) => (
-              <div key={i} className="bg-white rounded-2xl border border-gray-100 p-6">
+            ].map((faq) => (
+              <div key={faq.q} className="bg-white rounded-2xl border border-gray-100 p-6">
                 <h3 className="font-bold text-gray-900 mb-2">{faq.q}</h3>
                 <p className="text-gray-500 text-sm leading-relaxed">{faq.a}</p>
               </div>
@@ -297,21 +276,22 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Bottom CTA */}
       <section className="bg-gradient-to-r from-blue-700 to-indigo-800 text-white">
         <div className="max-w-4xl mx-auto px-4 py-16 text-center">
           <h2 className="text-3xl font-extrabold mb-3">
-            Stop overpaying for medical procedures
+            Independent cost tool, CMS data
           </h2>
           <p className="text-blue-100 mb-6 max-w-lg mx-auto">
-            Know the fair price before your next appointment. Look up any procedure in seconds.
+            Not a hospital, insurer, or medical practice. Corrections:{" "}
+            <a href="mailto:contact@medcostcheck.com" className="underline font-semibold">
+              contact@medcostcheck.com
+            </a>
           </p>
           <Link
-            href="/save"
+            href="/about"
             className="inline-flex items-center gap-2 bg-white text-blue-700 font-bold rounded-xl px-8 py-3.5 hover:bg-blue-50 transition-colors"
           >
-            Ways to Save on Medical Costs
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2"><path d="M6 3l5 5-5 5"/></svg>
+            How the numbers are calculated
           </Link>
         </div>
       </section>
