@@ -11,6 +11,7 @@ export const metadata: Metadata = {
   title: "All Medical Procedures",
   description:
     "Browse all medical procedure costs. Compare prices for MRIs, surgeries, office visits, lab tests, and more. 2026 Medicare rates.",
+  alternates: { canonical: "/procedures" },
 };
 
 function formatPrice(price: number): string {
