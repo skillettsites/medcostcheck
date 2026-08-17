@@ -2,7 +2,6 @@ import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import {
-  getAllStates,
   getStateName,
   getPopularProcedures,
   getStateProcedurePrice,
@@ -11,6 +10,7 @@ import {
   stateToSlug,
   procedureToSlug,
 } from "@/lib/medicare";
+import { getIndexableStateAbbrs } from "@/lib/geo";
 import ProcedureSearch from "@/components/ProcedureSearch";
 import JsonLd from "@/components/JsonLd";
 import ScopeNote from "@/components/ScopeNote";
@@ -26,11 +26,7 @@ interface PageProps {
 }
 
 export async function generateStaticParams() {
-  const states = getAllStates().filter((s) => {
-    const name = getStateName(s);
-    return name !== s;
-  });
-  return states.map((abbr) => ({
+  return getIndexableStateAbbrs().map((abbr) => ({
     state: stateToSlug(getStateName(abbr)),
   }));
 }
@@ -62,9 +58,7 @@ export default async function StatePage({ params }: PageProps) {
   const localities = getStateLocalities(abbr);
   const stateCopy = getStateContent(abbr);
 
-  const allStates = getAllStates()
-    .filter((s) => getStateName(s) !== s)
-    .filter((s) => s !== "PR" && s !== "VI");
+  const allStates = getIndexableStateAbbrs();
 
   const proceduresWithPrices = popular
     .map((proc) => {
