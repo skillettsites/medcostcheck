@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import CtaBand from "@/components/CtaBand";
 
 export const metadata: Metadata = {
   title: "Editorial Policy",
@@ -10,8 +11,8 @@ export const metadata: Metadata = {
 
 export default function EditorialPolicyPage() {
   return (
-    <div className="max-w-3xl mx-auto px-4 py-12">
-      <h1 className="text-3xl font-bold text-gray-900 mb-2">
+    <div className="max-w-3xl mx-auto px-5 py-12 sm:py-16">
+      <h1 className="page-title mb-2">
         Editorial Policy
       </h1>
       <p className="text-gray-500 mb-10">
@@ -39,11 +40,11 @@ export default function EditorialPolicyPage() {
             clearly labeled as estimates based on widely reported multiples of
             Medicare rates, not as quoted prices. The full methodology is
             explained on our{" "}
-            <Link href="/about" className="text-blue-600 hover:text-blue-800 underline">
+            <Link href="/about" className="link">
               About page
             </Link>{" "}
             and in our guide to{" "}
-            <Link href="/guides/medicare-vs-private-prices" className="text-blue-600 hover:text-blue-800 underline">
+            <Link href="/guides/medicare-vs-private-prices" className="link">
               why Medicare rates are the benchmark
             </Link>
             .
@@ -90,7 +91,7 @@ export default function EditorialPolicyPage() {
           </h2>
           <p>
             When a reader reports an error via the{" "}
-            <Link href="/contact" className="text-blue-600 hover:text-blue-800 underline">
+            <Link href="/contact" className="link">
               contact page
             </Link>
             , we check the claim against the original CMS files or the primary
@@ -134,7 +135,7 @@ export default function EditorialPolicyPage() {
             public contact is{" "}
             <a
               href="mailto:contact@medcostcheck.com"
-              className="text-blue-600 hover:text-blue-800 underline"
+              className="link"
             >
               contact@medcostcheck.com
             </a>
@@ -143,18 +144,12 @@ export default function EditorialPolicyPage() {
         </section>
       </div>
 
-      <div className="mt-12 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-xl p-8 text-center text-white">
-        <h2 className="text-2xl font-bold mb-2">Questions about our process?</h2>
-        <p className="text-blue-100 mb-4">
-          We read every message and correct verified errors quickly.
-        </p>
-        <Link
-          href="/contact"
-          className="inline-block bg-white text-blue-700 font-semibold rounded-lg px-6 py-3 hover:bg-blue-50 transition-colors"
-        >
-          Contact Us
-        </Link>
-      </div>
+      <CtaBand
+        title="Questions about our process?"
+        body="We read every message and correct verified errors quickly."
+        href="/contact"
+        label="Contact us"
+      />
     </div>
   );
 }

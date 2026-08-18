@@ -14,6 +14,9 @@ import {
 import { getIndexableStateAbbrs } from "@/lib/geo";
 import ZipPriceLookup from "@/components/ZipPriceLookup";
 import PaywallCard from "@/components/PaywallCard";
+import PriceCard from "@/components/PriceCard";
+import SearchPanel from "@/components/SearchPanel";
+import FaqList from "@/components/FaqList";
 import JsonLd from "@/components/JsonLd";
 import ProcedureEditorial from "@/components/ProcedureEditorial";
 import ScopeNote from "@/components/ScopeNote";
@@ -59,36 +62,6 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     description: `2026 Medicare physician rate for ${proc.friendlyName.toLowerCase()} (CPT ${proc.code}) in ${stateName}: about $${price} in an office. Locality table, office vs hospital, and ZIP lookup. Not a hospital bill.`,
     alternates: { canonical: `/state/${stateSlug}/${procSlug}` },
   };
-}
-
-function PriceCard({
-  label,
-  price,
-  sublabel,
-  highlight,
-}: {
-  label: string;
-  price: string;
-  sublabel?: string;
-  highlight?: boolean;
-}) {
-  return (
-    <div
-      className={`rounded-2xl p-6 text-center transition-shadow ${
-        highlight
-          ? "bg-gradient-to-br from-blue-600 to-indigo-700 text-white shadow-lg shadow-blue-200"
-          : "bg-white border border-gray-100 shadow-sm"
-      }`}
-    >
-      <div className={`text-xs font-semibold mb-2 uppercase tracking-wide ${highlight ? "text-blue-200" : "text-gray-400"}`}>
-        {label}
-      </div>
-      <div className={`text-3xl font-extrabold ${highlight ? "" : "text-gray-900"}`}>{price}</div>
-      {sublabel && (
-        <div className={`text-xs mt-2 ${highlight ? "text-blue-200" : "text-gray-400"}`}>{sublabel}</div>
-      )}
-    </div>
-  );
 }
 
 export default async function StateProcedurePage({ params }: PageProps) {
@@ -192,55 +165,43 @@ export default async function StateProcedurePage({ params }: PageProps) {
   ];
 
   return (
-    <div className="max-w-5xl mx-auto px-4 py-10">
+    <div className="max-w-5xl mx-auto px-5 py-10 sm:py-14">
       <JsonLd data={schema} />
-      <nav className="flex items-center gap-2 text-sm text-gray-400 mb-8 flex-wrap">
-        <Link href="/" className="hover:text-blue-600 transition-colors">
+      <nav className="flex items-center gap-2 text-sm text-faint mb-8 flex-wrap">
+        <Link href="/" className="hover:text-ink transition-colors">
           Home
         </Link>
-        <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" strokeWidth="1.5">
-          <path d="M4 2l4 4-4 4" />
-        </svg>
-        <Link href={`/state/${stateSlug}`} className="hover:text-blue-600 transition-colors">
+        <span>/</span>
+        <Link href={`/state/${stateSlug}`} className="hover:text-ink transition-colors">
           {stateName}
         </Link>
-        <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" strokeWidth="1.5">
-          <path d="M4 2l4 4-4 4" />
-        </svg>
-        <span className="text-gray-700 font-medium">{proc.friendlyName}</span>
+        <span>/</span>
+        <span className="text-muted">{proc.friendlyName}</span>
       </nav>
 
       <div className="mb-10">
         <div className="flex items-start justify-between gap-4">
           <div>
-            <h1 className="text-3xl md:text-4xl font-extrabold text-gray-900">
+            <h1 className="page-title">
               {proc.friendlyName} Cost in {stateName}
             </h1>
-            <p className="text-gray-500 mt-2 text-lg">{proc.description}</p>
+            <p className="lede mt-2">{proc.description}</p>
           </div>
-          <span className="text-xs font-mono font-bold text-blue-600 bg-blue-50 border border-blue-100 px-3 py-1.5 rounded-lg shrink-0">
+          <span className="text-[11px] font-mono text-muted bg-white border border-[var(--hairline)] px-3 py-1.5 rounded-full shrink-0">
             CPT {proc.code}
           </span>
         </div>
       </div>
 
       <div className="mb-12">
-        <div className="flex items-center gap-3 mb-1">
-          <h2 className="text-xl font-bold text-gray-900">{stateName} Medicare physician rate (2026)</h2>
-          <span
-            className={`text-sm font-medium px-2.5 py-0.5 rounded-full border ${
-              diff > 2
-                ? "bg-red-50 text-red-700 border-red-100"
-                : diff < -2
-                  ? "bg-green-50 text-green-700 border-green-100"
-                  : "bg-gray-50 text-gray-700 border-gray-100"
-            }`}
-          >
+        <div className="flex items-center gap-3 mb-1 flex-wrap">
+          <h2 className="text-xl font-semibold tracking-tight text-ink">{stateName} Medicare physician rate (2026)</h2>
+          <span className="text-xs text-muted bg-white border border-[var(--hairline)] px-2.5 py-0.5 rounded-full">
             {diff > 0 ? "+" : ""}
             {diff.toFixed(1)}% vs national
           </span>
         </div>
-        <p className="text-sm text-gray-400 mb-6">
+        <p className="text-sm text-faint mb-6">
           {statePrice.localities.length > 1
             ? `Average of ${statePrice.localities.length} localities. Office range ${formatPrice(cheapestLoc.nonFac)}–${formatPrice(priciestLoc.nonFac)}.`
             : `Single statewide locality.`}
@@ -270,14 +231,15 @@ export default async function StateProcedurePage({ params }: PageProps) {
         </div>
       </div>
 
-      <div className="bg-gradient-to-br from-blue-700 via-blue-800 to-indigo-900 rounded-2xl p-8 mb-12 text-white">
-        <h2 className="text-xl font-bold mb-1">Your ZIP in {stateName}</h2>
-        <p className="text-blue-200 text-sm mb-5">
-          {stateCopy?.zipNote ??
-            `Map a ZIP to the Medicare locality that actually prices CPT ${proc.code} here.`}
-        </p>
+      <SearchPanel
+        title={`Your ZIP in ${stateName}`}
+        subtitle={
+          stateCopy?.zipNote ??
+          `Map a ZIP to the Medicare locality that actually prices CPT ${proc.code} here.`
+        }
+      >
         <ZipPriceLookup code={proc.code} label={`Local ${procLower} rate`} />
-      </div>
+      </SearchPanel>
 
       <PaywallCard code={proc.code} procedureName={proc.friendlyName} />
 
@@ -405,7 +367,7 @@ export default async function StateProcedurePage({ params }: PageProps) {
         <>
           <ProcedureEditorial name={proc.friendlyName} content={editorial} compact />
           <div className="-mt-8 mb-12 text-sm">
-            <Link href={`/procedure/${proc.code}`} className="text-blue-600 hover:text-blue-800 font-bold">
+            <Link href={`/procedure/${proc.code}`} className="link">
               Full {procLower} billing notes, RVUs, and ZIP tool →
             </Link>
           </div>
@@ -413,7 +375,7 @@ export default async function StateProcedurePage({ params }: PageProps) {
       )}
 
       <div className="mb-12">
-        <h2 className="text-xl font-bold text-gray-900 mb-4">Other featured procedures in {stateName}</h2>
+        <h2 className="text-xl font-semibold tracking-tight text-ink mb-4">Other featured procedures in {stateName}</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
           {relatedProcedures.map((rp) => {
             const rpPrice = getStateProcedurePrice(rp.code, abbr);
@@ -421,12 +383,12 @@ export default async function StateProcedurePage({ params }: PageProps) {
               <Link
                 key={rp.code}
                 href={`/state/${stateSlug}/${procedureToSlug(rp.friendlyName)}`}
-                className="group bg-white border border-gray-100 rounded-xl p-4 hover:shadow-md hover:-translate-y-0.5 transition-all"
+                className="surface lift p-4"
               >
-                <h3 className="font-semibold text-sm text-gray-900 group-hover:text-blue-700 transition-colors mb-1">
+                <h3 className="font-medium text-sm text-ink mb-1">
                   {rp.friendlyName}
                 </h3>
-                <p className="text-blue-700 font-bold text-lg">
+                <p className="font-semibold text-ink text-lg tracking-tight">
                   {rpPrice ? formatPriceRound(rpPrice.avgNonFac) : formatPriceRound(rp.nationalNonFacPrice)}
                 </p>
               </Link>
@@ -434,14 +396,14 @@ export default async function StateProcedurePage({ params }: PageProps) {
           })}
         </div>
         <div className="mt-4">
-          <Link href={`/state/${stateSlug}`} className="text-sm text-blue-600 hover:text-blue-800 font-bold">
+          <Link href={`/state/${stateSlug}`} className="link text-sm">
             {stateName} locality index and all featured rates →
           </Link>
         </div>
       </div>
 
       <div className="mb-12">
-        <h2 className="text-xl font-bold text-gray-900 mb-4">{proc.friendlyName} in other states</h2>
+        <h2 className="text-xl font-semibold tracking-tight text-ink mb-4">{proc.friendlyName} in other states</h2>
         <div className="flex flex-wrap gap-2">
           {allStates.map((s) => {
             const name = getStateName(s);
@@ -450,11 +412,7 @@ export default async function StateProcedurePage({ params }: PageProps) {
               <Link
                 key={s}
                 href={`/state/${stateToSlug(name)}/${procSlug}`}
-                className={`text-xs px-3 py-1.5 rounded-lg border transition-all ${
-                  isCurrentState
-                    ? "bg-blue-600 text-white border-blue-600 font-bold"
-                    : "bg-white text-gray-600 border-gray-200 hover:border-blue-300 hover:bg-blue-50 hover:text-blue-700"
-                }`}
+                className={`chip ${isCurrentState ? "chip-on" : ""}`}
               >
                 {s}
               </Link>
@@ -464,17 +422,10 @@ export default async function StateProcedurePage({ params }: PageProps) {
       </div>
 
       <div className="mb-12">
-        <h2 className="text-xl font-bold text-gray-900 mb-5">
+        <h2 className="text-xl font-semibold tracking-tight text-ink mb-5">
           {proc.friendlyName} in {stateName}: questions
         </h2>
-        <div className="space-y-4">
-          {faqs.map((f) => (
-            <div key={f.q} className="bg-white border border-gray-100 rounded-2xl p-5 shadow-sm">
-              <h3 className="font-bold text-sm text-gray-900 mb-2">{f.q}</h3>
-              <p className="text-sm text-gray-600 leading-relaxed">{f.a}</p>
-            </div>
-          ))}
-        </div>
+        <FaqList items={faqs} />
       </div>
 
       <DataSourceNote />

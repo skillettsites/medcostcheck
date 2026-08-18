@@ -25,20 +25,15 @@ export default function UpgradeCta({ token }: { token: string }) {
   }
 
   return (
-    <div className="bg-gradient-to-br from-blue-700 via-blue-800 to-indigo-900 rounded-2xl p-6 text-white mb-8">
-      <h2 className="text-lg font-bold mb-1">Add letters and PDF for $2.00</h2>
-      <p className="text-sm text-blue-100 mb-4">
+    <div className="panel mb-8">
+      <h2 className="panel-title">Add letters and PDF for $2.00</h2>
+      <p className="panel-sub">
         Same report link. Adds a filled Good Faith Estimate request, a bill-negotiation letter, 15 nearby hospitals, and a printable download.
       </p>
-      <button
-        type="button"
-        onClick={upgrade}
-        disabled={busy}
-        className="px-5 py-3 bg-white text-blue-700 rounded-xl font-bold hover:bg-blue-50 disabled:opacity-60"
-      >
+      <button type="button" onClick={upgrade} disabled={busy} className="btn btn-primary">
         {busy ? "Opening checkout…" : "Upgrade to Complete Bundle · $2.00"}
       </button>
-      {error && <p className="text-xs text-red-200 mt-3">{error}</p>}
+      {error && <p className="text-sm text-red-600 mt-3">{error}</p>}
     </div>
   );
 }

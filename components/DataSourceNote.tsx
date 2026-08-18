@@ -2,7 +2,7 @@ import { CONVERSION_FACTOR } from "@/lib/medicare";
 
 export default function DataSourceNote() {
   return (
-    <div className="text-xs text-gray-400 border-t border-gray-200 pt-5">
+    <div className="text-xs text-faint border-t border-[var(--hairline)] pt-5">
       Data source: 2026 Medicare Physician Fee Schedule (CMS PPRRVU26B,
       released March 2026). Conversion factor: ${CONVERSION_FACTOR}. Prices
       shown are Medicare allowed amounts for the physician service and may not

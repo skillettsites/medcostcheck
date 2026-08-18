@@ -10,23 +10,23 @@ export const metadata: Metadata = {
 
 export default function ContactPage() {
   return (
-    <div className="max-w-3xl mx-auto px-4 py-12">
-      <h1 className="text-3xl font-bold text-gray-900 mb-2">Contact Us</h1>
-      <p className="text-gray-500 mb-10">
+    <div className="max-w-3xl mx-auto px-5 py-12 sm:py-16">
+      <h1 className="page-title mb-2">Contact Us</h1>
+      <p className="lede mb-10">
         MedCostCheck is an independent cost-lookup tool, not a medical
         practice or insurer. Questions, corrections, or feedback go to one
         inbox. We read every message.
       </p>
 
       <div className="space-y-6">
-        <div className="bg-white border border-gray-200 rounded-2xl p-6 shadow-sm">
+        <div className="surface p-6">
           <h2 className="text-lg font-semibold text-gray-900 mb-2">
             General enquiries
           </h2>
           <p className="text-sm text-gray-600 leading-relaxed mb-4">
             For questions about the site, how estimates are calculated, or
             anything else, email{" "}
-            <a href="mailto:contact@medcostcheck.com" className="text-blue-600 font-medium">
+            <a href="mailto:contact@medcostcheck.com" className="link">
               contact@medcostcheck.com
             </a>
             . We usually reply within two business days. We do not publish a
@@ -34,13 +34,13 @@ export default function ContactPage() {
           </p>
           <a
             href="mailto:contact@medcostcheck.com"
-            className="inline-block bg-blue-600 text-white text-sm font-semibold rounded-lg px-5 py-2.5 hover:bg-blue-700 transition-colors"
+            className="btn btn-primary text-sm"
           >
             contact@medcostcheck.com
           </a>
         </div>
 
-        <div className="bg-white border border-gray-200 rounded-2xl p-6 shadow-sm">
+        <div className="surface p-6">
           <h2 className="text-lg font-semibold text-gray-900 mb-2">
             Report a data error
           </h2>
@@ -54,7 +54,7 @@ export default function ContactPage() {
           </p>
         </div>
 
-        <div className="bg-white border border-gray-200 rounded-2xl p-6 shadow-sm">
+        <div className="surface p-6">
           <h2 className="text-lg font-semibold text-gray-900 mb-2">
             Press and partnerships
           </h2>
@@ -66,11 +66,11 @@ export default function ContactPage() {
           </p>
         </div>
 
-        <div className="bg-amber-50 border border-amber-200 rounded-2xl p-6">
-          <h2 className="text-lg font-semibold text-amber-900 mb-2">
+        <div className="surface p-6">
+          <h2 className="text-lg font-semibold text-ink mb-2">
             A note on medical questions
           </h2>
-          <p className="text-sm text-amber-800 leading-relaxed">
+          <p className="text-sm text-muted leading-relaxed">
             MedCostCheck provides cost and billing information only. We cannot
             answer questions about diagnoses, treatment decisions, or whether a
             procedure is right for you. Please speak with your doctor or, for
@@ -82,7 +82,7 @@ export default function ContactPage() {
 
       <div className="mt-10 text-sm text-gray-500">
         You can also learn more about our data and methodology on the{" "}
-        <Link href="/about" className="text-blue-600 hover:text-blue-800 font-medium">
+        <Link href="/about" className="link">
           About page
         </Link>
         .

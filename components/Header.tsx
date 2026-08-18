@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 const navLinks = [
   { href: "/procedures", label: "Procedures" },
@@ -13,71 +14,72 @@ const navLinks = [
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const pathname = usePathname();
 
   return (
-    <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-200/80">
-      <nav className="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
-        <Link href="/" className="flex items-center gap-2.5 group">
-          <div className="w-8 h-8 bg-gradient-to-br from-blue-600 to-indigo-600 rounded-lg flex items-center justify-center shadow-sm">
-            <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
-              <path d="M6 9h6M9 6v6" stroke="white" strokeWidth="2.5" strokeLinecap="round" />
+    <header className="sticky top-0 z-50 bg-white/72 backdrop-blur-xl border-b border-[var(--hairline)]">
+      <nav className="max-w-6xl mx-auto px-5 h-12 sm:h-14 flex items-center justify-between">
+        <Link href="/" className="flex items-center gap-2 group" onClick={() => setMenuOpen(false)}>
+          <span className="w-6 h-6 rounded-[7px] bg-ink text-white grid place-items-center">
+            <svg width="12" height="12" viewBox="0 0 18 18" fill="none" aria-hidden>
+              <path d="M6 9h6M9 6v6" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" />
             </svg>
-          </div>
-          <span className="text-xl font-extrabold text-gray-900 group-hover:text-blue-700 transition-colors">
-            Med<span className="text-blue-600">Cost</span>Check
+          </span>
+          <span className="text-[15px] sm:text-base font-semibold tracking-tight text-ink">
+            MedCostCheck
           </span>
         </Link>
 
-        {/* Desktop nav */}
-        <div className="hidden md:flex items-center gap-1">
-          {navLinks.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className="px-3 py-2 text-sm text-gray-600 hover:text-blue-700 hover:bg-blue-50 rounded-lg transition-all"
-            >
-              {link.label}
-            </Link>
-          ))}
+        <div className="hidden md:flex items-center gap-0.5">
+          {navLinks.map((link) => {
+            const active = pathname === link.href || pathname.startsWith(`${link.href}/`);
+            return (
+              <Link
+                key={link.href}
+                href={link.href}
+                className={`px-3 py-1.5 text-[13px] rounded-full transition-colors ${
+                  active ? "text-ink bg-black/[0.05]" : "text-muted hover:text-ink"
+                }`}
+              >
+                {link.label}
+              </Link>
+            );
+          })}
         </div>
 
-        {/* Mobile hamburger button */}
         <button
           type="button"
-          className="md:hidden p-2 text-gray-600 hover:text-blue-700 hover:bg-blue-50 rounded-lg transition-all"
+          className="md:hidden p-2 -mr-2 text-ink rounded-full hover:bg-black/[0.04] transition-colors"
           onClick={() => setMenuOpen(!menuOpen)}
           aria-label={menuOpen ? "Close menu" : "Open menu"}
           aria-expanded={menuOpen}
         >
-          {menuOpen ? (
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round">
+            {menuOpen ? (
               <path d="M18 6L6 18M6 6l12 12" />
-            </svg>
-          ) : (
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
-              <path d="M3 12h18M3 6h18M3 18h18" />
-            </svg>
-          )}
+            ) : (
+              <path d="M4 7h16M4 12h16M4 17h16" />
+            )}
+          </svg>
         </button>
       </nav>
 
-      {/* Mobile dropdown menu */}
-      {menuOpen && (
-        <div className="md:hidden border-t border-gray-100 bg-white/95 backdrop-blur-sm">
-          <div className="max-w-6xl mx-auto px-4 py-3 space-y-1">
+      <div className={`md:hidden mobile-drawer ${menuOpen ? "open" : ""}`}>
+        <div className="mobile-drawer-inner">
+          <div className="px-5 pb-4 pt-1 space-y-0.5 border-t border-[var(--hairline)] bg-white/90">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
                 onClick={() => setMenuOpen(false)}
-                className="block px-3 py-2.5 text-sm font-medium text-gray-600 hover:text-blue-700 hover:bg-blue-50 rounded-lg transition-all"
+                className="block px-3 py-3 text-[15px] text-ink rounded-xl hover:bg-black/[0.04] transition-colors"
               >
                 {link.label}
               </Link>
             ))}
           </div>
         </div>
-      )}
+      </div>
     </header>
   );
 }

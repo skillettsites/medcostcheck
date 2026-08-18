@@ -5,8 +5,8 @@
  */
 export default function ScopeNote({ extra }: { extra?: string }) {
   return (
-    <div className="bg-amber-50 border border-amber-100 rounded-2xl p-5 mb-12 text-sm text-amber-900 leading-relaxed">
-      <p className="font-bold mb-1">What this number is</p>
+    <div className="surface p-5 mb-12 text-sm text-muted leading-relaxed">
+      <p className="font-semibold text-ink mb-1">What this number is</p>
       <p>
         The figures on this page are 2026 Medicare <em>physician</em> allowed
         amounts for a specific CPT code: the professional fee, adjusted by

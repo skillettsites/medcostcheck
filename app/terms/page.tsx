@@ -14,7 +14,7 @@ export default function TermsPage() {
 
       <div className="space-y-8">
         <section>
-          <h2 className="text-xl font-semibold text-blue-800 mb-3">
+          <h2 className="text-xl font-semibold text-ink mb-3">
             Acceptance of Terms
           </h2>
           <p className="text-gray-700 leading-relaxed">
@@ -24,7 +24,7 @@ export default function TermsPage() {
         </section>
 
         <section>
-          <h2 className="text-xl font-semibold text-blue-800 mb-3">
+          <h2 className="text-xl font-semibold text-ink mb-3">
             Information Only
           </h2>
           <p className="text-gray-700 leading-relaxed">
@@ -38,7 +38,7 @@ export default function TermsPage() {
         </section>
 
         <section>
-          <h2 className="text-xl font-semibold text-blue-800 mb-3">
+          <h2 className="text-xl font-semibold text-ink mb-3">
             Cost Estimates
           </h2>
           <p className="text-gray-700 leading-relaxed mb-4">
@@ -48,7 +48,7 @@ export default function TermsPage() {
             reimbursement rates and should be understood as a baseline reference
             point.
           </p>
-          <div className="bg-blue-50 border border-blue-200 rounded-lg p-5">
+          <div className="surface p-5">
             <p className="text-gray-700 text-sm leading-relaxed">
               <strong>Actual costs will vary.</strong> The price you pay for a
               medical procedure depends on many factors, including your insurance
@@ -62,7 +62,7 @@ export default function TermsPage() {
         </section>
 
         <section>
-          <h2 className="text-xl font-semibold text-blue-800 mb-3">
+          <h2 className="text-xl font-semibold text-ink mb-3">
             No Guarantee of Accuracy
           </h2>
           <p className="text-gray-700 leading-relaxed">
@@ -76,7 +76,7 @@ export default function TermsPage() {
         </section>
 
         <section>
-          <h2 className="text-xl font-semibold text-blue-800 mb-3">
+          <h2 className="text-xl font-semibold text-ink mb-3">
             Use at Your Own Risk
           </h2>
           <p className="text-gray-700 leading-relaxed">
@@ -89,7 +89,7 @@ export default function TermsPage() {
         </section>
 
         <section>
-          <h2 className="text-xl font-semibold text-blue-800 mb-3">
+          <h2 className="text-xl font-semibold text-ink mb-3">
             Limitation of Liability
           </h2>
           <p className="text-gray-700 leading-relaxed">
@@ -102,7 +102,7 @@ export default function TermsPage() {
         </section>
 
         <section>
-          <h2 className="text-xl font-semibold text-blue-800 mb-3">
+          <h2 className="text-xl font-semibold text-ink mb-3">
             Third-Party Links
           </h2>
           <p className="text-gray-700 leading-relaxed">
@@ -113,7 +113,7 @@ export default function TermsPage() {
         </section>
 
         <section>
-          <h2 className="text-xl font-semibold text-blue-800 mb-3">
+          <h2 className="text-xl font-semibold text-ink mb-3">
             Changes to These Terms
           </h2>
           <p className="text-gray-700 leading-relaxed">
@@ -124,14 +124,14 @@ export default function TermsPage() {
         </section>
 
         <section>
-          <h2 className="text-xl font-semibold text-blue-800 mb-3">
+          <h2 className="text-xl font-semibold text-ink mb-3">
             Contact
           </h2>
           <p className="text-gray-700 leading-relaxed">
             If you have questions about these terms, you can reach us at{" "}
             <a
               href="mailto:contact@medcostcheck.com"
-              className="text-blue-600 hover:text-blue-800 underline"
+              className="link"
             >
               contact@medcostcheck.com
             </a>

@@ -10,6 +10,9 @@ import {
 } from "@/lib/medicare";
 import ZipPriceLookup from "@/components/ZipPriceLookup";
 import PaywallCard from "@/components/PaywallCard";
+import PriceCard from "@/components/PriceCard";
+import SearchPanel from "@/components/SearchPanel";
+import FaqList from "@/components/FaqList";
 import JsonLd from "@/components/JsonLd";
 import ProcedureEditorial from "@/components/ProcedureEditorial";
 import ScopeNote from "@/components/ScopeNote";
@@ -45,36 +48,6 @@ export async function generateMetadata({ params, searchParams }: PageProps): Pro
     description: `2026 Medicare physician rate for ${name.toLowerCase()} (CPT ${code}): about $${price} nationally. Enter a ZIP for the locality-adjusted office vs hospital fee. Not a hospital bill or a quote.`,
     alternates: { canonical: `/procedure/${code}` },
   };
-}
-
-function PriceCard({
-  label,
-  price,
-  sublabel,
-  highlight,
-}: {
-  label: string;
-  price: string;
-  sublabel?: string;
-  highlight?: boolean;
-}) {
-  return (
-    <div
-      className={`rounded-2xl p-6 text-center transition-shadow ${
-        highlight
-          ? "bg-gradient-to-br from-blue-600 to-indigo-700 text-white shadow-lg shadow-blue-200"
-          : "bg-white border border-gray-100 shadow-sm"
-      }`}
-    >
-      <div className={`text-xs font-semibold mb-2 uppercase tracking-wide ${highlight ? "text-blue-200" : "text-gray-400"}`}>
-        {label}
-      </div>
-      <div className={`text-3xl font-extrabold ${highlight ? "" : "text-gray-900"}`}>{price}</div>
-      {sublabel && (
-        <div className={`text-xs mt-2 ${highlight ? "text-blue-200" : "text-gray-400"}`}>{sublabel}</div>
-      )}
-    </div>
-  );
 }
 
 export default async function ProcedurePage({ params, searchParams }: PageProps) {
@@ -142,33 +115,29 @@ export default async function ProcedurePage({ params, searchParams }: PageProps)
   ];
 
   return (
-    <div className="max-w-5xl mx-auto px-4 py-10">
+    <div className="max-w-5xl mx-auto px-5 py-10 sm:py-14">
       <JsonLd data={schema} />
-      <nav className="flex items-center gap-2 text-sm text-gray-400 mb-8">
-        <Link href="/" className="hover:text-blue-600 transition-colors">
+      <nav className="flex items-center gap-2 text-sm text-faint mb-8">
+        <Link href="/" className="hover:text-ink transition-colors">
           Home
         </Link>
-        <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" strokeWidth="1.5">
-          <path d="M4 2l4 4-4 4" />
-        </svg>
-        <Link href="/procedures" className="hover:text-blue-600 transition-colors">
+        <span>/</span>
+        <Link href="/procedures" className="hover:text-ink transition-colors">
           Procedures
         </Link>
-        <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" strokeWidth="1.5">
-          <path d="M4 2l4 4-4 4" />
-        </svg>
-        <span className="text-gray-700 font-medium">{code}</span>
+        <span>/</span>
+        <span className="text-muted">{code}</span>
       </nav>
 
       <div className="mb-10">
         <div className="flex items-start justify-between gap-4">
           <div>
-            <h1 className="text-3xl md:text-4xl font-extrabold text-gray-900">
+            <h1 className="page-title">
               {friendlyName || proc.description}
             </h1>
-            {friendlyName && <p className="text-gray-500 mt-2 text-lg">{proc.description}</p>}
+            {friendlyName && <p className="lede mt-2">{proc.description}</p>}
           </div>
-          <span className="text-xs font-mono font-bold text-blue-600 bg-blue-50 border border-blue-100 px-3 py-1.5 rounded-lg shrink-0">
+          <span className="text-[11px] font-mono text-muted bg-white border border-[var(--hairline)] px-3 py-1.5 rounded-full shrink-0">
             CPT {code}
           </span>
         </div>
@@ -176,13 +145,13 @@ export default async function ProcedurePage({ params, searchParams }: PageProps)
 
       {priceResult ? (
         <div className="mb-12">
-          <div className="flex items-center gap-3 mb-1">
-            <h2 className="text-xl font-bold text-gray-900">Medicare physician rate in {zip}</h2>
-            <span className="text-sm bg-green-50 text-green-700 font-medium px-2.5 py-0.5 rounded-full border border-green-100">
+          <div className="flex items-center gap-3 mb-1 flex-wrap">
+            <h2 className="text-xl font-semibold tracking-tight text-ink">Medicare physician rate in {zip}</h2>
+            <span className="text-xs text-muted bg-white border border-[var(--hairline)] px-2.5 py-0.5 rounded-full">
               {getStateName(priceResult.state)}
             </span>
           </div>
-          <p className="text-sm text-gray-400 mb-6">
+          <p className="text-sm text-faint mb-6">
             Locality: {priceResult.locality}. National office rate is {formatPrice(nationalNonFac)}.
           </p>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
@@ -211,7 +180,7 @@ export default async function ProcedurePage({ params, searchParams }: PageProps)
         </div>
       ) : (
         <div className="mb-12">
-          <h2 className="text-xl font-bold text-gray-900 mb-6">National Medicare physician rate (2026)</h2>
+          <h2 className="text-xl font-semibold tracking-tight text-ink mb-6">National Medicare physician rate (2026)</h2>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             <PriceCard
               label="Medicare (Office)"
@@ -236,8 +205,8 @@ export default async function ProcedurePage({ params, searchParams }: PageProps)
             />
           </div>
           {hasZip && !priceResult && (
-            <div className="mt-5 bg-amber-50 border border-amber-200 rounded-xl p-5">
-              <p className="text-amber-800 text-sm">
+            <div className="mt-5 surface p-5">
+              <p className="text-muted text-sm">
                 ZIP {zip} is not in the CMS ZIP-to-locality file. Showing the national unadjusted rate.
               </p>
             </div>
@@ -245,16 +214,12 @@ export default async function ProcedurePage({ params, searchParams }: PageProps)
         </div>
       )}
 
-      <div className="bg-gradient-to-br from-blue-700 via-blue-800 to-indigo-900 rounded-2xl p-8 mb-12 text-white">
-        <h2 className="text-xl font-bold mb-1">
-          {priceResult ? "Try another ZIP" : "Get the rate for your ZIP"}
-        </h2>
-        <p className="text-blue-200 text-sm mb-5">
-          CMS adjusts this CPT by locality. A five-digit ZIP is enough — no
-          account, no insurance card.
-        </p>
+      <SearchPanel
+        title={priceResult ? "Try another ZIP" : "Get the rate for your ZIP"}
+        subtitle="CMS adjusts this CPT by locality. A five-digit ZIP is enough — no account, no insurance card."
+      >
         <ZipPriceLookup code={code} initialZip={zip} />
-      </div>
+      </SearchPanel>
 
       <PaywallCard code={code} initialZip={zip} procedureName={name} />
 
@@ -267,8 +232,8 @@ export default async function ProcedurePage({ params, searchParams }: PageProps)
       />
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
-        <div className="bg-white border border-gray-100 rounded-2xl p-6 shadow-sm">
-          <h2 className="text-lg font-bold text-gray-900 mb-5">How CMS prices CPT {code}</h2>
+        <div className="surface p-6">
+          <h2 className="text-lg font-semibold tracking-tight text-ink mb-5">How CMS prices CPT {code}</h2>
           <div className="space-y-0">
             {[
               { label: "CMS description", value: proc.description },
@@ -280,28 +245,28 @@ export default async function ProcedurePage({ params, searchParams }: PageProps)
             ].map((row) => (
               <div
                 key={row.label}
-                className="flex justify-between items-center py-3 border-b border-gray-50 last:border-0 gap-4"
+                className="flex justify-between items-center py-3 border-b border-[var(--hairline)] last:border-0 gap-4"
               >
-                <span className="text-sm text-gray-500">{row.label}</span>
-                <span className="text-sm font-semibold text-gray-900 text-right">{row.value}</span>
+                <span className="text-sm text-muted">{row.label}</span>
+                <span className="text-sm font-medium text-ink text-right">{row.value}</span>
               </div>
             ))}
           </div>
-          <p className="text-xs text-gray-400 mt-4 leading-relaxed">
+          <p className="text-xs text-faint mt-4 leading-relaxed">
             Work is about {workShare}% of the office total RVU; practice expense
             is about {peShare}%. Localities with a high PE GPCI move this code
             more when practice expense is a large share.
           </p>
         </div>
 
-        <div className="bg-white border border-gray-100 rounded-2xl p-6 shadow-sm">
-          <h2 className="text-lg font-bold text-gray-900 mb-5">Office vs hospital for this code</h2>
-          <div className="space-y-4 text-sm text-gray-600 leading-relaxed">
+        <div className="surface p-6">
+          <h2 className="text-lg font-semibold tracking-tight text-ink mb-5">Office vs hospital for this code</h2>
+          <div className="space-y-4 text-sm text-muted leading-relaxed">
             <p>
               Office (non-facility) physician rate:{" "}
-              <strong className="text-gray-900">{formatPrice(nationalNonFac)}</strong>.
+              <strong className="text-ink font-medium">{formatPrice(nationalNonFac)}</strong>.
               Hospital (facility) physician rate:{" "}
-              <strong className="text-gray-900">{formatPrice(nationalFac)}</strong>.
+              <strong className="text-ink font-medium">{formatPrice(nationalFac)}</strong>.
             </p>
             <p>
               Medicare patients typically owe 20% of the allowed amount after
@@ -322,8 +287,8 @@ export default async function ProcedurePage({ params, searchParams }: PageProps)
       {editorial ? (
         <ProcedureEditorial name={name} content={editorial} />
       ) : (
-        <div className="bg-white border border-gray-100 rounded-2xl p-6 shadow-sm mb-12 text-sm text-gray-600 leading-relaxed">
-          <h2 className="text-lg font-bold text-gray-900 mb-3">This code is in the search tool</h2>
+        <div className="surface p-6 mb-12 text-sm text-muted leading-relaxed">
+          <h2 className="text-lg font-semibold tracking-tight text-ink mb-3">This code is in the search tool</h2>
           <p>
             CPT {code} is a payable line in the 2026 fee schedule. We write
             longer explainers only for the {getPopularProcedures().length}{" "}
@@ -334,23 +299,16 @@ export default async function ProcedurePage({ params, searchParams }: PageProps)
       )}
 
       <div className="mb-12">
-        <h2 className="text-xl font-bold text-gray-900 mb-5">
+        <h2 className="text-xl font-semibold tracking-tight text-ink mb-5">
           {name} (CPT {code}): questions
         </h2>
-        <div className="space-y-4">
-          {faqs.map((f) => (
-            <div key={f.q} className="bg-white border border-gray-100 rounded-2xl p-5 shadow-sm">
-              <h3 className="font-bold text-sm text-gray-900 mb-2">{f.q}</h3>
-              <p className="text-sm text-gray-600 leading-relaxed">{f.a}</p>
-            </div>
-          ))}
-        </div>
+        <FaqList items={faqs} />
       </div>
 
-      <p className="text-sm text-gray-500 mb-8">
+      <p className="text-sm text-muted mb-8">
         For cash-pay surgery shopping, use this CPT as the Medicare floor when
         you compare written quotes.{" "}
-        <Link href="/guides/surgery-cash-price-shopping" className="text-blue-600 font-bold hover:text-blue-800">
+        <Link href="/guides/surgery-cash-price-shopping" className="link">
           How cash-price shopping works
         </Link>
         .

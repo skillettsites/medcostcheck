@@ -5,6 +5,7 @@ import {
   getCategories,
 } from "@/lib/medicare";
 import ProcedureSearch from "@/components/ProcedureSearch";
+import SearchPanel from "@/components/SearchPanel";
 
 export const revalidate = 86400; // 24 hours
 
@@ -30,28 +31,25 @@ export default function ProceduresPage() {
   const categories = getCategories();
 
   return (
-    <div className="max-w-6xl mx-auto px-4 py-10">
-      {/* Header */}
+    <div className="max-w-6xl mx-auto px-5 py-10 sm:py-14">
       <div className="mb-10">
-        <h1 className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-3">
+        <h1 className="page-title mb-3">
           Featured procedure costs
         </h1>
-        <p className="text-gray-500 text-lg max-w-3xl">
+        <p className="lede max-w-3xl">
           {popular.length} dedicated pages with national Medicare physician
           rates (2026). The fee schedule has 7,500+ payable codes — search
           those here; we do not publish a thin page for every code.
         </p>
       </div>
 
-      <div className="bg-gradient-to-br from-blue-700 via-blue-800 to-indigo-900 rounded-2xl p-8 mb-12 text-white">
-        <h2 className="text-xl font-bold mb-1">Search any CPT or name</h2>
-        <p className="text-blue-200 text-sm mb-5">
-          Add a ZIP for a locality rate, or skip it for the national figure.
-        </p>
+      <SearchPanel
+        title="Search any CPT or name"
+        subtitle="Add a ZIP for a locality rate, or skip it for the national figure."
+      >
         <ProcedureSearch />
-      </div>
+      </SearchPanel>
 
-      {/* Quick jump */}
       <div className="flex flex-wrap gap-2 mb-10">
         {categories.map((cat) => {
           const procs = popular.filter((p) => cat.codes.includes(p.code));
@@ -60,10 +58,10 @@ export default function ProceduresPage() {
             <a
               key={cat.slug}
               href={`#${cat.slug}`}
-              className="inline-flex items-center gap-1.5 px-3 py-1.5 text-sm bg-white border border-gray-200 rounded-lg hover:border-blue-300 hover:bg-blue-50 hover:text-blue-700 transition-all"
+              className="chip"
             >
               <span>{cat.icon}</span>
-              <span className="font-medium">{cat.name}</span>
+              <span>{cat.name}</span>
             </a>
           );
         })}
@@ -76,23 +74,23 @@ export default function ProceduresPage() {
 
         return (
           <section key={cat.slug} id={cat.slug} className="mb-12 scroll-mt-20">
-            <h2 className="text-xl font-extrabold mb-4 flex items-center gap-2">
-              <span className="text-2xl">{cat.icon}</span> {cat.name}
+            <h2 className="text-xl font-semibold tracking-tight mb-4 flex items-center gap-2">
+              <span className="text-xl">{cat.icon}</span> {cat.name}
             </h2>
-            <div className="bg-white border border-gray-100 rounded-2xl overflow-hidden shadow-sm">
+            <div className="surface overflow-hidden">
               <table className="w-full text-sm">
-                <thead className="bg-gray-50/80 border-b border-gray-100">
+                <thead className="bg-black/[0.02] border-b border-[var(--hairline)]">
                   <tr>
-                    <th className="text-left px-2 py-2 sm:px-5 sm:py-3.5 font-semibold text-gray-500 text-xs uppercase tracking-wide">
+                    <th className="text-left px-3 py-3 sm:px-5 font-medium text-faint text-xs uppercase tracking-wide">
                       Procedure
                     </th>
-                    <th className="text-left px-2 py-2 sm:px-5 sm:py-3.5 font-semibold text-gray-500 text-xs uppercase tracking-wide hidden md:table-cell">
+                    <th className="text-left px-3 py-3 sm:px-5 font-medium text-faint text-xs uppercase tracking-wide hidden md:table-cell">
                       CPT Code
                     </th>
-                    <th className="text-right px-2 py-2 sm:px-5 sm:py-3.5 font-semibold text-gray-500 text-xs uppercase tracking-wide">
+                    <th className="text-right px-3 py-3 sm:px-5 font-medium text-faint text-xs uppercase tracking-wide">
                       Office
                     </th>
-                    <th className="text-right px-2 py-2 sm:px-5 sm:py-3.5 font-semibold text-gray-500 text-xs uppercase tracking-wide hidden sm:table-cell">
+                    <th className="text-right px-3 py-3 sm:px-5 font-medium text-faint text-xs uppercase tracking-wide hidden sm:table-cell">
                       Hospital
                     </th>
                   </tr>
@@ -101,23 +99,23 @@ export default function ProceduresPage() {
                   {procs.map((proc) => (
                     <tr
                       key={proc.code}
-                      className="border-t border-gray-50 hover:bg-blue-50/50 transition-colors"
+                      className="border-t border-[var(--hairline)] hover:bg-black/[0.02] transition-colors"
                     >
-                      <td className="px-2 py-2 sm:px-5 sm:py-3.5">
+                      <td className="px-3 py-3 sm:px-5">
                         <Link
                           href={`/procedure/${proc.code}`}
-                          className="text-blue-700 hover:text-blue-900 hover:underline font-semibold transition-colors"
+                          className="text-ink font-medium hover:opacity-70 transition-opacity"
                         >
                           {proc.friendlyName}
                         </Link>
                       </td>
-                      <td className="px-2 py-2 sm:px-5 sm:py-3.5 font-mono text-xs text-gray-400 hidden md:table-cell">
+                      <td className="px-3 py-3 sm:px-5 font-mono text-xs text-faint hidden md:table-cell">
                         {proc.code}
                       </td>
-                      <td className="px-2 py-2 sm:px-5 sm:py-3.5 text-right font-bold text-gray-900">
+                      <td className="px-3 py-3 sm:px-5 text-right font-medium text-ink">
                         {formatPrice(proc.nationalNonFacPrice)}
                       </td>
-                      <td className="px-2 py-2 sm:px-5 sm:py-3.5 text-right text-gray-500 hidden sm:table-cell">
+                      <td className="px-3 py-3 sm:px-5 text-right text-muted hidden sm:table-cell">
                         {formatPrice(proc.nationalFacPrice)}
                       </td>
                     </tr>

@@ -33,8 +33,8 @@ export default function ZipPriceLookup({
   }
 
   return (
-    <form onSubmit={handleSubmit} className="w-full max-w-xl">
-      <label className="block text-xs font-semibold text-blue-200/80 mb-1.5 uppercase tracking-wide">
+    <form onSubmit={handleSubmit} className="w-full">
+      <label className="block text-[11px] font-medium text-faint uppercase tracking-[0.08em] mb-1.5">
         {label}
       </label>
       <div className="flex flex-col sm:flex-row gap-2">
@@ -47,25 +47,18 @@ export default function ZipPriceLookup({
             setZipCode(clean);
             if (error && /^\d{5}$/.test(clean)) setError(false);
           }}
-          placeholder="5-digit ZIP, e.g. 19103"
+          placeholder="19103"
           maxLength={5}
-          className={`flex-1 px-4 py-3.5 rounded-xl text-lg font-semibold text-center tracking-widest transition-all focus:outline-none ${
-            error
-              ? "border-2 border-red-400 bg-red-50 text-red-700"
-              : hasValidZip
-                ? "border-2 border-green-400 bg-green-50 text-green-800"
-                : "border-2 border-white/20 bg-white/10 text-white placeholder-white/40 focus:border-white/50"
+          className={`field flex-1 text-center tracking-[0.28em] font-medium ${
+            error ? "field-bad" : hasValidZip ? "field-ok" : ""
           }`}
         />
-        <button
-          type="submit"
-          className="px-6 py-3.5 bg-white text-blue-700 rounded-xl font-bold hover:bg-blue-50 transition-all whitespace-nowrap"
-        >
+        <button type="submit" className="btn btn-primary whitespace-nowrap">
           Local price
         </button>
       </div>
       {error && (
-        <p className="mt-2 text-xs text-red-200 font-medium">
+        <p className="mt-2 text-xs text-red-600">
           Enter a 5-digit US ZIP code to apply the geographic adjustment.
         </p>
       )}

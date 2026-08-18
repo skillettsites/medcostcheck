@@ -53,9 +53,10 @@ export default function CheckoutProgress({
   }, [token, sessionId, isUpgrade, router]);
 
   return (
-    <div className="max-w-xl mx-auto px-4 py-16 text-center">
-      <h1 className="text-2xl font-bold text-gray-900 mb-3">Payment received</h1>
-      <p className="text-gray-600">{message}</p>
+    <div className="max-w-xl mx-auto px-5 py-24 text-center">
+      <div className="spinner" />
+      <h1 className="text-2xl font-semibold tracking-tight text-ink mb-3">Payment received</h1>
+      <p className="text-muted">{message}</p>
     </div>
   );
 }

@@ -32,15 +32,15 @@ function ServiceCard({
   buttonText = "Learn More",
 }: ServiceCardProps) {
   return (
-    <div className="bg-white border border-gray-200 rounded-xl p-6 flex flex-col">
-      <h3 className="text-lg font-bold text-gray-900 mb-2">{name}</h3>
-      <p className="text-gray-600 text-sm mb-3 flex-1">{description}</p>
-      <p className="text-blue-700 font-semibold text-sm mb-4">{savings}</p>
+    <div className="surface p-6 flex flex-col">
+      <h3 className="text-lg font-semibold tracking-tight text-ink mb-2">{name}</h3>
+      <p className="text-muted text-sm mb-3 flex-1">{description}</p>
+      <p className="text-ink font-medium text-sm mb-4">{savings}</p>
       <a
         href={url}
         target="_blank"
         rel="noopener noreferrer nofollow"
-        className="inline-block text-center bg-blue-600 hover:bg-blue-700 text-white font-medium py-2.5 px-5 rounded-lg transition-colors text-sm"
+        className="btn btn-primary text-sm"
       >
         {buttonText} &rarr;
       </a>
@@ -66,9 +66,9 @@ function SectionHeading({
 function TipItem({ children }: { children: React.ReactNode }) {
   return (
     <li className="flex items-start gap-3">
-      <span className="mt-1 flex-shrink-0 w-5 h-5 bg-blue-100 rounded-full flex items-center justify-center">
+      <span className="mt-1 flex-shrink-0 w-5 h-5 bg-canvas rounded-full flex items-center justify-center">
         <svg
-          className="w-3 h-3 text-blue-700"
+          className="w-3 h-3 text-ink"
           fill="currentColor"
           viewBox="0 0 20 20"
         >
@@ -87,17 +87,16 @@ function TipItem({ children }: { children: React.ReactNode }) {
 export default function SavePage() {
   return (
     <>
-      {/* Hero */}
-      <section className="bg-gradient-to-br from-blue-600 via-blue-700 to-indigo-800 text-white">
-        <div className="max-w-6xl mx-auto px-4 py-16 md:py-20 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">
+      <section className="px-5 pt-14 pb-8 sm:pt-20">
+        <div className="max-w-3xl mx-auto text-center">
+          <h1 className="page-title mb-4">
             Ways to Save on Medical Costs
           </h1>
-          <p className="text-xl text-blue-100 mb-4 max-w-2xl mx-auto">
+          <p className="lede mb-3 max-w-2xl mx-auto">
             Medical bills are the #1 cause of bankruptcy in the United States.
             You do not have to overpay for healthcare.
           </p>
-          <p className="text-blue-200 text-sm max-w-xl mx-auto">
+          <p className="text-sm text-faint max-w-xl mx-auto">
             We have gathered the best tools and services to help you save
             hundreds, or even thousands, on medical expenses.
           </p>
@@ -181,8 +180,8 @@ export default function SavePage() {
               buttonText="Get Free Card"
             />
           </div>
-          <div className="mt-6 bg-blue-50 border border-blue-100 rounded-lg p-4">
-            <p className="text-sm text-blue-800 font-medium">
+          <div className="mt-6 surface p-4">
+            <p className="text-sm text-muted font-medium">
               Pro tip: Check both GoodRx and SingleCare for every prescription.
               Prices differ by pharmacy and drug, so the cheaper option changes
               depending on what you need and where you fill it.
@@ -307,7 +306,7 @@ export default function SavePage() {
             <div className="mt-6 pt-6 border-t border-gray-100">
               <p className="text-sm text-gray-600">
                 Use{" "}
-                <Link href="/" className="text-blue-600 hover:underline">
+                <Link href="/" className="link">
                   MedCostCheck
                 </Link>{" "}
                 to look up the Medicare rate for your procedure before

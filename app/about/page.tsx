@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import CtaBand from "@/components/CtaBand";
 
 export const metadata: Metadata = {
   title: "About",
@@ -9,26 +10,26 @@ export const metadata: Metadata = {
 
 export default function AboutPage() {
   return (
-    <div className="max-w-4xl mx-auto px-4 py-12">
-      <h1 className="text-3xl font-bold text-gray-900 mb-2">
+    <div className="max-w-4xl mx-auto px-5 py-12 sm:py-16">
+      <h1 className="page-title mb-2">
         About MedCostCheck
       </h1>
-      <p className="text-gray-500 mb-10">
+      <p className="lede mb-10">
         Free medical procedure cost estimates for every US ZIP code.
       </p>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
-        <div className="bg-blue-50 border border-blue-200 rounded-xl p-5 text-center">
-          <p className="text-3xl font-bold text-blue-700">7,500+</p>
-          <p className="text-sm text-blue-600 mt-1">Searchable CPT codes</p>
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-3 mb-12">
+        <div className="surface p-6 text-center">
+          <p className="text-3xl font-semibold tracking-tight text-ink">7,500+</p>
+          <p className="text-sm text-muted mt-1">Searchable CPT codes</p>
         </div>
-        <div className="bg-blue-50 border border-blue-200 rounded-xl p-5 text-center">
-          <p className="text-3xl font-bold text-blue-700">43,000+</p>
-          <p className="text-sm text-blue-600 mt-1">ZIP codes</p>
+        <div className="surface p-6 text-center">
+          <p className="text-3xl font-semibold tracking-tight text-ink">43,000+</p>
+          <p className="text-sm text-muted mt-1">ZIP codes</p>
         </div>
-        <div className="bg-blue-50 border border-blue-200 rounded-xl p-5 text-center">
-          <p className="text-3xl font-bold text-blue-700">112</p>
-          <p className="text-sm text-blue-600 mt-1">Pricing localities</p>
+        <div className="surface p-6 text-center">
+          <p className="text-3xl font-semibold tracking-tight text-ink">112</p>
+          <p className="text-sm text-muted mt-1">Pricing localities</p>
         </div>
       </div>
 
@@ -63,7 +64,7 @@ export default function AboutPage() {
               href="https://www.cms.gov/medicare/payment/fee-schedules/physician"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-blue-600 hover:text-blue-800 underline"
+              className="link"
             >
               cms.gov
             </a>
@@ -75,32 +76,32 @@ export default function AboutPage() {
           <h2 className="text-xl font-semibold text-gray-900 mb-3">
             How Pricing Works
           </h2>
-          <div className="bg-white border border-gray-200 rounded-xl p-5">
+            <div className="surface p-5">
             <p className="mb-3">
               Medicare calculates costs using{" "}
               <strong>Relative Value Units (RVUs)</strong> adjusted by{" "}
               <strong>Geographic Practice Cost Indices (GPCIs)</strong>:
             </p>
-            <div className="bg-gray-50 rounded-lg p-4 font-mono text-xs text-center mb-3">
+            <div className="bg-canvas rounded-xl p-4 font-mono text-xs text-center mb-3">
               Payment = [(Work RVU x Work GPCI) + (PE RVU x PE GPCI) + (MP RVU
               x MP GPCI)] x $33.4009
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs">
-              <div className="bg-blue-50 rounded-lg p-3">
-                <p className="font-semibold text-blue-800">Work RVU</p>
-                <p className="text-blue-600 mt-1">
+              <div className="surface p-3">
+                <p className="font-medium text-ink">Work RVU</p>
+                <p className="text-muted mt-1">
                   Physician time, skill, and effort
                 </p>
               </div>
-              <div className="bg-blue-50 rounded-lg p-3">
-                <p className="font-semibold text-blue-800">Practice Expense</p>
-                <p className="text-blue-600 mt-1">
+              <div className="surface p-3">
+                <p className="font-medium text-ink">Practice Expense</p>
+                <p className="text-muted mt-1">
                   Rent, equipment, supplies, staff
                 </p>
               </div>
-              <div className="bg-blue-50 rounded-lg p-3">
-                <p className="font-semibold text-blue-800">Malpractice</p>
-                <p className="text-blue-600 mt-1">
+              <div className="surface p-3">
+                <p className="font-medium text-ink">Malpractice</p>
+                <p className="text-muted mt-1">
                   Professional liability insurance
                 </p>
               </div>
@@ -187,7 +188,7 @@ export default function AboutPage() {
             here; the public contact for the site is{" "}
             <a
               href="mailto:contact@medcostcheck.com"
-              className="text-blue-600 hover:text-blue-800 font-medium"
+              className="link"
             >
               contact@medcostcheck.com
             </a>
@@ -200,7 +201,7 @@ export default function AboutPage() {
           </p>
           <p className="mb-3">
             Alongside the pricing tool, we publish plain-English{" "}
-            <Link href="/guides" className="text-blue-600 hover:text-blue-800 underline">
+            <Link href="/guides" className="link">
               guides to medical billing and costs
             </Link>{" "}
             covering topics like reading an EOB, negotiating a bill, facility
@@ -210,7 +211,7 @@ export default function AboutPage() {
           <p>
             <strong>Corrections:</strong> if you spot a price, code, or
             description that looks wrong,{" "}
-            <Link href="/contact" className="text-blue-600 hover:text-blue-800 underline">
+            <Link href="/contact" className="link">
               contact us
             </Link>{" "}
             with the page URL and CPT code. We verify reports against the
@@ -224,7 +225,7 @@ export default function AboutPage() {
             Questions or feedback? Email us at{" "}
             <a
               href="mailto:contact@medcostcheck.com"
-              className="text-blue-600 hover:text-blue-800 font-medium"
+              className="link"
             >
               contact@medcostcheck.com
             </a>
@@ -232,19 +233,12 @@ export default function AboutPage() {
         </section>
       </div>
 
-      {/* CTA */}
-      <div className="mt-12 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-xl p-8 text-center text-white">
-        <h2 className="text-2xl font-bold mb-2">Look up a procedure cost</h2>
-        <p className="text-blue-100 mb-4">
-          Search 7,500+ CPT codes. Featured pages cover the procedures people look up most.
-        </p>
-        <Link
-          href="/"
-          className="inline-block bg-white text-blue-700 font-semibold rounded-lg px-6 py-3 hover:bg-blue-50 transition-colors"
-        >
-          Search Procedures
-        </Link>
-      </div>
+      <CtaBand
+        title="Look up a procedure cost"
+        body="Search 7,500+ CPT codes. Featured pages cover the procedures people look up most."
+        href="/"
+        label="Search procedures"
+      />
     </div>
   );
 }

@@ -23,9 +23,9 @@ export default async function ReportByTokenPage({
   const stored = await loadStoredReport(token);
   if (!stored) {
     return (
-      <div className="max-w-xl mx-auto px-4 py-16">
-        <h1 className="text-2xl font-bold text-gray-900">Report still being prepared</h1>
-        <p className="mt-3 text-sm text-gray-600">
+      <div className="max-w-xl mx-auto px-5 py-16">
+        <h1 className="text-2xl font-semibold tracking-tight text-ink">Report still being prepared</h1>
+        <p className="mt-3 text-sm text-muted">
           Your report should be ready within a minute of payment. Refresh this page shortly.
         </p>
       </div>

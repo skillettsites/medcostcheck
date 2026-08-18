@@ -16,7 +16,7 @@ export default function PrivacyPage() {
 
       <div className="space-y-8">
         <section>
-          <h2 className="text-xl font-semibold text-blue-800 mb-3">
+          <h2 className="text-xl font-semibold text-ink mb-3">
             Overview
           </h2>
           <p className="text-gray-700 leading-relaxed">
@@ -28,7 +28,7 @@ export default function PrivacyPage() {
         </section>
 
         <section>
-          <h2 className="text-xl font-semibold text-blue-800 mb-3">
+          <h2 className="text-xl font-semibold text-ink mb-3">
             What We Do Not Collect
           </h2>
           <p className="text-gray-700 leading-relaxed">
@@ -40,7 +40,7 @@ export default function PrivacyPage() {
         </section>
 
         <section>
-          <h2 className="text-xl font-semibold text-blue-800 mb-3">
+          <h2 className="text-xl font-semibold text-ink mb-3">
             Paid reports
           </h2>
           <p className="text-gray-700 leading-relaxed">
@@ -55,7 +55,7 @@ export default function PrivacyPage() {
         </section>
 
         <section>
-          <h2 className="text-xl font-semibold text-blue-800 mb-3">
+          <h2 className="text-xl font-semibold text-ink mb-3">
             Analytics
           </h2>
           <p className="text-gray-700 leading-relaxed">
@@ -70,7 +70,7 @@ export default function PrivacyPage() {
               href="https://tools.google.com/dlpage/gaoptout"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-blue-600 hover:text-blue-800 underline"
+              className="link"
             >
               Google Analytics opt-out browser add-on
             </a>
@@ -79,7 +79,7 @@ export default function PrivacyPage() {
         </section>
 
         <section>
-          <h2 className="text-xl font-semibold text-blue-800 mb-3">
+          <h2 className="text-xl font-semibold text-ink mb-3">
             Advertising (Google AdSense)
           </h2>
           <p className="text-gray-700 leading-relaxed mb-3">
@@ -100,7 +100,7 @@ export default function PrivacyPage() {
                 href="https://www.google.com/settings/ads"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-blue-600 hover:text-blue-800 underline"
+                className="link"
               >
                 Google Ads Settings
               </a>
@@ -110,7 +110,7 @@ export default function PrivacyPage() {
                 href="https://www.aboutads.info/choices"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-blue-600 hover:text-blue-800 underline"
+                className="link"
               >
                 www.aboutads.info
               </a>
@@ -125,7 +125,7 @@ export default function PrivacyPage() {
         </section>
 
         <section>
-          <h2 className="text-xl font-semibold text-blue-800 mb-3">
+          <h2 className="text-xl font-semibold text-ink mb-3">
             Affiliate Links
           </h2>
           <p className="text-gray-700 leading-relaxed">
@@ -139,7 +139,7 @@ export default function PrivacyPage() {
         </section>
 
         <section>
-          <h2 className="text-xl font-semibold text-blue-800 mb-3">
+          <h2 className="text-xl font-semibold text-ink mb-3">
             Data Sources
           </h2>
           <p className="text-gray-700 leading-relaxed">
@@ -152,7 +152,7 @@ export default function PrivacyPage() {
         </section>
 
         <section>
-          <h2 className="text-xl font-semibold text-blue-800 mb-3">
+          <h2 className="text-xl font-semibold text-ink mb-3">
             Hosting and Server Logs
           </h2>
           <p className="text-gray-700 leading-relaxed">
@@ -163,7 +163,7 @@ export default function PrivacyPage() {
               href="https://vercel.com/legal/privacy-policy"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-blue-600 hover:text-blue-800 underline"
+              className="link"
             >
               Vercel&apos;s privacy policy
             </a>{" "}
@@ -172,7 +172,7 @@ export default function PrivacyPage() {
         </section>
 
         <section>
-          <h2 className="text-xl font-semibold text-blue-800 mb-3">
+          <h2 className="text-xl font-semibold text-ink mb-3">
             Your Choices
           </h2>
           <ul className="list-disc pl-5 space-y-2 text-gray-700 leading-relaxed">
@@ -184,7 +184,7 @@ export default function PrivacyPage() {
         </section>
 
         <section>
-          <h2 className="text-xl font-semibold text-blue-800 mb-3">
+          <h2 className="text-xl font-semibold text-ink mb-3">
             Changes to This Policy
           </h2>
           <p className="text-gray-700 leading-relaxed">
@@ -195,19 +195,19 @@ export default function PrivacyPage() {
         </section>
 
         <section>
-          <h2 className="text-xl font-semibold text-blue-800 mb-3">
+          <h2 className="text-xl font-semibold text-ink mb-3">
             Contact
           </h2>
           <p className="text-gray-700 leading-relaxed">
             If you have questions about this privacy policy, you can reach us
             via the{" "}
-            <Link href="/contact" className="text-blue-600 hover:text-blue-800 underline">
+            <Link href="/contact" className="link">
               contact page
             </Link>{" "}
             or at{" "}
             <a
               href="mailto:contact@medcostcheck.com"
-              className="text-blue-600 hover:text-blue-800 underline"
+              className="link"
             >
               contact@medcostcheck.com
             </a>

@@ -3,6 +3,7 @@ import Link from "next/link";
 import { guides, type Guide } from "@/lib/guides";
 import { insuranceGuides } from "@/lib/guides-insurance";
 import { savingsGuides } from "@/lib/guides-savings";
+import CtaBand from "@/components/CtaBand";
 
 export const metadata: Metadata = {
   title: "Guides to Medical Costs & Billing",
@@ -18,9 +19,9 @@ function GuideGrid({ items }: { items: Guide[] }) {
         <Link
           key={g.slug}
           href={`/guides/${g.slug}`}
-          className="group bg-white border border-gray-100 rounded-2xl p-6 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all flex flex-col"
+          className="surface lift p-6 flex flex-col"
         >
-          <h3 className="font-bold text-lg text-gray-900 group-hover:text-blue-700 transition-colors mb-2">
+          <h3 className="font-semibold text-lg tracking-tight text-ink mb-2">
             {g.title}
           </h3>
           <p className="text-sm text-gray-500 leading-relaxed flex-1">
@@ -60,21 +61,21 @@ export default function GuidesPage() {
   ];
 
   return (
-    <div className="max-w-5xl mx-auto px-4 py-12">
+    <div className="max-w-5xl mx-auto px-5 py-12 sm:py-16">
       <div className="mb-12">
-        <h1 className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-3">
+        <h1 className="page-title mb-3">
           Guides to Medical Costs &amp; Billing
         </h1>
-        <p className="text-gray-500 text-lg max-w-3xl">
+        <p className="lede max-w-3xl">
           Medical bills are confusing by design. These plain-English guides,
           written and maintained by our{" "}
-          <Link href="/editorial-policy" className="text-blue-600 hover:text-blue-800 font-medium">
+          <Link href="/editorial-policy" className="link">
             editorial team
           </Link>
           , explain how US medical billing actually works and how to pay less,
           whether you are insured, on Medicare, or paying cash. Unsure what a
           term means? Check the{" "}
-          <Link href="/glossary" className="text-blue-600 hover:text-blue-800 font-medium">
+          <Link href="/glossary" className="link">
             billing glossary
           </Link>
           .
@@ -84,7 +85,7 @@ export default function GuidesPage() {
       <div className="space-y-14">
         {clusters.map((c) => (
           <section key={c.title}>
-            <h2 className="text-2xl font-extrabold text-gray-900 mb-2">
+            <h2 className="text-2xl font-semibold tracking-tight text-ink mb-2">
               {c.title}
             </h2>
             <p className="text-gray-500 text-sm mb-6 max-w-2xl">{c.blurb}</p>
@@ -93,20 +94,12 @@ export default function GuidesPage() {
         ))}
       </div>
 
-      <div className="mt-14 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-2xl p-8 text-center text-white">
-        <h2 className="text-2xl font-bold mb-2">
-          Ready to look up a procedure cost?
-        </h2>
-        <p className="text-blue-100 mb-4">
-          Search 7,500+ procedures with Medicare-based pricing for your ZIP code.
-        </p>
-        <Link
-          href="/"
-          className="inline-block bg-white text-blue-700 font-semibold rounded-lg px-6 py-3 hover:bg-blue-50 transition-colors"
-        >
-          Search Procedures
-        </Link>
-      </div>
+      <CtaBand
+        title="Ready to look up a procedure cost?"
+        body="Search 7,500+ procedures with Medicare-based pricing for your ZIP code."
+        href="/"
+        label="Search procedures"
+      />
     </div>
   );
 }
