@@ -9,7 +9,7 @@ function getResend() {
   return new Resend(key);
 }
 
-const FROM_EMAIL = process.env.RESEND_FROM_EMAIL || "reports@carcostcheck.co.uk";
+const FROM_EMAIL = "reports@medcostcheck.com";
 
 export async function sendCostReportEmail(
   to: string,
