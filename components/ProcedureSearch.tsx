@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import { useRouter } from "next/navigation";
+import { logSearch } from "@/lib/search-log";
 
 interface SearchResult {
   code: string;
@@ -72,6 +73,10 @@ export default function ProcedureSearch({ zip }: { zip?: string }) {
 
   function goToProcedure(code: string) {
     setShowResults(false);
+    // The committed search: the user typed something and picked a result.
+    // Fire-and-forget; the debounced typeahead itself is never logged here
+    // (partial keystrokes), only its dead-ends are, inside /api/search.
+    logSearch({ query: query.trim() || code, resultFound: true });
     const dest = hasValidZip
       ? `/procedure/${code}?zip=${zipCode}`
       : `/procedure/${code}`;

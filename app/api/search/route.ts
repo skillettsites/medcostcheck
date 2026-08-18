@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { searchProcedures, getPopularProcedures } from "@/lib/medicare";
+import { logSearch } from "@/lib/search-log";
 
 // A handful of common lay phrases that map cleanly onto a single indexed term.
 // Kept deliberately small and hand-verified: generic suffix-stripping (e.g.
@@ -70,6 +71,7 @@ export async function GET(request: NextRequest) {
     return NextResponse.json({ results: [] });
   }
 
+  const started = Date.now();
   let results = runSearch(q);
 
   if (results.length === 0) {
@@ -83,6 +85,16 @@ export async function GET(request: NextRequest) {
   // hand back real, verified-to-exist popular procedures so the UI can
   // suggest something clickable instead of an empty box.
   if (results.length === 0) {
+    // This endpoint is a debounced typeahead, so logging every call would
+    // record partial keystrokes ("kne", "knee rep"). Successful searches get
+    // logged as procedure page views instead; only the dead-ends are logged
+    // here, because a query that matches nothing even after aliasing is a
+    // real gap in the catalogue and only visible at this point.
+    logSearch({
+      query: q.trim(),
+      resultFound: false,
+      durationMs: Date.now() - started,
+    });
     const suggestions = getPopularProcedures()
       .slice(0, 6)
       .map((p) => ({ code: p.code, description: p.description, friendlyName: p.friendlyName }));
