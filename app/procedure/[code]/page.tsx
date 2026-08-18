@@ -9,6 +9,7 @@ import {
   CONVERSION_FACTOR,
 } from "@/lib/medicare";
 import ZipPriceLookup from "@/components/ZipPriceLookup";
+import PaywallCard from "@/components/PaywallCard";
 import JsonLd from "@/components/JsonLd";
 import ProcedureEditorial from "@/components/ProcedureEditorial";
 import ScopeNote from "@/components/ScopeNote";
@@ -254,6 +255,8 @@ export default async function ProcedurePage({ params, searchParams }: PageProps)
         </p>
         <ZipPriceLookup code={code} initialZip={zip} />
       </div>
+
+      <PaywallCard code={code} initialZip={zip} procedureName={name} />
 
       <ScopeNote
         extra={

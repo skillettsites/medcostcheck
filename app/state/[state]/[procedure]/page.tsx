@@ -13,6 +13,7 @@ import {
 } from "@/lib/medicare";
 import { getIndexableStateAbbrs } from "@/lib/geo";
 import ZipPriceLookup from "@/components/ZipPriceLookup";
+import PaywallCard from "@/components/PaywallCard";
 import JsonLd from "@/components/JsonLd";
 import ProcedureEditorial from "@/components/ProcedureEditorial";
 import ScopeNote from "@/components/ScopeNote";
@@ -277,6 +278,8 @@ export default async function StateProcedurePage({ params }: PageProps) {
         </p>
         <ZipPriceLookup code={proc.code} label={`Local ${procLower} rate`} />
       </div>
+
+      <PaywallCard code={proc.code} procedureName={proc.friendlyName} />
 
       <ScopeNote
         extra={

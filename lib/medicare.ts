@@ -208,6 +208,21 @@ export function getZipInfo(zip: string): { state: string; locality: string } | n
   };
 }
 
+/** Locality PE GPCI for a ZIP. Used as a wage-index proxy on OPPS/ASC national rates. */
+export function getZipGpci(zip: string): { peGpci: number; pwGpci: number; mpGpci: number; locality: string; state: string } | null {
+  const entry = zipLocality[zip];
+  if (!entry) return null;
+  const gpciEntry = gpci[entry.key];
+  if (!gpciEntry) return null;
+  return {
+    peGpci: gpciEntry.peGpci,
+    pwGpci: gpciEntry.pwGpci,
+    mpGpci: gpciEntry.mpGpci,
+    locality: gpciEntry.localityName,
+    state: gpciEntry.state,
+  };
+}
+
 /**
  * Get popular procedures list.
  */

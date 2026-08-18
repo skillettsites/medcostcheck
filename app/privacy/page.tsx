@@ -12,7 +12,7 @@ export default function PrivacyPage() {
   return (
     <div className="max-w-3xl mx-auto px-4 py-12">
       <h1 className="text-3xl font-bold text-gray-900 mb-2">Privacy Policy</h1>
-      <p className="text-gray-500 text-sm mb-8">Last updated: July 2026</p>
+      <p className="text-gray-500 text-sm mb-8">Last updated: August 2026</p>
 
       <div className="space-y-8">
         <section>
@@ -32,12 +32,25 @@ export default function PrivacyPage() {
             What We Do Not Collect
           </h2>
           <p className="text-gray-700 leading-relaxed">
-            There are no user accounts, sign-up forms, or login systems. We do
-            not ask for, store, or sell personal details such as your name,
-            email address, or health information. Procedure searches and ZIP
-            code lookups are not linked to your identity by us, and we never
-            see any medical records; this site only displays public pricing
-            data.
+            Free lookups do not require an account. We do not ask for medical
+            records, insurance cards, or names on the lookup pages. Procedure
+            searches and ZIP codes used on the public site are not linked to
+            your identity by us.
+          </p>
+        </section>
+
+        <section>
+          <h2 className="text-xl font-semibold text-blue-800 mb-3">
+            Paid reports
+          </h2>
+          <p className="text-gray-700 leading-relaxed">
+            If you buy a Cost Report, Stripe collects your email and payment
+            details to process the charge. We store the Stripe session id, the
+            CPT code, the ZIP you entered, the report JSON, and the email so we
+            can send you the link and show the report at /r/{"{token}"}. We do
+            not store names of patients, insurance IDs, or medical records.
+            Report pages are noindex. You can email contact@medcostcheck.com to
+            ask us to delete a stored report.
           </p>
         </section>
 
