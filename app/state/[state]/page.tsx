@@ -223,7 +223,7 @@ export default async function StatePage({ params }: PageProps) {
           <h2 className="text-xl font-semibold tracking-tight text-ink mb-4">
             {stateName} payment localities (GPCI)
           </h2>
-          <div className="surface overflow-hidden">
+          <div className="surface overflow-x-auto">
             <table className="w-full text-sm">
               <thead className="bg-black/[0.02] border-b border-[var(--hairline)]">
                 <tr>
@@ -272,7 +272,7 @@ export default async function StatePage({ params }: PageProps) {
         <h2 className="text-xl font-semibold tracking-tight text-ink mb-4">
           Featured physician rates in {stateName}
         </h2>
-        <div className="surface overflow-hidden">
+        <div className="surface overflow-x-auto">
           <table className="w-full text-sm">
             <thead className="bg-black/[0.02] border-b border-[var(--hairline)]">
               <tr>
@@ -296,7 +296,7 @@ export default async function StatePage({ params }: PageProps) {
                   <td className="px-3 py-3 sm:px-5">
                     <Link
                       href={`/state/${slug}/${procedureToSlug(proc.friendlyName)}`}
-                      className="text-ink font-medium hover:opacity-70 transition-opacity"
+                      className="text-ink font-medium hover:text-accent transition-colors"
                     >
                       {proc.friendlyName}
                     </Link>

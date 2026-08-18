@@ -110,33 +110,33 @@ export default function AboutPage() {
         </section>
 
         <section>
-          <h2 className="text-xl font-semibold text-gray-900 mb-3">
+          <h2 className="text-xl font-semibold tracking-tight text-ink mb-3">
             Understanding the Estimates
           </h2>
-          <div className="bg-white border border-gray-200 rounded-xl overflow-hidden">
+          <div className="surface overflow-x-auto">
             <table className="w-full text-sm">
-              <thead className="bg-gray-50 border-b border-gray-200">
+              <thead className="bg-black/[0.02] border-b border-[var(--hairline)]">
                 <tr>
-                  <th className="px-4 py-3 text-left font-medium text-gray-500">Price Type</th>
-                  <th className="px-4 py-3 text-left font-medium text-gray-500">How It Compares to Medicare</th>
+                  <th className="px-4 py-3 text-left font-medium text-faint">Price Type</th>
+                  <th className="px-4 py-3 text-left font-medium text-faint">How It Compares to Medicare</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-gray-100">
+              <tbody className="divide-y divide-[var(--hairline)]">
                 <tr>
-                  <td className="px-4 py-3 font-medium text-gray-900">Medicare Rate</td>
-                  <td className="px-4 py-3 text-gray-600">Baseline. What Medicare pays providers.</td>
+                  <td className="px-4 py-3 font-medium text-ink">Medicare Rate</td>
+                  <td className="px-4 py-3 text-muted">Baseline. What Medicare pays providers.</td>
                 </tr>
                 <tr>
-                  <td className="px-4 py-3 font-medium text-gray-900">Private Insurance</td>
-                  <td className="px-4 py-3 text-gray-600">130-200% of Medicare, depending on plan and network.</td>
+                  <td className="px-4 py-3 font-medium text-ink">Private Insurance</td>
+                  <td className="px-4 py-3 text-muted">130-200% of Medicare, depending on plan and network.</td>
                 </tr>
                 <tr>
-                  <td className="px-4 py-3 font-medium text-gray-900">Self-Pay / Cash</td>
-                  <td className="px-4 py-3 text-gray-600">Varies widely. Many providers offer 20-40% cash discounts.</td>
+                  <td className="px-4 py-3 font-medium text-ink">Self-Pay / Cash</td>
+                  <td className="px-4 py-3 text-muted">Varies widely. Many providers offer 20-40% cash discounts.</td>
                 </tr>
                 <tr>
-                  <td className="px-4 py-3 font-medium text-gray-900">Hospital Chargemaster</td>
-                  <td className="px-4 py-3 text-gray-600">Often 300-500%+ of Medicare. Rarely what anyone actually pays.</td>
+                  <td className="px-4 py-3 font-medium text-ink">Hospital Chargemaster</td>
+                  <td className="px-4 py-3 text-muted">Often 300-500%+ of Medicare. Rarely what anyone actually pays.</td>
                 </tr>
               </tbody>
             </table>

@@ -55,7 +55,7 @@ export default function StatesPage() {
         </p>
       </div>
 
-      <div className="surface overflow-hidden mb-8">
+      <div className="surface overflow-x-auto mb-8">
         <table className="w-full text-sm">
           <thead className="bg-black/[0.02] border-b border-[var(--hairline)]">
             <tr>
@@ -70,7 +70,7 @@ export default function StatesPage() {
                 <td className="px-3 py-3 sm:px-5">
                   <Link
                     href={`/state/${stateToSlug(state.name)}`}
-                    className="text-ink font-medium hover:opacity-70 transition-opacity"
+                    className="text-ink font-medium hover:text-accent transition-colors"
                   >
                     {state.name}
                   </Link>

@@ -27,7 +27,7 @@ export default function HomePage() {
 
   return (
     <>
-      <section className="px-5 pt-14 pb-8 sm:pt-24 sm:pb-12">
+      <section className="relative z-20 px-5 pt-14 pb-8 sm:pt-24 sm:pb-12">
         <div className="max-w-3xl mx-auto text-center">
           <p className="eyebrow anim-rise">2026 Medicare Physician Fee Schedule</p>
           <h1 className="display mt-4 anim-rise d1">
@@ -38,7 +38,7 @@ export default function HomePage() {
             pages cover the procedures people actually look up.
           </p>
         </div>
-        <div className="max-w-xl mx-auto mt-10 anim-rise d3">
+        <div className="search-shell max-w-xl mx-auto mt-10">
           <div className="panel">
             <ProcedureSearch />
           </div>

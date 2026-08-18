@@ -8,7 +8,7 @@ export default function SearchPanel({
   children: React.ReactNode;
 }) {
   return (
-    <div className="panel mb-12">
+    <div className="panel search-shell mb-12">
       {title ? <h2 className="panel-title">{title}</h2> : null}
       {subtitle ? <p className="panel-sub">{subtitle}</p> : title ? <div className="mb-5" /> : null}
       {children}

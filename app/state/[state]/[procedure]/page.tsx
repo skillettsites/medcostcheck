@@ -180,8 +180,8 @@ export default async function StateProcedurePage({ params }: PageProps) {
       </nav>
 
       <div className="mb-10">
-        <div className="flex items-start justify-between gap-4">
-          <div>
+        <div className="flex flex-col items-start gap-3 sm:flex-row sm:justify-between">
+          <div className="min-w-0">
             <h1 className="page-title">
               {proc.friendlyName} Cost in {stateName}
             </h1>
@@ -206,7 +206,7 @@ export default async function StateProcedurePage({ params }: PageProps) {
             ? `Average of ${statePrice.localities.length} localities. Office range ${formatPrice(cheapestLoc.nonFac)}–${formatPrice(priciestLoc.nonFac)}.`
             : `Single statewide locality.`}
         </p>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div className="price-grid">
           <PriceCard
             label={`${stateName} (Office)`}
             price={formatPrice(statePrice.avgNonFac)}
@@ -252,45 +252,45 @@ export default async function StateProcedurePage({ params }: PageProps) {
       />
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-12">
-        <div className="bg-white border border-gray-100 rounded-2xl p-6 shadow-sm">
-          <h3 className="text-sm font-bold mb-4 uppercase tracking-wide text-gray-500">
+        <div className="surface p-6">
+          <h3 className="text-[11px] font-medium mb-4 uppercase tracking-[0.08em] text-faint">
             National vs {stateName}
           </h3>
           <div className="space-y-3">
-            <div className="flex justify-between items-center">
-              <span className="text-sm text-gray-500">National office</span>
-              <span className="text-sm font-semibold text-gray-900">{formatPrice(nationalNonFac)}</span>
+            <div className="flex justify-between items-center gap-4">
+              <span className="text-sm text-muted">National office</span>
+              <span className="text-sm font-medium text-ink">{formatPrice(nationalNonFac)}</span>
             </div>
-            <div className="flex justify-between items-center">
-              <span className="text-sm text-gray-500">National hospital (physician)</span>
-              <span className="text-sm font-semibold text-gray-900">{formatPrice(nationalFac)}</span>
+            <div className="flex justify-between items-center gap-4">
+              <span className="text-sm text-muted">National hospital (physician)</span>
+              <span className="text-sm font-medium text-ink">{formatPrice(nationalFac)}</span>
             </div>
-            <div className="flex justify-between items-center">
-              <span className="text-sm text-gray-500">{stateName} vs national</span>
-              <span className="text-sm font-semibold text-gray-900">{vsNational}</span>
+            <div className="flex justify-between items-center gap-4">
+              <span className="text-sm text-muted">{stateName} vs national</span>
+              <span className="text-sm font-medium text-ink text-right">{vsNational}</span>
             </div>
           </div>
         </div>
-        <div className="bg-white border border-gray-100 rounded-2xl p-6 shadow-sm">
-          <h3 className="text-sm font-bold mb-4 uppercase tracking-wide text-gray-500">
+        <div className="surface p-6">
+          <h3 className="text-[11px] font-medium mb-4 uppercase tracking-[0.08em] text-faint">
             Where {stateName} ranks for this CPT
           </h3>
           <div className="space-y-3">
-            <div className="flex justify-between items-center">
-              <span className="text-sm text-gray-500">Rank (lowest physician fee first)</span>
-              <span className="text-sm font-semibold text-gray-900">
+            <div className="flex justify-between items-center gap-4">
+              <span className="text-sm text-muted">Rank (lowest physician fee first)</span>
+              <span className="text-sm font-medium text-ink">
                 #{currentRank} of {stateComparisons.length}
               </span>
             </div>
-            <div className="flex justify-between items-center">
-              <span className="text-sm text-gray-500">Lowest state</span>
-              <span className="text-sm font-semibold text-gray-900">
+            <div className="flex justify-between items-center gap-4">
+              <span className="text-sm text-muted">Lowest state</span>
+              <span className="text-sm font-medium text-ink text-right">
                 {cheapestState.name} ({formatPrice(cheapestState.avgNonFac)})
               </span>
             </div>
-            <div className="flex justify-between items-center">
-              <span className="text-sm text-gray-500">Highest state</span>
-              <span className="text-sm font-semibold text-gray-900">
+            <div className="flex justify-between items-center gap-4">
+              <span className="text-sm text-muted">Highest state</span>
+              <span className="text-sm font-medium text-ink text-right">
                 {mostExpensiveState.name} ({formatPrice(mostExpensiveState.avgNonFac)})
               </span>
             </div>
@@ -300,20 +300,20 @@ export default async function StateProcedurePage({ params }: PageProps) {
 
       {statePrice.localities.length > 1 && (
         <div className="mb-12">
-          <h2 className="text-xl font-bold text-gray-900 mb-4">
+          <h2 className="text-xl font-semibold tracking-tight text-ink mb-4">
             CPT {proc.code} by {stateName} locality
           </h2>
-          <div className="bg-white border border-gray-100 rounded-2xl overflow-hidden shadow-sm">
+          <div className="surface overflow-x-auto">
             <table className="w-full text-sm">
-              <thead className="bg-gray-50/80 border-b border-gray-100">
+              <thead className="bg-black/[0.02] border-b border-[var(--hairline)]">
                 <tr>
-                  <th className="text-left px-2 py-2 sm:px-5 sm:py-3.5 font-semibold text-gray-500 text-xs uppercase tracking-wide">
+                  <th className="text-left px-3 py-3 sm:px-5 font-medium text-faint text-xs uppercase tracking-wide">
                     Locality
                   </th>
-                  <th className="text-right px-2 py-2 sm:px-5 sm:py-3.5 font-semibold text-gray-500 text-xs uppercase tracking-wide">
+                  <th className="text-right px-3 py-3 sm:px-5 font-medium text-faint text-xs uppercase tracking-wide">
                     Office
                   </th>
-                  <th className="text-right px-2 py-2 sm:px-5 sm:py-3.5 font-semibold text-gray-500 text-xs uppercase tracking-wide hidden sm:table-cell">
+                  <th className="text-right px-3 py-3 sm:px-5 font-medium text-faint text-xs uppercase tracking-wide hidden sm:table-cell">
                     Hospital (physician)
                   </th>
                 </tr>
@@ -322,14 +322,14 @@ export default async function StateProcedurePage({ params }: PageProps) {
                 {[...statePrice.localities]
                   .sort((a, b) => b.nonFac - a.nonFac)
                   .map((loc) => (
-                    <tr key={loc.name} className="border-t border-gray-50">
-                      <td className="px-2 py-2 sm:px-5 sm:py-3.5 font-medium text-gray-900 capitalize">
+                    <tr key={loc.name} className="border-t border-[var(--hairline)]">
+                      <td className="px-3 py-3 sm:px-5 font-medium text-ink capitalize">
                         {loc.name.toLowerCase()}
                       </td>
-                      <td className="px-2 py-2 sm:px-5 sm:py-3.5 text-right font-bold text-gray-900">
+                      <td className="px-3 py-3 sm:px-5 text-right font-medium text-ink">
                         {formatPrice(loc.nonFac)}
                       </td>
-                      <td className="px-2 py-2 sm:px-5 sm:py-3.5 text-right text-gray-500 hidden sm:table-cell">
+                      <td className="px-3 py-3 sm:px-5 text-right text-muted hidden sm:table-cell">
                         {formatPrice(loc.fac)}
                       </td>
                     </tr>
@@ -338,7 +338,7 @@ export default async function StateProcedurePage({ params }: PageProps) {
             </table>
           </div>
           {gpciLocalities.length > 1 && (
-            <p className="text-xs text-gray-400 mt-3">
+            <p className="text-xs text-faint mt-3">
               PE GPCI ranges from {Math.min(...gpciLocalities.map((g) => g.peGpci)).toFixed(3)} to{" "}
               {Math.max(...gpciLocalities.map((g) => g.peGpci)).toFixed(3)} in {stateName}. That
               index is why the same CPT is not one price statewide.
@@ -348,15 +348,15 @@ export default async function StateProcedurePage({ params }: PageProps) {
       )}
 
       {(stateCopy || editorial) && (
-        <div className="bg-white border border-gray-100 rounded-2xl p-6 shadow-sm mb-12 space-y-4 text-sm text-gray-600 leading-relaxed">
-          <h2 className="text-lg font-bold text-gray-900">
+        <div className="surface p-6 mb-12 space-y-4 text-sm text-muted leading-relaxed">
+          <h2 className="text-lg font-semibold tracking-tight text-ink">
             {proc.friendlyName} and how {stateName} is priced
           </h2>
           {stateCopy && <p>{stateCopy.overview}</p>}
           {stateCopy && <p>{stateCopy.costContext}</p>}
           {editorial && (
             <p>
-              <span className="font-semibold text-gray-900">This procedure: </span>
+              <span className="font-medium text-ink">This procedure: </span>
               {editorial.whatItIs}
             </p>
           )}

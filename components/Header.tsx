@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
@@ -16,8 +16,12 @@ export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const pathname = usePathname();
 
+  useEffect(() => {
+    setMenuOpen(false);
+  }, [pathname]);
+
   return (
-    <header className="sticky top-0 z-50 bg-white/72 backdrop-blur-xl border-b border-[var(--hairline)]">
+    <header className="sticky top-0 z-50 bg-white/92 backdrop-blur-xl border-b border-[var(--hairline)]">
       <nav className="max-w-6xl mx-auto px-5 h-12 sm:h-14 flex items-center justify-between">
         <Link href="/" className="flex items-center gap-2 group" onClick={() => setMenuOpen(false)}>
           <span className="w-6 h-6 rounded-[7px] bg-ink text-white grid place-items-center">
@@ -64,9 +68,13 @@ export default function Header() {
         </button>
       </nav>
 
-      <div className={`md:hidden mobile-drawer ${menuOpen ? "open" : ""}`}>
+      <div
+        className={`md:hidden mobile-drawer ${menuOpen ? "open" : ""}`}
+        aria-hidden={!menuOpen}
+        {...(!menuOpen ? { inert: true } : {})}
+      >
         <div className="mobile-drawer-inner">
-          <div className="px-5 pb-4 pt-1 space-y-0.5 border-t border-[var(--hairline)] bg-white/90">
+          <div className="px-5 pb-4 pt-1 space-y-0.5 border-t border-[var(--hairline)] bg-white">
             {navLinks.map((link) => (
               <Link
                 key={link.href}

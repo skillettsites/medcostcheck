@@ -130,8 +130,8 @@ export default async function ProcedurePage({ params, searchParams }: PageProps)
       </nav>
 
       <div className="mb-10">
-        <div className="flex items-start justify-between gap-4">
-          <div>
+        <div className="flex flex-col items-start gap-3 sm:flex-row sm:justify-between">
+          <div className="min-w-0">
             <h1 className="page-title">
               {friendlyName || proc.description}
             </h1>
@@ -154,7 +154,7 @@ export default async function ProcedurePage({ params, searchParams }: PageProps)
           <p className="text-sm text-faint mb-6">
             Locality: {priceResult.locality}. National office rate is {formatPrice(nationalNonFac)}.
           </p>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+          <div className="price-grid">
             <PriceCard
               label="Medicare (Office)"
               price={formatPrice(priceResult.nonFacPrice)}
@@ -181,7 +181,7 @@ export default async function ProcedurePage({ params, searchParams }: PageProps)
       ) : (
         <div className="mb-12">
           <h2 className="text-xl font-semibold tracking-tight text-ink mb-6">National Medicare physician rate (2026)</h2>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+          <div className="price-grid">
             <PriceCard
               label="Medicare (Office)"
               price={formatPrice(nationalNonFac)}

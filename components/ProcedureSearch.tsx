@@ -137,7 +137,7 @@ export default function ProcedureSearch({ zip }: { zip?: string }) {
           </div>
 
           {showResults && !loading && query.length >= 2 && visibleResults.length === 0 && (
-            <div className="absolute z-50 w-full mt-2 surface shadow-[var(--shadow)] p-5 text-center anim-rise">
+            <div className="menu-popover p-5 text-center">
               <p className="text-muted text-sm mb-3">
                 No exact match for &ldquo;{query}&rdquo;. This tool covers
                 Medicare-billed physician services, so dental, vision, and most
@@ -165,9 +165,9 @@ export default function ProcedureSearch({ zip }: { zip?: string }) {
           )}
 
           {showResults && visibleResults.length > 0 && (
-            <div className="absolute z-50 w-full mt-2 surface shadow-[var(--shadow)] max-h-80 overflow-y-auto anim-rise">
+            <div className="menu-popover menu-popover-list">
               {!hasValidZip && (
-                <div className="px-4 py-2.5 text-xs text-muted border-b border-[var(--hairline)]">
+                <div className="px-4 py-2.5 text-xs text-muted border-b border-[var(--hairline)] bg-white">
                   Add a ZIP above for a locality-adjusted rate, or open the
                   national Medicare figure now
                 </div>
@@ -177,19 +177,23 @@ export default function ProcedureSearch({ zip }: { zip?: string }) {
                   key={r.code}
                   type="button"
                   onClick={() => goToProcedure(r.code)}
-                  className="w-full text-left px-4 py-3 hover:bg-black/[0.03] border-b border-[var(--hairline)] last:border-0 transition-colors"
+                  className="w-full text-left px-4 py-3 bg-white hover:bg-[#f5f5f7] border-b border-[var(--hairline)] last:border-0 transition-colors"
                 >
-                  <span className="font-mono text-[11px] font-medium text-muted bg-canvas px-1.5 py-0.5 rounded mr-2">
-                    {r.code}
-                  </span>
-                  <span className="text-ink font-medium">
-                    {r.friendlyName || r.description}
-                  </span>
-                  {r.friendlyName && (
-                    <span className="text-faint text-sm ml-2 hidden sm:inline">
-                      {r.description}
+                  <span className="flex items-start gap-2">
+                    <span className="font-mono text-[11px] font-medium text-muted bg-canvas px-1.5 py-0.5 rounded shrink-0">
+                      {r.code}
                     </span>
-                  )}
+                    <span className="min-w-0">
+                      <span className="text-ink font-medium">
+                        {r.friendlyName || r.description}
+                      </span>
+                      {r.friendlyName && (
+                        <span className="text-faint text-sm sm:ml-2 block sm:inline">
+                          {r.description}
+                        </span>
+                      )}
+                    </span>
+                  </span>
                 </button>
               ))}
             </div>

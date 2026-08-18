@@ -93,6 +93,52 @@ a {
   border-radius: 1.5rem;
   box-shadow: var(--shadow);
   padding: 1.5rem;
+  overflow: visible;
+}
+
+.search-shell {
+  position: relative;
+  z-index: 30;
+}
+
+.menu-popover {
+  position: absolute;
+  z-index: 80;
+  left: 0;
+  right: 0;
+  margin-top: 0.5rem;
+  background: #ffffff;
+  border: 1px solid var(--hairline);
+  border-radius: 1rem;
+  box-shadow: var(--shadow-hover);
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.menu-popover-list {
+  max-height: 20rem;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  background: #ffffff;
+}
+
+.price-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0.75rem;
+}
+
+@media (min-width: 640px) {
+  .price-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .price-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
 }
 
 @media (min-width: 640px) {
@@ -280,11 +326,11 @@ a {
 .link {
   color: var(--accent);
   font-weight: 500;
-  transition: opacity 0.2s ease;
+  transition: color 0.2s ease;
 }
 
 .link:hover {
-  opacity: 0.72;
+  color: var(--accent-hover);
 }
 
 /* ——— Price cards ——— */
@@ -294,6 +340,7 @@ a {
   border-radius: 1.25rem;
   padding: 1.35rem 1rem;
   text-align: center;
+  min-width: 0;
 }
 
 .price-card-featured {
@@ -316,10 +363,11 @@ a {
 }
 
 .price-card .amount {
-  font-size: 1.65rem;
+  font-size: clamp(1.05rem, 4.2vw, 1.65rem);
   font-weight: 600;
   letter-spacing: -0.03em;
   color: var(--ink);
+  overflow-wrap: anywhere;
 }
 
 .price-card-featured .amount {
@@ -344,7 +392,7 @@ a {
   }
   to {
     opacity: 1;
-    transform: translateY(0);
+    transform: none;
   }
 }
 
@@ -396,6 +444,10 @@ a {
   display: grid;
   grid-template-rows: 0fr;
   transition: grid-template-rows 0.4s var(--ease);
+}
+
+.mobile-drawer:not(.open) {
+  pointer-events: none;
 }
 
 .mobile-drawer.open {

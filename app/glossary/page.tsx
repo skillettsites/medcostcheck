@@ -58,7 +58,7 @@ export default function GlossaryPage() {
       </div>
 
       {/* A-Z jump nav */}
-      <nav className="flex flex-wrap gap-1.5 mb-10 sticky top-12 sm:top-14 bg-canvas/90 backdrop-blur-xl py-3 z-10 border-b border-[var(--hairline)]">
+      <nav className="flex flex-wrap gap-1.5 mb-10 sticky top-12 sm:top-14 bg-canvas py-3 z-10 border-b border-[var(--hairline)]">
         {letters.map((l) => (
           <a
             key={l}

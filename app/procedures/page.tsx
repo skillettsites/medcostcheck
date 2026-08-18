@@ -77,7 +77,7 @@ export default function ProceduresPage() {
             <h2 className="text-xl font-semibold tracking-tight mb-4 flex items-center gap-2">
               <span className="text-xl">{cat.icon}</span> {cat.name}
             </h2>
-            <div className="surface overflow-hidden">
+            <div className="surface overflow-x-auto">
               <table className="w-full text-sm">
                 <thead className="bg-black/[0.02] border-b border-[var(--hairline)]">
                   <tr>
@@ -104,7 +104,7 @@ export default function ProceduresPage() {
                       <td className="px-3 py-3 sm:px-5">
                         <Link
                           href={`/procedure/${proc.code}`}
-                          className="text-ink font-medium hover:opacity-70 transition-opacity"
+                          className="text-ink font-medium hover:text-accent transition-colors"
                         >
                           {proc.friendlyName}
                         </Link>
