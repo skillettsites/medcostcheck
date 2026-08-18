@@ -6,10 +6,17 @@ import { getAllGuides } from "@/lib/guides";
 import { formatPriceRound } from "@/lib/format";
 
 export const metadata: Metadata = {
-  title: "Medical Procedure Cost Lookup by ZIP and CPT Code",
+  title: "How Much Does an MRI or Surgery Cost Near You?",
   description:
-    "Look up 2026 Medicare physician rates by ZIP code or CPT code. Search 7,500+ codes in the fee schedule. Featured cost pages for knee replacement, echocardiogram, cataract surgery, and other common procedures.",
+    "Look up 2026 Medicare physician rates by ZIP code or CPT code. Search 7,500+ codes. Free MRI, surgery, office visit, and lab estimates from the 2026 fee schedule.",
   alternates: { canonical: "/" },
+  openGraph: {
+    title: "How Much Does an MRI or Surgery Cost Near You?",
+    description:
+      "Free medical procedure cost lookup by ZIP code. MRI, surgery, office visit, and lab estimates from official 2026 Medicare data.",
+    url: "https://www.medcostcheck.com/",
+    type: "website",
+  },
 };
 
 export default function HomePage() {
