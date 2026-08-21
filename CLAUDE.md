@@ -8,15 +8,21 @@ US medical procedure cost lookup by ZIP code. Free cost estimates powered by 202
 - `npm run build` - production build
 - `npm run lint` - lint
 - `node scripts/process-data.mjs` - reprocess CMS data files into JSON
+- `node scripts/ingest-facility-data.mjs` - refresh OPPS/ASC rates + hospitals
+- `node scripts/build-search-catalogue.mjs` - rebuild the searchable code catalogue
+- `npx tsx scripts/test-search.ts` - search quality harness (replays real user queries)
 
 ## Key Paths
 - `lib/medicare.ts` - Medicare data access layer (procedures, pricing, ZIP-to-locality)
+- `lib/procedure-search.ts` - Search engine: token matching over the full code catalogue, CMS abbreviation + lay-synonym expansion, price-scope classification
 - `components/ProcedureSearch.tsx` - Client-side procedure search with autocomplete
+- `components/CodeReferencePanel.tsx` - Honest panel for real codes the PFS does not price
 - `app/page.tsx` - Homepage with search, categories, popular procedures
 - `app/procedure/[code]/page.tsx` - Procedure cost detail page (ZIP-level pricing)
 - `app/procedures/page.tsx` - All procedures listing by category
 - `app/api/search/route.ts` - Search API endpoint
 - `scripts/process-data.mjs` - CMS data processing script
+- `data/processed/code-catalogue.json` - 19,165 codes with CMS short descriptors (PFS + OPPS + ASC), search index source
 - `data/processed/` - Pre-processed JSON files (committed to repo)
 - `data/` - Raw CMS data files (gitignored)
 

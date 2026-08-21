@@ -25,6 +25,16 @@ export type SearchLog = {
   /** False when nothing matched even after aliasing, so misses are measurable. */
   resultFound: boolean;
   durationMs?: number | null;
+  /**
+   * What kind of answer the user got:
+   *   'procedure' - matched a code this site can price
+   *   'reference' - matched a real CPT/HCPCS code that Medicare pays under a
+   *                 different schedule (lab, drug, dental), so the user gets
+   *                 the code and an explanation rather than a price
+   * Misses stay 'procedure'. Both count as result_found=true because the user
+   * got a correct answer; only a genuine dead end is a miss.
+   */
+  searchType?: "procedure" | "reference";
 };
 
 /**
@@ -52,7 +62,7 @@ export function logSearch(row: SearchLog): void {
           site_id: "medcostcheck",
           search_query: row.query.slice(0, 120),
           result_found: row.resultFound,
-          search_type: "procedure",
+          search_type: row.searchType ?? "procedure",
           duration_ms: row.durationMs ?? null,
         }),
         cache: "no-store",

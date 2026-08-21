@@ -18,6 +18,9 @@ import ProcedureEditorial from "@/components/ProcedureEditorial";
 import ScopeNote from "@/components/ScopeNote";
 import DataSourceNote from "@/components/DataSourceNote";
 import { getProcedureContent } from "@/lib/procedure-content";
+import { getCatalogueEntry } from "@/lib/procedure-search";
+import CodeReferencePanel from "@/components/CodeReferencePanel";
+import ProcedureSearch from "@/components/ProcedureSearch";
 import { breadcrumbSchema, faqSchema, medicalWebPageSchema } from "@/lib/schema";
 import { formatPrice, formatPriceRound } from "@/lib/format";
 
@@ -36,7 +39,20 @@ export async function generateMetadata({ params, searchParams }: PageProps): Pro
   const { code } = await params;
   const { zip } = await searchParams;
   const proc = getProcedure(code);
-  if (!proc) return { title: "Procedure Not Found" };
+  if (!proc) {
+    // Real code, just not on the Physician Fee Schedule. Give it a truthful
+    // title but keep it out of the index: it is a reference stub, not the kind
+    // of page that should be competing in search.
+    const entry = getCatalogueEntry(code);
+    if (entry) {
+      return {
+        title: `CPT ${entry.code}: ${entry.description}`,
+        description: `What CPT/HCPCS ${entry.code} (${entry.description}) is, and which Medicare fee schedule pays it. MedCostCheck prices Physician Fee Schedule codes; this one is paid another way.`,
+        robots: { index: false, follow: true },
+      };
+    }
+    return { title: "Procedure Not Found" };
+  }
 
   const friendly = getFriendlyName(code);
   const name = friendly || proc.description;
@@ -55,7 +71,45 @@ export default async function ProcedurePage({ params, searchParams }: PageProps)
   const { zip } = await searchParams;
 
   const proc = getProcedure(code);
-  if (!proc) notFound();
+  if (!proc) {
+    // Not on the Physician Fee Schedule. If CMS still names the code in the
+    // OPPS or ASC addenda, answer the question honestly instead of 404ing:
+    // people arrive here having typed a code straight off a bill.
+    const entry = getCatalogueEntry(code);
+    if (!entry) notFound();
+    return (
+      <div className="max-w-3xl mx-auto px-5 py-10 sm:py-14">
+        <nav className="flex items-center gap-2 text-sm text-faint mb-8">
+          <Link href="/" className="hover:text-ink transition-colors">
+            Home
+          </Link>
+          <span>/</span>
+          <Link href="/procedures" className="hover:text-ink transition-colors">
+            Procedures
+          </Link>
+          <span>/</span>
+          <span className="text-muted">{entry.code}</span>
+        </nav>
+        <h1 className="page-title mb-2">{entry.description}</h1>
+        <p className="lede mb-8">CPT/HCPCS {entry.code}</p>
+        <CodeReferencePanel
+          code={entry.code}
+          description={entry.description}
+          scope={entry.scope}
+          oppsRate={entry.oppsRate}
+          ascRate={entry.ascRate}
+        />
+        <div className="mt-10">
+          <SearchPanel
+            title="Look up a procedure we do price"
+            subtitle="Search by name or by the CPT code on your bill."
+          >
+            <ProcedureSearch />
+          </SearchPanel>
+        </div>
+      </div>
+    );
+  }
 
   const friendlyName = getFriendlyName(code);
   const hasZip = zip && /^\d{5}$/.test(zip);
