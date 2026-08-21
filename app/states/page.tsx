@@ -14,6 +14,7 @@ export const metadata: Metadata = {
   title: "Medical Costs by State",
   description:
     "Compare medical procedure costs across all 50 US states and DC. See how Medicare rates vary by location for MRIs, surgeries, office visits, and more.",
+  alternates: { canonical: "/states" },
 };
 
 export default function StatesPage() {

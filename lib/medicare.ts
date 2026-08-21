@@ -325,3 +325,39 @@ export function getPopularProcedureBySlug(slug: string): PopularProcedure | null
 }
 
 export { CONVERSION_FACTOR };
+
+/**
+ * A real ZIP code from a state, used as an input placeholder.
+ *
+ * Both the locality lookup and the paid-report form used to hard-code 19103
+ * (Philadelphia) and 33101 (Miami) on every page, so a visitor reading about
+ * Texas was shown a Florida ZIP as the example. Picks a ZIP from the state's
+ * most populous locality, approximated by the locality covering the most ZIPs,
+ * and is deterministic so pages stay stable between builds.
+ */
+const stateSampleZipCache = new Map<string, string | null>();
+
+export function getStateSampleZip(stateAbbr: string): string | null {
+  const state = stateAbbr.toUpperCase();
+  const cached = stateSampleZipCache.get(state);
+  if (cached !== undefined) return cached;
+
+  const byLocality = new Map<string, string[]>();
+  for (const [zip, entry] of Object.entries(zipLocality)) {
+    if (entry.state !== state) continue;
+    let list = byLocality.get(entry.key);
+    if (!list) byLocality.set(entry.key, (list = []));
+    list.push(zip);
+  }
+
+  let best: string | null = null;
+  let bestCount = 0;
+  for (const zips of byLocality.values()) {
+    if (zips.length > bestCount) {
+      bestCount = zips.length;
+      best = zips.sort()[0];
+    }
+  }
+  stateSampleZipCache.set(state, best);
+  return best;
+}

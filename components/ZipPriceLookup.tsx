@@ -12,10 +12,13 @@ export default function ZipPriceLookup({
   code,
   initialZip,
   label = "See the Medicare rate for your ZIP",
+  placeholderZip,
 }: {
   code: string;
   initialZip?: string;
   label?: string;
+  /** A real ZIP from the state being shown, so the example is not always Philadelphia. */
+  placeholderZip?: string;
 }) {
   const [zipCode, setZipCode] = useState(initialZip || "");
   const [error, setError] = useState(false);
@@ -47,7 +50,7 @@ export default function ZipPriceLookup({
             setZipCode(clean);
             if (error && /^\d{5}$/.test(clean)) setError(false);
           }}
-          placeholder="19103"
+          placeholder={placeholderZip || "ZIP"}
           maxLength={5}
           className={`field flex-1 text-center tracking-[0.28em] font-medium ${
             error ? "field-bad" : hasValidZip ? "field-ok" : ""

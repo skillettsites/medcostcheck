@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
@@ -13,12 +13,14 @@ const navLinks = [
 ];
 
 export default function Header() {
-  const [menuOpen, setMenuOpen] = useState(false);
+  const [openFor, setOpenFor] = useState<string | null>(null);
   const pathname = usePathname();
 
-  useEffect(() => {
-    setMenuOpen(false);
-  }, [pathname]);
+  // Derive "open" from the route rather than closing it in an effect. Setting
+  // state inside an effect on every navigation causes a cascading render, and
+  // the menu should simply never be open for a route the user just landed on.
+  const menuOpen = openFor === pathname;
+  const setMenuOpen = (open: boolean) => setOpenFor(open ? pathname : null);
 
   return (
     <header className="sticky top-0 z-50 bg-white/92 backdrop-blur-xl border-b border-[var(--hairline)]">

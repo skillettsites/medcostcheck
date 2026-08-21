@@ -6,6 +6,7 @@ export const metadata: Metadata = {
   title: "About",
   description:
     "Learn how MedCostCheck works. Free medical procedure cost lookup powered by the 2026 Medicare Physician Fee Schedule from the Centers for Medicare & Medicaid Services.",
+  alternates: { canonical: "/about" },
 };
 
 export default function AboutPage() {

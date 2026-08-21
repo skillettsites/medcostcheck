@@ -10,9 +10,12 @@ import {
   stateToSlug,
   procedureToSlug,
   getPopularProcedureBySlug,
+  getStateSampleZip,
 } from "@/lib/medicare";
 import { getIndexableStateAbbrs } from "@/lib/geo";
 import ZipPriceLookup from "@/components/ZipPriceLookup";
+import EpisodeEstimate from "@/components/EpisodeEstimate";
+import { getEpisodeEstimate } from "@/lib/episode-estimate";
 import PaywallCard from "@/components/PaywallCard";
 import PriceCard from "@/components/PriceCard";
 import SearchPanel from "@/components/SearchPanel";
@@ -57,9 +60,16 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const statePrice = getStateProcedurePrice(proc.code, abbr);
   const price = statePrice ? Math.round(statePrice.avgNonFac) : Math.round(proc.nationalNonFacPrice);
 
+  // Lead with the whole-procedure figure, not the physician line. See the same
+  // change in app/procedure/[code]/page.tsx for why.
+  const est = getEpisodeEstimate(proc.code);
+  const description = est?.hospitalOutpatient
+    ? `${proc.friendlyName} (CPT ${proc.code}) in ${stateName}: about $${Math.round(est.hospitalOutpatient).toLocaleString("en-US")} in total under Medicare in a hospital outpatient setting, of which about $${price.toLocaleString("en-US")} is the physician fee. Locality table and free ZIP lookup.`
+    : `2026 Medicare physician rate for ${proc.friendlyName.toLowerCase()} (CPT ${proc.code}) in ${stateName}: about $${price} in an office. Locality table, office vs hospital, and ZIP lookup. Not a hospital bill.`;
+
   return {
     title: `${proc.friendlyName} Cost in ${stateName} (2026)`,
-    description: `2026 Medicare physician rate for ${proc.friendlyName.toLowerCase()} (CPT ${proc.code}) in ${stateName}: about $${price} in an office. Locality table, office vs hospital, and ZIP lookup. Not a hospital bill.`,
+    description,
     alternates: { canonical: `/state/${stateSlug}/${procSlug}` },
   };
 }
@@ -117,6 +127,8 @@ export default async function StateProcedurePage({ params }: PageProps) {
   const inStateSpread = priciestLoc.nonFac - cheapestLoc.nonFac;
 
   const procLower = proc.friendlyName.toLowerCase();
+  const sampleZip = getStateSampleZip(abbr) ?? undefined;
+  const episodeEst = getEpisodeEstimate(proc.code);
   const vsNational =
     diff > 2
       ? `${Math.abs(diff).toFixed(0)}% above the national office rate of ${formatPrice(nationalNonFac)}`
@@ -145,7 +157,9 @@ export default async function StateProcedurePage({ params }: PageProps) {
     },
     {
       q: `Is this the full ${procLower} bill in ${stateName}?`,
-      a: `No. ${formatPrice(statePrice.avgNonFac)} is the Medicare physician allowed amount for CPT ${proc.code}. Anesthesia, facility fees, implants, and other CPT codes billed the same day are extra. ${stateName} ranks #${currentRank} of ${stateComparisons.length} states on this physician line (${vsNational}).`,
+      a: episodeEst?.hospitalOutpatient
+        ? `No. ${formatPrice(statePrice.avgNonFac)} is only the physician's share. Adding Medicare's facility payment brings the total to about ${formatPriceRound(episodeEst.hospitalOutpatient)} in a hospital outpatient department${episodeEst.asc ? `, or about ${formatPriceRound(episodeEst.asc)} at an ambulatory surgery centre` : ""}. Anesthesia, pathology and other codes billed the same day are extra. ${stateName} ranks #${currentRank} of ${stateComparisons.length} states on the physician line (${vsNational}).`
+        : `No. ${formatPrice(statePrice.avgNonFac)} is the Medicare physician allowed amount for CPT ${proc.code}. Anesthesia, facility fees, implants, and other CPT codes billed the same day are extra. ${stateName} ranks #${currentRank} of ${stateComparisons.length} states on this physician line (${vsNational}).`,
     },
   ];
 
@@ -231,6 +245,8 @@ export default async function StateProcedurePage({ params }: PageProps) {
         </div>
       </div>
 
+      <EpisodeEstimate code={proc.code} procedureName={proc.friendlyName} />
+
       <SearchPanel
         title={`Your ZIP in ${stateName}`}
         subtitle={
@@ -238,10 +254,19 @@ export default async function StateProcedurePage({ params }: PageProps) {
           `Map a ZIP to the Medicare locality that actually prices CPT ${proc.code} here.`
         }
       >
-        <ZipPriceLookup code={proc.code} label={`Local ${procLower} rate`} />
+        <ZipPriceLookup
+          code={proc.code}
+          label={`Local ${procLower} rate`}
+          placeholderZip={sampleZip}
+        />
       </SearchPanel>
 
-      <PaywallCard code={proc.code} procedureName={proc.friendlyName} />
+      <PaywallCard
+        code={proc.code}
+        procedureName={proc.friendlyName}
+        placeholderZip={sampleZip}
+        stateName={stateName}
+      />
 
       <ScopeNote
         extra={

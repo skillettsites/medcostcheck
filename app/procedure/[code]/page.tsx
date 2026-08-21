@@ -21,6 +21,8 @@ import { getProcedureContent } from "@/lib/procedure-content";
 import { getCatalogueEntry } from "@/lib/procedure-search";
 import CodeReferencePanel from "@/components/CodeReferencePanel";
 import ProcedureSearch from "@/components/ProcedureSearch";
+import EpisodeEstimate from "@/components/EpisodeEstimate";
+import { episodeHeadline, getEpisodeEstimate } from "@/lib/episode-estimate";
 import { breadcrumbSchema, faqSchema, medicalWebPageSchema } from "@/lib/schema";
 import { formatPrice, formatPriceRound } from "@/lib/format";
 
@@ -59,9 +61,19 @@ export async function generateMetadata({ params, searchParams }: PageProps): Pro
   const zipText = zip ? ` in ${zip}` : "";
   const price = Math.round(proc.nonFacTotal * CONVERSION_FACTOR);
 
+  // Lead with the total episode cost where we have one. The old description
+  // led with the physician fee, which for a knee replacement meant advertising
+  // "$1159" for something whose Medicare total is over $14,000. That mismatch
+  // is the likeliest reason pages ranking at position 7-9 earned almost no
+  // clicks: the snippet answered a question nobody asked.
+  const episode = episodeHeadline(code, name);
+  const description = episode
+    ? `${episode} Free 2026 breakdown by ZIP, plus what a surgery centre would cost instead.`
+    : `2026 Medicare physician rate for ${name.toLowerCase()} (CPT ${code}): about $${price} nationally. Enter a ZIP for the locality-adjusted office vs hospital fee. Not a hospital bill or a quote.`;
+
   return {
     title: `${name} Cost${zipText} (${code})`,
-    description: `2026 Medicare physician rate for ${name.toLowerCase()} (CPT ${code}): about $${price} nationally. Enter a ZIP for the locality-adjusted office vs hospital fee. Not a hospital bill or a quote.`,
+    description,
     alternates: { canonical: `/procedure/${code}` },
   };
 }
@@ -123,6 +135,7 @@ export default async function ProcedurePage({ params, searchParams }: PageProps)
   const name = friendlyName || proc.description;
   const nameLower = name.toLowerCase();
   const editorial = getProcedureContent(code);
+  const episodeEst = getEpisodeEstimate(code);
   const workShare =
     proc.nonFacTotal > 0 ? Math.round((proc.workRvu / proc.nonFacTotal) * 100) : 0;
   const peShare =
@@ -150,7 +163,9 @@ export default async function ProcedurePage({ params, searchParams }: PageProps)
     },
     {
       q: `Does this include the whole bill?`,
-      a: `No. ${formatPrice(nationalNonFac)} is the physician allowed amount. Anesthesia, facility fees, implants, imaging interpretation billed under a different code, and pathology are separate when they apply. Private-plan allowed amounts are often higher than Medicare; your deductible and coinsurance still apply.`,
+      a: episodeEst?.hospitalOutpatient
+        ? `Not on its own. ${formatPrice(nationalNonFac)} is the physician allowed amount. Medicare also pays the facility, which takes the total to about ${formatPriceRound(episodeEst.hospitalOutpatient)} in a hospital outpatient department${episodeEst.asc ? ` or about ${formatPriceRound(episodeEst.asc)} at an ambulatory surgery centre` : ""}. Anesthesia, pathology and imaging interpretation billed under other codes are separate again. Private-plan allowed amounts are often higher than Medicare; your deductible and coinsurance still apply.`
+        : `No. ${formatPrice(nationalNonFac)} is the physician allowed amount. Anesthesia, facility fees, implants, imaging interpretation billed under a different code, and pathology are separate when they apply. Private-plan allowed amounts are often higher than Medicare; your deductible and coinsurance still apply.`,
     },
   ];
 
@@ -268,6 +283,8 @@ export default async function ProcedurePage({ params, searchParams }: PageProps)
         </div>
       )}
 
+      <EpisodeEstimate code={code} procedureName={name} />
+
       <SearchPanel
         title={priceResult ? "Try another ZIP" : "Get the rate for your ZIP"}
         subtitle="CMS adjusts this CPT by locality. A five-digit ZIP is enough — no account, no insurance card."
@@ -275,7 +292,13 @@ export default async function ProcedurePage({ params, searchParams }: PageProps)
         <ZipPriceLookup code={code} initialZip={zip} />
       </SearchPanel>
 
-      <PaywallCard code={code} initialZip={zip} procedureName={name} />
+      <PaywallCard
+        code={code}
+        initialZip={zip}
+        placeholderZip={priceResult ? undefined : "90001"}
+        procedureName={name}
+        stateName={priceResult ? getStateName(priceResult.state) : undefined}
+      />
 
       <ScopeNote
         extra={

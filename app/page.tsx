@@ -5,6 +5,29 @@ import Link from "next/link";
 import { getPopularProcedures, getCategories } from "@/lib/medicare";
 import { getAllGuides } from "@/lib/guides";
 import { formatPriceRound } from "@/lib/format";
+import JsonLd from "@/components/JsonLd";
+import { websiteSchema, organizationSchema, faqSchema } from "@/lib/schema";
+
+// Single source for the visible FAQ and its FAQPage schema, so the two can
+// never drift apart (Google penalises schema that is not on the page).
+const HOME_FAQS = [
+  {
+    q: "Where do the prices come from?",
+    a: "The 2026 Medicare Physician Fee Schedule published by CMS, plus the CMS hospital outpatient (OPPS) and ambulatory surgery centre addenda for facility fees. We do not invent or crowdsource prices.",
+  },
+  {
+    q: "Can I look up any CPT code?",
+    a: "Yes, in the search box — by code or name. About 19,000 CPT and HCPCS codes are searchable, and roughly 7,500 physician codes carry full ZIP-level pricing. Dedicated pages exist for 59 commonly searched procedures, plus state pages for those same procedures.",
+  },
+  {
+    q: "Is this what I will pay?",
+    a: "No. These are Medicare allowed amounts. Private plans often allow more, hospitals add facility fees, and your deductible and coinsurance still apply. Use the number as a public benchmark, then confirm with the provider and insurer.",
+  },
+  {
+    q: "Why do office and hospital rates differ?",
+    a: "Medicare pays a different practice-expense RVU when the service is in a facility. The hospital then bills its own facility fee on a separate claim. The physician line is often lower in a hospital while the total bill is higher, which is why every procedure page also shows the full episode cost.",
+  },
+];
 
 export const metadata: Metadata = {
   title: "How Much Does an MRI or Surgery Cost Near You?",
@@ -27,6 +50,7 @@ export default function HomePage() {
 
   return (
     <>
+      <JsonLd data={[websiteSchema(), organizationSchema(), faqSchema(HOME_FAQS)]} />
       <section className="relative z-20 px-5 pt-14 pb-8 sm:pt-24 sm:pb-12">
         <div className="max-w-3xl mx-auto text-center">
           <p className="eyebrow anim-rise">2026 Medicare Physician Fee Schedule</p>
@@ -200,26 +224,7 @@ export default function HomePage() {
       <section className="px-5 pb-20 sm:pb-28">
         <div className="max-w-2xl mx-auto">
           <h2 className="page-title text-center mb-8">Before you search</h2>
-          <FaqList
-            items={[
-              {
-                q: "Where do the prices come from?",
-                a: "The 2026 Medicare Physician Fee Schedule published by CMS. Payment = [(Work RVU × work GPCI) + (PE RVU × PE GPCI) + (MP RVU × MP GPCI)] × $33.4009. We do not invent or crowdsource prices.",
-              },
-              {
-                q: "Can I look up any CPT code?",
-                a: "Yes, in the search box — by code or name. About 7,500 payable physician codes are in the tool. Dedicated pages exist for 59 commonly searched procedures, plus state pages for those same procedures. That is the browseable set on purpose.",
-              },
-              {
-                q: "Is this what I will pay?",
-                a: "No. These are Medicare physician allowed amounts. Private plans often allow more; hospitals add facility fees; your deductible and coinsurance still apply. Use the number as a public benchmark, then confirm with the provider and insurer.",
-              },
-              {
-                q: "Why do office and hospital rates differ?",
-                a: "Medicare pays a different practice-expense RVU when the service is in a facility. The hospital then bills its own facility fee, which this tool does not include. The physician line is often lower in a hospital; the total bill is often higher.",
-              },
-            ]}
-          />
+          <FaqList items={HOME_FAQS} />
         </div>
       </section>
 

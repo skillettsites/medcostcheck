@@ -4,6 +4,7 @@ export const metadata: Metadata = {
   title: "Terms of Use",
   description:
     "MedCostCheck terms of use. Cost estimates are for reference only and should not be treated as medical or financial advice.",
+  alternates: { canonical: "/terms" },
 };
 
 export default function TermsPage() {

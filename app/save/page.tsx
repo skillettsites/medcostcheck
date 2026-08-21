@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Ways to Save on Medical Costs | MedCostCheck",
+  title: "Ways to Save on Medical Costs",
   description:
     "Practical ways to save money on healthcare. Compare health insurance, find cheaper prescriptions, save on lab tests, and negotiate medical bills. Free tips and trusted services.",
   keywords: [
@@ -14,6 +14,7 @@ export const metadata: Metadata = {
     "discount lab tests",
     "dental savings plans",
   ],
+  alternates: { canonical: "/save" },
 };
 
 interface ServiceCardProps {
