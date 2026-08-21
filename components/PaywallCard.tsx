@@ -1,7 +1,8 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { PRODUCTS } from "@/lib/products";
+import { track } from "@/lib/track";
 
 /**
  * The paid-report offer.
@@ -33,12 +34,35 @@ export default function PaywallCard({
   const [busy, setBusy] = useState<"premium" | "bundle" | null>(null);
   const [error, setError] = useState<string | null>(null);
   const hasZip = /^\d{5}$/.test(zip);
+  const cardRef = useRef<HTMLDivElement>(null);
+
+  // Fire once when the offer actually scrolls into view, so "saw the offer" is
+  // measurable separately from "clicked buy" and from "reached Stripe".
+  useEffect(() => {
+    const el = cardRef.current;
+    if (!el || typeof IntersectionObserver === "undefined") return;
+    const io = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) {
+            track("paywall_view", { cpt: code });
+            io.disconnect();
+          }
+        }
+      },
+      { threshold: 0.4 }
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, [code]);
 
   async function buy(product: "premium" | "bundle") {
     if (!hasZip) {
+      track("checkout_blocked_no_zip", { cpt: code, product });
       setError("Enter your 5-digit ZIP so the report uses your local rates.");
       return;
     }
+    track("begin_checkout", { cpt: code, product, zip });
     setBusy(product);
     setError(null);
     try {
@@ -49,8 +73,10 @@ export default function PaywallCard({
       });
       const data = await res.json();
       if (!res.ok || !data.url) throw new Error(data.error || "checkout_failed");
+      track("checkout_redirect", { cpt: code, product });
       window.location.href = data.url;
     } catch (err) {
+      track("checkout_error", { cpt: code, product });
       setError(err instanceof Error ? err.message : "Could not start checkout");
       setBusy(null);
     }
@@ -59,7 +85,7 @@ export default function PaywallCard({
   const where = stateName ? `in ${stateName}` : "in your area";
 
   return (
-    <div className="panel mb-12">
+    <div className="panel mb-12" ref={cardRef}>
       <h2 className="panel-title">
         What will {procedureName.toLowerCase()} cost at hospitals near you?
       </h2>

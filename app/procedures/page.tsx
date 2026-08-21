@@ -1,4 +1,6 @@
 import { Metadata } from "next";
+import JsonLd from "@/components/JsonLd";
+import { collectionPageSchema, breadcrumbSchema } from "@/lib/schema";
 import Link from "next/link";
 import {
   getPopularProcedures,
@@ -32,6 +34,21 @@ export default function ProceduresPage() {
 
   return (
     <div className="max-w-6xl mx-auto px-5 py-10 sm:py-14">
+      <JsonLd
+        data={[
+          collectionPageSchema({
+            name: "Featured Medical Procedure Costs",
+            description:
+              "Every featured procedure with its 2026 Medicare physician rate and full episode cost.",
+            url: "/procedures",
+            itemCount: popular.length,
+          }),
+          breadcrumbSchema([
+            { name: "Home", url: "/" },
+            { name: "Procedures", url: "/procedures" },
+          ]),
+        ]}
+      />
       <div className="mb-10">
         <h1 className="page-title mb-3">
           Featured procedure costs

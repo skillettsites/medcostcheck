@@ -1,4 +1,6 @@
 import { Metadata } from "next";
+import JsonLd from "@/components/JsonLd";
+import { collectionPageSchema, breadcrumbSchema } from "@/lib/schema";
 import Link from "next/link";
 import {
   getStateName,
@@ -45,6 +47,21 @@ export default function StatesPage() {
 
   return (
     <div className="max-w-6xl mx-auto px-5 py-10 sm:py-14">
+      <JsonLd
+        data={[
+          collectionPageSchema({
+            name: "Medical Costs by State",
+            description:
+              "Medicare procedure costs for all 50 US states and DC.",
+            url: "/states",
+            itemCount: states.length,
+          }),
+          breadcrumbSchema([
+            { name: "Home", url: "/" },
+            { name: "By State", url: "/states" },
+          ]),
+        ]}
+      />
       <div className="mb-10">
         <h1 className="page-title mb-3">
           Medical Costs by State

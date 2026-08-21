@@ -88,3 +88,34 @@ export function organizationSchema() {
     email: "contact@medcostcheck.com",
   };
 }
+
+/**
+ * Hub pages (/procedures, /states) list things. CollectionPage plus a
+ * breadcrumb is what lets Google understand them as an index rather than
+ * another cost page; they carried no structured data at all.
+ */
+export function collectionPageSchema({
+  name,
+  description,
+  url,
+  itemCount,
+}: {
+  name: string;
+  description: string;
+  url: string;
+  itemCount: number;
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    name,
+    description,
+    url: url.startsWith("http") ? url : `${SITE}${url}`,
+    isPartOf: { "@type": "WebSite", name: "MedCostCheck", url: SITE },
+    publisher: ORG,
+    mainEntity: {
+      "@type": "ItemList",
+      numberOfItems: itemCount,
+    },
+  };
+}
