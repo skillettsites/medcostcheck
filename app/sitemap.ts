@@ -18,7 +18,17 @@ import {
 export const revalidate = 86400;
 
 const BASE = "https://www.medcostcheck.com";
-const LAST_MOD = new Date("2026-08-01");
+
+/**
+ * Date the page content last genuinely changed. Bump this whenever pricing
+ * data is reprocessed or the page templates change what they say.
+ *
+ * Do NOT replace it with `new Date()`: that would claim every page changed on
+ * every deploy, which is a false freshness signal. Leaving it frozen is the
+ * opposite failure and is what happened here, where it sat at 2026-08-01 while
+ * the templates were rewritten, so Google had no reason to recrawl.
+ */
+const LAST_MOD = new Date("2026-08-21");
 
 interface PopularRow {
   code: string;
@@ -57,11 +67,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }));
 
+  // 0.9: these 59 are the canonical procedure pages, and they compete for
+  // crawl budget with 3,060 state x procedure pages. /procedure/27447 was still
+  // "unknown to Google" months after launch despite being linked from the
+  // homepage, /procedures and 51 state pages.
   const procedurePages: MetadataRoute.Sitemap = popular.map((proc) => ({
     url: `${BASE}/procedure/${proc.code}`,
     lastModified: LAST_MOD,
     changeFrequency: "monthly" as const,
-    priority: 0.7,
+    priority: 0.9,
   }));
 
   const stateProcedurePages: MetadataRoute.Sitemap = [];
